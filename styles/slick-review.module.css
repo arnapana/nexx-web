@@ -1,0 +1,15 @@
+.slider-review .slick-center .slider-content {
+  @apply transition-all ease-in-out duration-300 scale-125;
+}
+
+.slider-review .slider-content {
+  @apply transition-all ease-in-out duration-300 scale-75;
+}
+
+.slider-review h3 {
+  opacity: 0.8;
+}
+
+.slider-review .slick-dots {
+  bottom: -80px;
+}

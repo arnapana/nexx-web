@@ -1,0 +1,27 @@
+[
+  {
+    "order": 1,
+    "name": "Stores",
+    "url": ""
+  },
+  {
+    "order": 2,
+    "name": "Line Chat",
+    "url": ""
+  },
+  {
+    "order": 3,
+    "name": "Line Shopping",
+    "url": ""
+  },
+  {
+    "order": 4,
+    "name": "Shopee",
+    "url": ""
+  },
+  {
+    "order": 5,
+    "name": "Lazada",
+    "url": ""
+  }
+]
