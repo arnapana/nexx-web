@@ -9,7 +9,7 @@ const SocialContact: React.FC = () => {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-10 w-full h-full'>
           {/* Content */}
           <div className='flex flex-col'>
-            <h2 className='font-prompts font-medium text-[32px]'>ร้านยาของเรา</h2>
+            <h2 className='font-prompts font-medium text-3xl my-3'>ร้านยาของเรา</h2>
             <div>
               <p className='font-prompts text-xl'>
                 สั่งซื้อยาสามัญประจำบ้าน วิตามิน และ สินค้าสุขภาพได้ที่หน้าสาขาร้านยาเน็กซ์ฟาร์มา หรือสั่งซื้อได้ตลอด 24

@@ -2,6 +2,9 @@ import React from 'react'
 import type { NextPage } from 'next'
 import SocialContact from './social-contact'
 import SerivceHighlight from './service-highlight'
+import CarouselSlider from './carousel-slider'
+import Introduction from './introduction'
+import CustomerReview from './customer-review'
 
 import { Container } from '@components/common'
 
@@ -15,12 +18,15 @@ import { Container } from '@components/common'
 export const HomePage: NextPage = () => {
   return (
     <Container>
+      <CarouselSlider />
       {/* Highligt */}
       <SerivceHighlight />
 
       {/* Review */}
+      <CustomerReview />
 
       {/* Introduction */}
+      <Introduction />
 
       {/* Social Contact */}
       <SocialContact />

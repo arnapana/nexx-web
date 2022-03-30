@@ -3,40 +3,60 @@
     "order": 1,
     "name": "Telepharmacy ปรึกษาเภสัชกรและแพทย์ออนไลน์",
     "detail": "ตอบทุกคําถามเรื่องยาและสุขภาพ โดยเภสัชกรหรือบุคลากร ทางการแพทย์ในรูปแบบออนไลน์",
-    "img": "",
-    "alt": "",
-    "url": ""
+    "image": {
+      "img": "/images/icons/highlight/icon_teleparma0.png",
+      "width": "",
+      "height": "",
+      "alt": "teleparma"
+    },
+    "url": "/"
   },
   {
     "order": 2,
     "name": "เปรียบเทียบราคายาก่อนซื้อ",
     "detail": "ให้บริการยาคุณภาพในราคามาตรฐาน สำหรับลูกค้าทั่วไปและกลุ่มองค์กร เปรียบเทียบราคาก่อนซื้อ พร้อมช่วย หายาและวิตามินที่คุณต้องการ",
-    "img": "",
-    "alt": "",
-    "url": ""
+    "image": {
+      "img": "/images/icons/highlight/icon_pills.png",
+      "width": "",
+      "height": "",
+      "alt": "pills"
+    },
+    "url": "/"
   },
   {
     "order": 3,
     "name": "สมุดสุขภาพออนไลน์",
     "detail": "หายห่วงเรื่องข้อมูลขาดหายหรือ จำไม่ได้ ด้วยระบบบันทึกประวัติสุขภาพ ข้อมูลการซื้อยาในรูปแบบออนไลน์ เพื่อเป็นข้อมูลเฉพาะบุคคล ประกอบการให้บริการได้ทุกที่",
-    "img": "",
-    "alt": "",
+    "image": {
+      "img": "/images/icons/highlight/icon_book-info0.png",
+      "width": "",
+      "height": "",
+      "alt": ""
+    },
     "url": ""
   },
   {
     "order": 4,
     "name": "บริการส่งยาทั่วประเทศ",
     "detail": "รับยา วิตามิน สินค้าสุขภาพได้อย่างสะดวกรวดเร็ว โดยบริการส่งยา แบบด่วนภายในวันและส่งแบบพัสดุ",
-    "img": "",
-    "alt": "",
-    "url": ""
+    "image": {
+      "img": "/images/icons/highlight/icon_free-deliv.png",
+      "width": "",
+      "height": "",
+      "alt": "free-deliv"
+    },
+    "url": "/"
   },
   {
     "order": 5,
     "name": "สะสมแต้มกับบัตร PT Max Card",
     "detail": "เพียงแจ้งเบอร์โทรศัพท์ที่ผูกไว้กับบัตร PT Max Card ทุกการใช้จ่ายกับร้านยา NEXX Pharma ก็สามารถสะสมแต้ม เพื่อแลกรับสิทธิประโยชน์มากมาย",
-    "img": "",
-    "alt": "",
-    "url": ""
+    "image": {
+      "img": "/images/icons/highlight/icon_point02.png",
+      "width": "",
+      "height": "",
+      "alt": "point"
+    },
+    "url": "/"
   }
 ]

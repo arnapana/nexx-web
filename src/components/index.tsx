@@ -1,3 +1,5 @@
 export * from './slick-slider-review'
 export * from './card-social'
 export * from './card-shopping'
+export * from './card-highlight'
+export * from './card-review'
