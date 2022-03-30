@@ -1,12 +1,8 @@
-import type { NextPage } from 'next'
-import { Container } from '@components/common'
-import { SlickSliderReview } from '../components'
+import { NextPage } from 'next'
+import { HomePage } from '../containers/homepage'
+
 const Home: NextPage = () => {
-  return (
-    <Container>
-      <SlickSliderReview />
-    </Container>
-  )
+  return <HomePage />
 }
 
 export default Home

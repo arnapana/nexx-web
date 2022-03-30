@@ -3,6 +3,15 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    container: {
+      padding: {
+        DEFAULT: '1rem',
+        sm: '4rem',
+        lg: '8rem',
+        xl: '10rem',
+        '2xl': '12rem'
+      }
+    },
     extend: {
       fontFamily: {
         poppins: ['POPPINS', 'sans-serif'],
@@ -11,7 +20,7 @@ module.exports = {
       },
       colors: {
         primary: '#364ad9',
-        secondary: '',
+        secondary: '#78df45',
         transparent: 'transparent',
         current: 'currentColor',
         black: colors.black,

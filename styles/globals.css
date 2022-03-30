@@ -4,22 +4,8 @@
 
 @import 'slick-carousel/slick/slick.css';
 @import 'slick-carousel/slick/slick-theme.css';
-
-@layer base {
-  @font-face {
-    font-family: 'POPPINS';
-    src: font-url('../public/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'PROMPT';
-    src: font-url('../public/fonts/Prompt/Prompt-Regular.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: 'SARABUN';
-    src: font-url('../public/fonts/Sarabun/Sarabun-Regular.ttf') format('truetype');
-  }
-}
+@import './slick-review.module.css';
+@import './font.module.css';
 
 html,
 body {
@@ -37,5 +23,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-@import './slick-review.module.css';

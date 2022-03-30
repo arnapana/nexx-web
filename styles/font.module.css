@@ -1,0 +1,55 @@
+/* Poppins */
+@font-face {
+  font-family: 'POPPINS';
+  font-weight: 400;
+  src: url('../public/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'POPPINS';
+  font-weight: 500;
+  src: url('../public/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'POPPINS';
+  font-weight: 700;
+  src: url('../public/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+}
+
+/* Prompt */
+@font-face {
+  font-family: 'PROMPT';
+  font-weight: 300;
+  src: url('../public/fonts/Prompt/Prompt-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'PROMPT';
+  font-weight: 400;
+  src: url('../public/fonts/Prompt/Prompt-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'PROMPT';
+  font-weight: 500;
+  src: url('../public/fonts/Prompt/Prompt-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'PROMPT';
+  font-weight: 700;
+  src: url('../public/fonts/Prompt/Prompt-Bold.ttf') format('truetype');
+}
+
+/* Sarabun */
+@font-face {
+  font-family: 'SARABUN';
+  font-weight: 400;
+  src: url('../public/fonts/Sarabun/Sarabun-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'SARABUN';
+  font-weight: 500;
+  src: url('../public/fonts/Sarabun/Sarabun-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'SARABUN';
+  font-weight: 700;
+  src: url('../public/fonts/Sarabun/Sarabun-Bold.ttf') format('truetype');
+}
