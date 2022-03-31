@@ -38,6 +38,13 @@
 }
 
 /* Sarabun */
+
+@font-face {
+  font-family: 'SARABUN';
+  font-weight: 300;
+  src: url('../public/fonts/Sarabun/Sarabun-Light.ttf') format('truetype');
+}
+
 @font-face {
   font-family: 'SARABUN';
   font-weight: 400;

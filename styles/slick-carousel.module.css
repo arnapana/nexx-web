@@ -1,0 +1,54 @@
+#Carousel .slick-dots {
+  left: -540px;
+  bottom: 340px;
+  z-index: 100;
+}
+
+#Carousel .slick-dots li {
+  width: 33px;
+  height: 33px;
+}
+
+#Carousel .slick-dots li button {
+  width: 33px;
+  height: 33px;
+}
+
+#Carousel .slick-dots li button:hover,
+#Carousel .slick-dots li button:focus {
+  outline: none;
+}
+#Carousel .slick-dots li button:hover:before,
+#Carousel .slick-dots li button:focus:before {
+  opacity: 1;
+}
+
+#Carousel .slick-dots li button:before {
+  font-family: 'slick';
+  font-size: 21px;
+  line-height: 30px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 33px;
+  height: 33px;
+
+  content: '•';
+  text-align: center;
+  padding: 0.5px;
+
+  color: rgba(54, 74, 217, 1);
+  opacity: 0.4;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#Carousel .slick-dots li.slick-active button:before {
+  color: #364ad9;
+  border: solid 2px #364ad9;
+  border-radius: 100% 100%;
+  opacity: 1;
+}
