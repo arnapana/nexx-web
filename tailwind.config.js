@@ -23,8 +23,8 @@ module.exports = {
         prompts: ['PROMPT', 'sans-serif']
       },
       colors: {
-        primary: '#364ad9',
-        secondary: '#78df45',
+        primary: '#364AD9',
+        secondary: '#78DF45',
         transparent: 'transparent',
         current: 'currentColor',
         black: colors.black,

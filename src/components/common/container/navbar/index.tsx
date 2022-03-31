@@ -1,15 +1,18 @@
 import React from 'react'
-import Link from 'next/link'
 import { NavLink } from '@components/common'
+import { ImageLoader } from '@components/common'
 
 import menuConstant from '@constants/common/menu.json'
 
 const Navbar: React.FC = () => {
   return (
-    <nav className='flex flex-row items-center justify-center md:h-[111px] bg-white'>
-      <div className='container mx-auto'>
-        <div className='w-full flex items-center justify-center'>
-          <ul className='flex flex-row space-x-11 '>
+    <nav className='sticky top-0 z-[100] flex flex-row items-center justify-center md:h-28 bg-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.05)]'>
+      <div className='container mx-auto w-full h-full'>
+        <div className='w-full h-full flex items-center justify-center'>
+          <div className='flex justify-center items-center mr-16'>
+            <ImageLoader width={155} height={66} src='/images/logo-nav.png' />
+          </div>
+          <ul className='flex flex-row items-center space-x-11 h-full'>
             <li>
               <NavLink to='/' name={menuConstant.homepage} />
             </li>
@@ -34,6 +37,13 @@ const Navbar: React.FC = () => {
           </ul>
         </div>
       </div>
+      <style jsx>{`
+        ul li {
+          display: flex;
+          align-items: center;
+          height: 100%;
+        }
+      `}</style>
     </nav>
   )
 }

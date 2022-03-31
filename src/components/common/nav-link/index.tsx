@@ -12,15 +12,13 @@ export const NavLink: React.FC<INavLink> = ({ name, to }) => {
   const router = useRouter()
 
   return (
-    <header>
+    <header
+      className={`w-full h-full flex items-center ${
+        router.pathname === to ? 'border-b-8 border-secondary' : 'border-b-8 border-b-transparent'
+      }`}
+    >
       <Link href={to}>
-        <a
-          className={`font-prompts font-medium text-xl hover:text-primary ${
-            router.pathname === to ? 'border-b-4 border-secondary' : ''
-          }`}
-        >
-          {name}
-        </a>
+        <a className={`font-prompts font-medium text-xl hover:text-primary `}>{name}</a>
       </Link>
     </header>
   )

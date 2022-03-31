@@ -11,7 +11,7 @@ const SocialContact: React.FC = () => {
           <div className='flex flex-col'>
             <h2 className='font-prompts font-medium text-3xl my-3'>ร้านยาของเรา</h2>
             <div>
-              <p className='font-prompts text-xl'>
+              <p className='font-prompts text-xl text-[#5D5D5D]'>
                 สั่งซื้อยาสามัญประจำบ้าน วิตามิน และ สินค้าสุขภาพได้ที่หน้าสาขาร้านยาเน็กซ์ฟาร์มา หรือสั่งซื้อได้ตลอด 24
                 ชั่วโมงผ่านช่องออนไลน์ของเรา
               </p>
@@ -25,11 +25,11 @@ const SocialContact: React.FC = () => {
             <div className='grid grid-cols-2 md:grid-cols-3 gap-[65px]'>
               <CardShopping width={90} height={90} name='Stores' image='/images/icons/stores/store.png' />
               <CardShopping
-                width={45}
-                height={15}
+                width={58}
+                height={54}
                 name='Line Chat'
                 image='/images/icons/stores/line-chat.png'
-                imageClassName='bg-[#000] rounded-full'
+                imageClassName='bg-[#06C755] rounded-full'
               />
               <CardShopping
                 imageClassName='bg-[#000] rounded-full'

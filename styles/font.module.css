@@ -33,6 +33,11 @@
 }
 @font-face {
   font-family: 'PROMPT';
+  font-weight: 600;
+  src: url('../public/fonts/Prompt/Prompt-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'PROMPT';
   font-weight: 700;
   src: url('../public/fonts/Prompt/Prompt-Bold.ttf') format('truetype');
 }

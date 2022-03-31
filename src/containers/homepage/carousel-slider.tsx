@@ -1,6 +1,5 @@
 import React from 'react'
 import Slider from 'react-slick'
-import { ButtonContact } from '@components/index'
 
 import carouselConstant from '@constants/mock/carousel-home.json'
 
@@ -45,11 +44,6 @@ const CarouselSlider = () => {
             </div>
           ))}
         </Slider>
-
-        {/* Button Contact */}
-        <div className='absolute bottom-5 right-28'>
-          <ButtonContact />
-        </div>
       </div>
     </section>
   )

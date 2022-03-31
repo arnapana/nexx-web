@@ -1,12 +1,13 @@
 import React from 'react'
 import { Button } from '@components/common'
+import { ImageLoader } from '@components/common'
 
 const Introduction = () => {
   return (
     <div>
       <div className='container mx-auto'>
         {/* Header */}
-        <div>
+        <div className='mb-28'>
           <h2 className='text-center font-prompts font-medium text-black text-[2.5rem]'>
             เพราะเราเชื่อว่าคุณภาพชีวิตที่ดี เริ่มต้นที่ <span className='text-secondary'>“สุขภาพ”</span>
           </h2>
@@ -14,8 +15,24 @@ const Introduction = () => {
         {/* Intro 1 */}
         <div className='flex flex-col'>
           <div className='grid grid-cols-1 md:grid-cols-2 mb-36'>
-            <div></div>
-            <div></div>
+            <div className='m-auto'>
+              <ImageLoader src='/images/intro/intro1.png' width={555} height={320} />
+            </div>
+            <div className='px-10'>
+              <div className='mb-5'>
+                <p className='font-prompts text-2xl'>
+                  <span className='font-medium text-primary'>NEXX Pharma</span> อยากให้ทุกคนเข้าถึง สุขภาพที่ดีได้
+                  อย่างทั่วถึงไม่ว่าจะอยู่ที่ไหน ก็สามารถเข้าถึงการดูแล ที่ดีได้ผ่านช่องทางออนไลน์ของเรา อาทิ
+                </p>
+              </div>
+              <div className='intro-list'>
+                <ul className='font-prompts text-2xl'>
+                  <li>แชทปรึกษาปัญหาสุขภาพเบื้องต้นผ่านไลน์</li>
+                  <li>ซื้อยา สินค้าสุขภาพ ราคาดี พร้อมส่งตรงถึงบ้าน</li>
+                  <li>วิดีโอคอลกับเภสัชกรหรือบุคลากรทางการแพทย์ ตลอดจนได้รับยาที่ตอบโจทย์ตรงจุด</li>
+                </ul>
+              </div>
+            </div>
           </div>
           {/* Intro 2 */}
           <div className='grid grid-cols-1 md:grid-cols-2'>
@@ -44,10 +61,29 @@ const Introduction = () => {
                 <Button name='เกี่ยวกับเรา' />
               </div>
             </div>
-            <div></div>
+            <div className='m-auto'>
+              <ImageLoader src='/images/intro/intro2.png' width={254} height={533} />
+            </div>
           </div>
         </div>
       </div>
+      <style jsx>{`
+        ul {
+          position: relative;
+          padding-left: 20px;
+          list-style: none;
+        }
+        li {
+          padding-left: 20px;
+          margin-bottom: 5px;
+        }
+        .intro-list ul li:before {
+          // list-style-image: url('images/icons/enter-green-button.png');
+          position: absolute;
+          left: 0px;
+          content: url('images/icons/enter-green-button.png');
+        }
+      `}</style>
     </div>
   )
 }

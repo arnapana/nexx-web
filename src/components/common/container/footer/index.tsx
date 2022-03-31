@@ -11,74 +11,76 @@ const Footer: React.FC = () => {
         <div className='container mx-auto py-14 w-full h-full'>
           <div className='grid grid-cols-4 gap-5 w-full h-full'>
             <div className='col-span-ๅ'>
-              <div className='w-full h-full flex flex-col justify-center'>
-                <div></div>
+              <div className='w-full h-full flex flex-col justify-start'>
+                <div className='mb-8'>
+                  <ImageLoader src='/images/logo-footer.png' width={223} height={94} />
+                </div>
                 <div className='font-prompts text-base text-white'>
-                  ร้านยาเน็กซ์ฟาร์มา
-                  <p>
+                  <p className=''>ร้านยาเน็กซ์ฟาร์มา</p>
+                  <p className='font-light'>
                     บริษัท แมกซ์ เวนเจอร์ส จำกัด สำนักงานใหญ่ เลขที่ 90 อาคารซีดับเบิ้ลยู ทาวเวอร์ เอ ชั้นที่ 33
                     ถนนรัชดาภิเษก แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพฯ 10310
                   </p>
-                  <p>โทร. 065-523-5074</p>
+                  <p className='font-light'>โทร. 065-523-5074</p>
                 </div>
               </div>
             </div>
             <div>
               <ul className='font-prompts text-white space-y-3'>
-                <li className='font-bold text-xl '>หน้าทางลัด</li>
+                <li className='font-semibold text-xl '>หน้าทางลัด</li>
                 <li>
-                  <a>หน้าแรก</a>
+                  <a className='font-prompts'>หน้าแรก</a>
                 </li>
                 <li>
-                  <a>Telepharmacy</a>
+                  <a className='font-prompts'>Telepharmacy</a>
                 </li>
                 <li>
-                  <a>ร้านค้าของเรา</a>
+                  <a className='font-prompts'>ร้านค้าของเรา</a>
                 </li>
                 <li>
-                  <a>รีวิวลูกค้า</a>
+                  <a className='font-prompts'>รีวิวลูกค้า</a>
                 </li>
                 <li>
-                  <a>บทความ</a>
+                  <a className='font-prompts'>บทความ</a>
                 </li>
                 <li>
-                  <a>ติดต่อเรา</a>
+                  <a className='font-prompts'>ติดต่อเรา</a>
                 </li>
               </ul>
 
               <ul className='font-prompts text-white space-y-3'>
-                <li className='font-prompts font-bold text-xl text-white mt-10'>เกี่ยวกับเรา</li>
+                <li className='font-prompts font-semibold text-xl text-white mt-10'>เกี่ยวกับเรา</li>
                 <li>
-                  <a>เกี่ยวกับเรา</a>
+                  <a className='font-prompts'>เกี่ยวกับเรา</a>
                 </li>
                 <li>
-                  <a>บรืการของเรา</a>
+                  <a className='font-prompts'>บรืการของเรา</a>
                 </li>
               </ul>
             </div>
             <div>
               {/* Policy */}
               <ul className='font-prompts text-white space-y-3'>
-                <li className='font-prompts font-bold text-xl text-white'>ข้อมูลทางกฏหมาย</li>
+                <li className='font-prompts font-semibold text-xl text-white'>ข้อมูลทางกฏหมาย</li>
                 <li>
-                  <a>เงื่อนไขและข้อกำหนด</a>
+                  <a className='font-prompts'>เงื่อนไขและข้อกำหนด</a>
                 </li>
                 <li>
-                  <a>นโยบายความเป็นส่วนตัว</a>
+                  <a className='font-prompts'>นโยบายความเป็นส่วนตัว</a>
                 </li>
                 <li>
-                  <a>กฏหมายที่เกี่ยวข้อง</a>
+                  <a className='font-prompts'>กฏหมายที่เกี่ยวข้อง</a>
                 </li>
               </ul>
 
               {/* Aboutus */}
               <ul className='font-prompts text-white space-y-3 mt-9'>
-                <li className='font-prompts font-bold text-xl text-white'>เกี่ยวกับพีทีแมกซ์การ์ด</li>
+                <li className='font-prompts font-semibold text-xl text-white'>เกี่ยวกับพีทีแมกซ์การ์ด</li>
                 <li>
-                  <a>รายละเอียด</a>
+                  <a className='font-prompts'>รายละเอียด</a>
                 </li>
                 <li>
-                  <a>สมัครสมาชิก</a>
+                  <a className='font-prompts'>สมัครสมาชิก</a>
                 </li>
               </ul>
             </div>
@@ -87,15 +89,16 @@ const Footer: React.FC = () => {
                 <div className='relative bg-white rounded-3xl w-[363px] h-[218px] mb-5'>
                   <button className='absolute left-6 top-5 bg-secondary flex flex-row justify-center items-center p-2 rounded-lg'>
                     <ImageLoader width={18} height={18} src='/images/icons/right-arrow.png' />
-                    <span className='font-poppins font-bold text-sm text-white ml-2'>Get Direction</span>
+                    <span className='font-poppins font-semibold text-sm text-white ml-2'>Get Direction</span>
                   </button>
                 </div>
                 <div>
                   <p className='font-prompts font-medium text-xl text-white my-3'>ช่องทางติดต่อ</p>
                   <div className='flex flex-row items-center space-x-5'>
-                    <CardSocial width={14} height={26} img='/images/icons/fb.png' alt='facebook' link='' />
-                    <CardSocial width={22} height={25} img='/images/icons/shoppee.png' alt='shoppee' link='' />
+                    <CardSocial width={14} height={26} img='/images/icons/facebook.png' alt='facebook' link='' />
                     <CardSocial width={25} height={27} img='/images/icons/line.png' alt='line' link='' />
+                    <CardSocial width={22} height={25} img='/images/icons/shoppee.png' alt='shoppee' link='' />
+                    <CardSocial width={25} height={27} img='/images/icons/call.png' alt='line' link='' />
                   </div>
                 </div>
               </div>
