@@ -26,7 +26,15 @@ const SerivceHighlight = () => {
         {/* Card Highlight */}
         <div className='flex flex-wrap justify-center'>
           {serviceHightlight.map((val, idx) => (
-            <CardHighLight key={idx} src={val.image.img} alt={val.image.alt} title={val.name} content={val.detail} />
+            <CardHighLight
+              key={idx}
+              src={val.image.img}
+              alt={val.image.alt}
+              title={val.name}
+              content={val.detail}
+              width={val.image.width}
+              height={val.image.height}
+            />
           ))}
         </div>
       </div>

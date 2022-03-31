@@ -86,11 +86,20 @@ const Footer: React.FC = () => {
             </div>
             <div className='col-span-1'>
               <div className='w-full h-full flex flex-col justify-start p-2'>
-                <div className='relative bg-white rounded-3xl w-[363px] h-[218px] mb-5'>
+                <div className='relative bg-white rounded-3xl w-[363px] h-[218px] mb-5 overflow-hidden'>
                   <button className='absolute left-6 top-5 bg-secondary flex flex-row justify-center items-center p-2 rounded-lg'>
                     <ImageLoader width={18} height={18} src='/images/icons/right-arrow.png' />
                     <span className='font-poppins font-semibold text-sm text-white ml-2'>Get Direction</span>
                   </button>
+                  <iframe
+                    className='border-0 -mt-40'
+                    src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.413107201355!2d100.90005111528926!3d12.945396690873062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe3446075ca93b38f!2zMTLCsDU2JzQzLjQiTiAxMDDCsDU0JzA4LjEiRQ!5e0!3m2!1sth!2sth!4v1648752408749!5m2!1sth!2sth'
+                    width='600'
+                    height='450'
+                    allowFullScreen={true}
+                    loading='lazy'
+                    referrerPolicy='no-referrer-when-downgrade'
+                  ></iframe>
                 </div>
                 <div>
                   <p className='font-prompts font-medium text-xl text-white my-3'>ช่องทางติดต่อ</p>

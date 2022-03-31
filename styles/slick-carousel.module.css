@@ -1,12 +1,13 @@
 #Carousel .slick-dots {
   left: -540px;
   bottom: 300px;
-  z-index: 100;
+  z-index: 50;
 }
 
 #Carousel .slick-dots li {
   width: 33px;
   height: 33px;
+  margin: 0 3px;
 }
 
 #Carousel .slick-dots li button {
@@ -25,7 +26,7 @@
 
 #Carousel .slick-dots li button:before {
   font-family: 'slick';
-  font-size: 22px;
+  font-size: 24px;
   line-height: 30px;
 
   position: absolute;

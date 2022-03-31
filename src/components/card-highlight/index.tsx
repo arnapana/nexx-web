@@ -6,15 +6,17 @@ interface ICardHighLight {
   alt: string
   title: string
   content: string
+  width: string
+  height: string
 }
 
-export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, content }) => {
+export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, content, width, height }) => {
   return (
     <div className='mx-6 my-20'>
       <div className='relative flex flex-col items-center w-[25rem] h-[27.5rem] drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)] bg-white rounded-3xl px-9 py-10'>
         {/* Icon */}
         <div>
-          <ImageLoader width={82} height={86} src={src} alt={alt} />
+          <ImageLoader width={width} height={height} src={src} alt={alt} />
         </div>
         {/* Header */}
         <div className='my-5'>
