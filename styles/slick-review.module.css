@@ -1,17 +1,28 @@
-.slider-review .slick-center .slider-content {
-  @apply transition-all ease-in-out duration-300 scale-125;
+#App .card-review {
+  width: 42rem;
+  height: 28rem;
+  margin: 0 auto;
 }
 
-.slider-review .slider-content {
-  @apply transition-all ease-in-out duration-300 scale-75;
+#App .slick-slide {
+  padding: 0 50px;
 }
 
-.slider-review h3 {
-  opacity: 0.8;
+/* the parent */
+#App .slick-list {
+  padding: 0 -50px;
 }
 
-.slider-review .slick-dots {
-  bottom: -80px;
+#App .slick-center .slider-review .card-review {
+  @apply opacity-100 transition-all ease-in-out duration-300 scale-105;
+}
+
+#App .slider-review .card-review {
+  @apply opacity-20 transition-all ease-in-out duration-300 scale-90;
+}
+
+.slick-dots {
+  bottom: -100px;
 }
 
 .slick-dots li {
