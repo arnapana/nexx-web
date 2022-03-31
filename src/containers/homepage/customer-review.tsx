@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from 'react-slick'
-import { ImageLoader } from '@components/common'
+import { ColorLine, ImageLoader } from '@components/common'
 
 const datas = [1, 2, 3, 4, 5]
 
@@ -28,7 +28,9 @@ const CustomerReview = () => {
         <div className='my-5'>
           <h2 className='text-center font-prompts font-medium text-3xl'>รีวิวจากลูกค้าของเรา</h2>
         </div>
-        <div className='px-40 my-10'>
+        <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
+
+        <div className='px-40 mb-10'>
           <p className='text-center font-prompts text-xl'>
             ขอขอบคุณที่ไว้วางใจใช้บริการ NEXX Pharma เพราะข้อเสนอแนะของคุณมีค่า
             เราจะนำไปพัฒนาและให้บริการคุณอย่างดีที่สุด

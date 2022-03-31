@@ -3,6 +3,7 @@ import { CardHighLight } from '@components/index'
 
 // Mock
 import serviceHightlight from '@constants/mock/service-hightlight.json'
+import { ColorLine } from '@components/common'
 
 const SerivceHighlight = () => {
   return (
@@ -13,7 +14,9 @@ const SerivceHighlight = () => {
           <div className='my-5'>
             <h2 className='text-center font-poppins font-medium text-3xl'>Service Highlight</h2>
           </div>
-          <div className='px-48'>
+          <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
+
+          <div className='px-[25%]'>
             <p className='font-prompts text-xl text-center'>
               สุขภาพดีที่ทุกคนเข้าถึงได้ ด้วยบริการจาก NEXX Pharma ครอบคลุมทุกเรื่องยา
               และสุขภาพแบบครบวงจรจากเภสัชกรและแพทย์ผู้เชี่ยวชาญในสาขาต่างๆ

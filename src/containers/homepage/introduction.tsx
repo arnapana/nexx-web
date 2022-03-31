@@ -15,10 +15,23 @@ const Introduction = () => {
         {/* Intro 1 */}
         <div className='flex flex-col'>
           <div className='grid grid-cols-1 md:grid-cols-2 mb-36'>
+            {/* Image */}
             <div className='m-auto'>
               <ImageLoader src='/images/intro/intro1.png' width={555} height={320} />
             </div>
+            {/* Content */}
             <div className='px-10'>
+              {/* QuoteMessage */}
+              <div className='mb-7'>
+                <div className='relative'>
+                  <ImageLoader src='/images/intro/quote.png' width={544} height={71} />
+                  <div className='absolute left-6 top-3'>
+                    <p className='font-prompts font-medium text-2xl text-white'>
+                      “มีคุณภาพชีวิตที่ดีได้ โดยไม่จำเป็นต้องจ่ายแพง”{' '}
+                    </p>
+                  </div>
+                </div>
+              </div>
               <div className='mb-5'>
                 <p className='font-prompts text-2xl'>
                   <span className='font-medium text-primary'>NEXX Pharma</span> อยากให้ทุกคนเข้าถึง สุขภาพที่ดีได้
@@ -36,6 +49,7 @@ const Introduction = () => {
           </div>
           {/* Intro 2 */}
           <div className='grid grid-cols-1 md:grid-cols-2'>
+            {/* Contents */}
             <div className='px-16'>
               <div className='mb-10'>
                 <h2 className='font-prompts font-medium text-3xl'>
@@ -61,6 +75,7 @@ const Introduction = () => {
                 <Button name='เกี่ยวกับเรา' />
               </div>
             </div>
+            {/* Images */}
             <div className='m-auto'>
               <ImageLoader src='/images/intro/intro2.png' width={254} height={533} />
             </div>

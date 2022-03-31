@@ -1,5 +1,6 @@
 import React from 'react'
 import Slider from 'react-slick'
+import { ImageLoader } from '@components/common'
 
 import carouselConstant from '@constants/mock/carousel-home.json'
 
@@ -27,11 +28,11 @@ const CarouselSlider = () => {
 
               {/* Content */}
               <div className='absolute text-white left-[300px] top-28'>
-                <div className='mb-12'>
-                  <h1 className='font-poppins drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] font-bold text-[4rem]'>
+                <div className='mb-4'>
+                  <h1 className='font-poppins font-semibold drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] text-[5.8rem]'>
                     NEXX Pharma
                   </h1>
-                  <span className='font-poppins drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] font-bold text-5xl'>
+                  <span className='font-poppins drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] font-semibold text-6xl'>
                     Connecting Healthy
                   </span>
                 </div>
@@ -39,6 +40,9 @@ const CarouselSlider = () => {
                   <p className='font-prompts drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] font-medium text-5xl'>
                     เชื่อมสุขภาพดีให้ถึงกัน
                   </p>
+                </div>
+                <div className='absolute top-10 -right-36'>
+                  <ImageLoader src='/images/carousel/left-arrow-green.png' width={137} height={85} />
                 </div>
               </div>
             </div>

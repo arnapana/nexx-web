@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '@components/common'
+import { Button, ColorLine } from '@components/common'
 import { CardShopping } from '@components/index'
 
 const SocialContact: React.FC = () => {
@@ -10,7 +10,8 @@ const SocialContact: React.FC = () => {
           {/* Content */}
           <div className='flex flex-col'>
             <h2 className='font-prompts font-medium text-3xl my-3'>ร้านยาของเรา</h2>
-            <div>
+            <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='w-28 mb-7 mt-4' />
+            <div className='mt'>
               <p className='font-prompts text-xl text-[#5D5D5D]'>
                 สั่งซื้อยาสามัญประจำบ้าน วิตามิน และ สินค้าสุขภาพได้ที่หน้าสาขาร้านยาเน็กซ์ฟาร์มา หรือสั่งซื้อได้ตลอด 24
                 ชั่วโมงผ่านช่องออนไลน์ของเรา
@@ -32,23 +33,23 @@ const SocialContact: React.FC = () => {
                 imageClassName='bg-[#06C755] rounded-full'
               />
               <CardShopping
-                imageClassName='bg-[#000] rounded-full'
-                height={45}
-                width={50}
+                imageClassName='rounded-full'
+                height={88}
+                width={88}
                 name='Line Shopping'
                 image='/images/icons/stores/line-shopping.png'
               />
               <CardShopping
                 imageClassName='bg-gradient-to-r from-[#ff6633] to-[#f53d2d] rounded-full'
-                height={50}
-                width={55}
+                height={55}
+                width={49}
                 name='Shoppee'
                 image='/images/icons/stores/shoppee.png'
               />
               <CardShopping
                 imageClassName='bg-gradient-to-r from-[#5b8beb] to-[#112283] rounded-full'
-                height={65}
-                width={60}
+                height={60}
+                width={67}
                 name='Lazada'
                 image='/images/icons/stores/lazada.png'
               />
