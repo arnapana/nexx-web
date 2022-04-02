@@ -25,7 +25,8 @@ const CarouselSlider = () => {
             <div key={idx} className='relative h-[48rem]'>
               <div className='relative w-full h-full'>
                 {/* Image Carousel */}
-                <ImageLoader src={val.src} alt={val.alt} layout='fill' />
+                <div className='w-full h-full bg-[url("/images/carousel/asian-young-fem.png")] bg-no-repeat bg-cover bg-center' />
+                {/* <ImageLoader src={val.src} alt={val.alt} layout='fill' /> */}
               </div>
               {/* Content */}
               <div className='absolute text-white left-[300px] top-28'>

@@ -1,6 +1,6 @@
 #App .card-review {
-  width: calc(25vw + 20rem);
-  height: calc(20vw + 12rem);
+  width: calc(25vw + 18rem);
+  height: calc(20vw + 11rem);
   min-height: 25rem;
   margin: 0 auto;
 }
