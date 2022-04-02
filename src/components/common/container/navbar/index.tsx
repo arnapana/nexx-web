@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
 
           {/* Slider Menu for Mobile */}
           <div
-            className={`z-[50] fixed top-0 right-0 xl:hidden bg-white w-1/2 min-h-screen shadow-lg ${
+            className={`z-50 fixed top-0 right-0 xl:hidden bg-white w-1/2 min-h-screen shadow-lg ${
               isSidebar ? 'w-[310px]' : 'w-0'
             } transition-all duration-300 overflow-x-hidden overflow-y-auto`}
           >

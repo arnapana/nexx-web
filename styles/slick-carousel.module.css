@@ -1,40 +1,31 @@
 #Carousel .slick-dots {
-  left: -540px;
-  bottom: 300px;
+  left: 5%;
+  bottom: 35%;
   z-index: 10;
 }
 
 #Carousel .slick-dots li {
-  width: 33px;
-  height: 33px;
+  width: 25px;
+  height: 25px;
   margin: 0 3px;
 }
 
 #Carousel .slick-dots li button {
-  width: 33px;
-  height: 33px;
-}
-
-#Carousel .slick-dots li button:hover,
-#Carousel .slick-dots li button:focus {
-  outline: none;
-}
-#Carousel .slick-dots li button:hover:before,
-#Carousel .slick-dots li button:focus:before {
-  opacity: 1;
+  width: 25px;
+  height: 25px;
 }
 
 #Carousel .slick-dots li button:before {
   font-family: 'slick';
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 18px;
+  line-height: 22px;
 
   position: absolute;
   top: 0;
   left: 0;
 
-  width: 33px;
-  height: 33px;
+  width: 25px;
+  height: 25px;
 
   content: '•';
   text-align: center;
@@ -47,9 +38,72 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.slick-dots {
+  text-align: left;
+}
+
 #Carousel .slick-dots li.slick-active button:before {
   color: #364ad9;
   border: solid 2px #364ad9;
   border-radius: 100% 100%;
   opacity: 1;
+}
+
+@media (min-width: 768px) {
+  #Carousel .slick-dots {
+    left: 5%;
+    bottom: 50%;
+    z-index: 10;
+  }
+}
+
+@media (min-width: 1024px) {
+  #Carousel .slick-dots {
+    left: 15%;
+    bottom: 40%;
+    z-index: 10;
+  }
+
+  #Carousel .slick-dots li {
+    width: 33px;
+    height: 33px;
+    margin: 0 3px;
+  }
+
+  #Carousel .slick-dots li button {
+    width: 33px;
+    height: 33px;
+  }
+
+  #Carousel .slick-dots li button:hover,
+  #Carousel .slick-dots li button:focus {
+    outline: none;
+  }
+  #Carousel .slick-dots li button:hover:before,
+  #Carousel .slick-dots li button:focus:before {
+    opacity: 1;
+  }
+
+  #Carousel .slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 24px;
+    line-height: 30px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 33px;
+    height: 33px;
+
+    content: '•';
+    text-align: center;
+    padding: 0.5px;
+
+    color: rgba(54, 74, 217, 1);
+    opacity: 0.4;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }

@@ -4,7 +4,7 @@ import { ImageLoader } from '@components/common'
 
 const Introduction = () => {
   return (
-    <div>
+    <section>
       <div className='container mx-auto'>
         {/* Header */}
         <div className='mb-10 lg:mb-28'>
@@ -99,7 +99,7 @@ const Introduction = () => {
           content: url('images/icons/enter-green-button.png');
         }
       `}</style>
-    </div>
+    </section>
   )
 }
 

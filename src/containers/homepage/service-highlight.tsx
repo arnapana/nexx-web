@@ -7,7 +7,7 @@ import { ColorLine } from '@components/common'
 
 const SerivceHighlight = () => {
   return (
-    <div className='py-14 lg:py-28'>
+    <section className='py-14 lg:py-28'>
       <div className='container mx-auto'>
         {/* Content */}
         <div>
@@ -38,7 +38,7 @@ const SerivceHighlight = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
