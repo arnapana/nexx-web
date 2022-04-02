@@ -7,10 +7,10 @@ const Footer: React.FC = () => {
   return (
     <nav className='flex flex-col'>
       {/* Footer Navgiation */}
-      <div className='bg-primary h-[510px]'>
+      <div className='bg-primary min-h-[510px]'>
         <div className='container mx-auto py-14 w-full h-full'>
-          <div className='grid grid-cols-4 gap-5 w-full h-full'>
-            <div className='col-span-ๅ'>
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-5 w-full h-full'>
+            <div className='col-span-2 md:col-span-1'>
               <div className='w-full h-full flex flex-col justify-start'>
                 <div className='mb-8'>
                   <ImageLoader src='/images/logo-footer.png' width={223} height={94} />
@@ -116,10 +116,10 @@ const Footer: React.FC = () => {
         </div>
       </div>
       {/* Footer RIGHT */}
-      <div className='bg-[#1f1f1f] text-white h-[68px]'>
+      <div className='bg-[#1f1f1f] text-white h-9 md:h-[68px]'>
         <div className='container mx-auto w-full h-full'>
           <div className='w-full h-full flex items-center justify-center'>
-            <p className='font-prompts font-light text-lg'>NEXX PHARMA © 2021 ALL RIGHTS RESERVED</p>
+            <p className='font-prompts font-light text-sm md:text-lg'>NEXX PHARMA © 2021 ALL RIGHTS RESERVED</p>
           </div>
         </div>
       </div>

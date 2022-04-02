@@ -4,7 +4,7 @@ import { CardShopping } from '@components/index'
 
 const SocialContact: React.FC = () => {
   return (
-    <div className='h-[900px]'>
+    <div className='min-h-[900px]'>
       <div className='container mx-auto w-full h-full py-[180px]'>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-10 w-full h-full'>
           {/* Content */}

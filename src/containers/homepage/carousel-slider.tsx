@@ -23,9 +23,10 @@ const CarouselSlider = () => {
         <Slider {...settings}>
           {carouselConstant.map((val, idx) => (
             <div key={idx} className='relative h-[48rem]'>
-              {/* Image Carousel */}
-              <img src={val.src} alt={val.alt} />
-
+              <div className='relative w-full h-full'>
+                {/* Image Carousel */}
+                <ImageLoader src={val.src} alt={val.alt} layout='fill' />
+              </div>
               {/* Content */}
               <div className='absolute text-white left-[300px] top-28'>
                 <div className='mb-4'>

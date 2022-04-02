@@ -3,7 +3,7 @@ import { ImageLoader } from '@components/common'
 
 export const ButtonContact = () => {
   return (
-    <div className='fixed top-[49rem] right-28 z-[100]'>
+    <div className='fixed top-[85%] right-28 z-[10]'>
       <button className='relative w-[17.5rem] h-24 px-10 rounded-full bg-secondary flex items-center justify-center'>
         <div className='absolute left-2 -bottom-1.5'>
           <ImageLoader width={118} height={113} src='/images/icons/button-contact.png' />

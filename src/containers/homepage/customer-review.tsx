@@ -30,7 +30,7 @@ const CustomerReview = () => {
         </div>
         <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
 
-        <div className='px-40 mb-10'>
+        <div className='md:px-40 mb-10'>
           <p className='text-center font-prompts text-xl'>
             ขอขอบคุณที่ไว้วางใจใช้บริการ NEXX Pharma เพราะข้อเสนอแนะของคุณมีค่า
             เราจะนำไปพัฒนาและให้บริการคุณอย่างดีที่สุด
