@@ -6,8 +6,8 @@ interface ICardHighLight {
   alt: string
   title: string
   content: string
-  width: string
-  height: string
+  width: number
+  height: number
 }
 
 export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, content, width, height }) => {

@@ -1,7 +1,7 @@
 #Carousel .slick-dots {
   left: -540px;
   bottom: 300px;
-  z-index: 50;
+  z-index: 10;
 }
 
 #Carousel .slick-dots li {

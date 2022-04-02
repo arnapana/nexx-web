@@ -5,14 +5,14 @@ import { CardShopping } from '@components/index'
 const SocialContact: React.FC = () => {
   return (
     <div className='min-h-[900px]'>
-      <div className='container mx-auto w-full h-full py-[180px]'>
+      <div className='container mx-auto w-full h-full py-20 md:py-[180px]'>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-10 w-full h-full'>
           {/* Content */}
-          <div className='flex flex-col'>
-            <h2 className='font-prompts font-medium text-3xl my-3'>ร้านยาของเรา</h2>
+          <div className='flex flex-col px-5'>
+            <h2 className='header-font font-prompts my-3'>ร้านยาของเรา</h2>
             <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='w-28 mb-7 mt-4' />
-            <div className='mt'>
-              <p className='font-prompts text-xl text-[#5D5D5D]'>
+            <div className=''>
+              <p className='sub-content font-prompts text-[#5D5D5D]'>
                 สั่งซื้อยาสามัญประจำบ้าน วิตามิน และ สินค้าสุขภาพได้ที่หน้าสาขาร้านยาเน็กซ์ฟาร์มา หรือสั่งซื้อได้ตลอด 24
                 ชั่วโมงผ่านช่องออนไลน์ของเรา
               </p>
@@ -23,7 +23,7 @@ const SocialContact: React.FC = () => {
           </div>
           {/* Card Icons */}
           <div className='col-span-2'>
-            <div className='grid grid-cols-2 md:grid-cols-3 gap-[65px]'>
+            <div className='grid grid-cols-2 xl:grid-cols-3 gap-[calc(1vw_+_20px)]'>
               <CardShopping width={90} height={90} name='Stores' image='/images/icons/stores/store.png' />
               <CardShopping
                 width={58}

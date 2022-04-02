@@ -12,12 +12,12 @@ const SerivceHighlight = () => {
         {/* Content */}
         <div>
           <div className='my-5'>
-            <h2 className='text-center font-poppins font-medium text-3xl'>Service Highlight</h2>
+            <h2 className='header-font font-poppins text-center'>Service Highlight</h2>
           </div>
           <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
 
           <div className='md:px-[25%]'>
-            <p className='font-prompts text-xl text-center'>
+            <p className='sub-content font-prompts text-center'>
               สุขภาพดีที่ทุกคนเข้าถึงได้ ด้วยบริการจาก NEXX Pharma ครอบคลุมทุกเรื่องยา
               และสุขภาพแบบครบวงจรจากเภสัชกรและแพทย์ผู้เชี่ยวชาญในสาขาต่างๆ
             </p>

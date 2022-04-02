@@ -23,7 +23,7 @@
 
 #App .slick-dots {
   bottom: -100px;
-  z-index: 50;
+  z-index: 10;
 }
 
 #App .slick-dots li {

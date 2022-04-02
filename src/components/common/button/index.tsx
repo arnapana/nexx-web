@@ -12,10 +12,13 @@ export const Button: React.FC<IButton> = ({ name, outerClassName, innerClassName
   return (
     <div className={classNames(outerClassName)}>
       <button
-        className={classNames('bg-primary flex items-center justify-center p-2 rounded-full h-[60px]', innerClassName)}
+        className={classNames(
+          'bg-primary flex items-center justify-center p-2 rounded-full h-[40px] md:h-[60px] space-x-3 px-5 md:px-8',
+          innerClassName
+        )}
       >
-        <p className='font-prompts text-xl text-white mx-6 whitespace-nowrap'>{name}</p>
-        <div className={'flex items-center justify-center mr-6'}>
+        <p className='font-prompts  md:text-xl text-white whitespace-nowrap'>{name}</p>
+        <div className={'flex items-center justify-center'}>
           <ImageLoader width={28} height={18} src='/images/icons/enter-button.png' />
         </div>
       </button>

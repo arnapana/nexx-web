@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
   }, [isSidebar])
 
   return (
-    <nav className='sticky top-0 z-[100] flex flex-col items-center justify-center bg-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.05)]'>
+    <nav className='sticky top-0 z-[20] flex flex-col items-center justify-center bg-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.05)]'>
       {/* Notify */}
       {isOpen ? (
         <div className='hidden w-full xl:flex items-center justify-center bg-primary text-white h-[3.38rem] space-x-5'>
@@ -46,9 +46,9 @@ const Navbar: React.FC = () => {
       ) : null}
       <div className='container mx-auto w-full h-full'>
         {/* NavbarList */}
-        <div className='w-full h-28 flex items-center justify-between xl:justify-center'>
-          <div className='flex justify-center items-center mr-16'>
-            <ImageLoader width={155} height={66} src='/images/logo-nav.png' />
+        <div className='w-full h-[74px] xl:h-28 flex items-center justify-between xl:justify-center'>
+          <div className='relative flex w-[calc(3.5vw+100px)] h-[calc(1.5vw+45px)] justify-center items-center xl:mr-16'>
+            <ImageLoader layout='fill' src='/images/logo-nav.png' />
           </div>
           <ul className='hidden xl:flex flex-row items-center space-x-11 h-full'>
             <li>
@@ -76,12 +76,12 @@ const Navbar: React.FC = () => {
 
           {/* Mobile */}
           <div className='flex xl:hidden cursor-pointer' onClick={handleSidebar}>
-            <ListIcon className='w-12 h-12 text-primary' />
+            <ListIcon className='w-10 h-10 text-primary' />
           </div>
 
           {/* Slider Menu for Mobile */}
           <div
-            className={`z-[520] fixed top-0 right-0 xl:hidden bg-white w-1/2 min-h-screen shadow-lg ${
+            className={`z-[50] fixed top-0 right-0 xl:hidden bg-white w-1/2 min-h-screen shadow-lg ${
               isSidebar ? 'w-[310px]' : 'w-0'
             } transition-all duration-300 overflow-x-hidden overflow-y-auto`}
           >

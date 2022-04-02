@@ -26,12 +26,12 @@ const CustomerReview = () => {
       {/* Header */}
       <div className='container mx-auto'>
         <div className='my-5'>
-          <h2 className='text-center font-prompts font-medium text-3xl'>รีวิวจากลูกค้าของเรา</h2>
+          <h2 className='header-font font-prompts text-center'>รีวิวจากลูกค้าของเรา</h2>
         </div>
         <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
 
         <div className='md:px-40 mb-10'>
-          <p className='text-center font-prompts text-xl'>
+          <p className='sub-content text-center font-prompts'>
             ขอขอบคุณที่ไว้วางใจใช้บริการ NEXX Pharma เพราะข้อเสนอแนะของคุณมีค่า
             เราจะนำไปพัฒนาและให้บริการคุณอย่างดีที่สุด
           </p>

@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { ImageLoader } from '@components/common'
 import { CardSocial } from '@components/index'
 
+import styles from './footer.module.css'
+
 const Footer: React.FC = () => {
   return (
     <nav className='flex flex-col'>
@@ -12,12 +14,12 @@ const Footer: React.FC = () => {
           <div className='grid grid-cols-2 md:grid-cols-4 gap-5 w-full h-full'>
             <div className='col-span-2 md:col-span-1'>
               <div className='w-full h-full flex flex-col justify-start'>
-                <div className='mb-8'>
-                  <ImageLoader src='/images/logo-footer.png' width={223} height={94} />
+                <div className='mb-8 relative w-[calc(4vw_+_160px)] h-[calc(1vw_+_80px)] '>
+                  <ImageLoader src='/images/logo-footer.png' layout='fill' />
                 </div>
                 <div className='font-prompts text-base text-white'>
-                  <p className=''>ร้านยาเน็กซ์ฟาร์มา</p>
-                  <p className='font-light'>
+                  <p className='text-base'>ร้านยาเน็กซ์ฟาร์มา</p>
+                  <p className='font-light text-sm md:text-base'>
                     บริษัท แมกซ์ เวนเจอร์ส จำกัด สำนักงานใหญ่ เลขที่ 90 อาคารซีดับเบิ้ลยู ทาวเวอร์ เอ ชั้นที่ 33
                     ถนนรัชดาภิเษก แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพฯ 10310
                   </p>
@@ -26,84 +28,82 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <div>
-              <ul className='font-prompts text-white space-y-3'>
-                <li className='font-semibold text-xl '>หน้าทางลัด</li>
+              <ul className='footer-list font-prompts text-white space-y-1 md:space-y-3'>
+                <li className={styles.footerHeaderList}>หน้าทางลัด</li>
                 <li>
-                  <a className='font-prompts'>หน้าแรก</a>
+                  <a className={styles.footerList}>หน้าแรก</a>
                 </li>
                 <li>
-                  <a className='font-prompts'>Telepharmacy</a>
+                  <a className={styles.footerList}>Telepharmacy</a>
                 </li>
                 <li>
-                  <a className='font-prompts'>ร้านค้าของเรา</a>
+                  <a className={styles.footerList}>ร้านค้าของเรา</a>
                 </li>
                 <li>
-                  <a className='font-prompts'>รีวิวลูกค้า</a>
+                  <a className={styles.footerList}>รีวิวลูกค้า</a>
                 </li>
                 <li>
-                  <a className='font-prompts'>บทความ</a>
+                  <a className={styles.footerList}>บทความ</a>
                 </li>
                 <li>
-                  <a className='font-prompts'>ติดต่อเรา</a>
+                  <a className={styles.footerList}>ติดต่อเรา</a>
                 </li>
               </ul>
 
-              <ul className='font-prompts text-white space-y-3'>
-                <li className='font-prompts font-semibold text-xl text-white mt-10'>เกี่ยวกับเรา</li>
+              <ul className='font-prompts text-white space-y-1 md:space-y-3 mt-9'>
+                <li className={styles.footerHeaderList}>เกี่ยวกับเรา</li>
                 <li>
-                  <a className='font-prompts'>เกี่ยวกับเรา</a>
+                  <a className={styles.footerList}>เกี่ยวกับเรา</a>
                 </li>
                 <li>
-                  <a className='font-prompts'>บรืการของเรา</a>
+                  <a className={styles.footerList}>บรืการของเรา</a>
                 </li>
               </ul>
             </div>
             <div>
               {/* Policy */}
-              <ul className='font-prompts text-white space-y-3'>
-                <li className='font-prompts font-semibold text-xl text-white'>ข้อมูลทางกฏหมาย</li>
+              <ul className='font-prompts text-white space-y-1 md:space-y-3'>
+                <li className={styles.footerHeaderList}>ข้อมูลทางกฏหมาย</li>
                 <li>
-                  <a className='font-prompts'>เงื่อนไขและข้อกำหนด</a>
+                  <a className={styles.footerList}>เงื่อนไขและข้อกำหนด</a>
                 </li>
                 <li>
-                  <a className='font-prompts'>นโยบายความเป็นส่วนตัว</a>
+                  <a className={styles.footerList}>นโยบายความเป็นส่วนตัว</a>
                 </li>
                 <li>
-                  <a className='font-prompts'>กฏหมายที่เกี่ยวข้อง</a>
+                  <a className={styles.footerList}>กฏหมายที่เกี่ยวข้อง</a>
                 </li>
               </ul>
 
               {/* Aboutus */}
-              <ul className='font-prompts text-white space-y-3 mt-9'>
-                <li className='font-prompts font-semibold text-xl text-white'>เกี่ยวกับพีทีแมกซ์การ์ด</li>
+              <ul className='font-prompts text-white space-y-1 md:space-y-3 mt-9'>
+                <li className={styles.footerHeaderList}>เกี่ยวกับพีทีแมกซ์การ์ด</li>
                 <li>
-                  <a className='font-prompts'>รายละเอียด</a>
+                  <a className={styles.footerList}>รายละเอียด</a>
                 </li>
                 <li>
-                  <a className='font-prompts'>สมัครสมาชิก</a>
+                  <a className={styles.footerList}>สมัครสมาชิก</a>
                 </li>
               </ul>
             </div>
-            <div className='col-span-1'>
+            <div className='col-span-2 md:col-span-1'>
               <div className='w-full h-full flex flex-col justify-start p-2'>
-                <div className='relative bg-white rounded-3xl w-[363px] h-[218px] mb-5 overflow-hidden'>
+                <div className='relative bg-white rounded-3xl max-w-[363px] h-[218px] mb-5 overflow-hidden'>
                   <button className='absolute left-6 top-5 bg-secondary flex flex-row justify-center items-center p-2 rounded-lg'>
                     <ImageLoader width={18} height={18} src='/images/icons/right-arrow.png' />
                     <span className='font-poppins font-semibold text-sm text-white ml-2'>Get Direction</span>
                   </button>
                   <iframe
-                    className='border-0 -mt-40'
+                    className='border-0 -mt-20 w-full h-[450px]'
                     src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.413107201355!2d100.90005111528926!3d12.945396690873062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe3446075ca93b38f!2zMTLCsDU2JzQzLjQiTiAxMDDCsDU0JzA4LjEiRQ!5e0!3m2!1sth!2sth!4v1648752408749!5m2!1sth!2sth'
-                    width='600'
-                    height='450'
                     allowFullScreen={true}
                     loading='lazy'
                     referrerPolicy='no-referrer-when-downgrade'
                   ></iframe>
                 </div>
-                <div>
+                <div className=''>
                   <p className='font-prompts font-medium text-xl text-white my-3'>ช่องทางติดต่อ</p>
-                  <div className='flex flex-row items-center space-x-5'>
+                  <div className='w-full flex flex-row items-center space-x-5'>
                     <CardSocial width={14} height={26} img='/images/icons/facebook.png' alt='facebook' link='' />
                     <CardSocial width={25} height={27} img='/images/icons/line.png' alt='line' link='' />
                     <CardSocial width={22} height={25} img='/images/icons/shoppee.png' alt='shoppee' link='' />

@@ -1,0 +1,7 @@
+.footerHeaderList {
+  @apply font-prompts font-semibold text-lg md:text-xl text-white;
+}
+
+.footerList {
+  @apply font-prompts text-sm md:text-base;
+}
