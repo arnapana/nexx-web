@@ -15,6 +15,12 @@ module.exports = {
       }
     },
     extend: {
+      lineClamp: {
+        7: '7',
+        8: '8',
+        9: '9',
+        10: '10'
+      },
       fontFamily: {
         poppins: ['POPPINS', 'sans-serif'],
         sarabun: ['SARABUN', 'sans-serif'],
@@ -35,5 +41,5 @@ module.exports = {
       }
     }
   },
-  plugins: [require('@tailwindcss/typography')]
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/line-clamp')]
 }

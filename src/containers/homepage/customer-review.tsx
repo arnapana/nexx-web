@@ -38,27 +38,29 @@ const CustomerReview = () => {
         </div>
       </div>
       {/* Slider */}
-      <div id='App' className='min-h-[800px] w-full mx-auto my-15 overflow-hidden'>
+      <div id='App' className='min-h-[600px] lg:min-h-[800px] w-full mx-auto my-15 overflow-hidden'>
         <Slider {...settings}>
           {datas.map((val, idx) => (
-            <div key={idx} className='slider-review p-10'>
-              <div className='card-review bg-white rounded-3xl drop-shadow-[0_10px_15px_rgba(54,74,217,0.1)] p-16'>
-                <div className='flex flex-col justify-center items-center mb-5'>
-                  <div className='rounded-full overflow-hidden'>
-                    <ImageLoader width={123} height={123} src='/images/review/lifestyle-peopl.png' />
+            <div key={idx} className='slider-review p-5'>
+              <div className='card-review bg-white rounded-3xl drop-shadow-[0_10px_15px_rgba(54,74,217,0.1)] p-5 md:p-10 lg:p-16'>
+                <div className='text-ellipsis overflow-hidden w-full h-full box-border'>
+                  <div className='flex flex-col justify-center items-center mb-5'>
+                    <div className='rounded-full overflow-hidden'>
+                      <ImageLoader width={123} height={123} src='/images/review/lifestyle-peopl.png' />
+                    </div>
+                    <div className='mt-3'>
+                      <p className='font-prompts text-base'>Name Surename, 20</p>
+                    </div>
                   </div>
-                  <div className='mt-3'>
-                    <p className='font-prompts text-base'>Name Surename, 20</p>
+                  <div className=''>
+                    <p className='text-center font-sarabun font-light line-clamp-7 text-base md:line-clamp-5 lg:line-clamp-4 xl:line-clamp-none xl:text-xl'>
+                      บูติกเด้อโปรโมท เตี๊ยมคอนโทรลออร์แกนิกกราวนด์คอร์ส คาแร็คเตอร์ คอรัปชันรูบิก
+                      มอบตัวเดชานุภาพมือถือท็อปบู๊ทโดมิโน เนิร์สเซอรีปาร์ตี้ครัวซองแชมเปี้ยนคอลัมนิสต์
+                      ปูอัดสปอร์ตโอเลี้ยงมอนสเตอร์เมจิค เยอบีร่าแทกติคแอปเปิ้ล ดีพาร์ตเมนท์ป๋อหลอ เดชานุภาพแคมเปญฟอยล์
+                      เครปเยนไวอะกร้าเคอร์ฟิวอพาร์ตเมนต์ ไวอะกร้าไวอากร้า เซลส์แมน คอร์รัปชัน
+                      ใช้งานวัจนะแคมป์ทัวริสต์ชัตเตอร์
+                    </p>
                   </div>
-                </div>
-                <div>
-                  <p className='text-center font-sarabun font-light text-xl'>
-                    บูติกเด้อโปรโมท เตี๊ยมคอนโทรลออร์แกนิกกราวนด์คอร์ส คาแร็คเตอร์ คอรัปชันรูบิก
-                    มอบตัวเดชานุภาพมือถือท็อปบู๊ทโดมิโน เนิร์สเซอรีปาร์ตี้ครัวซองแชมเปี้ยนคอลัมนิสต์
-                    ปูอัดสปอร์ตโอเลี้ยงมอนสเตอร์เมจิค เยอบีร่าแทกติคแอปเปิ้ล ดีพาร์ตเมนท์ป๋อหลอ เดชานุภาพแคมเปญฟอยล์
-                    เครปเยนไวอะกร้าเคอร์ฟิวอพาร์ตเมนต์ ไวอะกร้าไวอากร้า เซลส์แมน คอร์รัปชัน
-                    ใช้งานวัจนะแคมป์ทัวริสต์ชัตเตอร์
-                  </p>
                 </div>
               </div>
             </div>
