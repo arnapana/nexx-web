@@ -11,9 +11,9 @@ const Footer: React.FC = () => {
       {/* Footer Navgiation */}
       <div className='bg-primary min-h-[510px]'>
         <div className='container mx-auto py-14 w-full h-full'>
-          <div className='grid grid-cols-2 md:grid-cols-4 gap-5 w-full h-full'>
-            <div className='col-span-2 md:col-span-1'>
-              <div className='w-full h-full flex flex-col justify-start'>
+          <div className='grid grid-cols-2 md:grid-cols-6 gap-5 w-full h-full'>
+            <div className='col-span-2'>
+              <div className='w-full h-full flex flex-col justify-start md:pr-28'>
                 <div className='mb-8 relative w-[calc(4vw_+_160px)] h-[calc(1vw_+_80px)] '>
                   <ImageLoader src='/images/logo-footer.png' layout='fill' />
                 </div>
@@ -86,8 +86,8 @@ const Footer: React.FC = () => {
                 </li>
               </ul>
             </div>
-            <div className='col-span-2 md:col-span-1'>
-              <div className='w-full h-full flex flex-col justify-start p-2'>
+            <div className='col-span-2'>
+              <div className='h-full flex flex-col justify-start py-2 px-5'>
                 <div className='relative bg-white rounded-3xl max-w-[363px] h-[218px] mb-5 overflow-hidden'>
                   <button className='absolute left-6 top-5 bg-secondary flex flex-row justify-center items-center p-2 rounded-lg'>
                     <ImageLoader width={18} height={18} src='/images/icons/right-arrow.png' />

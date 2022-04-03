@@ -21,7 +21,7 @@ const CarouselSlider = () => {
     <section id='Carousel' className=''>
       <div className='relative overflow-hidden'>
         <Slider {...settings}>
-          {carouselConstant.map((val, idx) => (
+          {carouselConstant.cards.map((val, idx) => (
             <div key={idx} className='relative h-[25rem] md:h-[48rem]'>
               <div className='relative w-full h-full'>
                 {/* Image Carousel */}
@@ -29,18 +29,18 @@ const CarouselSlider = () => {
                 {/* <ImageLoader src={val.src} alt={val.alt} layout='fill' /> */}
               </div>
               {/* Content */}
-              <div className='absolute text-white left-[5%] lg:left-[15%] top-[10%]'>
+              <div className='absolute text-white left-[5%] lg:left-[15%] top-[15%] lg:top-[10%]'>
                 <div className='mb-4'>
-                  <h1 className='font-poppins font-semibold drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] text-[3rem] md:text-[5rem] lg:text-[5.8rem]'>
-                    NEXX Pharma
-                  </h1>
+                  <p className='font-poppins font-semibold drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] text-[3rem] md:text-[5rem] lg:text-[5.8rem]'>
+                    {carouselConstant.title}
+                  </p>
                   <span className='font-poppins drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] font-semibold text-3xl md:text-[3rem] lg:text-6xl'>
-                    Connecting Healthy
+                    {carouselConstant['sub-title-1']}
                   </span>
                 </div>
                 <div>
                   <p className='font-prompts drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] font-medium text-2xl md:text-3xl lg:text-5xl'>
-                    เชื่อมสุขภาพดีให้ถึงกัน
+                    เ{carouselConstant['sub-title-2']}
                   </p>
                 </div>
                 <div className='hidden lg:block lg:absolute top-10 -right-36'>

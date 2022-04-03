@@ -2,6 +2,8 @@ import React from 'react'
 import { Button, ColorLine } from '@components/common'
 import { CardShopping } from '@components/index'
 
+import storeConstant from '@constants/mock/stores.json'
+
 const SocialContact: React.FC = () => {
   return (
     <section className='min-h-[900px]'>
@@ -9,13 +11,10 @@ const SocialContact: React.FC = () => {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-5 w-full h-full'>
           {/* Content */}
           <div className='flex flex-col px-10'>
-            <h2 className='header-font font-prompts my-3'>ร้านยาของเรา</h2>
+            <p className='h2 my-3'>{storeConstant.title}</p>
             <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='w-28 mb-7 mt-4' />
             <div className=''>
-              <p className='sub-content font-prompts text-[#5D5D5D] m-'>
-                สั่งซื้อยาสามัญประจำบ้าน วิตามิน และ สินค้าสุขภาพได้ที่หน้าสาขาร้านยาเน็กซ์ฟาร์มา หรือสั่งซื้อได้ตลอด 24
-                ชั่วโมงผ่านช่องออนไลน์ของเรา
-              </p>
+              <p className='text-[#5D5D5D]'>{storeConstant.content}</p>
             </div>
             <div>
               <Button name='ดูเพิ่มเติ่ม' outerClassName='my-8' />

@@ -12,20 +12,17 @@ const SerivceHighlight = () => {
         {/* Content */}
         <div>
           <div className='my-5'>
-            <h2 className='header-font font-poppins text-center'>Service Highlight</h2>
+            <p className='h2 font-poppins text-center'>{serviceHightlight.title}</p>
           </div>
           <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
 
           <div className='md:px-[25%]'>
-            <p className='sub-content font-prompts text-center'>
-              สุขภาพดีที่ทุกคนเข้าถึงได้ ด้วยบริการจาก NEXX Pharma ครอบคลุมทุกเรื่องยา
-              และสุขภาพแบบครบวงจรจากเภสัชกรและแพทย์ผู้เชี่ยวชาญในสาขาต่างๆ
-            </p>
+            <p className='text-center'>{serviceHightlight.content}</p>
           </div>
         </div>
         {/* Card Highlight */}
         <div className='flex flex-wrap justify-center'>
-          {serviceHightlight.map((val, idx) => (
+          {serviceHightlight.cards.map((val, idx) => (
             <CardHighLight
               key={idx}
               src={val.image.img}

@@ -1,62 +1,66 @@
-[
-  {
-    "order": 1,
-    "name": "Telepharmacy ปรึกษาเภสัชกรและแพทย์ออนไลน์",
-    "detail": "ตอบทุกคําถามเรื่องยาและสุขภาพ โดยเภสัชกรหรือบุคลากร ทางการแพทย์ในรูปแบบออนไลน์",
-    "image": {
-      "img": "/images/icons/highlight/icon_teleparma0.png",
-      "width": 81,
-      "height": 87,
-      "alt": "teleparma"
+{
+  "title": "Service Highlight",
+  "content": "สุขภาพดีที่ทุกคนเข้าถึงได้ ด้วยบริการจาก NEXX Pharma ครอบคลุมทุกเรื่องยาและสุขภาพแบบครบวงจรจากเภสัชกรและแพทย์ผู้เชี่ยวชาญในสาขาต่างๆ",
+  "cards": [
+    {
+      "order": 1,
+      "name": "Telepharmacy ปรึกษาเภสัชกรและแพทย์ออนไลน์",
+      "detail": "ตอบทุกคําถามเรื่องยาและสุขภาพ โดยเภสัชกรหรือบุคลากร ทางการแพทย์ในรูปแบบออนไลน์",
+      "image": {
+        "img": "/images/icons/highlight/icon_teleparma0.png",
+        "width": 81,
+        "height": 87,
+        "alt": "teleparma"
+      },
+      "url": "/"
     },
-    "url": "/"
-  },
-  {
-    "order": 2,
-    "name": "เปรียบเทียบราคายาก่อนซื้อ",
-    "detail": "ให้บริการยาคุณภาพในราคามาตรฐาน สำหรับลูกค้าทั่วไปและกลุ่มองค์กร เปรียบเทียบราคาก่อนซื้อ พร้อมช่วย หายาและวิตามินที่คุณต้องการ",
-    "image": {
-      "img": "/images/icons/highlight/icon_pills.png",
-      "width": 87,
-      "height": 97,
-      "alt": "pills"
+    {
+      "order": 2,
+      "name": "เปรียบเทียบราคายาก่อนซื้อ",
+      "detail": "ให้บริการยาคุณภาพในราคามาตรฐาน สำหรับลูกค้าทั่วไปและกลุ่มองค์กร เปรียบเทียบราคาก่อนซื้อ พร้อมช่วย หายาและวิตามินที่คุณต้องการ",
+      "image": {
+        "img": "/images/icons/highlight/icon_pills.png",
+        "width": 87,
+        "height": 97,
+        "alt": "pills"
+      },
+      "url": "/"
     },
-    "url": "/"
-  },
-  {
-    "order": 3,
-    "name": "สมุดสุขภาพออนไลน์",
-    "detail": "หายห่วงเรื่องข้อมูลขาดหายหรือ จำไม่ได้ ด้วยระบบบันทึกประวัติสุขภาพ ข้อมูลการซื้อยาในรูปแบบออนไลน์ เพื่อเป็นข้อมูลเฉพาะบุคคล ประกอบการให้บริการได้ทุกที่",
-    "image": {
-      "img": "/images/icons/highlight/icon_book-info0.png",
-      "width": 81,
-      "height": 86,
-      "alt": "book-info"
+    {
+      "order": 3,
+      "name": "สมุดสุขภาพออนไลน์",
+      "detail": "หายห่วงเรื่องข้อมูลขาดหายหรือ จำไม่ได้ ด้วยระบบบันทึกประวัติสุขภาพ ข้อมูลการซื้อยาในรูปแบบออนไลน์ เพื่อเป็นข้อมูลเฉพาะบุคคล ประกอบการให้บริการได้ทุกที่",
+      "image": {
+        "img": "/images/icons/highlight/icon_book-info0.png",
+        "width": 81,
+        "height": 86,
+        "alt": "book-info"
+      },
+      "url": ""
     },
-    "url": ""
-  },
-  {
-    "order": 4,
-    "name": "บริการส่งยาทั่วประเทศ",
-    "detail": "รับยา วิตามิน สินค้าสุขภาพได้อย่างสะดวกรวดเร็ว โดยบริการส่งยา แบบด่วนภายในวันและส่งแบบพัสดุ",
-    "image": {
-      "img": "/images/icons/highlight/icon_free-deliv.png",
-      "width": 139,
-      "height": 86,
-      "alt": "free-deliv"
+    {
+      "order": 4,
+      "name": "บริการส่งยาทั่วประเทศ",
+      "detail": "รับยา วิตามิน สินค้าสุขภาพได้อย่างสะดวกรวดเร็ว โดยบริการส่งยา แบบด่วนภายในวันและส่งแบบพัสดุ",
+      "image": {
+        "img": "/images/icons/highlight/icon_free-deliv.png",
+        "width": 139,
+        "height": 86,
+        "alt": "free-deliv"
+      },
+      "url": "/"
     },
-    "url": "/"
-  },
-  {
-    "order": 5,
-    "name": "สะสมแต้มกับบัตร PT Max Card",
-    "detail": "เพียงแจ้งเบอร์โทรศัพท์ที่ผูกไว้กับบัตร PT Max Card ทุกการใช้จ่ายกับร้านยา NEXX Pharma ก็สามารถสะสมแต้ม เพื่อแลกรับสิทธิประโยชน์มากมาย",
-    "image": {
-      "img": "/images/icons/highlight/icon_point02.png",
-      "width": 85,
-      "height": 85,
-      "alt": "point"
-    },
-    "url": "/"
-  }
-]
+    {
+      "order": 5,
+      "name": "สะสมแต้มกับบัตร PT Max Card",
+      "detail": "เพียงแจ้งเบอร์โทรศัพท์ที่ผูกไว้กับบัตร PT Max Card ทุกการใช้จ่ายกับร้านยา NEXX Pharma ก็สามารถสะสมแต้ม เพื่อแลกรับสิทธิประโยชน์มากมาย",
+      "image": {
+        "img": "/images/icons/highlight/icon_point02.png",
+        "width": 85,
+        "height": 85,
+        "alt": "point"
+      },
+      "url": "/"
+    }
+  ]
+}

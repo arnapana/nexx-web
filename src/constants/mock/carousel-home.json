@@ -1,5 +1,10 @@
-[
-  { "name": "", "src": "/images/carousel/asian-young-fem.png", "alt": "" },
-  { "name": "", "src": "/images/carousel/asian-young-fem.png", "alt": "" },
-  { "name": "", "src": "/images/carousel/asian-young-fem.png", "alt": "" }
-]
+{
+  "title": "NEXX Pharma",
+  "sub-title-1": "Connecting Healthy",
+  "sub-title-2": "เชื่อมสุขภาพดีให้ถึงกัน",
+  "cards": [
+    { "name": "", "src": "/images/carousel/asian-young-fem.png", "alt": "" },
+    { "name": "", "src": "/images/carousel/asian-young-fem.png", "alt": "" },
+    { "name": "", "src": "/images/carousel/asian-young-fem.png", "alt": "" }
+  ]
+}

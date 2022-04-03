@@ -2,6 +2,8 @@ import React from 'react'
 import { Button } from '@components/common'
 import { ImageLoader } from '@components/common'
 
+import introductionConstant from '@constants/mock/intro.json'
+
 const Introduction = () => {
   return (
     <section>
@@ -9,7 +11,7 @@ const Introduction = () => {
         {/* Header */}
         <div className='mb-10 lg:mb-28'>
           <h2 className='text-center font-prompts font-medium text-black text-3xl lg:text-[2.5rem]'>
-            เพราะเราเชื่อว่าคุณภาพชีวิตที่ดี เริ่มต้นที่ <span className='text-secondary'>“สุขภาพ”</span>
+            {introductionConstant.title} <span className='text-secondary'>{introductionConstant['sub-title']}</span>
           </h2>
         </div>
         {/* Intro 1 */}
@@ -27,22 +29,22 @@ const Introduction = () => {
                   <ImageLoader src='/images/intro/quote.png' layout='fill' />
                   <div className='absolute left-6 top-3'>
                     <p className='font-prompts font-medium text-base xl:text-2xl text-white'>
-                      “มีคุณภาพชีวิตที่ดีได้ โดยไม่จำเป็นต้องจ่ายแพง”{' '}
+                      {introductionConstant.quote}
                     </p>
                   </div>
                 </div>
               </div>
               <div className='mb-5'>
                 <p className='font-prompts lg:text-2xl'>
-                  <span className='font-medium text-primary'>NEXX Pharma</span> อยากให้ทุกคนเข้าถึง สุขภาพที่ดีได้
-                  อย่างทั่วถึงไม่ว่าจะอยู่ที่ไหน ก็สามารถเข้าถึงการดูแล ที่ดีได้ผ่านช่องทางออนไลน์ของเรา อาทิ
+                  <span className='font-medium text-primary'>{introductionConstant.paragraph_1.title}</span>
+                  <span className='ml-2'>{introductionConstant.paragraph_1['sub-title']}</span>
                 </p>
               </div>
               <div className='intro-list'>
                 <ul className='font-prompts lg:text-2xl'>
-                  <li>แชทปรึกษาปัญหาสุขภาพเบื้องต้นผ่านไลน์</li>
-                  <li>ซื้อยา สินค้าสุขภาพ ราคาดี พร้อมส่งตรงถึงบ้าน</li>
-                  <li>วิดีโอคอลกับเภสัชกรหรือบุคลากรทางการแพทย์ ตลอดจนได้รับยาที่ตอบโจทย์ตรงจุด</li>
+                  {introductionConstant.paragraph_1.list.map((val, idx) => (
+                    <li key={idx}>{val.name}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -53,22 +55,16 @@ const Introduction = () => {
             <div className='px-5 lg:px-16'>
               <div className='mb-5'>
                 <h2 className='font-prompts font-medium text-2xl lg:text-3xl'>
-                  ร้านยาเน็กซ์ฟาร์มา
-                  เชื่อมสุขภาพดีให้ทุกคนด้วยบริการให้คําปรึกษาจากเภสัชกรและบุคลากรทางแพทย์ผู้เชี่ยวชาญ
+                  {introductionConstant.paragraph_2.title}
                 </h2>
               </div>
               <div className='mb-6'>
-                <p className='font-prompts lg:text-2xl'>
-                  พร้อมให้บริการอย่างไร้รอยต่อด้วยเทคโนโลยี เพื่อดูแลสุขภาพ ยาและผลิตภัณฑ์ต่างๆ ในราคามาตรฐาน
-                  ตอบโจทย์ความต้องการด้านสุขภาพแบบครบวงจร
-                </p>
+                <p className='font-prompts lg:text-2xl'>{introductionConstant.paragraph_2.content}</p>
               </div>
               <div className='mb-10'>
                 <p className='font-prompts lg:text-2xl'>
-                  <span className='text-primary'>Connecting the Next</span>{' '}
-                  เรามุ่งเน้นที่จะพัฒนาและเชื่อมโยงการให้บริการด้านการดูแลสุขภาพ
-                  ผ่านนวัตกรรมและเทคโนโลยีที่ทันสมัยอย่างต่อเนื่อง เพื่อให้การเข้าถึงสุขภาพที่ดีเป็นเรื่องง่าย และใครๆ
-                  ก็เข้าถึงได้
+                  <span className='text-primary'>{introductionConstant.paragraph_2.focus.title}</span>
+                  <span className='ml-2'>{introductionConstant.paragraph_2.focus.content}</span>
                 </p>
               </div>
               <div>

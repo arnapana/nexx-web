@@ -2,6 +2,8 @@ import React from 'react'
 import Slider from 'react-slick'
 import { ColorLine, ImageLoader } from '@components/common'
 
+import reviewConstant from '@constants/mock/review.json'
+
 const datas = [1, 2, 3, 4, 5]
 
 const CustomerReview = () => {
@@ -26,39 +28,34 @@ const CustomerReview = () => {
       {/* Header */}
       <div className='container mx-auto'>
         <div className='my-5'>
-          <h2 className='header-font font-prompts text-center'>รีวิวจากลูกค้าของเรา</h2>
+          <p className='h2 text-center'>{reviewConstant.title}</p>
         </div>
         <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
 
         <div className='md:px-40 mb-10'>
-          <p className='sub-content text-center font-prompts'>
-            ขอขอบคุณที่ไว้วางใจใช้บริการ NEXX Pharma เพราะข้อเสนอแนะของคุณมีค่า
-            เราจะนำไปพัฒนาและให้บริการคุณอย่างดีที่สุด
-          </p>
+          <p className='text-center'>{reviewConstant.content}</p>
         </div>
       </div>
       {/* Slider */}
       <div id='App' className='min-h-[600px] lg:min-h-[800px] w-full mx-auto my-15 overflow-hidden'>
         <Slider {...settings}>
-          {datas.map((val, idx) => (
+          {reviewConstant.cards.map((val, idx) => (
             <div key={idx} className='slider-review p-5'>
               <div className='card-review bg-white rounded-3xl drop-shadow-[0_10px_15px_rgba(54,74,217,0.1)] p-5 md:p-10 lg:p-16'>
                 <div className='text-ellipsis overflow-hidden w-full h-full box-border'>
                   <div className='flex flex-col justify-center items-center mb-5'>
                     <div className='rounded-full overflow-hidden'>
-                      <ImageLoader width={123} height={123} src='/images/review/lifestyle-peopl.png' />
+                      <ImageLoader width={123} height={123} src={val.img} />
                     </div>
                     <div className='mt-3'>
-                      <p className='font-prompts text-base'>Name Surename, 20</p>
+                      <p className='font-prompts text-base'>
+                        <span>{val.name}</span> <span>{val.surename}</span>, <span>{val.age}</span>
+                      </p>
                     </div>
                   </div>
                   <div className=''>
                     <p className='text-center font-sarabun font-light line-clamp-7 text-base md:line-clamp-5 lg:line-clamp-4 xl:line-clamp-none xl:text-xl'>
-                      บูติกเด้อโปรโมท เตี๊ยมคอนโทรลออร์แกนิกกราวนด์คอร์ส คาแร็คเตอร์ คอรัปชันรูบิก
-                      มอบตัวเดชานุภาพมือถือท็อปบู๊ทโดมิโน เนิร์สเซอรีปาร์ตี้ครัวซองแชมเปี้ยนคอลัมนิสต์
-                      ปูอัดสปอร์ตโอเลี้ยงมอนสเตอร์เมจิค เยอบีร่าแทกติคแอปเปิ้ล ดีพาร์ตเมนท์ป๋อหลอ เดชานุภาพแคมเปญฟอยล์
-                      เครปเยนไวอะกร้าเคอร์ฟิวอพาร์ตเมนต์ ไวอะกร้าไวอากร้า เซลส์แมน คอร์รัปชัน
-                      ใช้งานวัจนะแคมป์ทัวริสต์ชัตเตอร์
+                      {val.review}
                     </p>
                   </div>
                 </div>
