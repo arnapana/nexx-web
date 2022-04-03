@@ -1,0 +1,101 @@
+/* Poppins */
+@font-face {
+  font-family: 'POPPINS';
+  font-weight: 400;
+  src: url('../../public/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'POPPINS';
+  font-weight: 500;
+  src: url('../../public/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'POPPINS';
+  font-weight: 600;
+  src: url('../../public/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'POPPINS';
+  font-weight: 700;
+  src: url('../../public/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+}
+
+/* Prompt */
+@font-face {
+  font-family: 'PROMPT';
+  font-weight: 300;
+  src: url('../../public/fonts/Prompt/Prompt-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'PROMPT';
+  font-weight: 400;
+  src: url('../../public/fonts/Prompt/Prompt-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'PROMPT';
+  font-weight: 500;
+  src: url('../../public/fonts/Prompt/Prompt-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'PROMPT';
+  font-weight: 600;
+  src: url('../../public/fonts/Prompt/Prompt-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'PROMPT';
+  font-weight: 700;
+  src: url('../../public/fonts/Prompt/Prompt-Bold.ttf') format('truetype');
+}
+
+/* Sarabun */
+
+@font-face {
+  font-family: 'SARABUN';
+  font-weight: 300;
+  src: url('../../public/fonts/Sarabun/Sarabun-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SARABUN';
+  font-weight: 400;
+  src: url('../../public/fonts/Sarabun/Sarabun-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'SARABUN';
+  font-weight: 500;
+  src: url('../../public/fonts/Sarabun/Sarabun-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'SARABUN';
+  font-weight: 700;
+  src: url('../../public/fonts/Sarabun/Sarabun-Bold.ttf') format('truetype');
+}
+
+.h0 {
+  @apply font-prompts font-bold text-3xl md:text-5xl;
+}
+
+h1,
+.h1 {
+  @apply font-prompts font-bold text-2xl md:text-4xl;
+}
+
+h2,
+.h2 {
+  @apply font-prompts font-bold text-xl md:text-3xl;
+}
+
+h3,
+.h3 {
+  @apply font-prompts font-bold text-lg md:text-2xl;
+}
+
+h4,
+.h4 {
+  @apply font-prompts font-bold text-base md:text-lg;
+}
+
+body,
+.p {
+  @apply font-prompts text-sm md:text-base;
+}

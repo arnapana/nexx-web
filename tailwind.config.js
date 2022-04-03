@@ -1,5 +1,17 @@
 const colors = require('tailwindcss/colors')
 
+function withOpacityValue(variable) {
+  return ({ opacityVariable, opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variable}), ${opacityValue})`
+    }
+    if (opacityVariable !== undefined) {
+      return `rgba(var(${variable}), var(${opacityVariable}, 1))`
+    }
+    return `rgb(var(${variable}))`
+  }
+}
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -27,8 +39,8 @@ module.exports = {
         prompts: ['PROMPT', 'sans-serif']
       },
       colors: {
-        primary: '#364AD9',
-        secondary: '#78DF45',
+        primary: `rgb(var(--tw-color-primary))`,
+        secondary: withOpacityValue('--tw-color-secondary'),
         transparent: 'transparent',
         current: 'currentColor',
         black: colors.black,

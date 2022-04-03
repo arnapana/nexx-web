@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+@import './slick-review.module.css';
+@import './slick-carousel.module.css';
+@import './header.module.css';
+
+:root {
+  --tw-color-primary: 54, 74, 217;
+  --tw-color-secondary: 120, 223, 69;
+  --color-primary: rgb(var(--tw-color-primary));
+  --color-secondary: rgb(var(--tw-color-secondary));
+}
+
+@layer base {
+  @import './font.module.css';
+}
