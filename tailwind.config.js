@@ -27,11 +27,20 @@ module.exports = {
       }
     },
     extend: {
+      animation: {
+        'fade-in': 'fade-in 0.5s linear forwards',
+        'fade-out': 'fade-out 0.5s linear forwards'
+      },
       lineClamp: {
         7: '7',
         8: '8',
         9: '9',
-        10: '10'
+        10: '10',
+        11: '11',
+        12: '12',
+        13: '13',
+        14: '14',
+        15: '15'
       },
       fontFamily: {
         poppins: ['POPPINS', 'sans-serif'],

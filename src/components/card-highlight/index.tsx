@@ -1,5 +1,5 @@
-import React from 'react'
-import { Button, ImageLoader } from '@components/common'
+import React, { useState } from 'react'
+import { Button, ImageLoader, ModalOpacity } from '@components/common'
 
 interface ICardHighLight {
   src: string
@@ -11,8 +11,14 @@ interface ICardHighLight {
 }
 
 export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, content, width, height }) => {
+  const [isModal, setModal] = useState<boolean>(false)
+
+  const handleModal = () => {
+    setModal((val) => !val)
+  }
+
   return (
-    <div className='lg:p-5 my-8 lg:my-20'>
+    <div className='lg:p-5 my-8 md:mx-2 lg:m-0 lg:my-20 '>
       <div className='relative flex flex-col items-center w-[22rem] h-[22.5rem] lg:w-[25rem] lg:h-[27.5rem] drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)] bg-white rounded-3xl px-9 py-10'>
         {/* Icon */}
         <div>
@@ -24,12 +30,42 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
         </div>
         {/* Content */}
         <div className='px-5'>
-          <p className='text-center font-prompts font-medium lg:text-xl line-clamp-5 lg:line-clamp-7'>{content}</p>
+          <p className='text-center font-prompts font-medium lg:text-xl line-clamp-5 md:line-clamp-4 lg:line-clamp-7'>
+            {content}
+          </p>
         </div>
         <div className='absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2'>
-          <Button name='ดูเพิ่มเติม' />
+          <Button name='ดูเพิ่มเติ่ม' onClick={() => handleModal()} />
         </div>
       </div>
+
+      {/* Modal */}
+      <ModalOpacity isModal={isModal} onClick={handleModal}>
+        <div className='modal-container absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+          <div className='modal-content relative min-w-[350px] max-w-[647px] max-h-[477px] p-8 md:px-16 md:py-12 bg-white rounded-[2rem]'>
+            <div className='mb-7'>
+              <p className='h3 text-center font-prompts font-medium'>
+                Telepharmacy <br /> ปรึกษาเภสัชกรและแพทย์ออนไลน์
+              </p>
+            </div>
+
+            <div>
+              <p className='subtitle text-center font-prompts tracking-wide line-clamp-14 md:line-clamp-10'>
+                ให้การเข้าถึงคำแนะนำด้านสุขภาพเป็นเรื่องง่าย ด้วยบริการ พบเภสัชกรและแพทย์เฉพาะทางในรูปแบบออนไลน์
+                เพื่อรับ คำปรึกษาได้อย่างสะดวกและรวดเร็ว โดยรับคำปรึกษาในรูปแบบที่เลือกได้
+                ทั้งแบบพิมพ์ข้อความปรึกษาออนไลน์หรือในรูปแบบวิดีโอคอล
+                เราครอบคลุมการดูแลแบบครบวงจรไปจนถึงขั้นตอนสั่งจ่ายยาจากเภสัชกรและแพทย์เฉพาะทาง
+                พร้อมบริการส่งยาแบบด่วนรอรับได้ภายในหนึ่งวัน หรือจัดส่งแบบพัสดุในพื้นที่กรุงเทพและต่างจังหวัด
+                มั่นใจว่าทุกคนในทุกพื้นที่จะได้รับการให้บริการที่ทั่วถึงและครอบคลุม
+              </p>
+            </div>
+
+            <div className='absolute top-0 right-0 translate-x-5 -translate-y-5 cursor-pointer' onClick={handleModal}>
+              <ImageLoader width={60} height={60} src='/images/icons/cancel-modal.png' />
+            </div>
+          </div>
+        </div>
+      </ModalOpacity>
     </div>
   )
 }

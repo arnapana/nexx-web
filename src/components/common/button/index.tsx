@@ -6,9 +6,10 @@ interface IButton {
   outerClassName?: string
   innerClassName?: string
   name?: string
+  onClick?: () => void
 }
 
-export const Button: React.FC<IButton> = ({ name, outerClassName, innerClassName }) => {
+export const Button: React.FC<IButton> = ({ name, outerClassName, innerClassName, onClick }) => {
   return (
     <div className={classNames(outerClassName)}>
       <button
@@ -16,6 +17,7 @@ export const Button: React.FC<IButton> = ({ name, outerClassName, innerClassName
           'bg-primary flex items-center justify-center p-2 rounded-full h-[40px] md:h-[60px] space-x-3 px-5 md:px-8',
           innerClassName
         )}
+        onClick={onClick}
       >
         <p className='font-prompts  md:text-xl text-white whitespace-nowrap'>{name}</p>
         <div className={'flex items-center justify-center'}>

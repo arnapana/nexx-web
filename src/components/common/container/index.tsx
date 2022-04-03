@@ -7,7 +7,7 @@ export const Container: NextPage = ({ children }) => {
   return (
     <div className='flex flex-col h-full min-h-screen justify-between'>
       <Navbar />
-      <div className='mb-auto w-full h-full'>{children}</div>
+      <div className='mb-auto w-full h-full bg-white'>{children}</div>
       <Footer />
     </div>
   )

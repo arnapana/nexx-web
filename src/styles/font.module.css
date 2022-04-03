@@ -92,7 +92,11 @@ h3,
 
 h4,
 .h4 {
-  @apply font-prompts font-bold text-base md:text-lg;
+  @apply font-prompts font-light text-base md:text-xl;
+}
+
+.subtitle {
+  @apply font-prompts font-light text-base md:text-xl;
 }
 
 body,
