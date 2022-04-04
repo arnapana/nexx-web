@@ -26,18 +26,18 @@ const Navbar: React.FC = () => {
   }, [isSidebar])
 
   return (
-    <nav className='sticky top-0 z-[20] flex flex-col items-center justify-center bg-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.05)]'>
+    <nav className='flex sticky top-0 z-[20] flex-col justify-center items-center bg-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.05)]'>
       {/* Notify */}
       {isOpen ? (
-        <div className='hidden w-full xl:flex items-center justify-center bg-primary text-white h-[3.38rem] space-x-5'>
+        <div className='hidden justify-center items-center space-x-5 w-full h-[3rem] text-white bg-primary xl:flex'>
           <div className='flex justify-center items-center'>
-            <p className='text-center font-prompts text-lg'>
+            <p className='font-prompts text-base text-center 2xl:text-lg'>
               Find the fastest answers to common questions about the latest on COVID-19, travel, and Omicron{' '}
               <span className='underline'>here</span>
             </p>
           </div>
           <div
-            className='flex items-center justify-center rounded-full w-6 h-6 bg-white cursor-pointer'
+            className='flex justify-center items-center w-6 h-6 bg-white rounded-full cursor-pointer'
             onClick={handleNotify}
           >
             <ImageLoader width={10} height={10} src='/images/icons/cancel.png' />
@@ -46,11 +46,11 @@ const Navbar: React.FC = () => {
       ) : null}
       <div className='container mx-auto w-full h-full'>
         {/* NavbarList */}
-        <div className='w-full h-[74px] xl:h-24 2xl:28 flex items-center justify-between xl:justify-center'>
-          <div className='relative flex w-[calc(3.5vw+100px)] h-[calc(1.5vw+45px)] justify-center items-center xl:mr-16'>
+        <div className='flex justify-between items-center w-full h-[74px] lg:h-24 xl:justify-center 2xl:h-[102px]'>
+          <div className='flex relative justify-center items-center w-[calc(3.5vw+100px)] h-[calc(1.5vw+45px)] xl:mr-16'>
             <ImageLoader layout='fill' src='/images/logo-nav.png' />
           </div>
-          <ul className='hidden xl:flex flex-row items-center space-x-11 h-full'>
+          <ul className='hidden flex-row items-center space-x-11 h-full xl:flex'>
             <li>
               <NavLink to='/' name={menuConstant.homepage} />
             </li>
@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
           </ul>
 
           {/* Mobile */}
-          <div className='flex xl:hidden cursor-pointer' onClick={handleSidebar}>
+          <div className='flex cursor-pointer xl:hidden' onClick={handleSidebar}>
             <ListIcon className='w-10 h-10 text-primary' />
           </div>
 
@@ -85,11 +85,11 @@ const Navbar: React.FC = () => {
               isSidebar ? 'w-[310px]' : 'w-0'
             } transition-all duration-300 overflow-x-hidden overflow-y-auto`}
           >
-            <div className='h-20 flex justify-end items-center p-5 text-primary cursor-pointer' onClick={handleSidebar}>
+            <div className='flex justify-end items-center p-5 h-20 text-primary cursor-pointer' onClick={handleSidebar}>
               <CloseIcon className='w-10 h-10' />
             </div>
 
-            <ul className='flex flex-col items-start px-10 h-full space-y-5'>
+            <ul className='flex flex-col items-start px-10 space-y-5 h-full'>
               <li>
                 <NavLinkMobile to='/' name={menuConstant.homepage} />
               </li>

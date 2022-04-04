@@ -19,8 +19,8 @@ export const Button: React.FC<IButton> = ({ name, outerClassName, innerClassName
         )}
         onClick={onClick}
       >
-        <p className='font-prompts  md:text-xl text-white whitespace-nowrap'>{name}</p>
-        <div className={'flex items-center justify-center'}>
+        <p className='font-prompts  text-white whitespace-nowrap md:text-xl'>{name}</p>
+        <div className={'flex justify-center items-center'}>
           <ImageLoader width={28} height={18} src='/images/icons/enter-button.png' />
         </div>
       </button>
