@@ -22,10 +22,10 @@ const CarouselSlider = () => {
       <div className='relative overflow-hidden'>
         <Slider {...settings}>
           {carouselConstant.cards.map((val, idx) => (
-            <div key={idx} className='relative h-[25rem] md:h-[48rem]'>
+            <div key={idx} className='relative '>
               <div className='relative w-full h-full'>
                 {/* Image Carousel */}
-                <div className='w-full h-full bg-[url("/images/carousel/asian-young-fem.png")] bg-no-repeat bg-cover bg-center' />
+                <div className='w-full h-[30rem] md:h-[40rem] lg:h-[49.5rem] bg-[url("/images/carousel/asian-young-fem.png")] bg-no-repeat bg-cover bg-center' />
                 {/* <ImageLoader src={val.src} alt={val.alt} layout='fill' /> */}
               </div>
               {/* Content */}
@@ -40,7 +40,7 @@ const CarouselSlider = () => {
                 </div>
                 <div>
                   <p className='font-prompts drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] font-medium text-2xl md:text-3xl lg:text-5xl'>
-                    เ{carouselConstant['sub-title-2']}
+                    {carouselConstant['sub-title-2']}
                   </p>
                 </div>
                 <div className='hidden lg:block lg:absolute top-10 -right-36'>

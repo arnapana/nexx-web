@@ -13,7 +13,8 @@ interface ICardHighLight {
 export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, content, width, height }) => {
   const [isModal, setModal] = useState<boolean>(false)
 
-  const handleModal = () => {
+  const handleModal = (event: any) => {
+    event.stopPropagation()
     setModal((val) => !val)
   }
 
@@ -35,12 +36,12 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
           </p>
         </div>
         <div className='absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2'>
-          <Button name='ดูเพิ่มเติ่ม' onClick={() => handleModal()} />
+          <Button name='ดูเพิ่มเติ่ม' onClick={(event: any) => handleModal(event)} />
         </div>
       </div>
 
       {/* Modal */}
-      <ModalOpacity isModal={isModal} onClick={handleModal}>
+      <ModalOpacity isModal={isModal} onClick={(event: any) => handleModal(event)}>
         <div className='modal-container absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
           <div className='modal-content relative min-w-[350px] max-w-[647px] max-h-[477px] p-8 md:px-16 md:py-12 bg-white rounded-[2rem]'>
             <div className='mb-7'>
@@ -60,7 +61,10 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
               </p>
             </div>
 
-            <div className='absolute top-0 right-0 translate-x-5 -translate-y-5 cursor-pointer' onClick={handleModal}>
+            <div
+              className='absolute top-0 right-0 translate-x-5 -translate-y-5 cursor-pointer'
+              onClick={(event: any) => handleModal(event)}
+            >
               <ImageLoader width={60} height={60} src='/images/icons/cancel-modal.png' />
             </div>
           </div>

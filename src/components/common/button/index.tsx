@@ -6,7 +6,7 @@ interface IButton {
   outerClassName?: string
   innerClassName?: string
   name?: string
-  onClick?: () => void
+  onClick?: (event: any) => void
 }
 
 export const Button: React.FC<IButton> = ({ name, outerClassName, innerClassName, onClick }) => {

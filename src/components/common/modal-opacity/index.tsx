@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 interface IModalOpacity {
   children?: React.ReactNode
   isModal: boolean
-  onClick: () => void
+  onClick: (event: any) => void
 }
 
 export const ModalOpacity: React.FC<IModalOpacity> = ({ children, isModal, onClick }) => {
@@ -15,6 +15,8 @@ export const ModalOpacity: React.FC<IModalOpacity> = ({ children, isModal, onCli
       document.body.style.overflow = 'unset'
     }
   }, [isModal])
+
+  if (!isModal) return <></>
 
   return (
     <div className=''>
