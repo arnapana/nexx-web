@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface IModalOpacity {
   children?: React.ReactNode
@@ -16,19 +17,24 @@ export const ModalOpacity: React.FC<IModalOpacity> = ({ children, isModal, onCli
     }
   }, [isModal])
 
-  if (!isModal) return <></>
-
   return (
-    <div className=''>
-      <div
-        className={`z-[100] ${
-          isModal ? 'animate-fade-in pointer-events-auto' : 'animate-fade-out pointer-events-none'
-        } fixed top-0 left-0 w-full h-full `}
-      >
-        <div className={`z-20 overlay w-full h-full bg-[rgba(0,0,0,0.7)]`} onClick={onClick} />
+    <AnimatePresence>
+      {isModal && (
+        <motion.div
+          key="modal"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className={`${
+            isModal ? 'pointer-events-auto' : 'pointer-events-none'
+          } fixed top-0 left-0 w-full h-full z-[100]`}
+        >
+          <div className={`z-20 overlay w-full h-full bg-[rgba(0,0,0,0.7)]`} onClick={onClick} />
 
-        <div className='modal-opacity-container'>{children}</div>
-      </div>
-    </div>
+          <div className='modal-opacity-container'>{children}</div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }

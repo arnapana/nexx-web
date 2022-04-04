@@ -28,7 +28,7 @@ const Introduction = () => {
                 <div className='relative w-full max-w-[544px] h-[70px]'>
                   <ImageLoader src='/images/intro/quote.png' layout='fill' />
                   <div className='absolute left-6 top-3'>
-                    <p className='font-prompts font-medium text-base xl:text-2xl text-white'>
+                    <p className='font-prompts font-medium text-base xl:text-xl 2xl:text-2xl text-white'>
                       {introductionConstant.quote}
                     </p>
                   </div>
