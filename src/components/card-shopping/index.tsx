@@ -28,7 +28,7 @@ export const CardShopping: React.FC<ICardShopping> = ({
       <div
         className={classNames(
           'flex flex-col justify-center items-center bg-white shadow-md rounded-3xl drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)]',
-          'w-[150px] h-[200px]',
+          'w-[145px] h-[180px]',
           'md:w-[180px] md:h-[200px]',
           '2xl:w-[223px] 2xl:h-[237px]',
           innerClassName
