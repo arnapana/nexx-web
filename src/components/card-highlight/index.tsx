@@ -31,7 +31,7 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
         </div>
         {/* Content */}
         <div className='px-5'>
-          <p className='text-center font-prompts font-medium lg:text-xl line-clamp-5 md:line-clamp-4 lg:line-clamp-7'>
+          <p className='text-center font-prompts font-medium md:text-lg lg:text-xl line-clamp-5 md:line-clamp-3 lg:line-clamp-7'>
             {content}
           </p>
         </div>
