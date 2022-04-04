@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
         <div className='container mx-auto py-14 w-full h-full'>
           <div className='grid grid-cols-2 md:grid-cols-6 gap-5 w-full h-full'>
             <div className='col-span-2'>
-              <div className='w-full h-full flex flex-col justify-start md:pr-28'>
+              <div className='w-full h-full flex flex-col justify-start md:pr-10 2xl:pr-28'>
                 <div className='mb-8 relative w-[calc(4vw_+_160px)] h-[calc(1vw_+_80px)] '>
                   <ImageLoader src='/images/logo-footer.png' layout='fill' />
                 </div>

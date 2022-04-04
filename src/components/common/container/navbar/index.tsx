@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
       ) : null}
       <div className='container mx-auto w-full h-full'>
         {/* NavbarList */}
-        <div className='w-full h-[74px] xl:h-28 flex items-center justify-between xl:justify-center'>
+        <div className='w-full h-[74px] xl:h-24 2xl:28 flex items-center justify-between xl:justify-center'>
           <div className='relative flex w-[calc(3.5vw+100px)] h-[calc(1.5vw+45px)] justify-center items-center xl:mr-16'>
             <ImageLoader layout='fill' src='/images/logo-nav.png' />
           </div>
