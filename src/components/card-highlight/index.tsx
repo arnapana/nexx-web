@@ -20,18 +20,18 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
 
   return (
     <div className='lg:p-5 my-8 md:mx-2 lg:m-0 lg:my-10 2xl:my-20 '>
-      <div className='relative flex flex-col items-center w-[22rem] h-[22.5rem] lg:w-[25rem] lg:h-[27.5rem] drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)] bg-white rounded-3xl px-9 py-10'>
+      <div className='relative flex flex-col items-center w-[20rem] h-[22.5rem]  2xl:w-[25rem] 2xl:h-[27.5rem] drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)] bg-white rounded-3xl px-9 py-10'>
         {/* Icon */}
         <div>
           <ImageLoader width={width} height={height} src={src} alt={alt} />
         </div>
         {/* Header */}
         <div className='my-5'>
-          <h4 className='text-center font-poppins font-medium text-xl lg:text-2xl'>{title}</h4>
+          <h4 className='text-center font-poppins font-medium text-xl 2xl:text-2xl'>{title}</h4>
         </div>
         {/* Content */}
         <div className='px-5'>
-          <p className='text-center font-prompts font-medium md:text-lg lg:text-xl line-clamp-5 md:line-clamp-3 lg:line-clamp-7'>
+          <p className='text-center font-prompts md:text-lgline-clamp-5 md:line-clamp-3  2xl:text-xl  2xl:line-clamp-7'>
             {content}
           </p>
         </div>
