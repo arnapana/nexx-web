@@ -6,7 +6,7 @@ import storeConstant from '@constants/mock/stores.json'
 
 const SocialContact: React.FC = () => {
   return (
-    <section className='py-20 min-h-[900px] bg-[#FCFCFC] xl:py-[120px]'>
+    <section className='py-20 max-h-[900px] bg-[#FCFCFC] md:py-[80px] 2xl:py-[160px]'>
       <div className='container mx-auto w-full h-full '>
         <div className='grid grid-cols-1 gap-5 w-full h-full md:grid-cols-3'>
           {/* Content */}
