@@ -10,8 +10,8 @@ interface ICardSocial {
 
 export const CardSocial: React.FC<ICardSocial> = ({ img, alt, link, width, height }) => {
   return (
-    <div className='w-11 h-11 bg-white shadow-md rounded-md'>
-      <a className='w-full h-full flex items-center justify-center' href={link}>
+    <div className='w-11 h-11 bg-white rounded-md shadow-md'>
+      <a className='flex justify-center items-center w-full h-full' href={link}>
         <ImageLoader layout='fixed' width={width} height={height} src={img} alt={alt} />
       </a>
     </div>

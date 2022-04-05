@@ -72,34 +72,34 @@
 }
 
 .h0 {
-  @apply font-prompts font-bold text-3xl md:text-5xl;
+  @apply font-prompts font-bold text-3xl xl:text-5xl;
 }
 
 h1,
 .h1 {
-  @apply font-prompts font-bold text-2xl md:text-4xl;
+  @apply font-prompts font-bold text-2xl xl:text-4xl;
 }
 
 h2,
 .h2 {
-  @apply font-prompts font-medium text-2xl md:text-[2rem];
+  @apply font-prompts font-medium text-2xl xl:text-[2rem];
 }
 
 h3,
 .h3 {
-  @apply font-prompts font-bold text-lg md:text-2xl;
+  @apply font-prompts font-bold text-lg xl:text-2xl;
 }
 
 h4,
 .h4 {
-  @apply font-prompts font-light text-base md:text-xl;
+  @apply font-prompts font-light text-base xl:text-xl;
 }
 
 .subtitle {
-  @apply font-prompts font-light text-base md:text-xl;
+  @apply font-prompts font-light text-base xl:text-xl;
 }
 
 body,
 .p {
-  @apply font-prompts md:text-xl;
+  @apply font-prompts md:text-lg xl:text-xl;
 }

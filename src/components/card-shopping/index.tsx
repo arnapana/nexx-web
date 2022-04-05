@@ -27,7 +27,10 @@ export const CardShopping: React.FC<ICardShopping> = ({
     <div className={outerClassName}>
       <div
         className={classNames(
-          'w-[160px] lg:w-[223px] h-[200px] lg:h-[237px] flex flex-col justify-center items-center bg-white shadow-md rounded-3xl drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)]',
+          'flex flex-col justify-center items-center bg-white shadow-md rounded-3xl drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)]',
+          'w-[145px] h-[180px]',
+          'md:w-[180px] md:h-[200px]',
+          '2xl:w-[223px] 2xl:h-[237px]',
           innerClassName
         )}
       >
@@ -35,7 +38,9 @@ export const CardShopping: React.FC<ICardShopping> = ({
           <ImageLoader width={width} height={height} src={image} />
         </div>
         <div>
-          <p className={classNames('font-poppins font-medium text-xl lg:text-2xl', textClassName)}>{name}</p>
+          <p className={classNames('font-poppins font-medium text-base md:text-xl 2xl:text-2xl', textClassName)}>
+            {name}
+          </p>
         </div>
       </div>
     </div>

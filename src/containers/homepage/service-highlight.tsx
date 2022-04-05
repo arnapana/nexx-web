@@ -7,12 +7,12 @@ import { ColorLine } from '@components/common'
 
 const SerivceHighlight = () => {
   return (
-    <section className='py-14 lg:py-28'>
+    <section className='py-14 md:py-16 2xl:py-[133px]'>
       <div className='container mx-auto'>
         {/* Content */}
         <div>
           <div className='my-5'>
-            <p className='h2 font-poppins text-center'>{serviceHightlight.title}</p>
+            <p className='font-poppins text-center h2'>{serviceHightlight.title}</p>
           </div>
           <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
 

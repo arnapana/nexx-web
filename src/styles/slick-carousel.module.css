@@ -1,5 +1,5 @@
 #Carousel .slick-dots {
-  left: 5%;
+  left: 4.5%;
   bottom: 35%;
   z-index: 10;
 }
@@ -51,16 +51,16 @@
 
 @media (min-width: 768px) {
   #Carousel .slick-dots {
-    left: 5%;
-    bottom: 50%;
+    left: 4.5%;
+    bottom: 45%;
     z-index: 10;
   }
 }
 
 @media (min-width: 1024px) {
   #Carousel .slick-dots {
-    left: 15%;
-    bottom: 40%;
+    left: 14.5%;
+    bottom: 45%;
     z-index: 10;
   }
 
@@ -105,5 +105,13 @@
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@media (min-width: 1536px) {
+  #Carousel .slick-dots {
+    left: 14.5%;
+    bottom: 40%;
+    z-index: 10;
   }
 }
