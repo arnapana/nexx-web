@@ -1,10 +1,34 @@
 {
-  "homepage": "หน้าแรก",
-  "aboutus": "เกี่ยวกับเรา",
-  "service": "บริการของเรา",
-  "telephamacy": "Telephamacy",
-  "stores": "ร้านยาของเรา",
-  "review": "ริวิวลูกค้า",
-  "blog": "บทความ",
-  "contact": "ติดต่อเรา"
+  "homepage": {
+    "name": "หน้าแรก",
+    "to": "/"
+  },
+  "aboutus": {
+    "name": "เกี่ยวกับเรา",
+    "to": "/aboutus"
+  },
+  "service": {
+    "name": "บริการของเรา",
+    "to": "/our-service"
+  },
+  "telephamacy": {
+    "name": "Telephamacy",
+    "to": "/telepharmacy"
+  },
+  "stores": {
+    "name": "ร้านยาของเรา",
+    "to": "/stores"
+  },
+  "review": {
+    "name": "ริวิวลูกค้า",
+    "to": "/customer-reviews"
+  },
+  "article": {
+    "name": "บทความ",
+    "to": "/articles"
+  },
+  "contact": {
+    "name": "ติดต่อเรา",
+    "to": "/contactus"
+  }
 }

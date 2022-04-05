@@ -71,6 +71,13 @@
   src: url('../../public/fonts/Sarabun/Sarabun-Bold.ttf') format('truetype');
 }
 
+/* Kanit */
+@font-face {
+  font-family: 'KANIT';
+  font-weight: 400;
+  src: url('../../public/fonts/Kanit/Kanit-Regular.ttf') format('truetype');
+}
+
 .h0 {
   @apply font-prompts font-bold text-3xl xl:text-5xl;
 }
