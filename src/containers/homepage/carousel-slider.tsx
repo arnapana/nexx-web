@@ -5,7 +5,7 @@ import { ImageLoader } from '@components/common'
 
 import carouselConstant from '@constants/mock/carousel-home.json'
 
-const CarouselSlider = () => {
+export const CarouselSlider = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -73,5 +73,3 @@ const CarouselSlider = () => {
     </section>
   )
 }
-
-export default CarouselSlider

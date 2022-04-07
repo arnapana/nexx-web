@@ -4,7 +4,7 @@ import { CardShopping } from '@components/index'
 
 import storeConstant from '@constants/mock/stores.json'
 
-const SocialContact: React.FC = () => {
+export const SocialContact: React.FC = () => {
   return (
     <section className='py-20 min-h-[500px] bg-[#FCFCFC] md:py-[80px] 2xl:py-[160px]'>
       <div className='container mx-auto w-full h-full '>
@@ -70,5 +70,3 @@ const SocialContact: React.FC = () => {
     </section>
   )
 }
-
-export default SocialContact

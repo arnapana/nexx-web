@@ -11,7 +11,11 @@ type breadcrumb = {
   to: string
 }
 
-export const BreadCrumb: React.FC = () => {
+interface Props {
+  outerClassName: string
+}
+
+export const BreadCrumb: React.FC<Props> = ({ outerClassName }) => {
   const [breadcrumb, setBreadcrumb] = useState<breadcrumb[] | null>(null)
   const router = useRouter()
 
@@ -29,30 +33,36 @@ export const BreadCrumb: React.FC = () => {
   if (!breadcrumb) return null
 
   return (
-    <nav aria-label='breadcrumb'>
-      <ul className='flex items-center text-sm md:text-lg'>
-        <BreadCrumbStyle>
-          <li>
-            <Link href='/'>
-              <a className='font-prompts'>หน้าแรก</a>
-            </Link>
-          </li>
-          {breadcrumb.map((val, idx) => (
-            <li key={idx}>
-              <Link key={idx} href={val.to} passHref>
-                {breadcrumbConstant[val.breadCrumb as keyof typeof breadcrumbConstant]}
+    <div className={outerClassName}>
+      <nav aria-label='breadcrumb'>
+        <ul className='flex items-center text-sm md:text-lg'>
+          <BreadCrumbStyle>
+            <li>
+              <Link href='/'>
+                <a className='font-prompts'>หน้าแรก</a>
               </Link>
             </li>
-          ))}
-        </BreadCrumbStyle>
-      </ul>
-      <style jsx>{`
-        li {
-          display: list-item;
-          padding: 5px 10px;
-          margin: 0 3px;
-        }
-      `}</style>
-    </nav>
+            {breadcrumb.map((val, idx) => (
+              <li key={idx}>
+                <Link key={idx} href={val.to} passHref>
+                  {breadcrumbConstant[val.breadCrumb as keyof typeof breadcrumbConstant]}
+                </Link>
+              </li>
+            ))}
+          </BreadCrumbStyle>
+        </ul>
+        <style jsx>{`
+          li {
+            display: list-item;
+            padding: 5px 10px;
+            margin: 0 3px;
+          }
+        `}</style>
+      </nav>
+    </div>
   )
+}
+
+BreadCrumb.defaultProps = {
+  outerClassName: ''
 }

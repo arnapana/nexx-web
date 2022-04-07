@@ -1,6 +1,8 @@
 import { NextPage } from 'next'
 import { Container, BreadCrumb, HeroBanner } from '@components/common'
-import { CardVision, ButtonContact } from '@components/index'
+import { ArticleContainer } from '@components/containers'
+import { ButtonContact } from '@components/index'
+import { AboutusContainer, VisionContainer } from '@containers/aboutus'
 
 const Aboutus: NextPage = () => {
   return (
@@ -9,8 +11,10 @@ const Aboutus: NextPage = () => {
       <ButtonContact />
       <HeroBanner src='/images/hero-banner/aboutus.png' />
 
-      <BreadCrumb />
-      <CardVision />
+      <BreadCrumb outerClassName='container mx-auto' />
+      <AboutusContainer />
+      <VisionContainer />
+      <ArticleContainer />
     </Container>
   )
 }
