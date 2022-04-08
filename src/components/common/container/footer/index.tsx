@@ -9,17 +9,17 @@ const Footer: React.FC = () => {
   return (
     <nav className='flex flex-col'>
       {/* Footer Navgiation */}
-      <div className='bg-primary min-h-[510px]'>
-        <div className='container mx-auto py-14 w-full h-full'>
-          <div className='grid grid-cols-2 md:grid-cols-6 gap-5 w-full h-full'>
+      <div className='min-h-[510px] bg-primary'>
+        <div className='container py-14 mx-auto w-full h-full'>
+          <div className='grid grid-cols-2 gap-5 w-full h-full md:grid-cols-6'>
             <div className='col-span-2'>
-              <div className='w-full h-full flex flex-col justify-start md:pr-10 2xl:pr-28'>
-                <div className='mb-8 relative w-[calc(4vw_+_160px)] h-[calc(1vw_+_80px)] '>
+              <div className='flex flex-col justify-start w-full h-full md:pr-10 2xl:pr-28'>
+                <div className='relative mb-8 w-[calc(4vw_+_160px)] h-[calc(1vw_+_80px)] '>
                   <ImageLoader src='/images/logo-footer.png' layout='fill' />
                 </div>
                 <div className='font-prompts text-base text-white'>
                   <p className='text-base'>ร้านยาเน็กซ์ฟาร์มา</p>
-                  <p className='font-light text-sm md:text-base'>
+                  <p className='text-sm font-light md:text-base'>
                     บริษัท แมกซ์ เวนเจอร์ส จำกัด สำนักงานใหญ่ เลขที่ 90 อาคารซีดับเบิ้ลยู ทาวเวอร์ เอ ชั้นที่ 33
                     ถนนรัชดาภิเษก แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพฯ 10310
                   </p>
@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <div>
-              <ul className='footer-list font-prompts text-white space-y-1 md:space-y-3'>
+              <ul className='space-y-1 font-prompts text-white md:space-y-3 footer-list'>
                 <li className={styles.footerHeaderList}>หน้าทางลัด</li>
                 <li>
                   <a className={styles.footerList}>หน้าแรก</a>
@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
                 </li>
               </ul>
 
-              <ul className='font-prompts text-white space-y-1 md:space-y-3 mt-9'>
+              <ul className='mt-9 space-y-1 font-prompts text-white md:space-y-3'>
                 <li className={styles.footerHeaderList}>เกี่ยวกับเรา</li>
                 <li>
                   <a className={styles.footerList}>เกี่ยวกับเรา</a>
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
             </div>
             <div>
               {/* Policy */}
-              <ul className='font-prompts text-white space-y-1 md:space-y-3'>
+              <ul className='space-y-1 font-prompts text-white md:space-y-3'>
                 <li className={styles.footerHeaderList}>ข้อมูลทางกฏหมาย</li>
                 <li>
                   <a className={styles.footerList}>เงื่อนไขและข้อกำหนด</a>
@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
               </ul>
 
               {/* Aboutus */}
-              <ul className='font-prompts text-white space-y-1 md:space-y-3 mt-9'>
+              <ul className='mt-9 space-y-1 font-prompts text-white md:space-y-3'>
                 <li className={styles.footerHeaderList}>เกี่ยวกับพีทีแมกซ์การ์ด</li>
                 <li>
                   <a className={styles.footerList}>รายละเอียด</a>
@@ -87,14 +87,14 @@ const Footer: React.FC = () => {
               </ul>
             </div>
             <div className='col-span-2'>
-              <div className='h-full flex flex-col justify-start py-2 px-5'>
-                <div className='relative bg-white rounded-3xl max-w-[363px] h-[218px] mb-5 overflow-hidden'>
-                  <button className='absolute left-6 top-5 bg-secondary flex flex-row justify-center items-center p-2 rounded-lg'>
+              <div className='flex flex-col justify-start py-2 px-5 h-full'>
+                <div className='overflow-hidden relative mb-5 max-w-[363px] h-[218px] bg-white rounded-3xl'>
+                  <button className='flex absolute top-5 left-6 flex-row justify-center items-center p-2 rounded-lg bg-secondary'>
                     <ImageLoader width={18} height={18} src='/images/icons/right-arrow.png' />
-                    <span className='font-poppins font-semibold text-sm text-white ml-2'>Get Direction</span>
+                    <span className='ml-2 font-poppins text-sm font-semibold text-white'>Get Direction</span>
                   </button>
                   <iframe
-                    className='border-0 -mt-20 w-full h-[450px]'
+                    className='-mt-20 w-full h-[450px] border-0'
                     src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.413107201355!2d100.90005111528926!3d12.945396690873062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe3446075ca93b38f!2zMTLCsDU2JzQzLjQiTiAxMDDCsDU0JzA4LjEiRQ!5e0!3m2!1sth!2sth!4v1648752408749!5m2!1sth!2sth'
                     allowFullScreen={true}
                     loading='lazy'
@@ -102,8 +102,8 @@ const Footer: React.FC = () => {
                   ></iframe>
                 </div>
                 <div className=''>
-                  <p className='font-prompts font-medium text-xl text-white my-3'>ช่องทางติดต่อ</p>
-                  <div className='w-full flex flex-row items-center space-x-5'>
+                  <p className='my-3 font-prompts text-xl font-medium text-white'>ช่องทางติดต่อ</p>
+                  <div className='flex flex-row items-center space-x-5 w-full'>
                     <CardSocial width={14} height={26} img='/images/icons/facebook.png' alt='facebook' link='' />
                     <CardSocial width={25} height={27} img='/images/icons/line.png' alt='line' link='' />
                     <CardSocial width={22} height={25} img='/images/icons/shoppee.png' alt='shoppee' link='' />
@@ -116,10 +116,10 @@ const Footer: React.FC = () => {
         </div>
       </div>
       {/* Footer RIGHT */}
-      <div className='bg-[#1f1f1f] text-white h-9 md:h-[68px]'>
+      <div className='h-9 text-white bg-[#1f1f1f] md:h-[68px]'>
         <div className='container mx-auto w-full h-full'>
-          <div className='w-full h-full flex items-center justify-center'>
-            <p className='font-prompts font-light text-sm md:text-lg'>NEXX PHARMA © 2021 ALL RIGHTS RESERVED</p>
+          <div className='flex justify-center items-center w-full h-full'>
+            <p className='font-prompts text-sm font-light md:text-lg'>NEXX PHARMA © 2021 ALL RIGHTS RESERVED</p>
           </div>
         </div>
       </div>

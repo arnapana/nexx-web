@@ -27,7 +27,7 @@ const BreadCrumbStyle: React.FC<IBreadCrumbStyle> = ({ children }) => {
         !lastindex &&
           childElements.push(
             <Crumb>
-              <ArrowRightIcon className='w-5 h-5' />
+              <ArrowRightIcon className='mx-2 w-5 h-5' />
             </Crumb>
           )
       }

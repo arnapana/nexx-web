@@ -5,7 +5,7 @@ const Stores: NextPage = () => {
   return (
     <Container>
       <HeroBanner src='/images/hero-banner/stores.png' />
-      <BreadCrumb />
+      <BreadCrumb outerClassName='container mx-auto my-10' />
 
       <table className='overflow-hidden w-full rounded-3xl'>
         <thead className='hidden h-[77px] font-prompts font-medium text-white bg-[#3E3E3E] lg:block'>

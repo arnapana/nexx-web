@@ -21,11 +21,11 @@
   },
   "review": {
     "name": "ริวิวลูกค้า",
-    "to": "/customer-reviews"
+    "to": "/customer-review"
   },
   "article": {
     "name": "บทความ",
-    "to": "/articles"
+    "to": "/article"
   },
   "contact": {
     "name": "ติดต่อเรา",

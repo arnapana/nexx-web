@@ -54,7 +54,7 @@ export const BreadCrumb: React.FC<Props> = ({ outerClassName }) => {
         <style jsx>{`
           li {
             display: list-item;
-            padding: 5px 10px;
+            padding: 5px 0px 5px 0px;
             margin: 0 3px;
           }
         `}</style>

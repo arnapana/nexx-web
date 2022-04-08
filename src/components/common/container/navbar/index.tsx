@@ -67,6 +67,9 @@ const Navbar: React.FC = () => {
               <NavLink to={menuConstant.stores.to} name={menuConstant.stores.name} />
             </li>
             <li>
+              <NavLink to={menuConstant.review.to} name={menuConstant.review.name} />
+            </li>
+            <li>
               <NavLink to={menuConstant.article.to} name={menuConstant.article.name} />
             </li>
             <li>
@@ -101,6 +104,9 @@ const Navbar: React.FC = () => {
               </li>
               <li>
                 <NavLinkMobile to={menuConstant.telephamacy.to} name={menuConstant.telephamacy.name} />
+              </li>
+              <li>
+                <NavLinkMobile to={menuConstant.review.to} name={menuConstant.review.name} />
               </li>
               <li>
                 <NavLinkMobile to={menuConstant.stores.to} name={menuConstant.stores.name} />
