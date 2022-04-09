@@ -1,8 +1,25 @@
 import React from 'react'
-import { ImageLoader } from '@components/common'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import { ImageLoader, InputField, InputArea, InputSelect, InputCheckbok } from '@components/common'
+
 export const ContactusContainer = () => {
+  const formik = useFormik({
+    initialValues: { name: '', phone: '', email: '', title: '', details: '', accept: false },
+    validationSchema: Yup.object({
+      name: Yup.string().required(),
+      email: Yup.string().email().required(),
+      phone: Yup.string().required(),
+      title: Yup.string().required(),
+      details: Yup.string().required()
+    }),
+    onSubmit: (values, { setSubmitting }) => {
+      console.log(values)
+    }
+  })
+
   return (
-    <section>
+    <section className=''>
       <div className='container mx-auto'>
         {/* Header */}
         <div className='mb-10'>
@@ -10,7 +27,77 @@ export const ContactusContainer = () => {
         </div>
         {/* Content */}
         <div className='grid grid-cols-1 md:grid-cols-2'>
-          <div></div>
+          <div className='pr-24'>
+            <form onSubmit={formik.handleSubmit}>
+              <InputField
+                require={true}
+                label='ชื่อ - นามสกุล'
+                placeholder='ชื่อ - นามสกุล'
+                id='name'
+                type='text'
+                name='name'
+                inputValue={formik.values.name}
+                handleOnChange={formik.handleChange}
+                errors={formik.errors.name}
+                touch={formik.touched.name}
+              />
+              <InputField
+                require={true}
+                label='เบอร์โทรศัพท์'
+                placeholder='เบอร์โทรศัพท์'
+                id='phone'
+                type='text'
+                name='phone'
+                inputValue={formik.values.phone}
+                handleOnChange={formik.handleChange}
+                errors={formik.errors.phone}
+                touch={formik.touched.phone}
+              />
+              <InputField
+                require={true}
+                label='อีเมล'
+                placeholder='อีเมล'
+                id='email'
+                type='text'
+                name='email'
+                inputValue={formik.values.email}
+                handleOnChange={formik.handleChange}
+                errors={formik.errors.email}
+                touch={formik.touched.email}
+              />
+              <InputSelect
+                label='เรื่องที่ต้องการติดต่อ'
+                require={true}
+                inputValue={formik.values.title}
+                handleOnChange={formik.handleChange}
+              />
+              <InputArea
+                require={false}
+                id='details'
+                name='details'
+                label='ข้อความ'
+                placeholder='โปรดระบุข้อความที่ต้องการ...'
+                inputValue={formik.values.details}
+                handleOnChange={formik.handleChange}
+                errors={formik.errors.details}
+                touch={formik.touched.details}
+              />
+              <InputCheckbok
+                name='accept'
+                label='ยอมรับนโยบายความเป็นส่วนตัวและนโยบายคุกกี้'
+                checked={formik.values.accept}
+                handleOnChange={formik.handleChange}
+              />
+              <div>
+                <button
+                  type='submit'
+                  className='w-full h-[70px] font-prompts font-medium text-white bg-[#78DF45] rounded-3xl'
+                >
+                  ส่งข้อความหาเรา
+                </button>
+              </div>
+            </form>
+          </div>
           <div>
             <div className='overflow-hidden relative mb-5 max-w-[620px] max-h-[820px] bg-white rounded-tr-[3rem] rounded-bl-[3rem]'>
               <button className='flex absolute top-5 left-6 flex-row justify-center items-center p-2 rounded-lg bg-secondary'>
