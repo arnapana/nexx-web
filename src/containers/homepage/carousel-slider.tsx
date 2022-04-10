@@ -28,7 +28,7 @@ const CarouselSlider = () => {
                 {/* Image Carousel */}
                 <div
                   className={classNames(
-                    'w-full h-[30rem] bg-[url("/images/carousel/asian-young-fem.png")] bg-no-repeat bg-cover bg-center',
+                    'w-full h-[30rem] bg-[url("/images/carousel/herobanner-mobile.png")] sm:bg-[url("/images/carousel/asian-young-fem.png")] bg-no-repeat bg-cover bg-center',
                     'md:h-[40rem]',
                     '2xl:h-[42rem]'
                   )}
@@ -36,7 +36,7 @@ const CarouselSlider = () => {
                 {/* <ImageLoader src={val.src} alt={val.alt} layout='fill' /> */}
               </div>
               {/* Content */}
-              <div className='absolute top-[15%] left-[5%] text-white lg:top-[10%] lg:left-[15%]'>
+              <div className='absolute top-[30%] left-[5%] text-white md:top-[10%] lg:top-[10%] lg:left-[15%]'>
                 <div className='mb-4'>
                   <p className='font-poppins text-[3rem] font-semibold drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] md:text-[5rem] 2xl:text-[5.8rem]'>
                     {carouselConstant.title}
