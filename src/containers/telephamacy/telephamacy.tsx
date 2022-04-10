@@ -1,6 +1,8 @@
 import React from 'react'
-
+import { CardTelephamacy } from '@components/index'
 import { ColorLine, ImageLoader } from '@components/common'
+
+import telephamacyConstant from '@constants/mock/telephamacy.json'
 
 export const TelephamacyContainer = () => {
   return (
@@ -18,8 +20,12 @@ export const TelephamacyContainer = () => {
         </div>
         {/* Content */}
         <div className='grid grid-cols-1 md:grid-cols-2'>
-          <div></div>
-          <div className='m-auto'>
+          <div>
+            {telephamacyConstant.map((val, idx) => (
+              <CardTelephamacy key={idx} name={val.name} list={val.list} />
+            ))}
+          </div>
+          <div className='mx-auto'>
             <ImageLoader src='/images/telephamacy/img2.png' width={396} height={800} />
           </div>
         </div>
