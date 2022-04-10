@@ -1,11 +1,23 @@
 import { NextPage } from 'next'
+import { ButtonContact } from '@components/index'
 import { Container, HeroBanner, BreadCrumb } from '@components/common'
+import {
+  HeaderContentContainer,
+  ContactContainer,
+  OurBranchContainer,
+  RelativeBranchContainer
+} from '@containers/ourstore'
 
 const Stores: NextPage = () => {
   return (
     <Container>
+      {/* Floating Button */}
+      <ButtonContact />
       <HeroBanner src='/images/hero-banner/stores.png' />
       <BreadCrumb outerClassName='container mx-auto my-10' />
+      <HeaderContentContainer />
+      <OurBranchContainer />
+      <RelativeBranchContainer />
 
       <table className='overflow-hidden w-full rounded-3xl'>
         <thead className='hidden h-[77px] font-prompts font-medium text-white bg-[#3E3E3E] lg:block'>
@@ -29,6 +41,7 @@ const Stores: NextPage = () => {
           </tr>
         </tbody>
       </table>
+      <ContactContainer />
       <style jsx>{`
         th,
         td {
