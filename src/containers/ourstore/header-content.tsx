@@ -5,7 +5,7 @@ import { ColorLine, ImageLoader } from '@components/common'
 
 export const HeaderContentContainer = () => {
   return (
-    <section>
+    <section className='mb-20'>
       <div className='container mx-auto'>
         {/* Header */}
         <div className='mb-14'>

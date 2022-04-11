@@ -21,7 +21,7 @@ export const Button: React.FC<IButton> = ({ name, outerClassName, innerClassName
       >
         <p className='font-prompts  text-white whitespace-nowrap md:text-xl'>{name}</p>
         <div className={'flex justify-center items-center'}>
-          <ImageLoader width={28} height={18} src='/images/icons/enter-button.png' />
+          <ImageLoader width={36} height={18} src='/images/icons/enter-button.png' />
         </div>
       </button>
     </div>

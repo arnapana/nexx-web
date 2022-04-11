@@ -4,7 +4,7 @@ import React from 'react'
 
 export const ContactContainer = () => {
   return (
-    <section className='py-20 min-h-[500px] bg-[#FCFCFC] md:py-[80px] 2xl:py-[160px]'>
+    <section className='py-20 min-h-[500px] md:py-[80px] 2xl:py-[160px]'>
       <div className='container mx-auto w-full h-full '>
         <div className='grid grid-cols-1 gap-5 w-full h-full'>
           {/* Content */}
