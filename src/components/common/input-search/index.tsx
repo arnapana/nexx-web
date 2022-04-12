@@ -11,6 +11,7 @@ interface Props {
   placeholder: string
   inputValue: string
   handleOnChange: (data: any) => void
+  onSubmit: (data: any) => void
 }
 
 export const InputSearch: React.FC<Props> = ({
@@ -21,7 +22,8 @@ export const InputSearch: React.FC<Props> = ({
   type,
   placeholder,
   inputValue,
-  handleOnChange
+  handleOnChange,
+  onSubmit
 }) => {
   return (
     <div className={classNames(containerClassName, '')}>
@@ -36,10 +38,10 @@ export const InputSearch: React.FC<Props> = ({
             onChange={handleOnChange}
             className={classNames(
               inputClassName,
-              'bg-[#FCFFFA] placeholder-[#5D5D5D] appearance-none outline-none max-h-[47px] py-7 px-10 border border-[#78DF45] rounded-full'
+              'bg-[#FCFFFA] placeholder-[#5D5D5D] appearance-none outline-none h-[47px] px-10 border border-[#78DF45] rounded-full'
             )}
           />
-          <button className='absolute top-1/2 right-[5%] w-[28px] h-[28px] -translate-y-1/2'>
+          <button className='absolute top-1/2 right-[5%] w-[28px] h-[28px] -translate-y-1/2' onClick={onSubmit}>
             <ImageLoader width={28} height={28} src='/images/icons/icon_search.png' />
           </button>
         </label>

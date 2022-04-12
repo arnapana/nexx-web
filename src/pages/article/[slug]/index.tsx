@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Container, BreadCrumb } from '@components/common'
 import { ButtonContact } from '@components/index'
+import { ArticleContentContainer, ArticleRelativeContainer } from '@containers/article/content'
 
 import articlesConstant from '@constants/mock/articles.json'
 
@@ -21,6 +22,8 @@ const Article: NextPage = (props: any) => {
       <ButtonContact />
 
       <BreadCrumb outerClassName='container mx-auto my-10' />
+      <ArticleContentContainer />
+      <ArticleRelativeContainer />
     </Container>
   )
 }

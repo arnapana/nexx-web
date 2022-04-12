@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { InputSearch } from '@components/common'
 
-export const HeaderSearchContainer = () => {
+export const SearchHeaderContainer = () => {
   const router = useRouter()
   const [search, setSearch] = useState<any>('')
 
@@ -13,22 +13,21 @@ export const HeaderSearchContainer = () => {
   const handleSumbit = () => {
     router.push({ pathname: '/article/search', query: { keyword: search } })
   }
+
   return (
-    <section>
-      <div className='mb-10'>
+    <section className='mb-12'>
+      <div className='container mx-auto'>
         {/* Header */}
         <div className='mb-10'>
           <div className='mb-5'>
-            <p className='font-prompts text-[3rem] font-medium text-center'>สาระสุขภาพน่ารู้</p>
+            <p className='font-prompts font-medium text-center h2'>ผลการค้นหาคำว่า</p>
           </div>
           <div className='px-[30%]'>
-            <p className='font-prompts font-normal text-center'>
-              อ่านบทความด้านสุขภาพอย่างครบถ้วน <br /> และข้อมูลที่มีประโยชน์ ที่เราคัดสรรมาให้แล้วเพื่อคุณ
-            </p>
+            <p className='font-prompts font-normal text-center text-primary h2'>{`“${router.query['keyword']}“`}</p>
           </div>
         </div>
         {/* Search */}
-        <div className='flex justify-center'>
+        <div className='flex justify-end'>
           <InputSearch
             name='search'
             type='text'
