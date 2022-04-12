@@ -21,12 +21,16 @@ const BreadCrumbStyle: React.FC<IBreadCrumbStyle> = ({ children }) => {
       const lastindex = index === arrayChildren.length - 1
 
       if (lastindex) {
-        childElements.push(<Crumb last={true}>{cloneElement(child as React.ReactElement<any>)}</Crumb>)
+        childElements.push(
+          <Crumb key={index} last={true}>
+            {cloneElement(child as React.ReactElement<any>)}
+          </Crumb>
+        )
       } else {
-        childElements.push(<Crumb>{cloneElement(child as React.ReactElement<any>)}</Crumb>)
+        childElements.push(<Crumb key={index}>{cloneElement(child as React.ReactElement<any>)}</Crumb>)
         !lastindex &&
           childElements.push(
-            <Crumb>
+            <Crumb key={index + 100}>
               <ArrowRightIcon className='mx-2 w-5 h-5' />
             </Crumb>
           )

@@ -1,5 +1,5 @@
-import { ColorLine, Button } from '@components/common'
 import React from 'react'
+import { ColorLine, Button, Pagination } from '@components/common'
 
 export const OurBranchContainer = () => {
   return (
@@ -16,30 +16,39 @@ export const OurBranchContainer = () => {
         <Button outerClassName='my-10' innerClassName='ml-auto' name='ค้นหาสาขา' />
 
         <div className='overflow-x-auto'>
-          <table className='w-full rounded-3xl'>
-            <thead className='h-[77px] font-prompts font-medium text-white uppercase bg-[#3E3E3E]'>
+          <table className='overflow-hidden mx-auto w-[65rem] rounded-[40px] border-collapse table-fixed'>
+            <thead className='font-prompts font-medium text-white uppercase bg-[#3E3E3E]'>
               <tr>
-                <th>ลำดับ</th>
-                <th>ที่อยู่</th>
-                <th>เบอร์โทรศัพท์</th>
-                <th>เวลาทำการ</th>
-                <th>แผนที่</th>
+                <th className='p-5 w-[12%]'>ลำดับ</th>
+                <th className='p-5 w-[37%]'>ที่อยู่</th>
+                <th className='p-5 w-[18%]'>เบอร์โทรศัพท์</th>
+                <th className='p-5 w-[18%]'>เวลาทำการ</th>
+                <th className='p-5 w-[15%]'>แผนที่</th>
               </tr>
             </thead>
-            <tbody className='font-prompts text-xl'>
-              <tr className='odd:bg-[#F0F4FF] h-[130px]'>
-                <td>1</td>
-                <td>เน็กซ์ฟาร์มา สาขาบางบ่อ 225 ม.4 ตำบลบางบ่อ อำเภอบางบ่อ จังหวัดสมุทรปราการ 10560</td>
-                <td>065 523 5074</td>
-                <td>07:00-19:00</td>
-                <td>
+            <tbody className='font-prompts text-xl text-center'>
+              <tr className='h-[130px] odd:bg-[#F0F4FF]'>
+                <td className='border border-[#D9D9D9]'>1</td>
+                <td className='text-left border border-[#D9D9D9]'>
+                  เน็กซ์ฟาร์มา สาขาบางบ่อ 225 ม.4 ตำบลบางบ่อ อำเภอบางบ่อ จังหวัดสมุทรปราการ 10560
+                </td>
+                <td className='text-primary underline border border-[#D9D9D9]'>065 523 5074</td>
+                <td className='border border-[#D9D9D9]'>07:00-19:00</td>
+                <td className='border border-[#D9D9D9]'>
                   <button className='p-2 w-[66px] h-[44px] text-white rounded-lg bg-secondary'>คลิก</button>
                 </td>
               </tr>
             </tbody>
           </table>
+
+          <Pagination pageCount={5} onChangePage={(val) => console.log(val)} />
         </div>
       </div>
+      <style jsx>{`
+        tr td {
+          padding: 0px 20px 0px 20px;
+        }
+      `}</style>
     </section>
   )
 }
