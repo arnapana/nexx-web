@@ -1,4 +1,4 @@
-import { Button, ColorLine } from '@components/common'
+import { Button, ColorLine, Pagination, TableField } from '@components/common'
 import React from 'react'
 
 export const RelativeBranchContainer = () => {
@@ -14,6 +14,30 @@ export const RelativeBranchContainer = () => {
           <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
         </div>
         <Button outerClassName='my-10' innerClassName='ml-auto' name='ค้นหาสาขา' />
+
+        <div className='overflow-x-auto'>
+          <table className='overflow-hidden mx-auto w-[65rem] rounded-[40px] border-collapse table-fixed'>
+            <thead className='font-prompts font-medium text-white uppercase bg-[#3E3E3E]'>
+              <tr>
+                <th className='p-5 w-[12%]'>ลำดับ</th>
+                <th className='p-5 w-[37%]'>ที่อยู่</th>
+                <th className='p-5 w-[18%]'>เบอร์โทรศัพท์</th>
+                <th className='p-5 w-[18%]'>เวลาทำการ</th>
+                <th className='p-5 w-[15%]'>แผนที่</th>
+              </tr>
+            </thead>
+            <tbody className='font-prompts text-xl text-center'>
+              <TableField />
+              <TableField />
+              <TableField />
+              <TableField />
+              <TableField />
+              <TableField />
+            </tbody>
+          </table>
+
+          <Pagination pageCount={5} onChangePage={(val) => console.log(val)} />
+        </div>
       </div>
     </section>
   )

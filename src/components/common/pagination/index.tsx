@@ -3,10 +3,10 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@components/icons'
 import classNames from 'classnames'
 
 interface Props {
-  containerClassName: string
-  innerClassName: string
+  containerClassName?: string
+  innerClassName?: string
   pageCount: number
-  disabled: boolean
+  disabled?: boolean
   onChangePage: (i: number) => void
 }
 
