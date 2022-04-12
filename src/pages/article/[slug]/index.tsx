@@ -1,6 +1,8 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { Container, BreadCrumb } from '@components/common'
+import { ButtonContact } from '@components/index'
 
 import articlesConstant from '@constants/mock/articles.json'
 
@@ -13,7 +15,14 @@ const Article: NextPage = (props: any) => {
     return <p>Loading...</p>
   }
 
-  return <div></div>
+  return (
+    <Container>
+      {/* Floating Button */}
+      <ButtonContact />
+
+      <BreadCrumb outerClassName='container mx-auto my-10' />
+    </Container>
+  )
 }
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {

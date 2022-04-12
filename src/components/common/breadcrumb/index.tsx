@@ -16,7 +16,7 @@ interface Props {
 }
 
 export const BreadCrumb: React.FC<Props> = ({ outerClassName }) => {
-  const [breadcrumb, setBreadcrumb] = useState<breadcrumb[] | null>(null)
+  const [breadcrumb, setBreadcrumb] = useState<breadcrumb[]>([])
   const router = useRouter()
 
   useEffect(() => {
@@ -24,13 +24,13 @@ export const BreadCrumb: React.FC<Props> = ({ outerClassName }) => {
     routers.shift() // delete first array
 
     const pathArray: Array<breadcrumb> = routers.map((path, idx) => {
-      return { breadCrumb: path, to: `/${routers.splice(idx, idx + 1).join('/')}` }
+      return { breadCrumb: path, to: `/${routers.slice(0, idx + 1).join('/')}` }
     })
 
     setBreadcrumb(pathArray)
   }, [router])
 
-  if (!breadcrumb) return null
+  if (breadcrumb?.length <= 0) return null
 
   return (
     <div className={outerClassName}>
@@ -45,7 +45,9 @@ export const BreadCrumb: React.FC<Props> = ({ outerClassName }) => {
             {breadcrumb.map((val, idx) => (
               <li key={idx}>
                 <Link key={idx} href={val.to} passHref>
-                  {breadcrumbConstant[val.breadCrumb as keyof typeof breadcrumbConstant]}
+                  {breadcrumbConstant[val.breadCrumb as keyof typeof breadcrumbConstant]
+                    ? breadcrumbConstant[val.breadCrumb as keyof typeof breadcrumbConstant]
+                    : val.breadCrumb}
                 </Link>
               </li>
             ))}
