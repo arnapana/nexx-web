@@ -68,7 +68,9 @@ const Footer: React.FC = () => {
                   <a className={styles.footerList}>เงื่อนไขและข้อกำหนด</a>
                 </li>
                 <li>
-                  <a className={styles.footerList}>นโยบายความเป็นส่วนตัว</a>
+                  <Link href="/privacy">
+                    <a className={styles.footerList}>นโยบายความเป็นส่วนตัว</a>
+                  </Link>
                 </li>
                 <li>
                   <a className={styles.footerList}>กฏหมายที่เกี่ยวข้อง</a>

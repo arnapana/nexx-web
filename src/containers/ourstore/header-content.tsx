@@ -13,7 +13,7 @@ export const HeaderContentContainer = () => {
             <p className='text-center h2'>{storeConstant.title}</p>
           </div>
 
-          <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
+          <ColorLine lineClassName='h-[5px] text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
         </div>
         {/* Content */}
         <div className='flex justify-center space-x-20'>
