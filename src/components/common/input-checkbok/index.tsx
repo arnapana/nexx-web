@@ -9,6 +9,7 @@ interface Props {
   placeholder?: string
   containerClassName?: string
   inputClassName?: string
+  labelClassName?: string
 }
 
 export const InputCheckbok: React.FC<Props> = ({
@@ -18,6 +19,7 @@ export const InputCheckbok: React.FC<Props> = ({
   label,
   placeholder,
   containerClassName,
+  labelClassName,
   inputClassName
 }) => {
   return (
@@ -33,7 +35,7 @@ export const InputCheckbok: React.FC<Props> = ({
             name={name}
             id={name}
           />
-          <span className='ml-2'>{label || ''}</span>
+          <span className={classNames(labelClassName,'ml-2')}>{label || ''}</span>
         </label>
       </div>
     </div>

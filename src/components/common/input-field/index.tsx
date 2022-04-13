@@ -49,7 +49,7 @@ export const InputField: React.FC<Props> = ({
           value={inputValue}
           className={classNames(
             inputClassName,
-            'bg-[#FCFFFA] placeholder-[#5D5D5D] appearance-none outline-none max-h-[70px] py-7 px-10 border border-[#78DF45] rounded-2xl'
+            'bg-[#FCFFFA] placeholder-[#5D5D5D] appearance-none outline-none max-h-[70px] h-[70px] px-10 border border-[#78DF45] rounded-2xl'
           )}
           onChange={handleOnChange}
         />

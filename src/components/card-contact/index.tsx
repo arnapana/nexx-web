@@ -14,14 +14,14 @@ interface Props {
 
 export const CardContact: React.FC<Props> = ({ name, detail, img }) => {
   return (
-    <div className='px-8'>
+    <div className='md:px-8'>
       <div className='flex justify-center items-start'>
-        <div className='flex justify-end w-2/5'>
+        <div className='grid place-content-center w-2/5'>
           <div>
             <ImageLoader width={img?.w} height={img?.h} src={img?.src} />
           </div>
         </div>
-        <div className='pl-8'>
+        <div className='pl-8 w-full'>
           <div>
             <p className='font-prompts text-2xl font-medium'>{name}</p>
           </div>

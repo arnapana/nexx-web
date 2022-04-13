@@ -17,7 +17,7 @@ export const ContactStoreContainer = () => {
               <Button name='คลิก' />
             </button>
           </div>
-          <div className='grid grid-cols-1 md:grid-cols-3'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
             {contactusContstant.contacts.cards.map((val, idx) => (
               <CardContact name={val.name} detail={val.details} img={val.img} key={idx} />
             ))}

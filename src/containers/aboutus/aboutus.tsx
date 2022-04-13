@@ -4,20 +4,20 @@ import aboutConstant from '@constants/mock/aboutus.json'
 
 export const AboutusContainer = () => {
   return (
-    <section className='md:mb-32'>
+    <section className='mb-10 md:mb-32'>
       <div className='container mx-auto'>
         <div className='grid grid-cols-1'>
           {/* Content 1 */}
-          <div className='grid grid-cols-1 mb-24 md:grid-cols-2'>
-            <div className='pr-20'>
+          <div className='grid grid-cols-1 gap-5 mb-10 md:mb-24 md:grid-cols-2'>
+            <div className='md:pr-20'>
               <div className='mb-5'>
                 <p className='text-primary h2'>{aboutConstant.content1.title}</p>
               </div>
               <div className='mb-6'>
-                <p className='font-sarabun text-xl font-light'>{aboutConstant.content1.paragraph1}</p>
+                <p className='font-sarabun font-light md:text-lg 2xl:text-xl'>{aboutConstant.content1.paragraph1}</p>
               </div>
               <div>
-                <p className='font-sarabun text-xl font-light'>{aboutConstant.content1.paragraph1}</p>
+                <p className='font-sarabun font-light md:text-lg 2xl:text-xl'>{aboutConstant.content1.paragraph1}</p>
               </div>
             </div>
             <div className=''>
@@ -30,8 +30,8 @@ export const AboutusContainer = () => {
             </div>
           </div>
           {/* Content 2 */}
-          <div className='grid grid-cols-1 md:grid-cols-2'>
-            <div className=''>
+          <div className='grid grid-cols-1 gap-5 md:grid-cols-2'>
+            <div className='order-2 md:order-1'>
               <ImageLoader
                 className='overflow-hidden rounded-tr-[40px] rounded-bl-[40px]'
                 width={555}
@@ -39,15 +39,15 @@ export const AboutusContainer = () => {
                 src={aboutConstant.content2.image}
               />
             </div>
-            <div className='px-8'>
+            <div className='order-1 md:order-2 md:px-8'>
               <div className='mb-5'>
-                <p className='font-sarabun text-xl font-light'>{aboutConstant.content2.paragraph1}</p>
+                <p className='font-sarabun font-light md:text-lg 2xl:text-xl'>{aboutConstant.content2.paragraph1}</p>
               </div>
               <div className='mb-5'>
-                <p className='font-sarabun text-xl font-light'>{aboutConstant.content2.paragraph2}</p>
+                <p className='font-sarabun font-light md:text-lg 2xl:text-xl'>{aboutConstant.content2.paragraph2}</p>
               </div>
               <div>
-                <p className='font-sarabun text-xl font-light'>{aboutConstant.content2.paragraph3}</p>
+                <p className='font-sarabun font-light md:text-lg 2xl:text-xl'>{aboutConstant.content2.paragraph3}</p>
               </div>
             </div>
           </div>
