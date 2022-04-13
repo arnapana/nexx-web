@@ -23,37 +23,61 @@
         "name": "Convenient Medicine",
         "content": "บริการส่งยาบ้านคุณ",
         "url": "/",
-        "img": "/images/aboutus/vision1.png"
+        "img": {
+          "src": "/images/aboutus/vision1.png",
+          "w": 240,
+          "h": 230
+        }
       },
       {
         "name": "Consult by Expert",
         "content": "ปรึกษาเภสัชกรเรื่องยาและปัญหาสุขภาพจากแพทย์เฉพาะทาง",
         "url": "/",
-        "img": "/images/aboutus/vision2.png"
+        "img": {
+          "src": "/images/aboutus/vision2.png",
+          "w": 206,
+          "h": 230
+        }
       },
       {
         "name": "Care Innovation",
         "content": "นวัตกรรมการดูแลสุขภาพที่ทันสมัย",
         "url": "/",
-        "img": "/images/aboutus/vision3.png"
+        "img": {
+          "src": "/images/aboutus/vision3.png",
+          "w": 263,
+          "h": 239
+        }
       },
       {
         "name": "Cost Control",
         "content": "บริการยาคุณภาพในราคามาตรฐาน ควบคุมค่าใช้จ่ายได้",
         "url": "/",
-        "img": "/images/aboutus/vision4.png"
+        "img": {
+          "src": "/images/aboutus/vision4.png",
+          "w": 247,
+          "h": 239
+        }
       },
       {
         "name": "Connect Anytime",
         "content": "เชื่อมต่อขอรับคําปรึกษาหรือข้อมูลด้านสุขภาพได้ทุกเมื่อ",
         "url": "/",
-        "img": "/images/aboutus/vision5.png"
+        "img": {
+          "src": "/images/aboutus/vision5.png",
+          "w": 205,
+          "h": 243
+        }
       },
       {
         "name": "Covering Anywhere",
         "content": "ครอบคลุมทุกพื้นที่ เข้าถึงทุกความต้องการ",
         "url": "/",
-        "img": "/images/aboutus/vision6.png"
+        "img": {
+          "src": "/images/aboutus/vision6.png",
+          "w": 192,
+          "h": 243
+        }
       }
     ]
   }
