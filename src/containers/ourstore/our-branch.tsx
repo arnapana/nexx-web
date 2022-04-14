@@ -61,8 +61,8 @@ export const OurBranchContainer = () => {
             </tbody>
           </table>
 
-          <Pagination pageCount={5} onChangePage={(val) => console.log(val)} />
         </div>
+        <Pagination pageCount={5} onChangePage={(val) => console.log(val)} />
 
         {/* Modal */}
         <ModalOpacity isModal={isModal} onClick={(event: any) => handleModal(event)}>

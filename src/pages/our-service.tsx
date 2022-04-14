@@ -18,7 +18,7 @@ const OurService: NextPage = () => {
             <ImageLoader src='/images/carousel/left-arrow-green.png' width={84} height={52} />
           </div>
         </div>
-        <div className='w-[54%]'>
+        <div className='md:w-[54%]'>
           <p className='font-prompts text-2xl font-medium text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] md:text-3xl 2xl:text-[2.5rem] 2xl:leading-[55px]'>
             สุขภาพที่ดีที่ทุกคนเข้าถึงได้ ด้วยบริการจาก NEXX Pharma
           </p>

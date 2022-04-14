@@ -41,7 +41,10 @@ export const Pagination: React.FC<Props> = ({
 
   const PageinationElement = () => {
     const listPagination = []
-    for (let i = 0; i < pageCount; i++) {
+    const offerPage = page + 3 >= pageCount ? pageCount :page + 3
+    const lowerPage = page - 1 <= 0 ? page : page - 1
+
+    for (let i = lowerPage; i < offerPage; i++) {
       listPagination.push(
         <li key={i}>
           <button

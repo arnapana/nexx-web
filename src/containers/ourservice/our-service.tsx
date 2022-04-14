@@ -11,7 +11,7 @@ export const OurServiceContainer = () => {
             <p className='text-center h2'>บริการของเรา</p>
           </div>
           <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
-          <div className='px-[30%] text-center'>
+          <div className='px-[10%] text-center md:px-[30%]'>
             <p>NEXX Pharma เรามีบริการครอบคลุมทุกเรื่องยาและสุขภาพ แบบครบวงจรจากเภสัชกรและผู้เชี่ยวชาญในสาขาต่างๆ</p>
           </div>
         </div>
