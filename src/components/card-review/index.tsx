@@ -19,10 +19,10 @@ export const CardReview = () => {
           </div>
           <div>
             <div className='mb-2'>
-              <p className='font-prompts text-xl font-normal'>ชื่อ นามกสุล</p>
+              <p className='font-prompts text-base font-normal 2xl:text-xl'>ชื่อ นามกสุล</p>
             </div>
             <div>
-              <p className='font-prompts text-xl font-normal text-[#5D5D5D]'>อาชีพ พนักงานออฟฟิต</p>
+              <p className='font-prompts text-base font-normal text-[#5D5D5D] 2xl:text-xl'>อาชีพ พนักงานออฟฟิต</p>
             </div>
           </div>
         </div>

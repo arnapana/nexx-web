@@ -1,10 +1,11 @@
 import React from 'react'
 import { ColorLine, ImageLoader } from '@components/common'
+
 export const ContactTelephamacyContainer = () => {
   return (
-    <section className='py-32 min-h-[37.5rem] bg-[#FCFCFC]'>
+    <section className='py-20 min-h-[37.5rem] bg-[#FCFCFC] md:py-32'>
       <div className='container mx-auto'>
-        <div className='grid grid-cols-1 md:grid-cols-2'>
+        <div className='grid grid-cols-1 gap-10 md:grid-cols-2'>
           <div className='flex justify-center items-center'>
             <ImageLoader src='/images/telephamacy/img1.png' width={555} height={320} />
           </div>

@@ -4,7 +4,7 @@ import { ImageLoader } from '@components/common'
 
 export const CardActivitySmall = () => {
   return (
-    <div>
+    <div className='mx-auto'>
       <div className='max-w-[25rem]'>
         <div className='flex flex-row mb-4'>
           <div className='pr-5'>
@@ -20,8 +20,8 @@ export const CardActivitySmall = () => {
             </div>
           </div>
         </div>
-        <div className='mb-4'>
-          <p className='font-sarabun text-base text-[#5D5D5D]'>
+        <div className='mb-2'>
+          <p className='font-sarabun text-sm text-[#5D5D5D] 2xl:text-base'>
             โครงการที่จัดขึ้นโดยร้านยาแมกซ์ฟาร์มาซี ก่อนจะเปลี่ยนชื่อใหม่ เป็น NEXX Pharma ร่วมมือกับโรงพยาบาลมิตรไมตรี
             เพื่อออก ตรวจสุขภาพให้กับพี่น้องใน 8 ชุมชน
           </p>

@@ -9,8 +9,8 @@ interface Props {
 export const ButtonTag: React.FC<Props> = ({ innerClassName, outerClassName, name }) => {
   return (
     <div className={outerClassName}>
-      <div className={classNames(innerClassName, 'px-5 max-w-[150px] h-7 bg-[#5C6CE0] rounded-full')}>
-        <p className='font-prompts text-lg text-white truncate'>#{name}</p>
+      <div className={classNames(innerClassName, 'px-5 h-7 bg-[#5C6CE0] rounded-full grid place-items-center')}>
+        <p className='min-w-[50px] max-w-[120px] font-prompts text-sm text-white 2xl:text-lg truncat'>#{name}</p>
       </div>
     </div>
   )

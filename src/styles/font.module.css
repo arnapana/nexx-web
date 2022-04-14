@@ -89,12 +89,12 @@ h1,
 
 h2,
 .h2 {
-  @apply font-prompts font-medium text-2xl xl:text-[2rem];
+  @apply font-prompts font-medium text-lg md:text-2xl xl:text-[2rem];
 }
 
 h3,
 .h3 {
-  @apply font-prompts font-bold text-lg xl:text-2xl;
+  @apply font-prompts font-bold text-base md:text-xl 2xl:text-2xl;
 }
 
 h4,

@@ -3,14 +3,14 @@ import { CardActivitySmall, CardActivityLarge } from '@components/index'
 
 export const ArticleContainer = () => {
   return (
-    <section className='mb-36'>
+    <section className='mb-10 md:mb-36'>
       <div className='container mx-auto'>
         {/* Content */}
-        <div className='flex'>
-          <div className='mr-10'>
+        <div className='grid grid-cols-1 md:gap-10 xl:grid-cols-3'>
+          <div className='grid col-span-2 place-content-center mb-10 md:mb-0 xl:place-content-start'>
             <CardActivityLarge />
           </div>
-          <div className='space-y-6'>
+          <div className='grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-1 '>
             <CardActivitySmall />
             <CardActivitySmall />
           </div>
