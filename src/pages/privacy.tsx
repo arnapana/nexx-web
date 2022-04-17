@@ -1,8 +1,12 @@
 import { NextPage } from 'next'
+import classNames from 'classnames'
+import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemote } from 'next-mdx-remote'
 import { Container, BreadCrumb } from '@components/common'
 import { ButtonContact } from '@components/index'
+import { getPostBySlug } from '@utils/file-system'
 
-const Privacy: NextPage = () => {
+const Privacy: NextPage = (props:any) => {
   return (
     <Container>
       {/* Floating Button */}
@@ -15,10 +19,14 @@ const Privacy: NextPage = () => {
         <div>
           {/* Header */}
           <div className='grid items-center px-8 h-[65px] text-white bg-primary rounded-2xl'>
-            <p className='font-prompts font-medium 2xl:text-2xl telephamacy-title'>การประมวลผลข้อมูลส่วนบุคคล</p>
+            <p className={classNames('font-prompts font-medium 2xl:text-2xl telephamacy-title')}>
+              การประมวลผลข้อมูลส่วนบุคคล
+            </p>
           </div>
           {/* Content */}
-          <div className='font-sarabun text-xl font-light mb-32'></div>
+          <div className='mb-32 font-sarabun text-xl font-light prose'>
+            <MDXRemote {...props.mdxSource} />
+          </div>
         </div>
       </div>
       <style jsx>
@@ -43,3 +51,15 @@ const Privacy: NextPage = () => {
 }
 
 export default Privacy
+
+export const getStaticProps = async () => {
+  const posts: any = await getPostBySlug('policy')
+  const mdxSource = await serialize(posts.content)
+  return {
+    props: {
+      frontMatter: posts,
+      mdxSource: mdxSource,
+      slug: posts.slug
+    }
+  }
+}

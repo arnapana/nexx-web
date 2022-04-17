@@ -12,7 +12,7 @@ export const ContactContainer = () => {
             <p className='my-3 text-center h2'>ร้านยาออนไลน์</p>
             <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 mb-7 mt-4' />
             <div className=''>
-              <p className='md:px-[20%] text-center text-[#5D5D5D]'>
+              <p className='text-center text-[#5D5D5D] md:px-[20%]'>
                 สามารถสั่งซื้อยาสามัญประจําบ้าน วิตามิน และสินค้าสุขภาพได้ตลอด 24 ชั่วโมง ผ่านช่องทางต่างๆของเราที่ Line
                 shopping, Line Chat, Shopee และ Lazada
               </p>
