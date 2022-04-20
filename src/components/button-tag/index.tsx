@@ -17,5 +17,6 @@ export const ButtonTag: React.FC<Props> = ({ innerClassName, outerClassName, nam
 }
 
 ButtonTag.defaultProps = {
-  outerClassName: ''
+  outerClassName: '',
+  innerClassName: ''
 }
