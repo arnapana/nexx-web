@@ -40,7 +40,7 @@ export const ContactusContainer = () => {
                 handleOnChange={formik.handleChange}
                 errors={formik.errors.name}
                 touch={formik.touched.name}
-                inputClassName="h-[50px]"
+                inputClassName="h-[50px] md:h-[70px]"
               />
               <InputField
                 require={true}
@@ -53,7 +53,7 @@ export const ContactusContainer = () => {
                 handleOnChange={formik.handleChange}
                 errors={formik.errors.phone}
                 touch={formik.touched.phone}
-                inputClassName="h-[50px]"
+                inputClassName="h-[50px] md:h-[70px]"
               />
               <InputField
                 require={true}
@@ -66,14 +66,14 @@ export const ContactusContainer = () => {
                 handleOnChange={formik.handleChange}
                 errors={formik.errors.email}
                 touch={formik.touched.email}
-                inputClassName="h-[50px]"
+                inputClassName="h-[50px] md:h-[70px]"
               />
               <InputSelect
                 label='เรื่องที่ต้องการติดต่อ'
                 require={true}
                 inputValue={formik.values.title}
                 handleOnChange={formik.handleChange}
-                inputClassName="h-[50px]"
+                inputClassName="h-[50px] md:h-[70px]"
         
               />
               <InputArea

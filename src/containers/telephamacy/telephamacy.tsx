@@ -14,7 +14,7 @@ export const TelephamacyContainer = () => {
             <p className='text-center h2'>ขั้นตอนในการใช้บริการ Telepharmacy</p>
           </div>
           <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
-          <div className='px-[10%] md:px-[30%] text-center'>
+          <div className='px-[10%] text-center md:px-[30%]'>
             <p>ตอบทุกคําถามเรื่องยาและสุขภาพโดยเภสัชกรหรือ บุคลากรทางการแพทย์ในรูปแบบออนไลน์</p>
           </div>
         </div>
@@ -25,7 +25,7 @@ export const TelephamacyContainer = () => {
               <CardTelephamacy key={idx} name={val.name} list={val.list} />
             ))}
           </div>
-          <div className='mx-auto'>
+          <div className='px-10 mx-auto md:px-0'>
             <ImageLoader src='/images/telephamacy/img2.png' width={396} height={800} />
           </div>
         </div>

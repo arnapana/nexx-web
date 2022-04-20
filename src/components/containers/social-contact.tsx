@@ -39,7 +39,7 @@ export const SocialContact: React.FC = () => {
                 imageClassName='bg-[#06C755] rounded-full'
               />
               <CardShopping
-                imageClassName='rounded-full'
+                imageClassName='rounded-full '
                 height={88}
                 width={88}
                 name='Line Shopping'
