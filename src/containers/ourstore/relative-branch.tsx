@@ -33,7 +33,12 @@ export const RelativeBranchContainer = () => {
 
           <ColorLine lineClassName='h-[5px] text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
         </div>
-        <Button outerClassName='my-10' innerClassName='ml-auto' name='ค้นหาสาขา' onClick={(event: any) => handleModal(event)}/>
+        <Button
+          outerClassName='my-10'
+          innerClassName='ml-auto'
+          name='ค้นหาสาขา'
+          onClick={(event: any) => handleModal(event)}
+        />
 
         <div className='overflow-x-auto'>
           <table className='overflow-hidden mx-auto w-[65rem] rounded-[40px] border-collapse table-fixed'>
@@ -55,17 +60,15 @@ export const RelativeBranchContainer = () => {
               <TableField />
             </tbody>
           </table>
-
-          <Pagination pageCount={5} onChangePage={(val) => console.log(val)} />
         </div>
+        <Pagination pageCount={5} onChangePage={(val) => console.log(val)} />
 
         {/* Modal */}
         <ModalOpacity isModal={isModal} onClick={(event: any) => handleModal(event)}>
           <div className={classNames('absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2', 'modal-container')}>
             <div
               className={classNames(
-                'relative p-8 min-w-[350px] max-w-[725px] max-h-[510px] bg-white rounded-[2rem] md:py-12 md:px-16',
-                'modal-content'
+                'relative pb-5 p-8 min-w-[350px] max-w-[725px] max-h-[510px] bg-white rounded-[2rem] md:py-12 md:px-16'
               )}
             >
               <div className='mb-7'>
@@ -74,18 +77,20 @@ export const RelativeBranchContainer = () => {
 
               <form onSubmit={formik.handleSubmit}>
                 <InputSelect
-                  innerClassName='w-[540px]'
+                  innerClassName='md:w-[540px]'
                   require={false}
                   label='จังหวัด'
                   inputValue={formik.values.provide}
                   handleOnChange={formik.handleChange}
+                  inputClassName="h-[50px] md:h-[70px]"
                 />
                 <InputSelect
-                  innerClassName='w-[540px]'
+                  innerClassName='md:w-[540px]'
                   require={false}
                   label='อำเภอ'
                   inputValue={formik.values.district}
                   handleOnChange={formik.handleChange}
+                  inputClassName="h-[50px] md:h-[70px]"
                 />
                 <Button
                   outerClassName='my-10'

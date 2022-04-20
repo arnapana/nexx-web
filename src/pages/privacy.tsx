@@ -6,7 +6,9 @@ import { Container, BreadCrumb } from '@components/common'
 import { ButtonContact } from '@components/index'
 import { getPostBySlug } from '@utils/file-system'
 
-const Privacy: NextPage = (props:any) => {
+const component = { p: (props: any) => <div {...props} /> }
+
+const Privacy: NextPage = (props: any) => {
   return (
     <Container>
       {/* Floating Button */}
@@ -14,7 +16,7 @@ const Privacy: NextPage = (props:any) => {
       <BreadCrumb outerClassName='container mx-auto my-10' />
       <div className='container mx-auto'>
         <div className='mb-10'>
-          <p className='font-prompts font-medium text-center 2xl:text-5xl 2xl:leading-[55px]'>นโยบายความเป็นส่วนตัว</p>
+          <p className='font-prompts text-xl font-medium text-center 2xl:text-5xl 2xl:leading-[55px]'>นโยบายความเป็นส่วนตัว</p>
         </div>
         <div>
           {/* Header */}
@@ -24,8 +26,10 @@ const Privacy: NextPage = (props:any) => {
             </p>
           </div>
           {/* Content */}
-          <div className='mb-32 font-sarabun text-xl font-light prose'>
-            <MDXRemote {...props.mdxSource} />
+          <div
+            className={classNames('mb-10 2xl:mb-32 font-sarabun text-base md:text-xl font-light p-5 md:p-10', 'prose prose-p:text-[#696969] max-w-none')}
+          >
+            <MDXRemote {...props.mdxSource} components={component} />
           </div>
         </div>
       </div>

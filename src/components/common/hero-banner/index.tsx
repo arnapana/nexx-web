@@ -3,18 +3,25 @@ import classNames from 'classnames'
 import { NextPage } from 'next'
 
 interface IHeroBanner {
+  sectionClassName?: string
+  containerClassName?: string
   src: string
 }
 
-export const HeroBanner: NextPage<IHeroBanner> = ({ src, children }) => {
+export const HeroBanner: NextPage<IHeroBanner> = ({ src, children, containerClassName, sectionClassName }) => {
   return (
-    <div>
+    <section>
       <div
         style={{ backgroundImage: `url(${src})` }}
-        className={classNames(`relative h-[30rem] bg-cover bg-center bg-no-repeat`, '2xl:h-[40rem]')}
+        className={classNames(sectionClassName, `relative h-[30rem] bg-cover bg-center bg-no-repeat`, '2xl:h-[40rem]')}
       >
-        <div className='absolute top-[27%] left-[13%]'>{children}</div>
+        <div className={classNames(containerClassName, 'absolute top-[16%] left-[13%]')}>{children}</div>
       </div>
-    </div>
+    </section>
   )
+}
+
+HeroBanner.defaultProps = {
+  containerClassName: '',
+  sectionClassName: ''
 }

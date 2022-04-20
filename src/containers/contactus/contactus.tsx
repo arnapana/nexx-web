@@ -92,7 +92,7 @@ export const ContactusContainer = () => {
                 label='ยอมรับนโยบายความเป็นส่วนตัวและนโยบายคุกกี้'
                 checked={formik.values.accept}
                 handleOnChange={formik.handleChange}
-                labelClassName="text-sm"
+                labelClassName="text-sm md:text-xl"
               />
               <div>
                 <button

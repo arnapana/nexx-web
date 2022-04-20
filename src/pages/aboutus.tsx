@@ -13,25 +13,44 @@ const Aboutus: NextPage = () => {
       {/* Floating Button */}
       <ButtonContact />
       <HeroBanner src='/images/hero-banner/aboutus.png'>
-        <div className='flex relative md:w-1/2'>
-          <p
+        <div className='flex relative flex-col mb-5 md:mb-8'>
+          <div className='mb-3'>
+            <p
+              className={classNames(
+                'text-[2.5rem] font-poppins font-semibold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.3)]',
+                'md:text-[5rem]',
+                '2xl:text-8xl 2xl:leading-[90px]'
+              )}
+            >
+              About
+            </p>
+          </div>
+          <div className=''>
+            <p
+              className={classNames(
+                'text-[2rem] leading-10 font-poppins font-semibold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.3)]',
+                'md:text-[3rem]',
+                '2xl:text-6xl 2xl:leading-[90px]'
+              )}
+            >
+              NEXX Pharma
+            </p>
+          </div>
+          <div
             className={classNames(
-              'text-[2rem] font-poppins font-semibold text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
-              'md:text-[5rem]',
-              '2xl:text-8xl 2xl:leading-[90px]'
+              'absolute top-[15%] right-[10%] items-center w-[55px] h-[35px]',
+              'md:right-0 md:w-[110px] md:h-[65px]',
+              '2xl:right-[30%] 2xl:top-[5%] 2xl:w-[137px] 2xl:h-[85px]'
             )}
           >
-            About
-            <p className={classNames('md:text-6xl leading-[90px]')}>NEXX Pharma</p>
-          </p>
-          <div className='flex absolute top-[10%] right-1/3 items-center'>
-            <ImageLoader src='/images/carousel/left-arrow-green.png' width={137} height={85} />
+            <ImageLoader src='/images/carousel/left-arrow-green.png' layout='fill' />
           </div>
         </div>
-        <div className='md:w-[50%]'>
+        <div className='w-[240px] md:w-[400px] 2xl:w-[700px]'>
           <p
             className={classNames(
-              'font-prompts text-2xl font-medium text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] md:text-3xl',
+              'font-prompts text-2xl font-medium text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.3)]',
+              'md:text-[1.5rem] md:leading-8',
               '2xl:text-[2.5rem] 2xl:leading-[55px]'
             )}
           >

@@ -12,7 +12,7 @@ interface Props {
 export const CardArticle: React.FC<Props> = ({ containerClassName, innerClassName }) => {
   return (
     <div className={classNames(containerClassName,"my-5")}>
-      <Link href='/article/covid-19'>
+      <Link href='/article/cvs'>
         <a title=''>
           <div className={classNames(innerClassName, 'flex flex-col md:flex-row md:h-[185px]')}>
             {/* Image */}
