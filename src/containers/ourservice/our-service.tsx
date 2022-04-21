@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { ColorLine } from '@components/common'
-import { CardOurService } from '@components/card-ourservice'
 
 export const OurServiceContainer = () => {
   return (
@@ -15,10 +14,6 @@ export const OurServiceContainer = () => {
           <div className='px-[10%] text-center md:px-[30%]'>
             <p>NEXX Pharma เรามีบริการครอบคลุมทุกเรื่องยาและสุขภาพ แบบครบวงจรจากเภสัชกรและผู้เชี่ยวชาญในสาขาต่างๆ</p>
           </div>
-        </div>
-
-        <div>
-          <CardOurService />
         </div>
       </div>
     </section>

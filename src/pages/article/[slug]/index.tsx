@@ -11,7 +11,10 @@ import { getPostBySlug } from '@utils/file-system'
 
 import articlesConstant from '@constants/mock/articles.json'
 
-const component = { p: (props: any) => <div {...props} /> , h3: (props:any) => <h3 className='text-xl font-medium' {...props}/>}
+const component = {
+  p: (props: any) => <div {...props} />,
+  h3: (props: any) => <h3 className='text-xl font-medium' {...props} />
+}
 
 const Article: NextPage = (props: any) => {
   const router = useRouter()
@@ -56,9 +59,9 @@ const Article: NextPage = (props: any) => {
             />
           </div>
           {/* Content */}
-          <div className='flex py-24 px-32'>
-            <div className=''>
-              <ul className='space-y-3'>
+          <div className='flex flex-col p-5 md:flex-row md:py-24 md:px-10 2xl:px-32'>
+            <div className='mb-5'>
+              <ul className='flex flex-row justify-end space-x-3 md:flex-col md:justify-start md:items-start md:space-y-3 md:space-x-0'>
                 <li>
                   <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
                     <ImageLoader src='/images/icons/icon-fb.png' width={13} height={26} />
@@ -76,8 +79,10 @@ const Article: NextPage = (props: any) => {
                 </li>
               </ul>
             </div>
-            <div className={classNames('font-sarabun font-light text-xl px-14','prose prose-p:text-[#000] max-w-none')}>
-              <MDXRemote {...props.mdxSource} components={component}/>
+            <div
+              className={classNames('overflow-hidden font-sarabun font-light text-xl md:px-14', 'prose prose-p:text-[#000] max-w-none')}
+            >
+              <MDXRemote {...props.mdxSource} components={component} />
             </div>
           </div>
         </div>

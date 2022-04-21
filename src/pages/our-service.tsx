@@ -1,11 +1,23 @@
 import { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import classNames from 'classnames'
+import { serialize } from 'next-mdx-remote/serialize'
+
 import { Container, HeroBanner, BreadCrumb, ImageLoader } from '@components/common'
-import { ButtonContact } from '@components/index'
+import { ButtonContact, CardOurService } from '@components/index'
 import { SocialContact } from '@components/containers'
 import { OurServiceContainer } from '@containers/ourservice'
+import { getPostByPath } from '@utils/file-system'
 
-const OurService: NextPage = () => {
+const OurService: NextPage = (props: any) => {
+  const router = useRouter()
+  if (!router.isFallback && !props.posts) {
+    return <p>Error</p>
+  }
+  if (router.isFallback) {
+    return <p>Loading...</p>
+  }
+
   return (
     <Container>
       {/* Floating Button */}
@@ -46,9 +58,33 @@ const OurService: NextPage = () => {
       <BreadCrumb outerClassName='container mx-auto my-10' />
       <OurServiceContainer />
 
+      {/* Card OurService */}
+      <section className='container mx-auto'>
+        {props.posts.map((val: any, idx: number) => (
+          <CardOurService key={idx} mdxSource={val.mdxSource} frontMatter={val.frontMatter} />
+        ))}
+      </section>
+
       <SocialContact />
     </Container>
   )
 }
 
 export default OurService
+
+export const getStaticProps = async () => {
+  const rawPosts: any = await getPostByPath('service')
+
+  let posts = []
+
+  for (const post of rawPosts) {
+    const mdxSource = await serialize(post.content)
+    posts.push({ mdxSource: mdxSource, frontMatter: post, slug: post.slug })
+  }
+
+  return {
+    props: {
+      posts
+    }
+  }
+}

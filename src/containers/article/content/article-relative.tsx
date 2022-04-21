@@ -15,7 +15,7 @@ export const ArticleRelativeContainer = () => {
         </div>
 
         {/* Content */}
-        <div className='flex justify-center items-center space-x-10'>
+        <div className='flex justify-start md:justify-center items-center space-x-10 overflow-x-auto'>
           <CardActivitySmall />
           <CardActivitySmall />
           <CardActivitySmall />

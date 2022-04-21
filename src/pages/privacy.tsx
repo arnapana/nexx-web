@@ -1,7 +1,9 @@
 import { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
+
 import { Container, BreadCrumb } from '@components/common'
 import { ButtonContact } from '@components/index'
 import { getPostBySlug } from '@utils/file-system'
@@ -9,6 +11,14 @@ import { getPostBySlug } from '@utils/file-system'
 const component = { p: (props: any) => <div {...props} /> }
 
 const Privacy: NextPage = (props: any) => {
+  const router = useRouter()
+  if (!router.isFallback && !props.mdxSource) {
+    return <p>Error</p>
+  }
+  if (router.isFallback) {
+    return <p>Loading...</p>
+  }
+  console.log(props.mdxSource)
   return (
     <Container>
       {/* Floating Button */}

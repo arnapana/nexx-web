@@ -1,6 +1,7 @@
 import React from 'react'
 import { ButtonTag } from '@components/index'
 import { ImageLoader } from '@components/common'
+import Link from 'next/link'
 
 export const CardActivityLarge = () => {
   return (
@@ -30,7 +31,11 @@ export const CardActivityLarge = () => {
               </p>
             </div>
             <div className='flex justify-end items-center mr-2 space-x-3 md:mr-0'>
-              <p className='font-prompts text-sm text-white underline md:text-base'>อ่านเพิ่มเติ่ม</p>
+              <p className='font-prompts text-sm text-white underline md:text-base'>
+                <Link href='/article/cvs'>
+                  <a>อ่านเพิ่มเติ่ม</a>
+                </Link>
+              </p>
               <div>
                 <ImageLoader width={25} height={12} src='/images/icons/enter-green-white-button.png' />
               </div>

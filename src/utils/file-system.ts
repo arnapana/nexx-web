@@ -15,13 +15,28 @@ const getPosts = async () => {
       content,
       slug: path.basename(next).replace(/\.mdx$/, '')
     }
-    console.log(getPost)
     !data.draft && prev.push(getPost)
     return prev
   }, [])
 }
 
-export default getPosts
+const getPostByPath = async (src: string) => {
+  const pathPost = path.join(process.cwd(), 'src', 'contents', src,'*.mdx')
+  const posts = await globby([pathPost])
+
+  return posts.reduce((prev: any[], next) => {
+    const fileContents = fs.readFileSync(next, 'utf8')
+    const { data, content } = matter(fileContents)
+    const getPost = {
+      ...data,
+      content,
+      slug: path.basename(next).replace(/\.mdx$/, '')
+    }
+
+    !data.draft && prev.push(getPost)
+    return prev
+  }, [])
+}
 
 const getPostBySlug = (slug: string) => {
   return new Promise((resolve, reject) => {
@@ -39,4 +54,4 @@ const getPostBySlug = (slug: string) => {
   })
 }
 
-export { getPosts, getPostBySlug }
+export { getPosts, getPostBySlug, getPostByPath }
