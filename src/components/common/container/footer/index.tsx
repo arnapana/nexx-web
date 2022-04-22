@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import Link from 'next/link'
 import { ImageLoader } from '@components/common'
 import { CardSocial } from '@components/index'
@@ -10,7 +11,7 @@ const Footer: React.FC = () => {
     <nav className='flex flex-col'>
       {/* Footer Navgiation */}
       <div className='min-h-[510px] bg-primary'>
-        <div className='container mx-auto py-14 w-full h-full'>
+        <div className='container py-14 mx-auto w-full h-full'>
           <div className='grid grid-cols-2 gap-5 w-full h-full md:grid-cols-6'>
             <div className='col-span-2'>
               <div className='flex flex-col justify-start w-full h-full md:pr-10 2xl:pr-28'>
@@ -28,7 +29,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <div>
-              <ul className='space-y-1 font-prompts text-white md:space-y-3 footer-list'>
+              <ul className={classNames('space-y-1 font-prompts text-white md:space-y-3 footer-list')}>
                 <li className={styles.footerHeaderList}>หน้าทางลัด</li>
                 <li>
                   <a className={styles.footerList}>หน้าแรก</a>
@@ -68,7 +69,7 @@ const Footer: React.FC = () => {
                   <a className={styles.footerList}>เงื่อนไขและข้อกำหนด</a>
                 </li>
                 <li>
-                  <Link href="/privacy">
+                  <Link href='/privacy'>
                     <a className={styles.footerList}>นโยบายความเป็นส่วนตัว</a>
                   </Link>
                 </li>

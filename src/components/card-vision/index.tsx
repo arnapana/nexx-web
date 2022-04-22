@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import { ImageLoader } from '@components/common'
 
 interface ICardVision {
@@ -9,8 +10,8 @@ interface ICardVision {
     src: string
     w: number
     h: number
-  },
-  onClick: (event:any) => void
+  }
+  onClick: (event: any) => void
 }
 
 export const CardVision: React.FC<ICardVision> = ({ name, content, onClick, image }) => {
@@ -26,7 +27,12 @@ export const CardVision: React.FC<ICardVision> = ({ name, content, onClick, imag
             <p className='font-kanits text-base text-white 2xl:text-lg'>{content}</p>
           </div>
           <div className='cursor-pointer'>
-            <p className='inline-block font-prompts text-base text-white underline' onClick={(event:any)=>onClick(event)}>ดูเพิ่มเติม</p>
+            <p
+              className='inline-block font-prompts text-base text-white underline'
+              onClick={(event: any) => onClick(event)}
+            >
+              ดูเพิ่มเติม
+            </p>
             {/* Image Arrow*/}
             <div className='inline-block ml-5'>
               <ImageLoader width={25} height={12} src='/images/icons/enter-green-white-button.png' />
@@ -34,7 +40,7 @@ export const CardVision: React.FC<ICardVision> = ({ name, content, onClick, imag
           </div>
 
           {/* Image */}
-          <div className='absolute -right-[2%] -bottom-[5%]'>
+          <div className={classNames('absolute -right-[2%] -bottom-[5%]')}>
             <ImageLoader width={image.w} height={image.h} src={image.src} />
           </div>
         </div>

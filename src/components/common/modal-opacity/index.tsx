@@ -32,7 +32,7 @@ export const ModalOpacity: React.FC<IModalOpacity> = ({ children, isModal, onCli
         >
           <div className={`z-20 overlay w-full h-full bg-[rgba(0,0,0,0.7)]`} onClick={onClick} />
 
-          <div className='modal-opacity-container'>{children}</div>
+          <div className=''>{children}</div>
         </motion.div>
       )}
     </AnimatePresence>

@@ -42,8 +42,8 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
 
       {/* Modal */}
       <ModalOpacity isModal={isModal} onClick={(event: any) => handleModal(event)}>
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 modal-container'>
-          <div className='relative p-8 min-w-[350px] max-w-[647px] max-h-[477px] bg-white rounded-[2rem] md:py-12 md:px-16 modal-content'>
+        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+          <div className='relative p-8 min-w-[350px] max-w-[647px] max-h-[477px] bg-white rounded-[2rem] md:py-12 md:px-16'>
             <div className='mb-7'>
               <p className='font-prompts font-medium text-center h3'>
                 Telepharmacy <br /> ปรึกษาเภสัชกรและแพทย์ออนไลน์

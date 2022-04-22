@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import { ButtonTag } from '@components/index'
 import { ImageLoader } from '@components/common'
 
@@ -12,7 +13,9 @@ export const CardActivitySmall = () => {
           </div>
           <div className='lg:w-2/3'>
             <div className='mb-3'>
-              <p className='font-prompts font-medium text-base md:text-lg 2xl:text-2xl'>ตรวจสุขภาพฟรี แค่มี Max Card ไปกับ “โครง การสถานีสุขภาพ” </p>
+              <p className={classNames('font-prompts font-medium text-base md:text-lg 2xl:text-2xl')}>
+                ตรวจสุขภาพฟรี แค่มี Max Card ไปกับ “โครง การสถานีสุขภาพ”{' '}
+              </p>
             </div>
             <div className='hidden space-x-5 md:flex'>
               <ButtonTag name='highligh' />
@@ -21,9 +24,9 @@ export const CardActivitySmall = () => {
           </div>
         </div>
         <div className='flex mb-3 space-x-5 md:hidden'>
-              <ButtonTag name='highligh' />
-              <ButtonTag name='highligh' />
-            </div>
+          <ButtonTag name='highligh' />
+          <ButtonTag name='highligh' />
+        </div>
         <div className='mb-2'>
           <p className='font-sarabun text-sm text-[#5D5D5D] 2xl:text-base'>
             โครงการที่จัดขึ้นโดยร้านยาแมกซ์ฟาร์มาซี ก่อนจะเปลี่ยนชื่อใหม่ เป็น NEXX Pharma ร่วมมือกับโรงพยาบาลมิตรไมตรี
