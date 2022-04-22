@@ -113,7 +113,7 @@ h1,
 
 h2,
 .h2 {
-  @apply font-kanits font-medium text-lg md:text-2xl xl:text-[2rem];
+  @apply font-kanits font-medium text-lg md:text-2xl xl:text-[2rem] xl:leading-[55px];
 }
 
 h3,

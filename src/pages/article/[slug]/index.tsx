@@ -9,10 +9,8 @@ import { ButtonContact, ButtonTag } from '@components/index'
 import { ArticleRelativeContainer } from '@containers/article/content'
 import { getPostBySlug } from '@utils/file-system'
 
-import articlesConstant from '@constants/mock/articles.json'
-
 const component = {
-  p: (props: any) => <div {...props} />,
+  p: (props: any) => <p {...props} />,
   h3: (props: any) => <h3 className='text-xl font-medium' {...props} />
 }
 
@@ -36,8 +34,8 @@ const Article: NextPage = (props: any) => {
           {/* Header */}
           <div className='mb-16'>
             <div className='mb-5 text-center'>
-              <p className='font-poppins font-medium h1'>Computer Vision Syndrome (CVS) :</p>
-              <p className='font-prompts font-medium h1'>โรคใกล้ตัวของคนทำงานยุคใหม่เพราะจ้องหน้าจอมากเกินไป</p>
+              <p className='font-poppins font-medium h2'>Computer Vision Syndrome (CVS) :</p>
+              <p className='font-prompts font-medium h2'>โรคใกล้ตัวของคนทำงานยุคใหม่เพราะจ้องหน้าจอมากเกินไป</p>
             </div>
             <div className='mb-5'>
               <p className='font-prompts font-normal text-center'>
@@ -82,7 +80,7 @@ const Article: NextPage = (props: any) => {
             <div
               className={classNames(
                 'overflow-hidden font-sarabun font-light text-xl md:px-14',
-                'prose prose-p:text-[#000] max-w-none'
+                'prose prose-p:text-base prose-p:text-[#000] max-w-none'
               )}
             >
               <MDXRemote {...props.mdxSource} components={component} />
