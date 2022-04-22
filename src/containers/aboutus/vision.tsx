@@ -14,7 +14,7 @@ export const VisionContainer = () => {
   }
 
   return (
-    <section className='mb-32'>
+    <section className='mb-14 md:mb-32'>
       <div className='container mx-auto'>
         {/* Header */}
         <div className='mb-12'>
