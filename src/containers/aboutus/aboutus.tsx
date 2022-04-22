@@ -4,7 +4,7 @@ import aboutConstant from '@constants/mock/aboutus.json'
 
 export const AboutusContainer = () => {
   return (
-    <section className='mb-10 md:mb-32'>
+    <section className='mb-14 md:mb-32'>
       <div className='container mx-auto'>
         <div className='grid grid-cols-1'>
           {/* Content 1 */}

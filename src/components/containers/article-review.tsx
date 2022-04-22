@@ -3,7 +3,7 @@ import { CardActivitySmall, CardActivityLarge } from '@components/index'
 
 export const ArticleContainer = () => {
   return (
-    <section className='mb-10 md:mb-36'>
+    <section className='mb-5 md:mb-12'>
       <div className='container mx-auto'>
         {/* Content */}
         <div className='grid grid-cols-1 md:gap-10 xl:grid-cols-3'>
