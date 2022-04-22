@@ -5,14 +5,14 @@ import { CardHighLight } from '@components/index'
 import serviceHightlight from '@constants/mock/service-hightlight.json'
 import { ColorLine } from '@components/common'
 
-const SerivceHighlight = () => {
+export const SerivceHighlight = () => {
   return (
     <section className='py-14 md:py-16 2xl:py-[133px]'>
       <div className='container mx-auto'>
         {/* Content */}
         <div>
           <div className='my-5'>
-            <p className='font-poppins text-center h2'>{serviceHightlight.title}</p>
+            <p className='font-poppins text-center h2 uppercase'>{serviceHightlight.title}</p>
           </div>
           <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
 
@@ -38,5 +38,3 @@ const SerivceHighlight = () => {
     </section>
   )
 }
-
-export default SerivceHighlight

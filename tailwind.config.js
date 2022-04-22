@@ -45,7 +45,8 @@ module.exports = {
       fontFamily: {
         poppins: ['POPPINS', 'sans-serif'],
         sarabun: ['SARABUN', 'sans-serif'],
-        prompts: ['PROMPT', 'sans-serif']
+        prompts: ['PROMPT', 'sans-serif'],
+        kanits: ['KANIT', 'sans-serif']
       },
       colors: {
         primary: `rgb(var(--tw-color-primary))`,

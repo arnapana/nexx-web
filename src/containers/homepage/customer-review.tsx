@@ -5,7 +5,7 @@ import { ColorLine, ImageLoader } from '@components/common'
 
 import reviewConstant from '@constants/mock/review.json'
 
-const CustomerReview = () => {
+export const CustomerReview = () => {
   const settings = {
     className: 'slider variable-width',
     dots: true,
@@ -76,5 +76,3 @@ const CustomerReview = () => {
     </section>
   )
 }
-
-export default CustomerReview

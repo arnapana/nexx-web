@@ -1,5 +1,5 @@
 .footerHeaderList {
-  @apply font-prompts font-semibold text-lg md:text-xl text-white whitespace-nowrap;
+  @apply font-prompts font-semibold text-lg md:text-xl text-white;
 }
 
 .footerList {

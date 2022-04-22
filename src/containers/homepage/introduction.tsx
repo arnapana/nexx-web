@@ -4,7 +4,7 @@ import { ImageLoader } from '@components/common'
 
 import introductionConstant from '@constants/mock/intro.json'
 
-const Introduction = () => {
+export const Introduction = () => {
   return (
     <section className='pb-[5rem] 2xl:pb-[10rem]'>
       <div className='container mx-auto'>
@@ -98,5 +98,3 @@ const Introduction = () => {
     </section>
   )
 }
-
-export default Introduction

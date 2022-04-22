@@ -71,35 +71,66 @@
   src: url('../../public/fonts/Sarabun/Sarabun-Bold.ttf') format('truetype');
 }
 
+/* Kanit */
+@font-face {
+  font-family: 'KANIT';
+  font-weight: 300;
+  src: url('../../public/fonts/Kanit/Kanit-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'KANIT';
+  font-weight: 400;
+  src: url('../../public/fonts/Kanit/Kanit-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'KANIT';
+  font-weight: 500;
+  src: url('../../public/fonts/Kanit/Kanit-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'KANIT';
+  font-weight: 600;
+  src: url('../../public/fonts/Kanit/Kanit-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'KANIT';
+  font-weight: 700;
+  src: url('../../public/fonts/Kanit/Kanit-Bold.ttf') format('truetype');
+}
+
 .h0 {
-  @apply font-prompts font-bold text-3xl xl:text-5xl;
+  @apply font-kanits font-bold text-3xl xl:text-5xl;
 }
 
 h1,
 .h1 {
-  @apply font-prompts font-bold text-2xl xl:text-4xl;
+  @apply font-kanits font-bold text-2xl xl:text-4xl xl:leading-[50px];
 }
 
 h2,
 .h2 {
-  @apply font-prompts font-medium text-2xl xl:text-[2rem];
+  @apply font-kanits font-medium text-lg md:text-2xl xl:text-[2rem] xl:leading-[55px];
 }
 
 h3,
 .h3 {
-  @apply font-prompts font-bold text-lg xl:text-2xl;
+  @apply font-kanits font-bold text-base md:text-xl 2xl:text-2xl;
 }
 
 h4,
 .h4 {
-  @apply font-prompts font-light text-base xl:text-xl;
+  @apply font-kanits font-light text-base xl:text-xl;
 }
 
 .subtitle {
-  @apply font-prompts font-light text-base xl:text-xl;
+  @apply font-kanits font-light text-base xl:text-xl;
 }
 
 body,
 .p {
-  @apply font-prompts md:text-lg xl:text-xl;
+  @apply font-sarabun md:text-lg xl:text-xl;
 }

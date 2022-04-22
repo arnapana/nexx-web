@@ -14,14 +14,14 @@ export const Button: React.FC<IButton> = ({ name, outerClassName, innerClassName
     <div className={classNames(outerClassName)}>
       <button
         className={classNames(
-          'bg-primary flex items-center justify-center p-2 rounded-full h-[40px] md:h-[60px] space-x-3 px-5 md:px-8',
+          'bg-primary flex items-center justify-center p-2 rounded-full h-[40px] md:h-[50px] 2xl:h-[60px] space-x-3 px-5 md:px-8',
           innerClassName
         )}
         onClick={onClick}
       >
-        <p className='font-prompts  text-white whitespace-nowrap md:text-xl'>{name}</p>
+        <p className='font-prompts  text-white whitespace-nowrap md:text-lg 2xl:text-xl'>{name}</p>
         <div className={'flex justify-center items-center'}>
-          <ImageLoader width={28} height={18} src='/images/icons/enter-button.png' />
+          <ImageLoader width={36} height={18} src='/images/icons/enter-button.png' />
         </div>
       </button>
     </div>

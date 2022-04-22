@@ -47,30 +47,33 @@ const Navbar: React.FC = () => {
       <div className='container mx-auto w-full h-full'>
         {/* NavbarList */}
         <div className='flex justify-between items-center w-full h-[74px] lg:h-24 xl:justify-center 2xl:h-[102px]'>
-          <div className='flex relative justify-center items-center w-[calc(3.5vw+100px)] h-[calc(1.5vw+45px)] xl:mr-16'>
+          <div className='flex relative justify-center items-center w-[calc(3.5vw+100px)] h-[calc(1.5vw+38px)] xl:mr-10'>
             <ImageLoader layout='fill' src='/images/logo-nav.png' />
           </div>
           <ul className='hidden flex-row items-center space-x-11 h-full xl:flex'>
             <li>
-              <NavLink to='/' name={menuConstant.homepage} />
+              <NavLink to={menuConstant.homepage.to} name={menuConstant.homepage.name} />
             </li>
             <li>
-              <NavLink to='/aboutus' name={menuConstant.aboutus} />
+              <NavLink to={menuConstant.aboutus.to} name={menuConstant.aboutus.name} />
             </li>
             <li>
-              <NavLink to='/services' name={menuConstant.service} />
+              <NavLink to={menuConstant.service.to} name={menuConstant.service.name} />
             </li>
             <li>
-              <NavLink to='/telephamacy' name={menuConstant.telephamacy} />
+              <NavLink to={menuConstant.telephamacy.to} name={menuConstant.telephamacy.name} />
             </li>
             <li>
-              <NavLink to='/stores' name={menuConstant.stores} />
+              <NavLink to={menuConstant.stores.to} name={menuConstant.stores.name} />
             </li>
             <li>
-              <NavLink to='/blogs' name={menuConstant.blog} />
+              <NavLink to={menuConstant.review.to} name={menuConstant.review.name} />
             </li>
             <li>
-              <NavLink to='/contacts' name={menuConstant.contact} />
+              <NavLink to={menuConstant.article.to} name={menuConstant.article.name} />
+            </li>
+            <li>
+              <NavLink to={menuConstant.contact.to} name={menuConstant.contact.name} />
             </li>
           </ul>
 
@@ -91,25 +94,28 @@ const Navbar: React.FC = () => {
 
             <ul className='flex flex-col items-start px-10 space-y-5 h-full'>
               <li>
-                <NavLinkMobile to='/' name={menuConstant.homepage} />
+                <NavLinkMobile to={menuConstant.homepage.to} name={menuConstant.homepage.name} />
               </li>
               <li>
-                <NavLinkMobile to='/aboutus' name={menuConstant.aboutus} />
+                <NavLinkMobile to={menuConstant.aboutus.to} name={menuConstant.aboutus.name} />
               </li>
               <li>
-                <NavLinkMobile to='/services' name={menuConstant.service} />
+                <NavLinkMobile to={menuConstant.service.to} name={menuConstant.service.name} />
               </li>
               <li>
-                <NavLinkMobile to='/telephamacy' name={menuConstant.telephamacy} />
+                <NavLinkMobile to={menuConstant.telephamacy.to} name={menuConstant.telephamacy.name} />
               </li>
               <li>
-                <NavLinkMobile to='/stores' name={menuConstant.stores} />
+                <NavLinkMobile to={menuConstant.review.to} name={menuConstant.review.name} />
               </li>
               <li>
-                <NavLinkMobile to='/blogs' name={menuConstant.blog} />
+                <NavLinkMobile to={menuConstant.stores.to} name={menuConstant.stores.name} />
               </li>
               <li>
-                <NavLinkMobile to='/contacts' name={menuConstant.contact} />
+                <NavLinkMobile to={menuConstant.article.to} name={menuConstant.article.name} />
+              </li>
+              <li>
+                <NavLinkMobile to={menuConstant.contact.to} name={menuConstant.contact.name} />
               </li>
             </ul>
           </div>
