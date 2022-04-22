@@ -80,7 +80,10 @@ const Article: NextPage = (props: any) => {
               </ul>
             </div>
             <div
-              className={classNames('overflow-hidden font-sarabun font-light text-xl md:px-14', 'prose prose-p:text-[#000] max-w-none')}
+              className={classNames(
+                'overflow-hidden font-sarabun font-light text-xl md:px-14',
+                'prose prose-p:text-[#000] max-w-none'
+              )}
             >
               <MDXRemote {...props.mdxSource} components={component} />
             </div>
@@ -93,11 +96,10 @@ const Article: NextPage = (props: any) => {
 }
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {
-  const paths = articlesConstant.map((val) => {
-    return { params: { slug: val.slug } }
-  })
+  const posts: any = await getPostBySlug('cvs')
+  const paths = { params: { slug: posts.slug } }
 
-  return { paths: paths, fallback: 'blocking' }
+  return { paths: [paths], fallback: 'blocking' }
 }
 
 export const getStaticProps: GetStaticProps<any, any> = async () => {

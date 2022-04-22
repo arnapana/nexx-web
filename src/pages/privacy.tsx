@@ -18,7 +18,7 @@ const Privacy: NextPage = (props: any) => {
   if (router.isFallback) {
     return <p>Loading...</p>
   }
-  console.log(props.mdxSource)
+
   return (
     <Container>
       {/* Floating Button */}

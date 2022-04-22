@@ -74,10 +74,10 @@ export default OurService
 
 export const getStaticProps = async () => {
   const rawPosts: any = await getPostByPath('service')
-
+  const sortPosts = rawPosts.sort((a:any, b:any) => a.order - b.order)
   let posts = []
 
-  for (const post of rawPosts) {
+  for (const post of sortPosts) {
     const mdxSource = await serialize(post.content)
     posts.push({ mdxSource: mdxSource, frontMatter: post, slug: post.slug })
   }
