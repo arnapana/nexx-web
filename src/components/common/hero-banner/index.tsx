@@ -15,7 +15,7 @@ export const HeroBanner: NextPage<IHeroBanner> = ({ src, children, containerClas
       <div
         className={classNames(sectionClassName, `relative h-[30rem] bg-cover bg-center bg-no-repeat`, '2xl:h-[40rem]')}
       >
-        <ImageLoader src={src} layout='fill' objectFit='cover' priority={true} placeholder='blur' />
+        <ImageLoader src={src} layout='fill' objectFit='cover' priority={true}/>
         <div className={classNames(containerClassName, 'absolute top-[16%] left-[13%]')}>{children}</div>
       </div>
     </section>
