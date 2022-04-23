@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import { Button } from '@components/common'
 import { ImageLoader } from '@components/common'
 
@@ -40,7 +41,7 @@ export const Introduction = () => {
                   <span className='ml-2'>{introductionConstant.paragraph_1['sub-title']}</span>
                 </p>
               </div>
-              <div className='intro-list'>
+              <div className={classNames('intro-list')}>
                 <ul className='font-prompts md:text-xl 2xl:text-2xl'>
                   {introductionConstant.paragraph_1.list.map((val, idx) => (
                     <li key={idx}>{val.name}</li>
@@ -92,7 +93,15 @@ export const Introduction = () => {
           // list-style-image: url('images/icons/enter-green-button.png');
           position: absolute;
           left: 0px;
-          content: url('images/icons/enter-green-button.png');
+          content: '';
+          background-image: url('images/icons/enter-green-button.png');
+          background-size: 100% 100%;
+          display: inline-block;
+
+          width:30px;
+          height:15px;
+
+          margin-top:6px;
         }
       `}</style>
     </section>
