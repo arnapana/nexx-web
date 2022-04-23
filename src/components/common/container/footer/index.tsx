@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
                   <a className={styles.footerList}>เกี่ยวกับเรา</a>
                 </li>
                 <li>
-                  <a className={styles.footerList}>บรืการของเรา</a>
+                  <a className={styles.footerList}>บริการของเรา</a>
                 </li>
               </ul>
             </div>
