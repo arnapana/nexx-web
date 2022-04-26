@@ -6,10 +6,10 @@ import telephamacyConstant from '@constants/mock/telephamacy.json'
 
 export const TelephamacyContainer = () => {
   return (
-    <section className='py-12 md:py-24'>
+    <section className='py-10'>
       <div className='container mx-auto'>
         {/* Header */}
-        <div className='mb-20 2xl:mb-32'>
+        <div className='mb-20'>
           <div>
             <p className='text-center h2'>ขั้นตอนในการใช้บริการ Telepharmacy</p>
           </div>

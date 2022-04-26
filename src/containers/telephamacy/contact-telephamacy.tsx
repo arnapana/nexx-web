@@ -3,7 +3,7 @@ import { ColorLine, ImageLoader } from '@components/common'
 
 export const ContactTelephamacyContainer = () => {
   return (
-    <section className='py-20 min-h-[37.5rem] bg-[#FCFCFC] md:py-32'>
+    <section className='py-24 bg-[#FCFCFC]'>
       <div className='container mx-auto'>
         <div className='grid grid-cols-1 gap-10 md:grid-cols-2'>
           <div className='flex justify-center items-center'>

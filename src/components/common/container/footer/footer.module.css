@@ -1,7 +1,7 @@
 .footerHeaderList {
-  @apply font-prompts font-semibold text-lg md:text-xl text-white;
+  @apply font-kanits font-semibold text-base md:text-lg  2xl:text-xl text-white;
 }
 
 .footerList {
-  @apply font-prompts text-sm md:text-base;
+  @apply font-sarabun text-sm md:text-base;
 }

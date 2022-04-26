@@ -23,32 +23,32 @@ export const RelativeBranchContainer = () => {
   }
 
   return (
-    <section className='py-20 bg-[#FCFCFC]'>
+    <section className='py-5 bg-[#FCFCFC] md:py-14'>
       <div className='container mx-auto'>
         {/* Header */}
-        <div className='mb-14'>
+        <div className='py-5 md:mb-14'>
           <div>
             <p className='text-center h2'>ร้านยาเครือข่าย</p>
           </div>
 
-          <ColorLine lineClassName='h-[5px] text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
+          <ColorLine lineClassName='h-[5px] text-secondary bg-secondary' outerClassName='mx-auto w-20 my-5' />
         </div>
         <Button
-          outerClassName='my-10'
+          outerClassName='md:my-10'
           innerClassName='ml-auto'
           name='ค้นหาสาขา'
           onClick={(event: any) => handleModal(event)}
         />
 
-        <div className='overflow-x-auto'>
-          <table className='overflow-hidden mx-auto w-[65rem] rounded-[40px] border-collapse table-fixed'>
-            <thead className='font-prompts font-medium text-white uppercase bg-[#3E3E3E]'>
+        <div className='overflow-x-auto py-10'>
+          <table className='overflow-hidden mx-auto w-[45rem] rounded-[40px] border border-slate-300 shadow-md table-fixed md:w-[65rem]'>
+            <thead className='font-kanits font-medium text-white uppercase bg-[#3E3E3E]'>
               <tr>
-                <th className='p-5 w-[12%]'>ลำดับ</th>
-                <th className='p-5 w-[37%]'>ที่อยู่</th>
-                <th className='p-5 w-[18%]'>เบอร์โทรศัพท์</th>
-                <th className='p-5 w-[18%]'>เวลาทำการ</th>
-                <th className='p-5 w-[15%]'>แผนที่</th>
+                <th className='p-5 w-[10%] text-sm md:text-lg'>ลำดับ</th>
+                <th className='p-5 w-[37%] text-sm md:text-lg'>ที่อยู่</th>
+                <th className='p-5 w-[18%] text-sm md:text-lg'>เบอร์โทรศัพท์</th>
+                <th className='p-5 w-[18%] text-sm md:text-lg'>เวลาทำการ</th>
+                <th className='p-5 w-[15%] text-sm md:text-lg'>แผนที่</th>
               </tr>
             </thead>
             <tbody className='font-prompts text-xl text-center'>
@@ -82,7 +82,7 @@ export const RelativeBranchContainer = () => {
                   label='จังหวัด'
                   inputValue={formik.values.provide}
                   handleOnChange={formik.handleChange}
-                  inputClassName="h-[50px] md:h-[70px]"
+                  inputClassName='h-[50px] md:h-[70px]'
                 />
                 <InputSelect
                   innerClassName='md:w-[540px]'
@@ -90,7 +90,7 @@ export const RelativeBranchContainer = () => {
                   label='อำเภอ'
                   inputValue={formik.values.district}
                   handleOnChange={formik.handleChange}
-                  inputClassName="h-[50px] md:h-[70px]"
+                  inputClassName='h-[50px] md:h-[70px]'
                 />
                 <Button
                   outerClassName='my-10'

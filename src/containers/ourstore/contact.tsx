@@ -4,7 +4,7 @@ import React from 'react'
 
 export const ContactContainer = () => {
   return (
-    <section className='py-20 min-h-[500px] md:py-[80px] 2xl:py-[160px]'>
+    <section className='py-5 min-h-[500px] md:py-20 2xl:py-[160px]'>
       <div className='container mx-auto w-full h-full '>
         <div className='grid grid-cols-1 gap-5 w-full h-full'>
           {/* Content */}
@@ -22,34 +22,35 @@ export const ContactContainer = () => {
           <div className='col-span-2'>
             <div className='flex flex-wrap justify-center'>
               <CardShopping
-                imageClassName='rounded-full'
-                height={88}
-                width={88}
+                imageClassName=''
+                height={90}
+                width={90}
                 name='Line Shopping'
                 outerClassName='m-3 md:m-7 2xl:m-9'
                 image='/images/icons/stores/line-shopping.png'
               />
+
               <CardShopping
-                width={58}
-                height={54}
+                width={90}
+                height={90}
                 name='Line Chat'
                 image='/images/icons/stores/line-chat.png'
                 outerClassName='m-3 md:m-7 2xl:m-9'
-                imageClassName='bg-[#06C755] rounded-full'
+                imageClassName=''
               />
               <CardShopping
-                imageClassName='bg-gradient-to-r from-[#ff6633] to-[#f53d2d] rounded-full'
-                height={55}
-                width={49}
-                name='Shoppee'
+                imageClassName=''
+                height={90}
+                width={90}
+                name='Shopee'
                 outerClassName='m-3 md:m-7 2xl:m-9'
-                image='/images/icons/stores/shoppee.png'
+                image='/images/icons/stores/shopee.png'
               />
 
               <CardShopping
-                imageClassName='bg-gradient-to-r from-[#5b8beb] to-[#112283] rounded-full'
-                height={60}
-                width={67}
+                imageClassName=''
+                height={90}
+                width={90}
                 name='Lazada'
                 outerClassName='m-3 md:m-7 2xl:m-9'
                 image='/images/icons/stores/lazada.png'

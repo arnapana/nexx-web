@@ -6,6 +6,8 @@ import { CardSocial } from '@components/index'
 
 import styles from './footer.module.css'
 
+import navbarConstant from '@constants/common/menu.json'
+
 const Footer: React.FC = () => {
   return (
     <nav className='flex flex-col'>
@@ -32,32 +34,48 @@ const Footer: React.FC = () => {
               <ul className={classNames('space-y-1 font-prompts text-white md:space-y-3 footer-list')}>
                 <li className={styles.footerHeaderList}>หน้าทางลัด</li>
                 <li>
-                  <a className={styles.footerList}>หน้าแรก</a>
+                  <Link href={navbarConstant.homepage.to}>
+                    <a className={styles.footerList}>{navbarConstant.homepage.name}</a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.footerList}>Telepharmacy</a>
+                  <Link href={navbarConstant.telephamacy.to}>
+                    <a className={styles.footerList}>{navbarConstant.telephamacy.name}</a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.footerList}>ร้านค้าของเรา</a>
+                  <Link href={navbarConstant.stores.to}>
+                    <a className={styles.footerList}>{navbarConstant.stores.name}</a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.footerList}>รีวิวลูกค้า</a>
+                  <Link href={navbarConstant.review.to}>
+                    <a className={styles.footerList}>{navbarConstant.review.name}</a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.footerList}>บทความ</a>
+                  <Link href={navbarConstant.article.to}>
+                    <a className={styles.footerList}>{navbarConstant.article.name}</a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.footerList}>ติดต่อเรา</a>
+                  <Link href={navbarConstant.contact.to}>
+                    <a className={styles.footerList}>{navbarConstant.contact.name}</a>
+                  </Link>
                 </li>
               </ul>
 
               <ul className='mt-9 space-y-1 font-prompts text-white md:space-y-3'>
                 <li className={styles.footerHeaderList}>เกี่ยวกับเรา</li>
                 <li>
-                  <a className={styles.footerList}>เกี่ยวกับเรา</a>
+                  <Link href={navbarConstant.aboutus.to}>
+                    <a className={styles.footerList}>{navbarConstant.aboutus.name}</a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.footerList}>บริการของเรา</a>
+                  <Link href={navbarConstant.service.to}>
+                    <a className={styles.footerList}>{navbarConstant.service.name}</a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -66,7 +84,9 @@ const Footer: React.FC = () => {
               <ul className='space-y-1 font-prompts text-white md:space-y-3'>
                 <li className={styles.footerHeaderList}>ข้อมูลทางกฏหมาย</li>
                 <li>
-                  <a className={styles.footerList}>เงื่อนไขและข้อกำหนด</a>
+                  <Link href='/'>
+                    <a className={styles.footerList}>เงื่อนไขและข้อกำหนด</a>
+                  </Link>
                 </li>
                 <li>
                   <Link href='/privacy'>
@@ -119,10 +139,10 @@ const Footer: React.FC = () => {
         </div>
       </div>
       {/* Footer RIGHT */}
-      <div className='h-9 text-white bg-[#1f1f1f] md:h-[68px]'>
+      <div className='h-9 text-white bg-[#1f1f1f] md:h-[55px] 2xl:h-[68px]'>
         <div className='container mx-auto w-full h-full'>
           <div className='flex justify-center items-center w-full h-full'>
-            <p className='font-prompts text-sm font-light md:text-lg'>NEXX PHARMA © 2021 ALL RIGHTS RESERVED</p>
+            <p className='font-prompts text-sm font-light md:text-base 2xl:text-lg'>NEXX PHARMA © 2021 ALL RIGHTS RESERVED</p>
           </div>
         </div>
       </div>

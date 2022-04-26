@@ -65,14 +65,14 @@ export const CardOurService: React.FC<ICardService> = ({ mdxSource, frontMatter 
                   {isOpen ?  <MDXRemote {...mdxSource} /> : frontMatter.preview.substr(0,limitText)}
                   {isOpen ? (
                     <span
-                      className='text-sm text-black animate-fade-in cursor-pointer md:text-lg 2xl:text-xl'
+                      className='text-sm text-[#a3a3a3] animate-fade-in cursor-pointer md:text-lg 2xl:text-xl'
                       onClick={() => handleOpen()}
                     >
                       อ่านน้อยลง...
                     </span>
                   ) : (
                     <span
-                      className='ml-5 text-sm animate-fade-in cursor-pointer md:text-lg 2xl:text-xl text-secondary'
+                      className='ml-2 text-sm animate-fade-in cursor-pointer md:ml-5 md:text-lg 2xl:text-xl text-secondary'
                       onClick={() => handleOpen()}
                     >
                       อ่านเพิ่มเติม...
