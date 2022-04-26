@@ -17,7 +17,7 @@ export const TableField = () => {
         <p className='font-prompts text-sm md:text-lg'>07:00-19:00</p>
       </td>
       <td className=''>
-        <button className='p-2 w-[60px] h-[40px] md:w-[66px] md:h-[44px] text-white rounded-lg bg-secondary'>
+        <button className='p-2 w-[60px] h-[40px] text-white rounded-lg md:w-[66px] md:h-[44px] bg-secondary'>
           <p className='text-sm md:text-lg'>คลิก</p>
         </button>
       </td>
