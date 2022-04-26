@@ -27,14 +27,18 @@ export const CardShopping: React.FC<ICardShopping> = ({
     <div className={outerClassName}>
       <div
         className={classNames(
-          'flex flex-col justify-center items-center bg-white shadow-md rounded-3xl drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)]',
-          'min-w-[135px] h-[180px]',
-          'md:w-[180px] md:h-[200px]',
-          '2xl:w-[223px] 2xl:h-[237px]',
+          'flex flex-col justify-center items-center bg-white shadow-md rounded-3xl drop-shadow-[0_5px_30px_rgba(54,74,217,0.1)]',
+          'min-w-[135px] h-[150px]',
+          'md:w-[180px] md:h-[190px]',
+          '2xl:w-[218px] 2xl:h-[220px]',
           innerClassName
         )}
       >
-        <div className={classNames('flex items-center justify-center w-[90px] h-[90px] my-2', imageClassName)}>
+        <div
+          className={classNames(
+            'relative flex items-center justify-center mb-4 p-1 xl:p-0 w-[70px] h-[70px] md:w-[80px] md:h-[80px] 2xl:w-[90px] 2xl:h-[90px]'
+          )}
+        >
           <ImageLoader width={width} height={height} src={image} />
         </div>
         <div>

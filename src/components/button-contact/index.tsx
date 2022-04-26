@@ -13,7 +13,7 @@ export const ButtonContact = () => {
 
   return (
     <div className='fixed top-[80%] right-[5%] z-20 md:right-28'>
-      <button className='flex relative justify-center items-center px-10 w-[15rem] h-16 rounded-full md:w-[17.5rem] md:h-24 bg-secondary'>
+      <button className='flex relative justify-center items-center px-10 w-[15rem] h-16 rounded-full md:w-[17rem] md:h-20 bg-secondary'>
         <div className='absolute bottom-0 left-0'>
           <div className='relative  w-[6rem] h-[5rem] md:w-[118px] md:h-[113px]'>
             <ImageLoader layout='fill' src='/images/icons/button-contact.png' />
@@ -22,7 +22,7 @@ export const ButtonContact = () => {
 
         <div className='relative ml-14 w-32 h-12 md:ml-auto'>
           <div className='flex items-center pl-2 w-full h-full'>
-            <p className='font-prompts font-medium text-left text-primary md:text-xl'>เริ่มต้นปรึกษา เภสัชกร</p>
+            <p className='font-prompts font-medium text-left text-primary md:text-lg'>เริ่มต้นปรึกษา เภสัชกร</p>
           </div>
           {/* Icon Right */}
           <div

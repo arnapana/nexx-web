@@ -6,9 +6,9 @@ interface IBreadCrumbStyle {
 }
 
 const Crumb = ({ children, last = false }: any) => {
-  if (last) return <p className='font-medium underline'>{children}</p>
+  if (last) return <p className='text-base font-medium underline'>{children}</p>
 
-  return <p>{children}</p>
+  return <p className='text-base'>{children}</p>
 }
 
 const BreadCrumbStyle: React.FC<IBreadCrumbStyle> = ({ children }) => {

@@ -5,7 +5,7 @@ import { ImageLoader } from '@components/common'
 
 export const CardActivitySmall = () => {
   return (
-    <div className='my-5 mx-auto'>
+    <div className='mx-auto'>
       <div className='max-w-[25rem]'>
         <div className='flex flex-col mb-4 lg:flex-row'>
           <div className='grid place-items-center pr-5 mb-5'>
@@ -13,7 +13,7 @@ export const CardActivitySmall = () => {
           </div>
           <div className='lg:w-2/3'>
             <div className='mb-3'>
-              <p className={classNames('font-prompts font-medium text-base md:text-lg 2xl:text-2xl')}>
+              <p className={classNames('font-kanits font-medium text-base md:text-lg 2xl:text-2xl')}>
                 ตรวจสุขภาพฟรี แค่มี Max Card ไปกับ “โครง การสถานีสุขภาพ”{' '}
               </p>
             </div>
@@ -35,7 +35,7 @@ export const CardActivitySmall = () => {
         </div>
         <div className='flex items-center space-x-3'>
           <p className='font-prompts text-sm font-medium text-primary md:text-base'>อ่านเพิ่มเติ่ม</p>
-          <div>
+          <div className='grid place-items-center'>
             <ImageLoader width={24} height={12} src='/images/icons/enter-blue-button.png' />
           </div>
         </div>

@@ -38,7 +38,7 @@ export const CustomerReview = () => {
       {/* Slider */}
       <div
         id='App'
-        className='overflow-hidden my-14 mx-auto w-full min-h-[500px] md:min-h-[560px] lg:min-h-[600px] 2xl:min-h-[750px]'
+        className='overflow-hidden my-14 mx-auto w-full min-h-[500px] md:min-h-[560px] lg:min-h-[620px] 2xl:min-h-[750px]'
       >
         <Slider {...settings}>
           {reviewConstant.cards.map((val, idx) => (
