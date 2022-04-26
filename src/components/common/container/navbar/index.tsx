@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
       {isOpen ? (
         <div className='hidden justify-center items-center space-x-5 w-full h-[3rem] text-white bg-primary xl:flex'>
           <div className='flex justify-center items-center'>
-            <p className='font-prompts text-base text-center 2xl:text-lg'>
+            <p className='font-prompts text-base text-center'>
               Find the fastest answers to common questions about the latest on COVID-19, travel, and Omicron{' '}
               <span className='underline'>here</span>
             </p>
@@ -47,10 +47,14 @@ const Navbar: React.FC = () => {
       <div className='container mx-auto w-full h-full'>
         {/* NavbarList */}
         <div className='flex justify-between items-center w-full h-[74px] lg:h-24 xl:justify-center 2xl:h-[102px]'>
-          <div className='flex relative justify-center items-center w-[calc(3.5vw+100px)] h-[calc(1.5vw+33px)] xl:mr-10'>
-            <ImageLoader layout='fill' src='/images/logo-nav.png' />
+          <div className='flex relative justify-center items-center mr-14 w-[calc(3.5vw+100px)] h-[calc(1.5vw+33px)]'>
+            <Link href='/'>
+              <a>
+                <ImageLoader layout='fill' src='/images/logo-nav.png' />
+              </a>
+            </Link>
           </div>
-          <ul className='hidden flex-row items-center space-x-11 h-full xl:flex'>
+          <ul className='hidden flex-row items-center space-x-10 h-full xl:flex 2xl:space-x-11'>
             <li>
               <NavLink to={menuConstant.homepage.to} name={menuConstant.homepage.name} />
             </li>

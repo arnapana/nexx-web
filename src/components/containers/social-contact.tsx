@@ -10,7 +10,7 @@ export const SocialContact: React.FC = () => {
       <div className='container mx-auto w-full h-full '>
         <div className='grid grid-cols-1 gap-5 w-full h-full md:grid-cols-3'>
           {/* Content */}
-          <div className='flex flex-col px-10'>
+          <div className='flex flex-col 2xl:px-10'>
             <p className='my-3 h2'>{storeConstant.title}</p>
             <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='w-28 mb-7 mt-4' />
             <div className=''>
@@ -28,37 +28,38 @@ export const SocialContact: React.FC = () => {
                 height={90}
                 name='Stores'
                 image='/images/icons/stores/store.png'
+                imageClassName='w-[90px] h-[90px]'
                 outerClassName='m-3 md:m-7 2xl:m-9'
               />
               <CardShopping
-                width={58}
-                height={54}
+                width={90}
+                height={90}
                 name='Line Chat'
                 image='/images/icons/stores/line-chat.png'
                 outerClassName='m-3 md:m-7 2xl:m-9'
-                imageClassName='bg-[#06C755] rounded-full'
+                imageClassName=''
               />
               <CardShopping
-                imageClassName='rounded-full '
-                height={88}
-                width={88}
+                imageClassName=''
+                height={90}
+                width={90}
                 name='Line Shopping'
                 outerClassName='m-3 md:m-7 2xl:m-9'
                 image='/images/icons/stores/line-shopping.png'
               />
               <CardShopping
-                imageClassName='bg-gradient-to-r from-[#ff6633] to-[#f53d2d] rounded-full'
-                height={55}
-                width={49}
-                name='Shoppee'
+                imageClassName=''
+                height={90}
+                width={90}
+                name='Shopee'
                 outerClassName='m-3 md:m-7 2xl:m-9'
-                image='/images/icons/stores/shoppee.png'
+                image='/images/icons/stores/shopee.png'
               />
 
               <CardShopping
-                imageClassName='bg-gradient-to-r from-[#5b8beb] to-[#112283] rounded-full'
-                height={60}
-                width={67}
+                imageClassName=''
+                height={90}
+                width={90}
                 name='Lazada'
                 outerClassName='m-3 md:m-7 2xl:m-9'
                 image='/images/icons/stores/lazada.png'
