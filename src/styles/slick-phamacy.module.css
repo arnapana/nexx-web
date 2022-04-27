@@ -1,0 +1,119 @@
+#telephamacy .slick-dots {
+  left: 50%;
+  bottom: 10%;
+  z-index: 10;
+  transform:translate(-50%,0)
+}
+
+#telephamacy .slick-dots li {
+  width: 25px;
+  height: 25px;
+  margin: 0 3px;
+}
+
+#telephamacy .slick-dots li button {
+  width: 25px;
+  height: 25px;
+}
+
+#telephamacy .slick-dots li button:before {
+  font-family: 'slick';
+  font-size: 18px;
+  line-height: 23px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 25px;
+  height: 25px;
+
+  content: '•';
+  text-align: center;
+  padding: 0.5px;
+
+  color: rgba(54, 74, 217, 1);
+  opacity: 0.4;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+#telephamacy .slick-dots li.slick-active button:before {
+  color: #364ad9;
+  border: solid 2px #364ad9;
+  border-radius: 100% 100%;
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  #telephamacy .slick-dots {
+    left: 50%;
+    bottom: 10%;
+    z-index: 10;
+    transform:translate(-50%,0)
+  }
+}
+
+@media (min-width: 1024px) {
+  #telephamacy .slick-dots {
+    left: 50%;
+    bottom: 10%;
+    z-index: 10;
+    transform:translate(-50%,0)
+  }
+
+  #telephamacy .slick-dots li {
+    width: 33px;
+    height: 33px;
+    margin: 0 3px;
+  }
+
+  #telephamacy .slick-dots li button {
+    width: 33px;
+    height: 33px;
+  }
+
+  #telephamacy .slick-dots li button:hover,
+  #telephamacy .slick-dots li button:focus {
+    outline: none;
+  }
+  #telephamacy .slick-dots li button:hover:before,
+  #telephamacy .slick-dots li button:focus:before {
+    opacity: 1;
+  }
+
+  #telephamacy .slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 24px;
+    line-height: 31px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 33px;
+    height: 33px;
+
+    content: '•';
+    text-align: center;
+    padding: 0.5px;
+
+    color: rgba(54, 74, 217, 1);
+    opacity: 0.4;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@media (min-width: 1536px) {
+  #telephamacy .slick-dots {
+    left: 50%;
+    bottom: 10%;
+    z-index: 10;
+    transform:translate(-50%,0)
+  }
+}
