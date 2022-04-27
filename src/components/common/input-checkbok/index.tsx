@@ -27,7 +27,7 @@ export const InputCheckbok: React.FC<Props> = ({
       <div>
         <label className='flex items-center leading-7 text-[#5D5D5D] cursor-pointer'>
           <input
-            className={classNames(inputClassName, 'scale-[2] border-gray-400 mr-2')}
+            className={classNames(inputClassName, 'scale-[1.3] md:scale-[2] border-gray-400 mr-2')}
             onChange={handleOnChange}
             placeholder={placeholder}
             type='checkbox'

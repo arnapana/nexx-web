@@ -6,7 +6,7 @@
         "details": "เลขที่ 90 อาคารซีดับเบิ้ลยู ทาวเวอร์ เอ ชั้นที่ 43 ถนนรัชดาภิเษก แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพฯ 10310",
         "img": {
           "w": 70,
-          "h": 88,
+          "h": 70,
           "src": "/images/icons/icon_map.png"
         }
       },
@@ -15,7 +15,7 @@
         "details": "065-523-5074",
         "img": {
           "w": 69,
-          "h": 69,
+          "h": 60,
           "src": "/images/icons/icon_call.png"
         }
       },
@@ -23,8 +23,8 @@
         "name": "อีเมล",
         "details": "abcd@gmail.com",
         "img": {
-          "w": 60,
-          "h": 46,
+          "w": 69,
+          "h": 44,
           "src": "/images/icons/icon_email.png"
         }
       }
