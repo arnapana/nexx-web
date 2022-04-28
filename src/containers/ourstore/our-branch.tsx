@@ -26,12 +26,12 @@ export const OurBranchContainer = () => {
     <section className='py-5 md:py-14 2xl:mb-32'>
       <div className='container mx-auto'>
         {/* Header */}
-        <div className='py-5 md:mb-14'>
+        <div className='pt-5'>
           <div>
             <p className='text-center h2'>สาขาร้านยา NEXX Pharma</p>
           </div>
 
-          <ColorLine lineClassName='h-[5px] text-secondary bg-secondary' outerClassName='mx-auto w-20 my-5' />
+          <ColorLine lineClassName='h-[5px] text-secondary bg-secondary' outerClassName='mx-auto w-20 md:w-28 my-5' />
         </div>
         <Button
           outerClassName='md:my-10'

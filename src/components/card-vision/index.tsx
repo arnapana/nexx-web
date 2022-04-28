@@ -16,8 +16,8 @@ interface ICardVision {
 
 export const CardVision: React.FC<ICardVision> = ({ name, content, onClick, image }) => {
   return (
-    <div className='mx-auto'>
-      <div className='overflow-hidden relative px-6 pt-6 pb-9 min-w-[19rem] h-[16rem] bg-gradient-to-r from-[#364AD9] to-[#298DE3] rounded-2xl md:min-w-[21.5rem]  md:h-[17rem] 2xl:w-[25rem]'>
+    <div className='mx-auto  w-full'>
+      <div className='overflow-hidden relative px-6 pt-6 pb-9 min-w-[20rem] h-[16rem] bg-gradient-to-r from-[#364AD9] to-[#298DE3] rounded-2xl md:min-w-[21.5rem]  md:h-[17rem] 2xl:w-[25rem]'>
         {/* Content */}
         <div className='flex flex-col justify-between w-[8rem] h-full md:w-[9.5rem] 2xl:w-[10.5rem]'>
           <div className='mb-2'>

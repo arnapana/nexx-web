@@ -12,7 +12,7 @@ const Aboutus: NextPage = () => {
     <Container>
       {/* Floating Button */}
       <ButtonContact />
-      <HeroBanner src='/images/hero-banner/aboutus.png'>
+      <HeroBanner src='/images/hero-banner/aboutus.png' srcMobile='/images/hero-banner/aboutus-mobile.png'>
         <div className='flex relative flex-col mb-5 md:mb-8'>
           <div className='mb-3'>
             <p
@@ -38,7 +38,7 @@ const Aboutus: NextPage = () => {
           </div>
           <div
             className={classNames(
-              'absolute top-[15%] right-[10%] items-center w-[55px] h-[35px]',
+              'absolute top-[15%] right-[20%] items-center w-[55px] h-[35px]',
               'md:right-0 md:w-[110px] md:h-[65px]',
               '2xl:right-[30%] 2xl:top-[5%] 2xl:w-[137px] 2xl:h-[85px]'
             )}
@@ -46,7 +46,7 @@ const Aboutus: NextPage = () => {
             <ImageLoader src='/images/carousel/left-arrow-green.png' layout='fill' />
           </div>
         </div>
-        <div className='w-[240px] md:w-[400px] 2xl:w-[700px]'>
+        <div className='w-[300px] md:w-[400px] 2xl:w-[700px]'>
           <p
             className={classNames(
               'font-prompts text-2xl font-medium text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.3)]',
