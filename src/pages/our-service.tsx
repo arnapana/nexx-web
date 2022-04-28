@@ -22,7 +22,7 @@ const OurService: NextPage = (props: any) => {
     <Container>
       {/* Floating Button */}
       <ButtonContact />
-      <HeroBanner src='/images/hero-banner/our-service.png' containerClassName='top-[26%]'>
+      <HeroBanner src='/images/hero-banner/our-service.png' srcMobile='/images/hero-banner/our-service-mobile.png' containerClassName='top-[26%]'>
         <div className='flex relative mb-10'>
           <p
             className={classNames(

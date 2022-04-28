@@ -29,7 +29,7 @@ export const VisionContainer = () => {
         </div>
 
         {/* Vision Cards */}
-        <div className='grid gap-10 lg:grid-cols-2 xl:grid-cols-3'>
+        <div className='grid gap-10 md:grid-cols-2 xl:grid-cols-3'>
           {aboutuConstant.vision.cards.map((val, idx) => (
             <CardVision
               name={val.name}
