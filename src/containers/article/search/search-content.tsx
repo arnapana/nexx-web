@@ -6,7 +6,7 @@ export const SearchContentContainer = () => {
   return (
     <section className='mb-24'>
       <div className='container mx-auto'>
-        <div className='grid grid-cols-1 gap-16 mb-20 md:grid-cols-2'>
+        <div className='grid grid-cols-1 mb-20 md:grid-cols-2 md:gap-16'>
           <CardArticle />
           <CardArticle />
           <CardArticle />

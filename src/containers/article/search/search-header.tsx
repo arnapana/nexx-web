@@ -27,12 +27,12 @@ export const SearchHeaderContainer = () => {
           </div>
         </div>
         {/* Search */}
-        <div className='flex justify-end'>
+        <div className='flex justify-center'>
           <InputSearch
             name='search'
             type='text'
             placeholder='ค้นหาบทความที่เป็นประโยชน์สำหรับคุณ'
-            inputClassName='w-[400px] text-[#5D5D5D] font-prompt font-light text-lg'
+            inputClassName='w-[350px] md:w-[400px] text-[#5D5D5D] font-prompt font-light text-base md:text-lg'
             inputValue={search}
             handleOnChange={handleSearch}
             onSubmit={handleSumbit}
