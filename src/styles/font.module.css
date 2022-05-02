@@ -132,5 +132,5 @@ h4,
 
 body,
 .p {
-  @apply font-sarabun md:text-lg xl:text-xl;
+  @apply font-prompts md:text-lg xl:text-xl;
 }

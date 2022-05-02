@@ -27,7 +27,7 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
         </div>
         {/* Header */}
         <div className='my-5'>
-          <h4 className='font-poppins text-xl font-medium text-center 2xl:text-2xl'>{title}</h4>
+          <h4 className='font-prompts text-xl font-medium text-center 2xl:text-2xl'>{title}</h4>
         </div>
         {/* Content */}
         <div className='px-5'>
@@ -36,7 +36,11 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
           </p>
         </div>
         <div className='absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2'>
-          <Button name='ดูเพิ่มเติ่ม' onClick={(event: any) => handleModal(event)} innerClassName='w-[180px]' />
+          <Button
+            name='ดูเพิ่มเติ่ม'
+            onClick={(event: any) => handleModal(event)}
+            innerClassName='w-[145px] md:w-[170px] 2xl:w-[190px]'
+          />
         </div>
       </div>
 

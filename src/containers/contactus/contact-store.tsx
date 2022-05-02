@@ -14,14 +14,16 @@ export const ContactStoreContainer = () => {
             <button
               className={classNames(
                 'flex items-center py-5 px-10 bg-white rounded-[2rem] drop-shadow-[0_3px_20px_rgba(0,0,0,0.1)]',
-                "md:py-7 md:px-16",
+                'md:py-7 md:px-16',
                 '2xl:py-8 2xl:px-20'
               )}
             >
               <div className='mr-8'>
-                <p className='font-kanits text-lg font-medium md:text-3xl xl:leading-[55px] 2xl:text-[2rem]'>ติดต่อร้านยาของเรา</p>
+                <p className='font-kanits text-lg font-medium md:text-3xl xl:leading-[55px] 2xl:text-[2rem]'>
+                  ติดต่อร้านยาของเรา
+                </p>
               </div>
-              <Button name='คลิก' />
+              <Button name='คลิก' innerClassName='w-[110px] md:w-[135px] 2xl:w-[155px]' />
             </button>
           </div>
           <div className={classNames('grid grid-cols-1 md:grid-cols-3 gap-5 2xl:gap-10 justify-center')}>

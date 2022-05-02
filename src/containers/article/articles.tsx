@@ -33,7 +33,7 @@ export const ArticlesContainer = () => {
             <CardArticle />
           </div>
           <div>
-            <Button name='ดูเพิ่มเติ่ม'/>
+            <Button name='ดูเพิ่มเติ่ม' innerClassName='w-[145px] md:w-[170px] 2xl:w-[190px]' />
           </div>
         </div>
       </div>

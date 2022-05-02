@@ -35,7 +35,7 @@ export const OurBranchContainer = () => {
         </div>
         <Button
           outerClassName='md:my-10'
-          innerClassName='ml-auto'
+          innerClassName='ml-auto w-[145px] md:w-[180px] 2xl:w-[205px]'
           name='ค้นหาสาขา'
           onClick={(event: any) => handleModal(event)}
         />

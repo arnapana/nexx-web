@@ -72,8 +72,6 @@
 
 #App .slick-dots li.slick-active button:before {
   color: #364ad9;
-  border: solid 2px #364ad9;
-  border-radius: 100% 100%;
   opacity: 1;
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import classNames from 'classnames'
+import { twMerge } from 'tailwind-merge'
 import { ImageLoader } from '../next-image'
 
 interface IButton {
@@ -11,15 +11,15 @@ interface IButton {
 
 export const Button: React.FC<IButton> = ({ name, outerClassName, innerClassName, onClick }) => {
   return (
-    <div className={classNames(outerClassName)}>
+    <div className={twMerge(outerClassName)}>
       <button
-        className={classNames(
+        className={twMerge(
           'bg-primary flex items-center justify-center p-2 rounded-full h-[40px] md:h-[50px] 2xl:h-[60px] space-x-3 px-5 md:px-8',
           innerClassName
         )}
         onClick={onClick}
       >
-        <p className='font-prompts text-white whitespace-nowrap md:text-lg 2xl:text-xl'>{name}</p>
+        <p className='font-prompts text-white whitespace-nowrap md:text-base 2xl:text-xl'>{name}</p>
         <div className={'flex justify-center items-center'}>
           <ImageLoader width={36} height={18} src='/images/icons/enter-button.png' />
         </div>

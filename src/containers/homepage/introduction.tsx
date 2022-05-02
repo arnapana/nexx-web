@@ -69,7 +69,7 @@ export const Introduction = () => {
                 </p>
               </div>
               <div>
-                <Button name='เกี่ยวกับเรา' />
+                <Button name='เกี่ยวกับเรา' innerClassName='w-[155px] md:w-[180px] 2xl:w-[205px]' />
               </div>
             </div>
             {/* Images */}
@@ -98,10 +98,10 @@ export const Introduction = () => {
           background-size: 100% 100%;
           display: inline-block;
 
-          width:30px;
-          height:15px;
+          width: 30px;
+          height: 15px;
 
-          margin-top:6px;
+          margin-top: 6px;
         }
       `}</style>
     </section>

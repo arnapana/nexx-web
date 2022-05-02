@@ -16,7 +16,7 @@ export const SerivceHighlight = () => {
           </div>
           <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
 
-          <div className='md:px-[25%]'>
+          <div className='md:px-[20%] 2xl:px-[25%]'>
             <p className='text-center'>{serviceHightlight.content}</p>
           </div>
         </div>

@@ -20,7 +20,7 @@ export const BreadCrumb: React.FC<Props> = ({ outerClassName }) => {
   const router = useRouter()
 
   useEffect(() => {
-    const routers = router.asPath.split('/')
+    const routers = router.asPath.split('/').filter((val) => !val.includes('search'))
     routers.shift() // delete first array
 
     const pathArray: Array<breadcrumb> = routers.map((path, idx) => {
