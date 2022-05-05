@@ -41,14 +41,21 @@ export const TelephamacyContainer = () => {
           </div>
         </div>
         {/* Content */}
-        <div className='grid grid-cols-1 md:grid-cols-2'>
+        <div className='grid grid-cols-1 xl:grid-cols-2'>
           <div>
             {telephamacyConstant.map((val, idx) => (
-              <CardTelephamacy key={idx} name={val.name} list={val.list} index={idx} current={slideIndex} onClick={() => handleSlick(idx)} />
+              <CardTelephamacy
+                key={idx}
+                name={val.name}
+                list={val.list}
+                index={idx}
+                current={slideIndex}
+                onClick={() => handleSlick(idx)}
+              />
             ))}
           </div>
           <div id='telephamacy' className='px-10 mx-auto md:px-0'>
-            <div className='overflow-hidden relative w-[250px] h-[900px] md:w-[350px] xl:w-[396px]'>
+            <div className='overflow-hidden relative w-[250px] md:w-[350px] xl:w-[396px]'>
               <Slider {...settings} ref={slickRef}>
                 <ImageLoader src='/images/telephamacy/img2.png' width={396} height={800} />
 

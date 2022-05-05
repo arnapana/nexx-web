@@ -20,7 +20,7 @@
     "to": "/stores"
   },
   "review": {
-    "name": "ริวิวลูกค้า",
+    "name": "รีวิวลูกค้า",
     "to": "/customer-review"
   },
   "article": {
