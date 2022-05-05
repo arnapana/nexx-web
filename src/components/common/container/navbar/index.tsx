@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
       ) : null}
       <div className='container mx-auto w-full h-full'>
         {/* NavbarList */}
-        <div className='flex justify-between items-center w-full h-[74px] lg:h-24 xl:justify-center 2xl:h-[102px]'>
+        <div className='flex justify-between items-center w-full h-[74px] lg:h-24 xl:justify-center 2xl:h-[90px]'>
           <div className='flex relative justify-center items-center mr-14 w-[calc(3.5vw+80px)] h-[calc(1.5vw+33px)]'>
             <Link href='/'>
               <a>

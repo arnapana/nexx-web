@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
           <div className='grid grid-cols-2 gap-5 w-full h-full md:grid-cols-6'>
             <div className='col-span-2'>
               <div className='flex flex-col justify-start w-full h-full md:pr-10 2xl:pr-28'>
-                <div className='relative mb-8 w-[calc(4vw_+_160px)] h-[calc(1vw_+_80px)] '>
+                <div className='relative mb-8 w-[calc(4vw_+_180px)] h-[calc(1vw_+_80px)] '>
                   <ImageLoader src='/images/logo-footer.png' layout='fill' />
                 </div>
                 <div className='font-prompts text-base text-white'>
@@ -63,10 +63,6 @@ const Footer: React.FC = () => {
                     <a className={styles.footerList}>{navbarConstant.contact.name}</a>
                   </Link>
                 </li>
-              </ul>
-
-              <ul className='mt-9 space-y-1 font-prompts text-white md:space-y-3'>
-                <li className={styles.footerHeaderList}>เกี่ยวกับเรา</li>
                 <li>
                   <Link href={navbarConstant.aboutus.to}>
                     <a className={styles.footerList}>{navbarConstant.aboutus.name}</a>
@@ -142,7 +138,9 @@ const Footer: React.FC = () => {
       <div className='h-9 text-white bg-[#1f1f1f] md:h-[55px] 2xl:h-[68px]'>
         <div className='container mx-auto w-full h-full'>
           <div className='flex justify-center items-center w-full h-full'>
-            <p className='font-prompts text-sm font-light md:text-base 2xl:text-lg'>NEXX PHARMA © 2021 ALL RIGHTS RESERVED</p>
+            <p className='font-prompts text-sm font-light md:text-base 2xl:text-lg'>
+              NEXX PHARMA © 2021 ALL RIGHTS RESERVED
+            </p>
           </div>
         </div>
       </div>
