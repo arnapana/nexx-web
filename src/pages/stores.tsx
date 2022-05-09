@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import classNames from 'classnames'
 import { ButtonContact } from '@components/index'
-import { Container, HeroBanner, BreadCrumb, ImageLoader } from '@components/common'
+import { Container, HeroBanner, BreadCrumb, ImageLoader, PageSEO } from '@components/common'
 import {
   HeaderContentContainer,
   ContactContainer,
@@ -12,9 +12,15 @@ import {
 const Stores: NextPage = () => {
   return (
     <Container>
+      <PageSEO title={`Nexx Phamacy - Store`} description='Nexx Phamacy - Store' />
+
       {/* Floating Button */}
       <ButtonContact />
-      <HeroBanner src='/images/hero-banner/stores.png' sectionClassName='bg-cover bg-[center_left_-350px] md:bg-center' containerClassName='top-[32%]'>
+      <HeroBanner
+        src='/images/hero-banner/stores.png'
+        sectionClassName='bg-cover bg-[center_left_-350px] md:bg-center'
+        containerClassName='top-[32%]'
+      >
         <div className='flex relative mb-10'>
           <p
             className={classNames(

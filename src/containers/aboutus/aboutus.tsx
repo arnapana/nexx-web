@@ -14,10 +14,10 @@ export const AboutusContainer = () => {
                 <p className='text-primary h2'>{aboutConstant.content1.title}</p>
               </div>
               <div className='mb-6'>
-                <p className='font-sarabun text-base font-light 2xl:text-xl'>{aboutConstant.content1.paragraph1}</p>
+                <p className='font-sarabun text-base font-light 2xl:text-lg'>{aboutConstant.content1.paragraph1}</p>
               </div>
               <div>
-                <p className='font-sarabun text-base font-light 2xl:text-xl'>{aboutConstant.content1.paragraph1}</p>
+                <p className='font-sarabun text-base font-light 2xl:text-lg'>{aboutConstant.content1.paragraph1}</p>
               </div>
             </div>
             <div className='grid place-content-center'>
@@ -41,13 +41,13 @@ export const AboutusContainer = () => {
             </div>
             <div className='order-1 md:px-8 lg:order-2'>
               <div className='mb-5'>
-                <p className='font-sarabun text-base font-light 2xl:text-xl'>{aboutConstant.content2.paragraph1}</p>
+                <p className='font-sarabun text-base font-light 2xl:text-lg'>{aboutConstant.content2.paragraph1}</p>
               </div>
               <div className='mb-5'>
-                <p className='font-sarabun text-base font-light 2xl:text-xl'>{aboutConstant.content2.paragraph2}</p>
+                <p className='font-sarabun text-base font-light 2xl:text-lg'>{aboutConstant.content2.paragraph2}</p>
               </div>
               <div>
-                <p className='font-sarabun text-base font-light 2xl:text-xl'>{aboutConstant.content2.paragraph3}</p>
+                <p className='font-sarabun text-base font-light 2xl:text-lg'>{aboutConstant.content2.paragraph3}</p>
               </div>
             </div>
           </div>

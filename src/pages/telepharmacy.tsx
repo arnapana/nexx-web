@@ -1,15 +1,21 @@
 import { NextPage } from 'next'
 import classNames from 'classnames'
-import { Container, HeroBanner, BreadCrumb, ImageLoader } from '@components/common'
+import { Container, HeroBanner, BreadCrumb, ImageLoader, PageSEO } from '@components/common'
 import { TelephamacyContainer, ContactTelephamacyContainer } from '@containers/telephamacy'
 import { ButtonContact } from '@components/button-contact'
 
 const Telephamacy: NextPage = () => {
   return (
     <Container>
+      <PageSEO title={`Nexx Phamacy - Telephamacy`} description='Nexx Phamacy - Telephamacy' />
+
       {/* Floating Button */}
       <ButtonContact />
-      <HeroBanner src='/images/hero-banner/telepharmacy.png' sectionClassName='bg-cover bg-[center_left_-330px] md:bg-center' containerClassName='top-[26%] left-[13%] md:left-[15%] 2xl:left-[13%]'>
+      <HeroBanner
+        src='/images/hero-banner/telepharmacy.png'
+        sectionClassName='bg-cover bg-[center_left_-330px] md:bg-center'
+        containerClassName='top-[26%] left-[13%] md:left-[15%] 2xl:left-[13%]'
+      >
         <div className='flex relative mb-10'>
           <p
             className={classNames(
@@ -18,7 +24,7 @@ const Telephamacy: NextPage = () => {
               '2xl:text-[80px] 2xl:leading-[90px]'
             )}
           >
-           Telepharmacy
+            Telepharmacy
           </p>
           <div
             className={classNames(

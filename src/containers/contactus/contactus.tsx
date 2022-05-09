@@ -40,7 +40,7 @@ export const ContactusContainer = () => {
                 handleOnChange={formik.handleChange}
                 errors={formik.errors.name}
                 touch={formik.touched.name}
-                inputClassName="h-[50px] md:h-[70px]"
+                inputClassName='h-[50px] md:h-[55px]'
               />
               <InputField
                 require={true}
@@ -53,7 +53,7 @@ export const ContactusContainer = () => {
                 handleOnChange={formik.handleChange}
                 errors={formik.errors.phone}
                 touch={formik.touched.phone}
-                inputClassName="h-[50px] md:h-[70px]"
+                inputClassName='h-[50px] md:h-[55px]'
               />
               <InputField
                 require={true}
@@ -66,15 +66,14 @@ export const ContactusContainer = () => {
                 handleOnChange={formik.handleChange}
                 errors={formik.errors.email}
                 touch={formik.touched.email}
-                inputClassName="h-[50px] md:h-[70px]"
+                inputClassName='h-[50px] md:h-[55px]'
               />
               <InputSelect
                 label='เรื่องที่ต้องการติดต่อ'
                 require={true}
                 inputValue={formik.values.title}
                 handleOnChange={formik.handleChange}
-                inputClassName="h-[50px] md:h-[70px]"
-        
+                inputClassName='h-[50px] md:h-[55px]'
               />
               <InputArea
                 require={false}
@@ -92,12 +91,12 @@ export const ContactusContainer = () => {
                 label='ยอมรับนโยบายความเป็นส่วนตัวและนโยบายคุกกี้'
                 checked={formik.values.accept}
                 handleOnChange={formik.handleChange}
-                labelClassName="text-sm md:text-xl"
+                labelClassName='text-sm md:text-xl'
               />
               <div>
                 <button
                   type='submit'
-                  className='w-full h-[50px] font-prompts font-medium text-white bg-[#78DF45] rounded-3xl md:h-[70px]'
+                  className='w-full h-[50px] font-prompts font-medium text-white bg-[#78DF45] rounded-3xl md:h-[55px]'
                 >
                   ส่งข้อความหาเรา
                 </button>

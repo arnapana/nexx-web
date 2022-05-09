@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 
-import { Container, BreadCrumb } from '@components/common'
+import { Container, BreadCrumb, PageSEO } from '@components/common'
 import { ButtonContact } from '@components/index'
 import { getPostBySlug } from '@utils/file-system'
 
@@ -21,12 +21,16 @@ const Privacy: NextPage = (props: any) => {
 
   return (
     <Container>
+      <PageSEO title={`Nexx Phamacy - Privacy`} description='Nexx Phamacy - Store' />
+
       {/* Floating Button */}
       <ButtonContact />
       <BreadCrumb outerClassName='container mx-auto my-10' />
       <div className='container mx-auto'>
         <div className='mb-10'>
-          <p className='font-prompts text-xl font-medium text-center 2xl:text-5xl 2xl:leading-[55px]'>นโยบายความเป็นส่วนตัว</p>
+          <p className='font-prompts text-xl font-medium text-center 2xl:text-5xl 2xl:leading-[55px]'>
+            นโยบายความเป็นส่วนตัว
+          </p>
         </div>
         <div>
           {/* Header */}
@@ -37,7 +41,10 @@ const Privacy: NextPage = (props: any) => {
           </div>
           {/* Content */}
           <div
-            className={classNames('mb-10 2xl:mb-32 font-sarabun text-base md:text-xl font-light p-5 md:p-10', 'prose prose-p:text-[#696969] max-w-none')}
+            className={classNames(
+              'mb-10 2xl:mb-32 font-sarabun text-base md:text-xl font-light p-5 md:p-10',
+              'prose prose-p:text-[#696969] max-w-none'
+            )}
           >
             <MDXRemote {...props.mdxSource} components={component} />
           </div>

@@ -1,15 +1,20 @@
 import { NextPage } from 'next'
 import classNames from 'classnames'
-import { Container, BreadCrumb, HeroBanner, ImageLoader } from '@components/common'
+import { Container, BreadCrumb, HeroBanner, ImageLoader, PageSEO } from '@components/common'
 import { CustomerReviewContainer } from '@containers/customer-review'
 import { ButtonContact } from '@components/index'
 
 const CustomerReviews: NextPage = () => {
   return (
     <Container>
+      <PageSEO title={`Nexx Phamacy - Review`} description='Nexx Phamacy - Review' />
       {/* Floating Button */}
       <ButtonContact />
-      <HeroBanner src='/images/hero-banner/customer-review.png' sectionClassName='bg-cover bg-[center_left_-350px] md:bg-center' containerClassName='top-[25%] 2xl:top-[27%]'>
+      <HeroBanner
+        src='/images/hero-banner/customer-review.png'
+        sectionClassName='bg-cover bg-[center_left_-350px] md:bg-center'
+        containerClassName='top-[25%] 2xl:top-[27%]'
+      >
         <div className='flex relative mb-10 w-[250px] md:w-[380px] 2xl:w-[520px]'>
           <p
             className={classNames(

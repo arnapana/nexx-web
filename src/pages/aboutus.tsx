@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import classNames from 'classnames'
-import { Container, BreadCrumb, HeroBanner, ColorLine, ImageLoader } from '@components/common'
+import { Container, BreadCrumb, HeroBanner, ColorLine, ImageLoader, PageSEO } from '@components/common'
 import { ArticleContainer } from '@components/containers'
 import { ButtonContact } from '@components/index'
 import { AboutusContainer, VisionContainer } from '@containers/aboutus'
@@ -10,6 +10,7 @@ import aboutusConstant from '@constants/mock/aboutus.json'
 const Aboutus: NextPage = () => {
   return (
     <Container>
+      <PageSEO title={`Nexx Phamacy - About Nexx Phamacy`} description='เกี่ยวกับเรา NEXX Pharma' />
       {/* Floating Button */}
       <ButtonContact />
       <HeroBanner src='/images/hero-banner/aboutus.png' srcMobile='/images/hero-banner/aboutus-mobile.png'>

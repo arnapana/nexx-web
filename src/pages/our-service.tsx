@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { serialize } from 'next-mdx-remote/serialize'
 
-import { Container, HeroBanner, BreadCrumb, ImageLoader } from '@components/common'
+import { Container, HeroBanner, BreadCrumb, ImageLoader, PageSEO } from '@components/common'
 import { ButtonContact, CardOurService } from '@components/index'
 import { SocialContact } from '@components/containers'
 import { OurServiceContainer } from '@containers/ourservice'
@@ -20,9 +20,15 @@ const OurService: NextPage = (props: any) => {
 
   return (
     <Container>
+      <PageSEO title={`Nexx Phamacy - OurService`} description='Nexx Phamacy - OurService' />
+
       {/* Floating Button */}
       <ButtonContact />
-      <HeroBanner src='/images/hero-banner/our-service.png' srcMobile='/images/hero-banner/our-service-mobile.png' containerClassName='top-[26%]'>
+      <HeroBanner
+        src='/images/hero-banner/our-service.png'
+        srcMobile='/images/hero-banner/our-service-mobile.png'
+        containerClassName='top-[26%]'
+      >
         <div className='flex relative mb-10'>
           <p
             className={classNames(
@@ -74,7 +80,7 @@ export default OurService
 
 export const getStaticProps = async () => {
   const rawPosts: any = await getPostByPath('service')
-  const sortPosts = rawPosts.sort((a:any, b:any) => a.order - b.order)
+  const sortPosts = rawPosts.sort((a: any, b: any) => a.order - b.order)
   let posts = []
 
   for (const post of sortPosts) {

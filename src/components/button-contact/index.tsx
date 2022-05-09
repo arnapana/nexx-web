@@ -13,22 +13,27 @@ export const ButtonContact = () => {
 
   return (
     <div className='fixed top-[80%] right-[5%] z-20 md:right-28'>
-      <button className='flex relative justify-center items-center px-10 w-[15rem] h-16 rounded-full md:w-[17rem] md:h-20 bg-secondary'>
+      <button
+        className={classNames(
+          'flex relative justify-center items-center px-9 w-[15rem] h-16 rounded-full bg-secondary',
+          'md:h-[70px] '
+        )}
+      >
         <div className='absolute bottom-0 left-0'>
-          <div className='relative  w-[6rem] h-[5rem] md:w-[118px] md:h-[113px]'>
+          <div className={classNames('relative  w-[6rem] h-[5rem]', 'md:w-[110px] md:h-[100px]')}>
             <ImageLoader layout='fill' src='/images/icons/button-contact.png' />
           </div>
         </div>
 
-        <div className='relative ml-14 w-32 h-12 md:ml-auto'>
+        <div className='relative ml-14 w-32 h-12 md:ml-16'>
           <div className='flex items-center pl-2 w-full h-full'>
-            <p className='font-prompts font-medium text-left text-primary md:text-lg'>เริ่มต้นปรึกษา เภสัชกร</p>
+            <p className='font-prompts font-medium text-left text-primary md:text-base'>เริ่มต้นปรึกษา เภสัชกร</p>
           </div>
           {/* Icon Right */}
           <div
             className={classNames(
-              'absolute w-6 h-3 right-2 bottom-1',
-              'md:w-[36px] md:h-[17px] md:right-2 md:bottom-0'
+              'absolute w-6 h-3 right-4 bottom-1',
+              'md:w-[28px] md:h-[14px] md:right-2 md:bottom-1'
             )}
           >
             <ImageLoader layout='fill' src='/images/icons/enter-white-button.png' />

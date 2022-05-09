@@ -8,13 +8,19 @@ export const CardActivitySmall = () => {
     <div className='mx-auto'>
       <div className='max-w-[25rem]'>
         <div className='flex flex-col mb-4 lg:flex-row'>
-          <div className='grid place-items-center pr-5 mb-5'>
-            <ImageLoader width={111} height={111} src='/images/pt-card.png' />
+          <div
+            className={classNames(
+              'relative w-full h-[185px] md:mr-3 my-2 rounded-lg overflow-hidden',
+              'md:w-[111px] md:h-[111px] md:rounded-full',
+              ''
+            )}
+          >
+            <ImageLoader layout='fill' src='/images/article/img1.png' />
           </div>
           <div className='lg:w-2/3'>
-            <div className='mb-3'>
-              <p className={classNames('font-kanits font-medium text-base md:text-lg 2xl:text-2xl')}>
-                ตรวจสุขภาพฟรี แค่มี Max Card ไปกับ “โครง การสถานีสุขภาพ”{' '}
+            <div className='md:mb-3'>
+              <p className={classNames('font-kanits font-medium text-lg md:text-xl 2xl:text-2xl')}>
+                ตรวจสุขภาพฟรี แค่มี Max Card ไปกับ “โครง การสถานีสุขภาพ”
               </p>
             </div>
             <div className='hidden space-x-5 md:flex'>

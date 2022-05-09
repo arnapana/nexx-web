@@ -7,11 +7,11 @@ import introductionConstant from '@constants/mock/intro.json'
 
 export const Introduction = () => {
   return (
-    <section className='pb-[5rem] 2xl:pb-[10rem]'>
+    <section className='pb-[5rem] 2xl:pb-[rem]'>
       <div className='container mx-auto'>
         {/* Header */}
         <div className='mb-10 lg:mb-28'>
-          <h2 className='font-prompts text-3xl font-medium text-center text-black md:text-4xl 2xl:text-[2.5rem]'>
+          <h2 className='font-prompts text-2xl font-medium text-center text-black md:text-4xl 2xl:text-[2.5rem]'>
             {introductionConstant.title} <span className='text-secondary'>{introductionConstant['sub-title']}</span>
           </h2>
         </div>
@@ -23,26 +23,26 @@ export const Introduction = () => {
               <ImageLoader src='/images/intro/intro1.png' width={555} height={320} />
             </div>
             {/* Content */}
-            <div className='px-3 mt-10 lg:px-10'>
+            <div className='mt-10 lg:px-10'>
               {/* QuoteMessage */}
               <div className='mb-7'>
                 <div className='relative w-full max-w-[544px] h-[70px]'>
                   <ImageLoader src='/images/intro/quote.png' layout='fill' />
-                  <div className='absolute top-3 left-6'>
-                    <p className='font-prompts text-base font-medium text-white xl:text-xl 2xl:text-2xl'>
+                  <div className='absolute top-1/2 left-6 -translate-y-2/3'>
+                    <p className='font-prompts text-sm font-medium text-white md:text-lg 2xl:text-2xl'>
                       {introductionConstant.quote}
                     </p>
                   </div>
                 </div>
               </div>
               <div className='mb-5'>
-                <p className='font-prompts md:text-xl 2xl:text-2xl'>
+                <p className='font-prompts md:text-lg 2xl:text-xl'>
                   <span className='font-medium text-primary'>{introductionConstant.paragraph_1.title}</span>
                   <span className='ml-2'>{introductionConstant.paragraph_1['sub-title']}</span>
                 </p>
               </div>
               <div className={classNames('intro-list')}>
-                <ul className='font-prompts md:text-xl 2xl:text-2xl'>
+                <ul className='font-prompts md:text-lg 2xl:text-xl'>
                   {introductionConstant.paragraph_1.list.map((val, idx) => (
                     <li key={idx}>{val.name}</li>
                   ))}
@@ -53,17 +53,17 @@ export const Introduction = () => {
           {/* Intro 2 */}
           <div className='grid grid-cols-1 gap-10 md:grid-cols-2'>
             {/* Contents */}
-            <div className='px-5 lg:px-16'>
+            <div className='lg:px-16'>
               <div className='mb-5'>
-                <h2 className='font-prompts text-xl font-medium md:text-2xl 2xl:text-3xl'>
+                <h2 className='font-prompts text-xl font-medium md:text-2xl'>
                   {introductionConstant.paragraph_2.title}
                 </h2>
               </div>
               <div className='mb-6'>
-                <p className='font-prompts md:text-xl 2xl:text-2xl'>{introductionConstant.paragraph_2.content}</p>
+                <p className='font-prompts md:text-lg 2xl:text-xl'>{introductionConstant.paragraph_2.content}</p>
               </div>
               <div className='mb-10'>
-                <p className='font-prompts md:text-xl 2xl:text-2xl'>
+                <p className='font-prompts md:text-lg 2xl:text-xl'>
                   <span className='text-primary'>{introductionConstant.paragraph_2.focus.title}</span>
                   <span className='ml-2'>{introductionConstant.paragraph_2.focus.content}</span>
                 </p>

@@ -38,11 +38,11 @@ export const CustomerReview = () => {
       {/* Slider */}
       <div
         id='App'
-        className='overflow-hidden my-14 mx-auto w-full min-h-[500px] md:min-h-[560px] lg:min-h-[620px] 2xl:min-h-[750px]'
+        className='overflow-hidden my-14 mx-auto w-full min-h-[550px] md:min-h-[610px] lg:min-h-[670px] 2xl:min-h-[800px]'
       >
         <Slider {...settings}>
           {reviewConstant.cards.map((val, idx) => (
-            <div key={idx} className='p-5 slider-review'>
+            <div key={idx} className='p-10 slider-review'>
               <div className='p-5 bg-white rounded-3xl drop-shadow-[0_10px_15px_rgba(54,74,217,0.1)] md:p-10 lg:p-16 card-review'>
                 <div className='box-border overflow-hidden w-full h-full text-ellipsis'>
                   <div className='flex flex-col justify-center items-center mb-5'>

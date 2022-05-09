@@ -1,12 +1,14 @@
 import { NextPage } from 'next'
 import { ButtonContact } from '@components/button-contact'
-import { Container } from '@components/common'
+import { Container, PageSEO } from '@components/common'
 import { CarouselSlider, CustomerReview, Introduction, SerivceHighlight } from '@containers/homepage'
 import { SocialContact } from '@components/containers'
 
 const Home: NextPage = () => {
   return (
     <Container>
+      <PageSEO title={`Nexx Phamacy`} description='Nexx Phamacy' />
+
       {/* Floating Button */}
       <ButtonContact />
 

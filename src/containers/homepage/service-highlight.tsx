@@ -7,7 +7,7 @@ import { ColorLine } from '@components/common'
 
 export const SerivceHighlight = () => {
   return (
-    <section className='py-14 md:py-16 2xl:py-[133px]'>
+    <section className='py-14 md:py-16 2xl:py-[100px]'>
       <div className='container mx-auto'>
         {/* Content */}
         <div>

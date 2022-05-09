@@ -56,23 +56,23 @@ export const CardOurService: React.FC<ICardService> = ({ mdxSource, frontMatter 
               </div>
               {/* Sub Title */}
               <div className='mb-4'>
-                <p className='font-prompts text-sm text-primary md:text-lg 2xl:text-xl'>{frontMatter.description}</p>
+                <p className='font-prompts text-sm text-primary md:text-lg'>{frontMatter.description}</p>
               </div>
 
               {/* Content */}
               <div>
-                <p className={`prose max-w-none font-sarabun text-sm md:text-lg 2xl:text-xl bg-white leading-5`}>
-                  {isOpen ?  <MDXRemote {...mdxSource} /> : frontMatter.preview.substr(0,limitText)}
+                <p className={`prose max-w-none font-sarabun text-sm md:text-lg bg-white leading-5`}>
+                  {isOpen ? <MDXRemote {...mdxSource} /> : frontMatter.preview.substr(0, limitText)}
                   {isOpen ? (
                     <span
-                      className='text-sm text-[#a3a3a3] animate-fade-in cursor-pointer md:text-lg 2xl:text-xl'
+                      className='text-sm text-[#a3a3a3] animate-fade-in cursor-pointer md:text-lg'
                       onClick={() => handleOpen()}
                     >
                       อ่านน้อยลง...
                     </span>
                   ) : (
                     <span
-                      className='ml-2 text-sm animate-fade-in cursor-pointer md:ml-5 md:text-lg 2xl:text-xl text-secondary'
+                      className='ml-2 text-sm animate-fade-in cursor-pointer md:ml-5 md:text-lg text-secondary'
                       onClick={() => handleOpen()}
                     >
                       อ่านเพิ่มเติม...
