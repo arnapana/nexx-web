@@ -39,6 +39,16 @@ const Footer: React.FC = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link href={navbarConstant.aboutus.to}>
+                    <a className={styles.footerList}>{navbarConstant.aboutus.name}</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href={navbarConstant.service.to}>
+                    <a className={styles.footerList}>{navbarConstant.service.name}</a>
+                  </Link>
+                </li>
+                <li>
                   <Link href={navbarConstant.telephamacy.to}>
                     <a className={styles.footerList}>{navbarConstant.telephamacy.name}</a>
                   </Link>
@@ -61,16 +71,6 @@ const Footer: React.FC = () => {
                 <li>
                   <Link href={navbarConstant.contact.to}>
                     <a className={styles.footerList}>{navbarConstant.contact.name}</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={navbarConstant.aboutus.to}>
-                    <a className={styles.footerList}>{navbarConstant.aboutus.name}</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={navbarConstant.service.to}>
-                    <a className={styles.footerList}>{navbarConstant.service.name}</a>
                   </Link>
                 </li>
               </ul>

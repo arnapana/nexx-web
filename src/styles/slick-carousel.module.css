@@ -1,6 +1,7 @@
 #Carousel .slick-dots {
-  left: 4.5%;
-  bottom: 25%;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
   z-index: 10;
 }
 
@@ -38,30 +39,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-#Carousel .slick-dots {
-  text-align: left;
-}
-
 #Carousel .slick-dots li.slick-active button:before {
   color: #364ad9;
   opacity: 1;
 }
 
-@media (min-width: 768px) {
-  #Carousel .slick-dots {
-    left: 4.5%;
-    bottom: 45%;
-    z-index: 10;
-  }
-}
-
 @media (min-width: 1024px) {
-  #Carousel .slick-dots {
-    left: 14.5%;
-    bottom: 45%;
-    z-index: 10;
-  }
-
   #Carousel .slick-dots li {
     width: 33px;
     height: 33px;
@@ -103,13 +86,5 @@
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-}
-
-@media (min-width: 1536px) {
-  #Carousel .slick-dots {
-    left: 14.5%;
-    bottom: 40%;
-    z-index: 10;
   }
 }
