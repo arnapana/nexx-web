@@ -3,10 +3,12 @@ import classNames from 'classnames'
 import { ButtonTag } from '@components/index'
 import { ImageLoader } from '@components/common'
 
+interface Props {}
+
 export const CardActivitySmall = () => {
   return (
     <div className='mx-auto'>
-      <div className='max-w-[25rem]'>
+      <div className='min-w-[21rem] max-w-[25rem] md:min-w-full'>
         <div className='flex flex-col mb-4 lg:flex-row'>
           <div
             className={classNames(
@@ -19,7 +21,7 @@ export const CardActivitySmall = () => {
           </div>
           <div className='lg:w-2/3'>
             <div className='md:mb-3'>
-              <p className={classNames('font-kanits font-medium text-lg md:text-xl 2xl:text-2xl')}>
+              <p className={classNames('font-kanits font-medium text-left text-lg md:text-xl 2xl:text-2xl')}>
                 ตรวจสุขภาพฟรี แค่มี Max Card ไปกับ “โครง การสถานีสุขภาพ”
               </p>
             </div>
@@ -34,7 +36,7 @@ export const CardActivitySmall = () => {
           <ButtonTag name='highligh' />
         </div>
         <div className='mb-2'>
-          <p className='font-sarabun text-sm text-[#5D5D5D] 2xl:text-base'>
+          <p className='font-sarabun text-sm text-left text-[#5D5D5D] 2xl:text-base'>
             โครงการที่จัดขึ้นโดยร้านยาแมกซ์ฟาร์มาซี ก่อนจะเปลี่ยนชื่อใหม่ เป็น NEXX Pharma ร่วมมือกับโรงพยาบาลมิตรไมตรี
             เพื่อออก ตรวจสุขภาพให้กับพี่น้องใน 8 ชุมชน
           </p>

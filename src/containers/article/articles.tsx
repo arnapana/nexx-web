@@ -6,7 +6,7 @@ const tags = ['สุขภาพ', 'ความเครียด', 'covid19',
 
 export const ArticlesContainer = () => {
   return (
-    <section className='mb-24 bg-[#FCFCFC] py-10 md:py-20'>
+    <section className='bg-[#FCFCFC] py-10 md:py-14'>
       <div className='container mx-auto'>
         {/* Header */}
         <div className='mb-10 md:mb-16'>

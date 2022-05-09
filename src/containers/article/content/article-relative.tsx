@@ -15,10 +15,22 @@ export const ArticleRelativeContainer = () => {
         </div>
 
         {/* Content */}
-        <div className='flex justify-start md:justify-center items-center space-x-10 overflow-x-auto'>
-          <CardActivitySmall />
-          <CardActivitySmall />
-          <CardActivitySmall />
+        <div className='overflow-auto w-full'>
+          <table className='table-fixed'>
+            <thead>
+              <tr>
+                <th className='p-5'>
+                  <CardActivitySmall />
+                </th>
+                <th className='p-5'>
+                  <CardActivitySmall />
+                </th>
+                <th className='p-5'>
+                  <CardActivitySmall />
+                </th>
+              </tr>
+            </thead>
+          </table>
         </div>
       </div>
     </section>
