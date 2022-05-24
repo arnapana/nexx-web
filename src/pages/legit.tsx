@@ -10,7 +10,7 @@ import { getPostBySlug } from '@utils/file-system'
 
 const component = { p: (props: any) => <div {...props} /> }
 
-const Privacy: NextPage = (props: any) => {
+const Legit: NextPage = (props: any) => {
   const router = useRouter()
   if (!router.isFallback && !props.mdxSource) {
     return <p>Error</p>
@@ -21,7 +21,7 @@ const Privacy: NextPage = (props: any) => {
 
   return (
     <Container>
-      <PageSEO title={`Nexx Phamacy - Privacy`} description='Nexx Phamacy - Store' />
+      <PageSEO title={`Nexx Phamacy - ${props.frontMatter.title}`} description={props.frontMatter.description} />
 
       {/* Floating Button */}
       <ButtonContact />
@@ -29,14 +29,14 @@ const Privacy: NextPage = (props: any) => {
       <div className='container mx-auto'>
         <div className='mb-10'>
           <p className='font-prompts text-xl font-medium text-center 2xl:text-5xl 2xl:leading-[55px]'>
-            นโยบายความเป็นส่วนตัว
+            {props.frontMatter.title}
           </p>
         </div>
         <div>
           {/* Header */}
           <div className='grid items-center px-8 h-[65px] text-white bg-primary rounded-2xl'>
             <p className={classNames('font-prompts font-medium 2xl:text-2xl telephamacy-title')}>
-              การประมวลผลข้อมูลส่วนบุคคล
+              {props.frontMatter.subTitle}
             </p>
           </div>
           {/* Content */}
@@ -71,16 +71,24 @@ const Privacy: NextPage = (props: any) => {
   )
 }
 
-export default Privacy
+export default Legit
 
 export const getStaticProps = async () => {
-  const posts: any = await getPostBySlug('policy')
-  const mdxSource = await serialize(posts.content)
+  const post = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/policies?/${new URLSearchParams({
+      range: JSON.stringify([0, 1]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'legit', status: true })
+    })}`
+  )
+  const postJson = await post.json()
+
+  const mdxSource = await serialize(postJson[0].content)
   return {
     props: {
-      frontMatter: posts,
+      frontMatter: postJson[0],
       mdxSource: mdxSource,
-      slug: posts.slug
+      slug: postJson[0].slug
     }
   }
 }

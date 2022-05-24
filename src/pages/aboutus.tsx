@@ -9,9 +9,11 @@ import aboutusConstant from '@constants/mock/aboutus.json'
 
 interface Props {
   vision: any
+  aboutus: any
+  activities: any
 }
 
-const Aboutus: NextPage<Props> = ({ vision }) => {
+const Aboutus: NextPage<Props> = ({ vision, aboutus, activities }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - About Nexx Phamacy`} description='เกี่ยวกับเรา NEXX Pharma' />
@@ -85,39 +87,39 @@ const Aboutus: NextPage<Props> = ({ vision }) => {
   )
 }
 
-// export const getServerSideProps = async (context: GetServerSideProps) => {
-//   const vision = await fetch(
-//     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/visions?/${new URLSearchParams({
-//       range: JSON.stringify([0, 6]),
-//       sort: JSON.stringify(['order', 'ASC']),
-//       filter: JSON.stringify({})
-//     })}`
-//   )
-//   const aboutus = await fetch(
-//     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/aboutus?/${new URLSearchParams({
-//       range: JSON.stringify([0, 6]),
-//       sort: JSON.stringify(['order', 'ASC']),
-//       filter: JSON.stringify({})
-//     })}`
-//   )
-//   const activities = await fetch(
-//     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/activities?/${new URLSearchParams({
-//       range: JSON.stringify([0, 6]),
-//       sort: JSON.stringify(['order', 'ASC']),
-//       filter: JSON.stringify({})
-//     })}`
-//   )
-//   const visionJson = await vision.json()
-//   const aboutusJson = await aboutus.json()
-//   const activitiesJson = await activities.json()
+export const getServerSideProps = async (context: GetServerSideProps) => {
+  const vision = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/visions?/${new URLSearchParams({
+      range: JSON.stringify([0, 6]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({})
+    })}`
+  )
+  const aboutus = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/aboutus?/${new URLSearchParams({
+      range: JSON.stringify([0, 6]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({})
+    })}`
+  )
+  const activities = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/activities?/${new URLSearchParams({
+      range: JSON.stringify([0, 6]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({})
+    })}`
+  )
+  const visionJson = await vision.json()
+  const aboutusJson = await aboutus.json()
+  const activitiesJson = await activities.json()
 
-//   return {
-//     props: {
-//       vision: visionJson,
-//       aboutus: aboutusJson,
-//       activities: activitiesJson
-//     } // will be passed to the page component as props
-//   }
-// }
+  return {
+    props: {
+      vision: visionJson,
+      aboutus: aboutusJson,
+      activities: activitiesJson
+    } // will be passed to the page component as props
+  }
+}
 
 export default Aboutus

@@ -80,17 +80,19 @@ const Footer: React.FC = () => {
               <ul className='space-y-1 font-prompts text-white md:space-y-3'>
                 <li className={styles.footerHeaderList}>ข้อมูลทางกฏหมาย</li>
                 <li>
-                  <Link href='/'>
+                  <Link href='/term-condition'>
                     <a className={styles.footerList}>เงื่อนไขและข้อกำหนด</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href='/privacy'>
+                  <Link href='/privacy-policy'>
                     <a className={styles.footerList}>นโยบายความเป็นส่วนตัว</a>
                   </Link>
                 </li>
                 <li>
+                <Link href='/legit'>
                   <a className={styles.footerList}>กฏหมายที่เกี่ยวข้อง</a>
+                  </Link>
                 </li>
               </ul>
 
