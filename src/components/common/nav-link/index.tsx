@@ -19,7 +19,7 @@ export const NavLink: React.FC<INavLink> = ({ name, to }) => {
     >
       <Link href={to}>
         <a
-          className={`font-kanits font-medium lg:text-lg 2xl:text-xl hover:text-primary whitespace-nowrap ${
+          className={`font-kanits font-medium lg:text-lg hover:text-primary whitespace-nowrap ${
             router.pathname === to ? 'text-primary' : 'text-[#3E3E3E]'
           }`}
         >

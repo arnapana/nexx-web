@@ -8,8 +8,8 @@
       "detail": "ตอบทุกคําถามเรื่องยาและสุขภาพ โดยเภสัชกรหรือบุคลากร ทางการแพทย์ในรูปแบบออนไลน์",
       "image": {
         "img": "/images/icons/highlight/icon_teleparma0.png",
-        "width": 81,
-        "height": 87,
+        "width": 71,
+        "height": 77,
         "alt": "teleparma"
       },
       "url": "/"
@@ -20,8 +20,8 @@
       "detail": "ให้บริการยาคุณภาพในราคามาตรฐาน สำหรับลูกค้าทั่วไปและกลุ่มองค์กร เปรียบเทียบราคาก่อนซื้อ พร้อมช่วย หายาและวิตามินที่คุณต้องการ",
       "image": {
         "img": "/images/icons/highlight/icon_pills.png",
-        "width": 87,
-        "height": 97,
+        "width": 77,
+        "height": 87,
         "alt": "pills"
       },
       "url": "/"
@@ -32,8 +32,8 @@
       "detail": "หายห่วงเรื่องข้อมูลขาดหายหรือ จำไม่ได้ ด้วยระบบบันทึกประวัติสุขภาพ ข้อมูลการซื้อยาในรูปแบบออนไลน์ เพื่อเป็นข้อมูลเฉพาะบุคคล ประกอบการให้บริการได้ทุกที่",
       "image": {
         "img": "/images/icons/highlight/icon_book-info0.png",
-        "width": 81,
-        "height": 86,
+        "width": 71,
+        "height": 76,
         "alt": "book-info"
       },
       "url": ""
@@ -44,8 +44,8 @@
       "detail": "รับยา วิตามิน สินค้าสุขภาพได้อย่างสะดวกรวดเร็ว โดยบริการส่งยา แบบด่วนภายในวันและส่งแบบพัสดุ",
       "image": {
         "img": "/images/icons/highlight/icon_free-deliv.png",
-        "width": 139,
-        "height": 86,
+        "width": 109,
+        "height": 66,
         "alt": "free-deliv"
       },
       "url": "/"
@@ -56,8 +56,8 @@
       "detail": "เพียงแจ้งเบอร์โทรศัพท์ที่ผูกไว้กับบัตร PT Max Card ทุกการใช้จ่ายกับร้านยา NEXX Pharma ก็สามารถสะสมแต้ม เพื่อแลกรับสิทธิประโยชน์มากมาย",
       "image": {
         "img": "/images/icons/highlight/icon_point02.png",
-        "width": 85,
-        "height": 85,
+        "width": 75,
+        "height": 75,
         "alt": "point"
       },
       "url": "/"

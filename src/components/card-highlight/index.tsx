@@ -20,7 +20,7 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
 
   return (
     <div className=' my-8 md:mx-2 lg:p-5 lg:m-0 lg:my-10 2xl:my-20'>
-      <div className='flex relative flex-col items-center py-10 px-9  w-[20rem] h-full bg-white rounded-3xl drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)] md:h-[22.5rem] 2xl:w-[25rem] 2xl:h-[27.5rem]'>
+      <div className='flex relative flex-col items-center py-10 px-6  w-[19rem] h-full bg-white rounded-3xl drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)] md:h-[22.5rem] 2xl:w-[23rem] 2xl:h-[27.5rem]'>
         {/* Icon */}
         <div>
           <ImageLoader width={width} height={height} src={src} alt={alt} />

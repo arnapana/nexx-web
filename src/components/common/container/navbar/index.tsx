@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
               </a>
             </Link>
           </div>
-          <ul className='hidden flex-row items-center space-x-10 h-full xl:flex 2xl:space-x-11'>
+          <ul className='hidden flex-row items-center space-x-8 h-full xl:flex'>
             <li>
               <NavLink to={menuConstant.homepage.to} name={menuConstant.homepage.name} />
             </li>

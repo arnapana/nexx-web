@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import classNames from 'classnames'
 import { Container, BreadCrumb, HeroBanner, ColorLine, ImageLoader, PageSEO } from '@components/common'
 import { ArticleContainer } from '@components/containers'
@@ -7,12 +7,17 @@ import { AboutusContainer, VisionContainer } from '@containers/aboutus'
 
 import aboutusConstant from '@constants/mock/aboutus.json'
 
-const Aboutus: NextPage = () => {
+interface Props {
+  vision: any
+}
+
+const Aboutus: NextPage<Props> = ({ vision }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - About Nexx Phamacy`} description='เกี่ยวกับเรา NEXX Pharma' />
       {/* Floating Button */}
       <ButtonContact />
+
       <HeroBanner src='/images/hero-banner/aboutus.png' srcMobile='/images/hero-banner/aboutus-mobile.png'>
         <div className='flex relative flex-col mb-5 md:mb-8'>
           <div className='mb-3'>
@@ -79,5 +84,40 @@ const Aboutus: NextPage = () => {
     </Container>
   )
 }
+
+// export const getServerSideProps = async (context: GetServerSideProps) => {
+//   const vision = await fetch(
+//     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/visions?/${new URLSearchParams({
+//       range: JSON.stringify([0, 6]),
+//       sort: JSON.stringify(['order', 'ASC']),
+//       filter: JSON.stringify({})
+//     })}`
+//   )
+//   const aboutus = await fetch(
+//     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/aboutus?/${new URLSearchParams({
+//       range: JSON.stringify([0, 6]),
+//       sort: JSON.stringify(['order', 'ASC']),
+//       filter: JSON.stringify({})
+//     })}`
+//   )
+//   const activities = await fetch(
+//     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/activities?/${new URLSearchParams({
+//       range: JSON.stringify([0, 6]),
+//       sort: JSON.stringify(['order', 'ASC']),
+//       filter: JSON.stringify({})
+//     })}`
+//   )
+//   const visionJson = await vision.json()
+//   const aboutusJson = await aboutus.json()
+//   const activitiesJson = await activities.json()
+
+//   return {
+//     props: {
+//       vision: visionJson,
+//       aboutus: aboutusJson,
+//       activities: activitiesJson
+//     } // will be passed to the page component as props
+//   }
+// }
 
 export default Aboutus

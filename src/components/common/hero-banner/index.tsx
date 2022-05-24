@@ -41,7 +41,7 @@ export const HeroBanner: NextPage<IHeroBanner> = ({
         )}
       >
         <ImageLoader src={src} layout='fill' objectFit='cover' priority={true} />
-        <div className={classNames(containerClassName, 'absolute top-[16%] left-[13%]')}>{children}</div>
+        <div className={classNames(containerClassName, 'absolute top-[16%] left-[16%]')}>{children}</div>
       </div>
     </section>
   )
