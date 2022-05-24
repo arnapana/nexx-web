@@ -1,10 +1,15 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import classNames from 'classnames'
 import { Container, BreadCrumb, HeroBanner, ImageLoader, PageSEO } from '@components/common'
 import { CustomerReviewContainer } from '@containers/customer-review'
 import { ButtonContact } from '@components/index'
+import { IReview } from 'pages'
 
-const CustomerReviews: NextPage = () => {
+interface Props {
+  reviews: IReview[]
+}
+
+const CustomerReviews: NextPage<Props> = ({ reviews }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - Review`} description='Nexx Phamacy - Review' />
@@ -52,6 +57,24 @@ const CustomerReviews: NextPage = () => {
       <CustomerReviewContainer />
     </Container>
   )
+}
+
+export const getServerSideProps = async (context: GetServerSideProps) => {
+  const reviews = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/reviews?/${new URLSearchParams({
+      range: JSON.stringify([0, 9]),
+      sort: JSON.stringify(['id', 'ASC']),
+      filter: JSON.stringify({ status: true })
+    })}`
+  )
+
+  const reviewsJson = await reviews.json()
+
+  return {
+    props: {
+      reviewsJson: reviewsJson
+    }
+  }
 }
 
 export default CustomerReviews

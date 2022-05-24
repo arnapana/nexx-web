@@ -30,12 +30,12 @@ function MyApp({ Component, pageProps, appVersion }: Props) {
     </>
   )
 }
-// MyApp.getInitialProps = async (appContext: AppContext) => {
-//   // calls page's `getInitialProps` and fills `appProps.pageProps`
-//   const appProps = await App.getInitialProps(appContext)
-//   const appVersion = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API as string}/apps/1`)
-//   const jsonAppVersion = await appVersion.json()
-//   return { ...appProps, appVersion: jsonAppVersion }
-// }
+MyApp.getInitialProps = async (appContext: AppContext) => {
+  // calls page's `getInitialProps` and fills `appProps.pageProps`
+  const appProps = await App.getInitialProps(appContext)
+  const appVersion = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API as string}/apps/1`)
+  const jsonAppVersion = await appVersion.json()
+  return { ...appProps, appVersion: jsonAppVersion }
+}
 
 export default MyApp

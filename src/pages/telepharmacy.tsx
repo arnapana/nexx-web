@@ -1,10 +1,27 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import classNames from 'classnames'
 import { Container, HeroBanner, BreadCrumb, ImageLoader, PageSEO } from '@components/common'
 import { TelephamacyContainer, ContactTelephamacyContainer } from '@containers/telephamacy'
 import { ButtonContact } from '@components/button-contact'
 
-const Telephamacy: NextPage = () => {
+export interface ITelephamacy {
+  id: number
+  parentId: number
+  order: number
+  title: string
+  metaTitle: string
+  content: string
+  imgSrc: string
+  imgSlideSrc: string
+  slug: string
+  status: boolean
+}
+
+interface Props {
+  telephamacies: ITelephamacy[]
+}
+
+const Telephamacy: NextPage<Props> = ({ telephamacies }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - Telephamacy`} description='Nexx Phamacy - Telephamacy' />
@@ -54,6 +71,24 @@ const Telephamacy: NextPage = () => {
       <ContactTelephamacyContainer />
     </Container>
   )
+}
+
+export const getServerSideProps = async (context: GetServerSideProps) => {
+  const telephamacies = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/telephamacies?/${new URLSearchParams({
+      range: JSON.stringify([0, 6]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ status: true })
+    })}`
+  )
+
+  const telephamaciesJson = await telephamacies.json()
+
+  return {
+    props: {
+      telephamacies: telephamaciesJson
+    }
+  }
 }
 
 export default Telephamacy
