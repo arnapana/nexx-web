@@ -58,7 +58,7 @@ export const CustomerReview = () => {
                   <div className=''>
                     <p
                       className={classNames(
-                        'font-sarabun text-base font-light text-center line-clamp-7',
+                        'font-prompts text-base font-light text-center line-clamp-7',
                         'md:text-lg md:line-clamp-5',
                         'lg:line-clamp-4',
                         '2xl:text-xl 2xl:line-clamp-none'
