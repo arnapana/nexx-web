@@ -1,11 +1,18 @@
 import React from 'react'
 import Slider from 'react-slick'
+import * as _ from 'lodash'
 import classNames from 'classnames'
 import { ColorLine, ImageLoader } from '@components/common'
 
 import reviewConstant from '@constants/mock/review.json'
+import { IReview } from 'pages'
+import { NextPage } from 'next'
 
-export const CustomerReview = () => {
+interface Props {
+  reviewPost: IReview[]
+}
+
+export const CustomerReview: NextPage<Props> = ({ reviewPost }) => {
   const settings = {
     className: 'slider variable-width',
     dots: true,
@@ -22,6 +29,7 @@ export const CustomerReview = () => {
       </div>
     )
   }
+
   return (
     <section className='mb-16 2xl:mb-0'>
       {/* Header */}
@@ -41,17 +49,17 @@ export const CustomerReview = () => {
         className='overflow-hidden my-14 mx-auto w-full min-h-[550px] md:min-h-[610px] lg:min-h-[670px] 2xl:min-h-[800px]'
       >
         <Slider {...settings}>
-          {reviewConstant.cards.map((val, idx) => (
+          {_.map(reviewPost, (val, idx) => (
             <div key={idx} className='p-10 slider-review'>
               <div className='p-5 bg-white rounded-3xl drop-shadow-[0_10px_15px_rgba(54,74,217,0.1)] md:p-10 lg:p-16 card-review'>
                 <div className='box-border overflow-hidden w-full h-full text-ellipsis'>
                   <div className='flex flex-col justify-center items-center mb-5'>
                     <div className='overflow-hidden rounded-full'>
-                      <ImageLoader width={123} height={123} src={val.img} />
+                      <ImageLoader width={123} height={123} src={val.imgSrc} />
                     </div>
                     <div className='mt-3'>
                       <p className='font-prompts text-base'>
-                        <span>{val.name}</span> <span>{val.surename}</span>, <span>{val.age}</span>
+                        <span>{val.firstname}</span> <span>{val.lastname}</span>
                       </p>
                     </div>
                   </div>
@@ -64,7 +72,7 @@ export const CustomerReview = () => {
                         '2xl:text-xl 2xl:line-clamp-none'
                       )}
                     >
-                      {val.review}
+                      {val.content}
                     </p>
                   </div>
                 </div>

@@ -2,8 +2,15 @@ import React from 'react'
 import { ButtonTag } from '@components/index'
 import { ImageLoader } from '@components/common'
 import Link from 'next/link'
+import { NextPage } from 'next'
+import { IActivities } from 'pages/aboutus'
 
-export const CardActivityLarge = () => {
+interface Props {
+  post: IActivities
+}
+
+export const CardActivityLarge: NextPage<Props> = ({ post }) => {
+  console.log(post)
   return (
     <div className='w-full'>
       <div className='w-full'>
@@ -12,27 +19,21 @@ export const CardActivityLarge = () => {
             <ButtonTag name='highlight' />
             <ButtonTag name='ความเครียด' />
           </div>
-          <ImageLoader
-            className='overflow-hidden rounded-[30px]'
-            width={868}
-            height={568}
-            src='/images/aboutus/card-review-large.png'
-          />
-          <div className='absolute bottom-0 left-0 p-2  h-[84px] bg-primary md:py-5 md:px-9 md:h-[200px]'>
-            <div className='md:mb-2'>
-              <p className='font-kanits font-medium text-white line-clamp-2 h3'>
-                Computer Vision Syndrome (CVS) : โรคใกล้ตัวของคนทำงานยุคใหม่ เพราะจ้องหน้าจอมากเกินไป
-              </p>
-            </div>
-            <div className='hidden mb-3 md:block'>
-              <p className='font-sarabun text-sm font-normal leading-7 text-white line-clamp-2 2xl:text-base'>
-                เพราะวิถีชีวิตของคนทำงานยุคปัจจุบันต้องทำงานผ่านเครื่องมือเทคโนโลยีมากขึ้น ไม่ว่าจะเป็นหน้าจอคอมพิว-
-                เตอร์ จอสมาร์ทโฟน หรือแท็บเลต และเราก็ใช้เวลากับหน้าจอเหล่านี้เฉลี่ยวันละ
-              </p>
+          <ImageLoader className='overflow-hidden rounded-[30px]' width={868} height={568} src={post.blog.imgSrc} />
+          <div className='flex absolute bottom-0 left-0 flex-col justify-between p-2 w-full  h-[84px] bg-primary md:py-5 md:px-9 md:h-[200px]'>
+            <div>
+              <div className='md:mb-2'>
+                <p className='font-kanits font-medium text-white line-clamp-2 h3'>{post.blog.title}</p>
+              </div>
+              <div className='hidden mb-3 md:block'>
+                <p className='font-sarabun text-sm font-normal leading-7 text-white line-clamp-2 2xl:text-base'>
+                  {post.blog.description}
+                </p>
+              </div>
             </div>
             <div className='flex justify-end items-center mr-2 space-x-3 md:mr-0'>
               <p className='font-prompts text-sm text-white underline md:text-base'>
-                <Link href='/article/cvs'>
+                <Link href={{ pathname: '/article/[slug]', query: { slug: post.blog.slug } }}>
                   <a>อ่านเพิ่มเติ่ม</a>
                 </Link>
               </p>

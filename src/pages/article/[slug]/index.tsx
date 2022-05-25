@@ -14,7 +14,31 @@ const component = {
   h3: (props: any) => <h3 className='text-xl font-medium' {...props} />
 }
 
-const Article: NextPage = (props: any) => {
+export type IBlog = {
+  id: number
+  order: number
+  title: string
+  slug: string
+  subTitle: string
+  description: string
+  content: string
+  imgSrc: string
+  status: boolean
+  publishedAt: Date
+  createdAt: Date
+  updatedAt: Date
+  categories: {
+    id: number
+    title: string
+    slug: string
+  }[]
+}
+interface Props {
+  blogs: IBlog
+  relativePostJson: IBlog[]
+}
+
+const Article: NextPage<Props> = (props: any) => {
   const router = useRouter()
   if (!router.isFallback && !props.mdxSource) {
     return <p>Error</p>
@@ -22,6 +46,8 @@ const Article: NextPage = (props: any) => {
   if (router.isFallback) {
     return <p>Loading...</p>
   }
+
+  console.log(props.frontMatter)
 
   return (
     <Container>
@@ -88,37 +114,59 @@ const Article: NextPage = (props: any) => {
           </div>
         </div>
       </section>
-      <ArticleRelativeContainer />
+      <ArticleRelativeContainer relativePost={props.relativePostJson} />
     </Container>
   )
 }
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {
-  const posts: any = await getPostBySlug('cvs')
-  const paths = { params: { slug: posts.slug } }
+  const slug = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({})
+    })}`
+  )
+  const slugJson = await slug.json()
+  const paths = slugJson.map((val: any) => ({ params: { slug: val.slug } }))
 
-  return { paths: [paths], fallback: 'blocking' }
+  return { paths: paths, fallback: 'blocking' }
 }
 
-export const getStaticProps: GetStaticProps<any, any> = async () => {
-  const posts: any = await getPostBySlug('cvs')
-  const mdxSource = await serialize(posts.content)
+export const getStaticProps: GetStaticProps<any, any> = async (context) => {
+  const { slug } = context.params
+  const posts = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
+      range: JSON.stringify([0, 1]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: slug })
+    })}`
+  )
+  const relativePost = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
+      range: JSON.stringify([0, 3]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ title: slug, description: slug })
+    })}`
+  )
+  const relativePostJson = await relativePost.json()
+  const postJson = await posts.json()
+
+  if (!postJson.length) {
+    return { notFound: true }
+  }
+
+  const mdxSource = await serialize(postJson[0].content)
+
   return {
     props: {
-      frontMatter: posts,
+      frontMatter: postJson[0],
       mdxSource: mdxSource,
-      slug: posts.slug
-    }
+      slug: postJson[0].slug,
+      relativePostJson
+    },
+    revalidate: 10
   }
-  // const { slug } = context.params
-
-  // const article = articlesConstant.find((val) => val.slug === slug)
-
-  // if (!article) {
-  //   throw new Error(`Failed to fetch posts, received status`)
-  // }
-
-  // return { props: { article: article }, revalidate: 60 }
 }
 
 export default Article

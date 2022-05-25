@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { GetServerSideProps, NextPage } from 'next'
 import classNames from 'classnames'
 import { Container, BreadCrumb, HeroBanner, ImageLoader, PageSEO } from '@components/common'
@@ -54,25 +55,26 @@ const CustomerReviews: NextPage<Props> = ({ reviews }) => {
       </HeroBanner>
 
       <BreadCrumb outerClassName='container mx-auto my-10' />
-      <CustomerReviewContainer />
+      <CustomerReviewContainer reviews={reviews}/>
     </Container>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const reviews = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/reviews?/${new URLSearchParams({
-      range: JSON.stringify([0, 9]),
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/reviews?${new URLSearchParams({
+      range: JSON.stringify([0, 8]),
       sort: JSON.stringify(['id', 'ASC']),
       filter: JSON.stringify({ status: true })
     })}`
   )
 
   const reviewsJson = await reviews.json()
+  console.log(reviewsJson.length)
 
   return {
     props: {
-      reviewsJson: reviewsJson
+      reviews: reviewsJson
     }
   }
 }

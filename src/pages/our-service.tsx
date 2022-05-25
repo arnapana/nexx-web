@@ -79,7 +79,7 @@ export default OurService
 
 export const getStaticProps: GetStaticProps = async () => {
   const carouselType = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carouselTypes?/${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carouselTypes?${new URLSearchParams({
       range: JSON.stringify([]),
       sort: JSON.stringify([]),
       filter: JSON.stringify({ slug: 'ourservice' })
@@ -87,7 +87,7 @@ export const getStaticProps: GetStaticProps = async () => {
   )
   const carouselTypeJson = await carouselType.json()
   const carousel = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?/${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
       range: JSON.stringify([0, 1]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
@@ -98,7 +98,7 @@ export const getStaticProps: GetStaticProps = async () => {
   console.log(carouselJson)
 
   const ourservices = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/ourservices?/${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/ourservices?${new URLSearchParams({
       range: JSON.stringify([0, 5]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ status: true })

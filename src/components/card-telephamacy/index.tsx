@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { MDXRemote } from 'next-mdx-remote'
 import classNames from 'classnames'
 interface Props {
   name: string
-  list: string[]
+  list: any
   index: number
   current: number
   onClick: () => void
@@ -21,12 +22,8 @@ export const CardTelephamacy: React.FC<Props> = ({ name, list, onClick, current,
           <p className={classNames('font-prompts font-medium telephamacy-title h4')}>{name}</p>
         </div>
         <div>
-          <ul id='test' className={classNames('telephamacy-list')}>
-            {list.map((val, idx) => (
-              <li key={idx} className='font-prompts leading-7 text-[#5D5D5D] md:text-[18px]'>
-                {val}
-              </li>
-            ))}
+          <ul id='test' className={classNames('telephamacy-list', 'prose max-w-none font-sarabun text-sm md:text-lg')}>
+            {list && <MDXRemote {...list} />}
           </ul>
         </div>
       </div>

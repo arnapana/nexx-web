@@ -75,7 +75,7 @@ export default TermCondition
 
 export const getStaticProps: GetStaticProps = async () => {
     const post = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_API as string}/policies?/${new URLSearchParams({
+      `${process.env.NEXT_PUBLIC_BACKEND_API as string}/policies?${new URLSearchParams({
         range: JSON.stringify([0,1]),
         sort: JSON.stringify([]),
         filter: JSON.stringify({ slug: 'term-condition', status: true })

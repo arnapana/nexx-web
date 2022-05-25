@@ -39,10 +39,10 @@ const Home: NextPage<Props> = ({ hightlights, reviews }) => {
 
       <CarouselSlider />
       {/* Highligt */}
-      <SerivceHighlight />
+      {hightlights && <SerivceHighlight hightlightPost={hightlights} />}
 
       {/* Review */}
-      <CustomerReview />
+      {reviews && <CustomerReview reviewPost={reviews} />}
 
       {/* Introduction */}
       <Introduction />
@@ -55,7 +55,7 @@ const Home: NextPage<Props> = ({ hightlights, reviews }) => {
 
 export const getServerSideProps = async (context: GetServerSideProps) => {
   const carouselType = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carouselTypes?/${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carouselTypes?${new URLSearchParams({
       range: JSON.stringify([]),
       sort: JSON.stringify([]),
       filter: JSON.stringify({ slug: 'homepage' })
@@ -63,7 +63,7 @@ export const getServerSideProps = async (context: GetServerSideProps) => {
   )
   const carouselTypeJson = await carouselType.json()
   const carousel = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?/${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
       range: JSON.stringify([0, 6]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
@@ -71,14 +71,14 @@ export const getServerSideProps = async (context: GetServerSideProps) => {
   )
 
   const hightlights = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/hightlights?/${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/hightlights?${new URLSearchParams({
       range: JSON.stringify([0, 6]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ status: true })
     })}`
   )
   const reviews = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/reviews?/${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/reviews?${new URLSearchParams({
       range: JSON.stringify([0, 5]),
       sort: JSON.stringify(['id', 'DESC']),
       filter: JSON.stringify({ status: true })

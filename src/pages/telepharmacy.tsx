@@ -1,5 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next'
+import { serialize } from 'next-mdx-remote/serialize'
 import classNames from 'classnames'
+
 import { Container, HeroBanner, BreadCrumb, ImageLoader, PageSEO } from '@components/common'
 import { TelephamacyContainer, ContactTelephamacyContainer } from '@containers/telephamacy'
 import { ButtonContact } from '@components/button-contact'
@@ -67,7 +69,7 @@ const Telephamacy: NextPage<Props> = ({ telephamacies }) => {
       </HeroBanner>
       <BreadCrumb outerClassName='container mx-auto my-10' />
 
-      <TelephamacyContainer />
+      <TelephamacyContainer telephamacies={telephamacies} />
       <ContactTelephamacyContainer />
     </Container>
   )
@@ -75,18 +77,25 @@ const Telephamacy: NextPage<Props> = ({ telephamacies }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const telephamacies = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/telephamacies?/${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/telephamacies?${new URLSearchParams({
       range: JSON.stringify([0, 6]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ status: true })
     })}`
   )
 
+  const telephamacyArray = []
+
   const telephamaciesJson = await telephamacies.json()
+
+  for (const telephamacy of telephamaciesJson) {
+    const mdxSource = await serialize(telephamacy.content)
+    telephamacyArray.push({ ...telephamacy, content: mdxSource })
+  }
 
   return {
     props: {
-      telephamacies: telephamaciesJson
+      telephamacies: telephamacyArray
     }
   }
 }

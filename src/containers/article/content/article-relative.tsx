@@ -1,8 +1,15 @@
 import React from 'react'
+import * as _ from 'lodash'
 import { ColorLine } from '@components/common'
 import { CardActivitySmall } from '@components/index'
+import { IBlog } from 'pages/article/[slug]'
+import { NextPage } from 'next'
 
-export const ArticleRelativeContainer = () => {
+interface Props {
+  relativePost: IBlog[]
+}
+
+export const ArticleRelativeContainer: NextPage<Props> = ({ relativePost }) => {
   return (
     <section className='py-20 bg-[#FCFCFC]'>
       <div className='container mx-auto'>
@@ -19,15 +26,11 @@ export const ArticleRelativeContainer = () => {
           <table className='table-fixed'>
             <thead>
               <tr>
-                <th className='p-5'>
-                  <CardActivitySmall />
-                </th>
-                <th className='p-5'>
-                  <CardActivitySmall />
-                </th>
-                <th className='p-5'>
-                  <CardActivitySmall />
-                </th>
+                {_.map(relativePost, (val, idx) => (
+                  <th className='p-5'>
+                    <CardActivitySmall key={idx} post={val}/>
+                  </th>
+                ))}
               </tr>
             </thead>
           </table>

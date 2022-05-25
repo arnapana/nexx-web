@@ -2,10 +2,16 @@ import React from 'react'
 import classNames from 'classnames'
 import { ButtonTag } from '@components/index'
 import { ImageLoader } from '@components/common'
+import { NextPage } from 'next'
+import { IActivities } from 'pages/aboutus'
+import Link from 'next/link'
+import { IBlog } from 'pages/article/[slug]'
 
-interface Props {}
+interface Props {
+  post: IBlog
+}
 
-export const CardActivitySmall = () => {
+export const CardActivitySmall: NextPage<Props> = ({ post }) => {
   return (
     <div className='mx-auto'>
       <div className='min-w-[21rem] max-w-[25rem] md:min-w-full'>
@@ -17,12 +23,12 @@ export const CardActivitySmall = () => {
               ''
             )}
           >
-            <ImageLoader layout='fill' src='/images/article/img1.png' />
+            <ImageLoader layout='fill' src={post.imgSrc ? post.imgSrc : '/images/article/img1.png'} />
           </div>
           <div className='lg:w-2/3'>
             <div className='md:mb-3'>
-              <p className={classNames('font-kanits font-medium text-left text-lg md:text-xl 2xl:text-2xl')}>
-                ตรวจสุขภาพฟรี แค่มี Max Card ไปกับ “โครง การสถานีสุขภาพ”
+              <p className={classNames('font-kanits font-medium text-left text-lg md:text-xl')}>
+                {post.title}
               </p>
             </div>
             <div className='hidden space-x-5 md:flex'>
@@ -36,13 +42,14 @@ export const CardActivitySmall = () => {
           <ButtonTag name='highligh' />
         </div>
         <div className='mb-2'>
-          <p className='font-sarabun text-sm text-left text-[#5D5D5D] 2xl:text-base'>
-            โครงการที่จัดขึ้นโดยร้านยาแมกซ์ฟาร์มาซี ก่อนจะเปลี่ยนชื่อใหม่ เป็น NEXX Pharma ร่วมมือกับโรงพยาบาลมิตรไมตรี
-            เพื่อออก ตรวจสุขภาพให้กับพี่น้องใน 8 ชุมชน
-          </p>
+          <p className='font-sarabun text-sm text-left text-[#5D5D5D] 2xl:text-base'>{post.description}</p>
         </div>
         <div className='flex items-center space-x-3'>
-          <p className='font-prompts text-sm font-medium text-primary md:text-base'>อ่านเพิ่มเติ่ม</p>
+          <p className='font-prompts text-sm font-medium text-primary md:text-base'>
+            <Link href={{ pathname: '/article/[slug]', query: { slug: post.slug } }}>
+              <a>อ่านเพิ่มเติ่ม</a>
+            </Link>
+          </p>
           <div className='grid place-items-center'>
             <ImageLoader width={24} height={12} src='/images/icons/enter-blue-button.png' />
           </div>

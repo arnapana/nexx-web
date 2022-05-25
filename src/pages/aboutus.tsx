@@ -6,14 +6,45 @@ import { ButtonContact } from '@components/index'
 import { AboutusContainer, VisionContainer } from '@containers/aboutus'
 
 import aboutusConstant from '@constants/mock/aboutus.json'
+import { serialize } from 'next-mdx-remote/serialize'
+import { IBlog } from './article/[slug]'
 
-interface Props {
-  vision: any
-  aboutus: any
-  activities: any
+export type IActivities = {
+  order: number
+  status: boolean
+  blog: IBlog
 }
 
-const Aboutus: NextPage<Props> = ({ vision, aboutus, activities }) => {
+export type IVision = {
+  content: string
+  description: string
+  id: number
+  imgSrc: string
+  order: number
+  slug: string
+  status: true
+  subTitle: string
+  title: string
+}
+
+export type IAboutus = {
+  content: any
+  description: string
+  id: number
+  imgSrc: string
+  order: number
+  slug: string
+  status: true
+  subTitle: string
+  title: string
+}
+interface Props {
+  visions: IVision[]
+  aboutus: IAboutus[]
+  activities: IActivities[]
+}
+
+const Aboutus: NextPage<Props> = ({ visions, aboutus, activities }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - About Nexx Phamacy`} description='เกี่ยวกับเรา NEXX Pharma' />
@@ -68,8 +99,8 @@ const Aboutus: NextPage<Props> = ({ vision, aboutus, activities }) => {
       </HeroBanner>
 
       <BreadCrumb outerClassName='container mx-auto my-10' />
-      <AboutusContainer />
-      <VisionContainer />
+      <AboutusContainer aboutPost={aboutus} />
+      <VisionContainer visionPost={visions} />
       <div>
         {/* Header */}
         <div className='mb-16'>
@@ -81,7 +112,7 @@ const Aboutus: NextPage<Props> = ({ vision, aboutus, activities }) => {
           </div>
           <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 mb-7 mt-4' />
         </div>
-        <ArticleContainer />
+        <ArticleContainer activityPost={activities} />
       </div>
     </Container>
   )
@@ -89,34 +120,39 @@ const Aboutus: NextPage<Props> = ({ vision, aboutus, activities }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const vision = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/visions?/${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/visions?${new URLSearchParams({
       range: JSON.stringify([0, 6]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({})
     })}`
   )
   const aboutus = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/aboutus?/${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/aboutus?${new URLSearchParams({
       range: JSON.stringify([0, 6]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({})
     })}`
   )
   const activities = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/activities?/${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/activities?${new URLSearchParams({
       range: JSON.stringify([0, 6]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({})
     })}`
   )
   const visionJson = await vision.json()
-  const aboutusJson = await aboutus.json()
+  const aboutusArray = []
   const activitiesJson = await activities.json()
+
+  for await (const post of await aboutus.json()) {
+    const mdxSource = await serialize(post.content)
+    aboutusArray.push({ ...post, content: mdxSource })
+  }
 
   return {
     props: {
-      vision: visionJson,
-      aboutus: aboutusJson,
+      visions: visionJson,
+      aboutus: aboutusArray,
       activities: activitiesJson
     } // will be passed to the page component as props
   }
