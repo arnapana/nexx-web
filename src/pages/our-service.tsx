@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -7,7 +7,6 @@ import { Container, HeroBanner, BreadCrumb, ImageLoader, PageSEO } from '@compon
 import { ButtonContact, CardOurService } from '@components/index'
 import { SocialContact } from '@components/containers'
 import { OurServiceContainer } from '@containers/ourservice'
-import { getPostByPath } from '@utils/file-system'
 
 const OurService: NextPage = (props: any) => {
   const router = useRouter()
@@ -78,19 +77,46 @@ const OurService: NextPage = (props: any) => {
 
 export default OurService
 
-export const getStaticProps = async () => {
-  const rawPosts: any = await getPostByPath('service')
-  const sortPosts = rawPosts.sort((a: any, b: any) => a.order - b.order)
+export const getStaticProps: GetStaticProps = async () => {
+  const carouselType = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carouselTypes?/${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'ourservice' })
+    })}`
+  )
+  const carouselTypeJson = await carouselType.json()
+  const carousel = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?/${new URLSearchParams({
+      range: JSON.stringify([0, 1]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
+    })}`
+  )
+  const carouselJson = await carousel.json()
+
+  console.log(carouselJson)
+
+  const ourservices = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/ourservices?/${new URLSearchParams({
+      range: JSON.stringify([0, 5]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ status: true })
+    })}`
+  )
+
+  const ourservicesJson = await ourservices.json()
   let posts = []
 
-  for (const post of sortPosts) {
+  for (const post of ourservicesJson) {
     const mdxSource = await serialize(post.content)
     posts.push({ mdxSource: mdxSource, frontMatter: post, slug: post.slug })
   }
 
   return {
     props: {
-      posts
+      posts,
+      carousel: carouselJson
     }
   }
 }

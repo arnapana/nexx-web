@@ -87,7 +87,7 @@ const Aboutus: NextPage<Props> = ({ vision, aboutus, activities }) => {
   )
 }
 
-export const getServerSideProps = async (context: GetServerSideProps) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const vision = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/visions?/${new URLSearchParams({
       range: JSON.stringify([0, 6]),

@@ -45,7 +45,7 @@ export const CardOurService: React.FC<ICardService> = ({ mdxSource, frontMatter 
         >
           <div className='col-span-1 p-5'>
             <div className='grid place-content-center xl:justify-start'>
-              <ImageLoader src={frontMatter.img} width={200} height={200} />
+              <ImageLoader src={frontMatter.imgSrc} width={200} height={200} />
             </div>
           </div>
           <div className='col-span-3 px-5 pb-5'>
@@ -56,13 +56,13 @@ export const CardOurService: React.FC<ICardService> = ({ mdxSource, frontMatter 
               </div>
               {/* Sub Title */}
               <div className='mb-4'>
-                <p className='font-prompts text-sm text-primary md:text-lg'>{frontMatter.description}</p>
+                <p className='font-prompts text-sm text-primary md:text-lg'>{frontMatter.subTitle}</p>
               </div>
 
               {/* Content */}
               <div>
                 <p className={`prose max-w-none font-sarabun text-sm md:text-lg bg-white leading-5`}>
-                  {isOpen ? <MDXRemote {...mdxSource} /> : frontMatter.preview.substr(0, limitText)}
+                  {isOpen ? <MDXRemote {...mdxSource} /> : frontMatter.description.substr(0, limitText)}
                   {isOpen ? (
                     <span
                       className='text-sm text-[#a3a3a3] animate-fade-in cursor-pointer md:text-lg'

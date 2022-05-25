@@ -5,16 +5,29 @@ import { ImageLoader, InputField, InputArea, InputSelect, InputCheckbok } from '
 
 export const ContactusContainer = () => {
   const formik = useFormik({
-    initialValues: { name: '', phone: '', email: '', title: '', details: '', accept: false },
+    initialValues: { name: '', phone: '', email: '', title: '', message: '', accept: false },
     validationSchema: Yup.object({
       name: Yup.string().required(),
       email: Yup.string().email().required(),
       phone: Yup.string().required(),
       title: Yup.string().required(),
-      details: Yup.string().required()
+      message: Yup.string().required()
     }),
-    onSubmit: (values, { setSubmitting }) => {
+    onSubmit: (values, { setSubmitting,resetForm }) => {
       console.log(values)
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_API as string}/contacts`, {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then()
+        .catch()
+        .finally(() => {
+          setSubmitting(false)
+          resetForm()
+        })
     }
   })
 
@@ -68,23 +81,29 @@ export const ContactusContainer = () => {
                 touch={formik.touched.email}
                 inputClassName='h-[50px] md:h-[55px]'
               />
-              <InputSelect
-                label='เรื่องที่ต้องการติดต่อ'
+              <InputField
                 require={true}
+                label='เรื่องที่ต้องการติดต่อ'
+                placeholder='เรื่องที่ต้องการติดต่อ'
+                id='title'
+                type='text'
+                name='title'
                 inputValue={formik.values.title}
                 handleOnChange={formik.handleChange}
+                errors={formik.errors.title}
+                touch={formik.touched.title}
                 inputClassName='h-[50px] md:h-[55px]'
               />
               <InputArea
                 require={false}
-                id='details'
-                name='details'
+                id='message'
+                name='message'
                 label='ข้อความ'
                 placeholder='โปรดระบุข้อความที่ต้องการ...'
-                inputValue={formik.values.details}
+                inputValue={formik.values.message}
                 handleOnChange={formik.handleChange}
-                errors={formik.errors.details}
-                touch={formik.touched.details}
+                errors={formik.errors.message}
+                touch={formik.touched.message}
               />
               <InputCheckbok
                 name='accept'

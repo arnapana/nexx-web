@@ -30,7 +30,6 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ hightlights, reviews }) => {
-  console.log(hightlights, reviews)
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy`} description='Nexx Phamacy' />
@@ -55,6 +54,22 @@ const Home: NextPage<Props> = ({ hightlights, reviews }) => {
 }
 
 export const getServerSideProps = async (context: GetServerSideProps) => {
+  const carouselType = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carouselTypes?/${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'homepage' })
+    })}`
+  )
+  const carouselTypeJson = await carouselType.json()
+  const carousel = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?/${new URLSearchParams({
+      range: JSON.stringify([0, 6]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
+    })}`
+  )
+
   const hightlights = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/hightlights?/${new URLSearchParams({
       range: JSON.stringify([0, 6]),
@@ -71,13 +86,13 @@ export const getServerSideProps = async (context: GetServerSideProps) => {
   )
   const hightlightsJson = await hightlights.json()
   const reviewsJson = await reviews.json()
-
-  console.log(reviewsJson)
+  const carouselJson = await carousel.json()
 
   return {
     props: {
       hightlights: hightlightsJson,
-      reviews: reviewsJson
+      reviews: reviewsJson,
+      carousel: carouselJson
     }
   }
 }

@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -73,7 +73,7 @@ const TermCondition: NextPage = (props: any) => {
 
 export default TermCondition
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
     const post = await fetch(
       `${process.env.NEXT_PUBLIC_BACKEND_API as string}/policies?/${new URLSearchParams({
         range: JSON.stringify([0,1]),

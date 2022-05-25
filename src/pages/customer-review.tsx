@@ -59,7 +59,7 @@ const CustomerReviews: NextPage<Props> = ({ reviews }) => {
   )
 }
 
-export const getServerSideProps = async (context: GetServerSideProps) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const reviews = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/reviews?/${new URLSearchParams({
       range: JSON.stringify([0, 9]),

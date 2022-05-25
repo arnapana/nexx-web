@@ -29,14 +29,14 @@ const Privacy: NextPage = (props: any) => {
       <div className='container mx-auto'>
         <div className='mb-10'>
           <p className='font-prompts text-xl font-medium text-center 2xl:text-5xl 2xl:leading-[55px]'>
-             {props.frontMatter.title}
+            {props.frontMatter.title}
           </p>
         </div>
         <div>
           {/* Header */}
           <div className='grid items-center px-8 h-[65px] text-white bg-primary rounded-2xl'>
             <p className={classNames('font-prompts font-medium 2xl:text-2xl telephamacy-title')}>
-            {props.frontMatter.subTitle}
+              {props.frontMatter.subTitle}
             </p>
           </div>
           {/* Content */}
@@ -73,10 +73,10 @@ const Privacy: NextPage = (props: any) => {
 
 export default Privacy
 
-export const getStaticProps = async (context: GetStaticProps) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const post = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/policies?/${new URLSearchParams({
-      range: JSON.stringify([0,1]),
+      range: JSON.stringify([0, 1]),
       sort: JSON.stringify([]),
       filter: JSON.stringify({ slug: 'privacy-policy', status: true })
     })}`

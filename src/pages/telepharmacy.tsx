@@ -73,7 +73,7 @@ const Telephamacy: NextPage<Props> = ({ telephamacies }) => {
   )
 }
 
-export const getServerSideProps = async (context: GetServerSideProps) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const telephamacies = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/telephamacies?/${new URLSearchParams({
       range: JSON.stringify([0, 6]),
