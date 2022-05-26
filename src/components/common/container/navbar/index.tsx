@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
             '2xl:h-[90px]'
           )}
         >
-          <div className='flex relative justify-center items-center mr-14 w-[calc(3.5vw+100px)] h-[calc(1.5vw+45px)]'>
+          <div className='flex relative justify-center items-center mr-14 w-[calc(3.5vw+90px)] h-[calc(1.5vw+40px)]'>
             <Link href='/'>
               <a>
                 <ImageLoader layout='fill' src='/images/logo-nav.png' quality={100} objectFit='initial'/>

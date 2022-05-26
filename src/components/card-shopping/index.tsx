@@ -11,6 +11,7 @@ interface ICardShopping {
   image: string
   width: number
   height: number
+  url: string
 }
 
 export const CardShopping: React.FC<ICardShopping> = ({
@@ -21,33 +22,35 @@ export const CardShopping: React.FC<ICardShopping> = ({
   outerClassName,
   innerClassName,
   imageClassName,
-  textClassName
+  textClassName,
+  url
 }) => {
   return (
-    <div className={outerClassName}>
-      <div
-        className={classNames(
-          'flex flex-col justify-center items-center bg-white shadow-md rounded-3xl drop-shadow-[0_5px_30px_rgba(54,74,217,0.1)]',
-          'min-w-[135px] h-[150px]',
-          'md:w-[170px] md:h-[180px]',
-          '2xl:w-[210px] 2xl:h-[200px]',
-          innerClassName
-        )}
-      >
+    <a  className='cursor-pointer' href={url}>
+      <div className={outerClassName}>
         <div
           className={classNames(
-            'relative flex items-center justify-center mb-4 p-1 xl:p-0 w-[70px] h-[70px] md:w-[80px] md:h-[80px] 2xl:w-[90px] 2xl:h-[90px]'
+            'flex flex-col justify-center items-center bg-white shadow-md rounded-3xl drop-shadow-[0_5px_30px_rgba(54,74,217,0.1)]',
+            'min-w-[135px] h-[150px]',
+            'md:w-[170px] md:h-[180px]',
+            innerClassName
           )}
         >
-          <ImageLoader width={width} height={height} src={image} />
-        </div>
-        <div>
-          <p className={classNames('font-poppins font-medium text-base md:text-xl 2xl:text-2xl', textClassName)}>
-            {name}
-          </p>
+          <div
+            className={classNames(
+              'relative flex items-center justify-center mb-4 p-1 xl:p-0 w-[70px] h-[70px] md:w-[80px] md:h-[80px]'
+            )}
+          >
+            <ImageLoader width={width} height={height} src={image} />
+          </div>
+          <div>
+            <p className={classNames('font-poppins font-medium text-base md:text-xl', textClassName)}>
+              {name}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 

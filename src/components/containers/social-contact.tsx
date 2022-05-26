@@ -3,6 +3,7 @@ import { Button, ColorLine } from '@components/common'
 import { CardShopping } from '@components/index'
 
 import storeConstant from '@constants/mock/stores.json'
+import urlJson from '@constants/mock/url-contact.json'
 
 export const SocialContact: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ export const SocialContact: React.FC = () => {
           <div className='col-span-2'>
             <div className='flex flex-wrap justify-center'>
               <CardShopping
+                url={''}
                 width={90}
                 height={90}
                 name='Stores'
@@ -32,6 +34,7 @@ export const SocialContact: React.FC = () => {
                 outerClassName='m-3 md:m-7 2xl:m-9'
               />
               <CardShopping
+                url={urlJson.line}
                 width={90}
                 height={90}
                 name='Line Chat'
@@ -40,6 +43,7 @@ export const SocialContact: React.FC = () => {
                 imageClassName=''
               />
               <CardShopping
+                url={urlJson['line-shopping']}
                 imageClassName=''
                 height={90}
                 width={90}
@@ -48,6 +52,7 @@ export const SocialContact: React.FC = () => {
                 image='/images/icons/stores/line-shopping.png'
               />
               <CardShopping
+                url={urlJson.shopee}
                 imageClassName=''
                 height={90}
                 width={90}
@@ -57,6 +62,7 @@ export const SocialContact: React.FC = () => {
               />
 
               <CardShopping
+                url={urlJson.lazada}
                 imageClassName=''
                 height={90}
                 width={90}
