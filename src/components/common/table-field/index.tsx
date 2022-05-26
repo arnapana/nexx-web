@@ -1,24 +1,38 @@
+import { NextPage } from 'next'
+import { IBranch } from 'pages/stores'
 import React from 'react'
 
-export const TableField = () => {
+interface Props {
+  val: IBranch
+}
+
+export const TableField: NextPage<Props> = ({ val }) => {
   return (
     <tr className='h-[80px] odd:bg-[#F0F4FF] md:h-[120px]'>
       <td className=''>
-        <p className='font-prompts text-sm md:text-lg'>1</p>
+        <p className='font-prompts text-sm md:text-lg'>{val?.order}</p>
       </td>
       <td className='px-5 text-left '>
-        <p className='font-prompts text-sm md:text-lg'>เน็กซ์ฟาร์มา สาขาบางบ่อ</p>
-        <p className='font-prompts text-sm md:text-lg'> 225 ม.4 ตำบลบางบ่อ อำเภอบางบ่อ จังหวัดสมุทรปราการ 10560</p>
+      <p className='font-prompts text-sm md:text-lg'>{val?.name}</p>
+        <p className='font-prompts text-sm md:text-lg'>{val?.address}</p>
       </td>
       <td className='text-primary underline '>
-        <p className='font-prompts text-sm md:text-lg'>065 523 5074</p>
+        <p className='font-prompts text-sm md:text-lg'>{val?.phone}</p>
       </td>
       <td className=''>
-        <p className='font-prompts text-sm md:text-lg'>07:00-19:00</p>
+        <p className='font-prompts text-sm md:text-lg'>{val?.timeOpen}</p>
       </td>
       <td className=''>
         <button className='p-2 w-[60px] h-[40px] text-white rounded-lg md:w-[66px] md:h-[44px] bg-secondary'>
-          <p className='text-sm md:text-lg'>คลิก</p>
+          <p className='text-sm md:text-lg'>
+            <a
+              target='_blank'
+              rel='noopener noreferrer'
+              href={`https://maps.google.com/?q=${val?.latitude},${val?.longtitude}`}
+            >
+              คลิก
+            </a>
+          </p>
         </button>
       </td>
     </tr>

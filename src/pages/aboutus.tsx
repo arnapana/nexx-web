@@ -15,6 +15,20 @@ export type IActivities = {
   blog: IBlog
 }
 
+export type ICarousel = {
+  carouselType: { id: number; name: string; slug: string }
+  carouselTypeId: number
+  description: string
+  id: number
+  imgSrc: string
+  imgSrcMobile: string
+  order: number
+  slug: string
+  status: boolean
+  subTitle: string
+  title: string
+}
+
 export type IVision = {
   content: string
   description: string
@@ -42,16 +56,20 @@ interface Props {
   visions: IVision[]
   aboutus: IAboutus[]
   activities: IActivities[]
+  carousel: ICarousel
 }
 
-const Aboutus: NextPage<Props> = ({ visions, aboutus, activities }) => {
+const Aboutus: NextPage<Props> = ({ visions, aboutus, activities, carousel }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - About Nexx Phamacy`} description='เกี่ยวกับเรา NEXX Pharma' />
       {/* Floating Button */}
       <ButtonContact />
 
-      <HeroBanner src='/images/hero-banner/aboutus.png' srcMobile='/images/hero-banner/aboutus-mobile.png'>
+      <HeroBanner
+        src={carousel?.imgSrc ? carousel?.imgSrc : '/images/hero-banner/aboutus.png'}
+        srcMobile={carousel?.imgSrcMobile}
+      >
         <div className='flex relative flex-col mb-5 md:mb-8'>
           <div className='mb-3'>
             <p
@@ -61,7 +79,7 @@ const Aboutus: NextPage<Props> = ({ visions, aboutus, activities }) => {
                 '2xl:text-8xl 2xl:leading-[90px]'
               )}
             >
-              About
+              {carousel?.title}
             </p>
           </div>
           <div className=''>
@@ -72,7 +90,7 @@ const Aboutus: NextPage<Props> = ({ visions, aboutus, activities }) => {
                 '2xl:text-6xl 2xl:leading-[90px]'
               )}
             >
-              NEXX Pharma
+              {carousel?.subTitle}
             </p>
           </div>
           <div
@@ -93,7 +111,7 @@ const Aboutus: NextPage<Props> = ({ visions, aboutus, activities }) => {
               '2xl:text-[2.5rem] 2xl:leading-[55px]'
             )}
           >
-            ร้านขายยา วิตามิน และสินค้าสุขภาพครบวงจร ผสานเทคโนโลยีเพื่อตอบโจทย์การให้บริการ อย่างมีประสิทธิภาพ
+            {carousel?.description}
           </p>
         </div>
       </HeroBanner>
@@ -119,6 +137,21 @@ const Aboutus: NextPage<Props> = ({ visions, aboutus, activities }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const carouselType = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carouselTypes?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'aboutus' })
+    })}`
+  )
+  const carouselTypeJson = await carouselType.json()
+  const banner = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
+      range: JSON.stringify([0, 1]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
+    })}`
+  )
   const vision = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/visions?${new URLSearchParams({
       range: JSON.stringify([0, 6]),
@@ -143,6 +176,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const visionJson = await vision.json()
   const aboutusArray = []
   const activitiesJson = await activities.json()
+  const carouselJson = await banner.json()
 
   for await (const post of await aboutus.json()) {
     const mdxSource = await serialize(post.content)
@@ -153,7 +187,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       visions: visionJson,
       aboutus: aboutusArray,
-      activities: activitiesJson
+      activities: activitiesJson,
+      carousel: carouselJson?.length && carouselJson[0]
     } // will be passed to the page component as props
   }
 }

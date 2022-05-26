@@ -7,8 +7,14 @@ import { Container, HeroBanner, BreadCrumb, ImageLoader, PageSEO } from '@compon
 import { ButtonContact, CardOurService } from '@components/index'
 import { SocialContact } from '@components/containers'
 import { OurServiceContainer } from '@containers/ourservice'
+import { ICarousel } from './aboutus'
 
-const OurService: NextPage = (props: any) => {
+interface Props {
+  posts:any
+  carousel: ICarousel
+}
+
+const OurService: NextPage<Props> = (props) => {
   const router = useRouter()
   if (!router.isFallback && !props.posts) {
     return <p>Error</p>
@@ -24,8 +30,8 @@ const OurService: NextPage = (props: any) => {
       {/* Floating Button */}
       <ButtonContact />
       <HeroBanner
-        src='/images/hero-banner/our-service.png'
-        srcMobile='/images/hero-banner/our-service-mobile.png'
+        src={props.carousel?.imgSrc}
+        srcMobile={props.carousel?.imgSrcMobile}
         containerClassName='top-[26%]'
       >
         <div className='flex relative mb-10'>
@@ -36,7 +42,7 @@ const OurService: NextPage = (props: any) => {
               '2xl:text-[80px] 2xl:leading-[90px]'
             )}
           >
-            Our Services
+            {props.carousel?.title}
           </p>
           <div
             className={classNames(
@@ -56,7 +62,7 @@ const OurService: NextPage = (props: any) => {
               '2xl:text-[2.5rem] 2xl:leading-[55px]'
             )}
           >
-            สุขภาพที่ดีที่ทุกคนเข้าถึงได้ ด้วยบริการจาก NEXX Pharma
+            {props.carousel?.description}
           </p>
         </div>
       </HeroBanner>
@@ -95,8 +101,6 @@ export const getStaticProps: GetStaticProps = async () => {
   )
   const carouselJson = await carousel.json()
 
-  console.log(carouselJson)
-
   const ourservices = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/ourservices?${new URLSearchParams({
       range: JSON.stringify([0, 5]),
@@ -116,7 +120,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       posts,
-      carousel: carouselJson
+      carousel: carouselJson?.length && carouselJson[0]
     }
   }
 }

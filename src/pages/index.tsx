@@ -3,6 +3,7 @@ import { ButtonContact } from '@components/button-contact'
 import { Container, PageSEO } from '@components/common'
 import { CarouselSlider, CustomerReview, Introduction, SerivceHighlight } from '@containers/homepage'
 import { SocialContact } from '@components/containers'
+import { ICarousel } from './aboutus'
 
 export interface IHightlight {
   id: number
@@ -27,9 +28,10 @@ export interface IReview {
 interface Props {
   hightlights: IHightlight[]
   reviews: IReview[]
+  carousel: ICarousel[]
 }
 
-const Home: NextPage<Props> = ({ hightlights, reviews }) => {
+const Home: NextPage<Props> = ({ hightlights, reviews, carousel }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy`} description='Nexx Phamacy' />
@@ -37,7 +39,7 @@ const Home: NextPage<Props> = ({ hightlights, reviews }) => {
       {/* Floating Button */}
       <ButtonContact />
 
-      <CarouselSlider />
+      <CarouselSlider carousels={carousel}/>
       {/* Highligt */}
       {hightlights && <SerivceHighlight hightlightPost={hightlights} />}
 

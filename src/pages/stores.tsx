@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import classNames from 'classnames'
 import { ButtonContact } from '@components/index'
 import { Container, HeroBanner, BreadCrumb, ImageLoader, PageSEO } from '@components/common'
@@ -8,8 +8,44 @@ import {
   OurBranchContainer,
   RelativeBranchContainer
 } from '@containers/ourstore'
+import { ICarousel } from './aboutus'
 
-const Stores: NextPage = () => {
+export type IBranch = {
+  address: string
+  name: string
+  district: string
+  province: string
+  id: number
+  latitude: string
+  longtitude: string
+  order: number
+  phone: string
+  status: boolean
+  timeOpen: string
+}
+
+export type INetwork = {
+  address: string
+  name: string
+  district: string
+  province: string
+  id: number
+  latitude: string
+  longtitude: string
+  order: number
+  phone: string
+  status: boolean
+  timeOpen: string
+}
+
+interface Props {
+  carousel: ICarousel
+  branch: IBranch[]
+  network: INetwork[]
+}
+
+const Stores: NextPage<Props> = ({ carousel, branch, network }) => {
+  console.log(branch, network)
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - Store`} description='Nexx Phamacy - Store' />
@@ -17,7 +53,8 @@ const Stores: NextPage = () => {
       {/* Floating Button */}
       <ButtonContact />
       <HeroBanner
-        src='/images/hero-banner/stores.png'
+        src={carousel?.imgSrc ? carousel?.imgSrc : '/images/hero-banner/stores.png'}
+        srcMobile={carousel?.imgSrcMobile}
         sectionClassName='bg-cover bg-[center_left_-350px] md:bg-center'
         containerClassName='top-[32%]'
       >
@@ -29,7 +66,7 @@ const Stores: NextPage = () => {
               '2xl:text-[80px] 2xl:leading-[90px]'
             )}
           >
-            Our Stores
+            {carousel.title}
           </p>
           <div
             className={classNames(
@@ -49,14 +86,14 @@ const Stores: NextPage = () => {
               '2xl:text-[2.5rem] 2xl:leading-[55px]'
             )}
           >
-            ร้านยาของเรา
+            {carousel.description}
           </p>
         </div>
       </HeroBanner>
       <BreadCrumb outerClassName='container mx-auto my-10' />
       <HeaderContentContainer />
-      <OurBranchContainer />
-      <RelativeBranchContainer />
+      <OurBranchContainer branchs={branch} />
+      <RelativeBranchContainer networks={network} />
 
       <ContactContainer />
       <style jsx>{`
@@ -67,6 +104,51 @@ const Stores: NextPage = () => {
       `}</style>
     </Container>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const carouselType = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carouselTypes?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'store' })
+    })}`
+  )
+  const carouselTypeJson = await carouselType.json()
+  const carousel = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
+      range: JSON.stringify([0, 1]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
+    })}`
+  )
+
+  const branch = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/branchs?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ status: true })
+    })}`
+  )
+  const network = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/networks?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ status: true })
+    })}`
+  )
+
+  const branchJson = await branch.json()
+  const networkJson = await network.json()
+  const carouselJson = await carousel.json()
+
+  return {
+    props: {
+      carousel: carouselJson?.length && carouselJson[0],
+      branch: branchJson,
+      network: networkJson
+    }
+  }
 }
 
 export default Stores

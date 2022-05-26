@@ -1,11 +1,18 @@
 import React from 'react'
 import Slider from 'react-slick'
+import * as _ from 'lodash'
 import classNames from 'classnames'
 import { ImageLoader } from '@components/common'
 
 import carouselConstant from '@constants/mock/carousel-home.json'
+import { ICarousel } from 'pages/aboutus'
+import { NextPage } from 'next'
 
-export const CarouselSlider = () => {
+interface Props {
+  carousels: ICarousel[]
+}
+
+export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -22,24 +29,36 @@ export const CarouselSlider = () => {
     <section id='Carousel' className=''>
       <div className='overflow-hidden relative'>
         <Slider {...settings}>
-          {carouselConstant.cards.map((val, idx) => (
+          {_.map(carousels, (val, idx) => (
             <div key={idx} className='relative '>
               <div className='relative w-full h-full'>
                 {/* Image Carousel */}
+                {val.imgSrcMobile && (
+                  <div
+                    className={classNames(
+                      { 'block lg:hidden': val.imgSrcMobile },
+                      `relative h-[30rem] bg-cover bg-center bg-no-repeat`,
+                      'md:h-[40rem]'
+                    )}
+                  >
+                    <ImageLoader src={val.imgSrcMobile} layout='fill' objectFit='cover' priority={true} />
+                  </div>
+                )}
                 <div
                   className={classNames(
-                    'w-full h-[30rem] bg-[url("/images/carousel/herobanner-mobile.png")] sm:bg-[url("/images/carousel/asian-young-fem.png")] bg-no-repeat bg-cover bg-center',
-                    'md:h-[40rem]',
-                    '2xl:h-[42rem]'
+                    { 'hidden lg:block': val.imgSrcMobile },
+                    `relative h-[40rem] bg-cover bg-center bg-no-repeat`,
                   )}
-                />
+                >
+                  <ImageLoader src={val.imgSrc} layout='fill' objectFit='cover' priority={true} />
+                </div>
                 {/* <ImageLoader src={val.src} alt={val.alt} layout='fill' /> */}
               </div>
               {/* Content */}
-              <div className='absolute top-[30%] left-[5%] text-white md:top-[10%] lg:top-[10%] lg:left-[15%]'>
+              <div className='absolute top-[20%] left-[5%] text-white md:top-[10%] lg:top-[10%] lg:left-[15%]'>
                 <div className='mb-4'>
                   <p className='font-poppins text-[3rem] font-semibold drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] md:text-[5rem] 2xl:text-[5.8rem]'>
-                    {carouselConstant.title}
+                    {val?.title}
                   </p>
                   <span
                     className={classNames(
@@ -48,12 +67,12 @@ export const CarouselSlider = () => {
                       '2xl:text-6xl'
                     )}
                   >
-                    {carouselConstant['sub-title-1']}
+                    {val?.subTitle}
                   </span>
                 </div>
                 <div>
                   <p className='font-prompts text-2xl font-medium drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] md:text-3xl 2xl:text-5xl'>
-                    {carouselConstant['sub-title-2']}
+                    {val?.description}
                   </p>
                 </div>
                 <div

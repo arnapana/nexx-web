@@ -1,26 +1,72 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import * as _ from 'lodash'
 import classNames from 'classnames'
-import { ColorLine, Button, Pagination, TableField, ModalOpacity, ImageLoader, InputSelect } from '@components/common'
+import { NextPage } from 'next'
 
-export const OurBranchContainer = () => {
+import { ColorLine, Button, Pagination, TableField, ModalOpacity, ImageLoader, InputSelect } from '@components/common'
+import { IBranch } from 'pages/stores'
+
+interface Props {
+  branchs: IBranch[]
+}
+
+export const OurBranchContainer: NextPage<Props> = ({ branchs }) => {
+  const itemPerPage = 5
+  const [branchArray, setBranchArray] = useState<IBranch[]>()
+  const [province, setProvince] = useState<any>(null)
+  const [district, setDistrict] = useState<any>(null)
+  const [isModal, setModal] = useState<boolean>(false)
   const formik = useFormik({
-    initialValues: { provide: '', district: '' },
+    initialValues: { province: '', district: '' },
     validationSchema: Yup.object({
-      provide: Yup.string().required('กรุณาระบุจังหวัด'),
+      province: Yup.string().required('กรุณาระบุจังหวัด'),
       district: Yup.string().required('กรุณาระบุอำเภอ')
     }),
-    onSubmit: (values, { setSubmitting }) => {
-      console.log(values)
+    onSubmit: (values, { setSubmitting, resetForm }) => {
+      setBranchArray(() =>
+        branchs.filter((val) => val.district === values.district || val.province === values.province)
+      )
+      setSubmitting(false)
+      resetForm()
     }
   })
-  const [isModal, setModal] = useState<boolean>(false)
+
+  const handlePagination = (index: number) => {
+    const cur = itemPerPage * index
+    const offset = itemPerPage * index + itemPerPage
+
+    const sliceItems = branchs?.slice(cur, offset)
+    setBranchArray(sliceItems)
+  }
 
   const handleModal = (event: any) => {
     event.stopPropagation()
     setModal((val) => !val)
   }
+
+  useEffect(() => {
+    const cur = 0
+    const offset = itemPerPage
+
+    const sliceItems = branchs?.slice(cur, offset)
+    setBranchArray(sliceItems)
+
+    // Set Province
+    setProvince(() => branchs.map((val) => ({ val: val.province, label: val.province })))
+  }, [branchs])
+
+  useEffect(() => {
+    if (formik.values.province) {
+      // Set Province
+      setDistrict(() =>
+        branchs
+          .filter((val) => val.province === formik.values.province)
+          .map((val) => ({ val: val.district, label: val.district }))
+      )
+    }
+  }, [formik.values.province])
 
   return (
     <section className='py-5 md:py-14 2xl:mb-32'>
@@ -52,16 +98,13 @@ export const OurBranchContainer = () => {
               </tr>
             </thead>
             <tbody className='font-prompts text-xl text-center'>
-              <TableField />
-              <TableField />
-              <TableField />
-              <TableField />
-              <TableField />
-              <TableField />
+              {_.map(branchArray, (val, idx) => (
+                <TableField key={idx} val={val} />
+              ))}
             </tbody>
           </table>
         </div>
-        <Pagination pageCount={5} onChangePage={(val) => console.log(val)} />
+        <Pagination pageCount={Math.ceil(branchs?.length / itemPerPage)} onChangePage={handlePagination} />
 
         {/* Modal */}
         <ModalOpacity isModal={isModal} onClick={(event: any) => handleModal(event)}>
@@ -77,14 +120,18 @@ export const OurBranchContainer = () => {
 
               <form onSubmit={formik.handleSubmit}>
                 <InputSelect
+                  name='province'
+                  data={province}
                   innerClassName='md:w-[540px]'
                   require={false}
                   label='จังหวัด'
-                  inputValue={formik.values.provide}
+                  inputValue={formik.values.province}
                   handleOnChange={formik.handleChange}
                   inputClassName='h-[50px] md:h-[70px]'
                 />
                 <InputSelect
+                  name='district'
+                  data={district}
                   innerClassName='md:w-[540px]'
                   require={false}
                   label='อำเภอ'
