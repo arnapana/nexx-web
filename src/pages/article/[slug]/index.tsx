@@ -47,8 +47,6 @@ const Article: NextPage<Props> = (props: any) => {
     return <p>Loading...</p>
   }
 
-  console.log(props.frontMatter)
-
   return (
     <Container>
       {/* Floating Button */}
@@ -121,7 +119,7 @@ const Article: NextPage<Props> = (props: any) => {
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {
   const slug = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
       range: JSON.stringify([]),
       sort: JSON.stringify([]),
       filter: JSON.stringify({})
