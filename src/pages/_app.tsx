@@ -26,7 +26,8 @@ function MyApp({ Component, pageProps, appVersion }: Props) {
   const [isChoice, setChoice] = useState<boolean>(false)
 
   const handleChangeModal = (state: boolean, action: boolean) => {
-    setOpen(!isOpen)
+    console.log(state)
+    setOpen(state)
 
     if (action) {
       setChoice(action)

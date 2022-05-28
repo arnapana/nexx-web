@@ -11,7 +11,7 @@ interface Props {
 export const PdpaPopup: NextPage<Props> = ({ isClose, onChangeHandle }) => {
   return (
     <AnimatePresence>
-      {true && (
+      {isClose && (
         <motion.div initial={{ y: 300 }} animate={{ y: 0 }} exit={{ y: 300 }} className='fixed bottom-0 left-0 z-30 w-full '>
           <div className='flex justify-center'>
             <div className='w-full h-[12rem] bg-white border-t md:h-[7.5rem]'>
