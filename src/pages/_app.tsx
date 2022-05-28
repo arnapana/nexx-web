@@ -1,7 +1,9 @@
 import '../styles/globals.css'
-import App, { AppContext } from 'next/app'
-import type { AppProps } from 'next/app'
+import { useState, useEffect } from 'react'
+import { setCookies, getCookie, checkCookies } from 'cookies-next'
+import App, { AppContext, AppProps } from 'next/app'
 import Head from 'next/head'
+import { PdpaPopup } from '@components/common'
 
 interface Props extends AppProps {
   appVersion: {
@@ -20,13 +22,33 @@ interface Props extends AppProps {
 }
 
 function MyApp({ Component, pageProps, appVersion }: Props) {
-  // console.log(appVersion)
+  const [isOpen, setOpen] = useState<boolean>(true)
+  const [isChoice, setChoice] = useState<boolean>(false)
+
+  const handleChangeModal = (state: boolean, action: boolean) => {
+    setOpen(!isOpen)
+
+    if (action) {
+      setChoice(action)
+      setCookies('accept-cookie', action, { maxAge: 60 * 6 * 24 })
+    }
+  }
+
+  useEffect(() => {
+    if (checkCookies('accept-cookie')) {
+      const accept = getCookie('accept-cookie')
+      const statePdpa = Boolean(accept)
+      setChoice(statePdpa)
+      setOpen(!statePdpa)
+    }
+  }, [])
   return (
     <>
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0' />
       </Head>
       <Component {...pageProps} />
+      <PdpaPopup isClose={isOpen} onChangeHandle={handleChangeModal} />
     </>
   )
 }
