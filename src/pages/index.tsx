@@ -39,12 +39,12 @@ const Home: NextPage<Props> = ({ hightlights, reviews, carousel }) => {
       {/* Floating Button */}
       <ButtonContact />
 
-      <CarouselSlider carousels={carousel}/>
+      <CarouselSlider carousels={carousel} />
       {/* Highligt */}
-      {hightlights && <SerivceHighlight hightlightPost={hightlights} />}
+      {hightlights?.length && <SerivceHighlight hightlightPost={hightlights} />}
 
       {/* Review */}
-      {reviews && <CustomerReview reviewPost={reviews} />}
+      {reviews?.length && <CustomerReview reviewPost={reviews} />}
 
       {/* Introduction */}
       <Introduction />

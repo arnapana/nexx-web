@@ -55,11 +55,11 @@ export const CustomerReview: NextPage<Props> = ({ reviewPost }) => {
                 <div className='box-border overflow-hidden w-full h-full text-ellipsis'>
                   <div className='flex flex-col justify-center items-center mb-5'>
                     <div className='overflow-hidden rounded-full'>
-                      <ImageLoader width={123} height={123} src={val.imgSrc} />
+                      <ImageLoader width={123} height={123} src={val?.imgSrc || '/images/review/img2.png'} />
                     </div>
                     <div className='mt-3'>
                       <p className='font-prompts text-base'>
-                        <span>{val.firstname}</span> <span>{val.lastname}</span>
+                        <span>{val?.firstname}</span> <span>{val?.lastname}</span>
                       </p>
                     </div>
                   </div>
