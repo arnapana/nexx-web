@@ -18,11 +18,11 @@ export const AboutusContainer: NextPage<Props> = ({ aboutPost }) => {
           <div className='grid grid-cols-1 gap-5 mb-10 md:mb-24 lg:grid-cols-2'>
             <div className='lg:pr-20'>
               <div className='mb-5'>
-                <p className='text-primary h2'>{aboutPost[0].title}</p>
+                <p className='text-primary h2'>{aboutPost[0]?.title}</p>
               </div>
               <div className='mb-6'>
-                <p className='font-sarabun max-w-none prose-p:text-base prose-p:text-[#000] prose md:prose-p:text-lg'>
-                  {aboutPost[0].content && <MDXRemote {...aboutPost[0].content} />}
+                <p className='max-w-none font-sarabun prose-p:text-base prose-p:text-[#000] prose md:prose-p:text-lg'>
+                  {aboutPost[0]?.content && <MDXRemote {...aboutPost[0]?.content} />}
                 </p>
               </div>
             </div>
@@ -31,8 +31,8 @@ export const AboutusContainer: NextPage<Props> = ({ aboutPost }) => {
                 className='overflow-hidden rounded-tr-[40px] rounded-bl-[40px]'
                 width={555}
                 height={600}
-                alt={aboutPost[0].title}
-                src={aboutPost[0].imgSrc ? aboutPost[0].imgSrc : aboutConstant.content1.image}
+                alt={aboutPost[0]?.title}
+                src={aboutPost[0]?.imgSrc ? aboutPost[0]?.imgSrc : aboutConstant.content1.image}
               />
             </div>
           </div>
@@ -43,13 +43,13 @@ export const AboutusContainer: NextPage<Props> = ({ aboutPost }) => {
                 className='overflow-hidden rounded-tr-[40px] rounded-bl-[40px]'
                 width={555}
                 height={460}
-                alt={aboutPost[1].title}
-                src={aboutPost[1].imgSrc ? aboutPost[1].imgSrc : aboutConstant.content2.image}
+                alt={aboutPost[1]?.title}
+                src={aboutPost[1]?.imgSrc ? aboutPost[1]?.imgSrc : aboutConstant.content2.image}
               />
             </div>
             <div className='order-1 md:px-8 lg:order-2'>
-            <p className='font-sarabun max-w-none prose-p:text-base prose-p:text-[#000] prose md:prose-p:text-lg'>
-                  {aboutPost[1].content && <MDXRemote {...aboutPost[1].content} />}
+            <p className='max-w-none font-sarabun prose-p:text-base prose-p:text-[#000] prose md:prose-p:text-lg'>
+                  {aboutPost[1]?.content && <MDXRemote {...aboutPost[1]?.content} />}
                 </p>
             </div>
           </div>
