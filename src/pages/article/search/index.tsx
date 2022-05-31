@@ -1,6 +1,6 @@
 import React from 'react'
 import { GetServerSideProps, GetStaticProps, NextPage } from 'next'
-import { Container, BreadCrumb } from '@components/common'
+import { Container, BreadCrumb, PageSEO } from '@components/common'
 import { SearchContentContainer, SearchHeaderContainer } from '@containers/article/search'
 import { IBlog } from '../[slug]'
 
@@ -11,9 +11,11 @@ interface Props {
 const Search: NextPage<Props> = ({ blogs }) => {
   return (
     <Container>
+      <PageSEO title={`Nexx Phamacy - Nexx Pharma Blog`} description='บทความจากมีสาระ Nexx Pharma' />
+
       <BreadCrumb outerClassName='container mx-auto my-10' />
       <SearchHeaderContainer />
-      <SearchContentContainer postBlog={blogs}/>
+      <SearchContentContainer postBlog={blogs} />
     </Container>
   )
 }

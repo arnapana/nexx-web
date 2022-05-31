@@ -1,13 +1,20 @@
 import React from 'react'
 import classNames from 'classnames'
+import * as _ from 'lodash'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone' // dependent on utc plugin
+
 import { useRouter } from 'next/router'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { Container, BreadCrumb, ImageLoader } from '@components/common'
+import { Container, BreadCrumb, ImageLoader, PageSEO } from '@components/common'
 import { ButtonContact, ButtonTag } from '@components/index'
 import { ArticleRelativeContainer } from '@containers/article/content'
-import { getPostBySlug } from '@utils/file-system'
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.tz.setDefault('Asia/Bangkok')
 
 const component = {
   p: (props: any) => <p {...props} />,
@@ -49,6 +56,7 @@ const Article: NextPage<Props> = (props: any) => {
 
   return (
     <Container>
+      <PageSEO title={`Nexx Phamacy - ${props?.frontMatter?.title}`} description={props?.frontMatter?.description} />
       {/* Floating Button */}
       <ButtonContact />
 
@@ -58,24 +66,26 @@ const Article: NextPage<Props> = (props: any) => {
           {/* Header */}
           <div className='mb-16'>
             <div className='mb-5 text-center'>
-              <p className='font-poppins font-medium h2'>Computer Vision Syndrome (CVS) :</p>
-              <p className='font-prompts font-medium h2'>โรคใกล้ตัวของคนทำงานยุคใหม่เพราะจ้องหน้าจอมากเกินไป</p>
+              <p className='font-poppins font-medium h2'>{props?.frontMatter?.title}</p>
+              <p className='font-prompts font-medium h2'>{props?.frontMatter?.subTitle}</p>
             </div>
             <div className='mb-5'>
               <p className='font-prompts font-normal text-center'>
-                โพสต์เมื่อ <span>01 มกราคม 2564</span> โดย <span>บูติกเด้อ โปรโมท</span>
+                โพสต์เมื่อ <span>{dayjs(props?.frontMatter.published_at).format('DD MMM YYYY')}</span> โดย{' '}
+                <span>บูติกเด้อ โปรโมท</span>
               </p>
             </div>
             <div className='flex justify-center space-x-5'>
-              <ButtonTag name='สุขภาพ' />
-              <ButtonTag name='ความเคลียด' />
+              {_.map(props?.frontMatter.categories, (val, key) => (
+                <ButtonTag key={key} name={val.title} />
+              ))}
             </div>
           </div>
           {/* Image */}
           <div className='grid place-items-center'>
             <ImageLoader
               className='rounded-[50px]'
-              src='/images/aboutus/card-review-large.png'
+              src={props?.frontMatter.imgSrc || '/images/aboutus/card-review-large.png'}
               width={1070}
               height={640}
             />

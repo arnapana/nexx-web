@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next'
 import { ArticleContainer } from '@components/containers'
 import { HeaderSearchContainer, ArticlesContainer } from '@containers/article'
-import { Container, BreadCrumb } from '@components/common'
+import { Container, BreadCrumb, PageSEO } from '@components/common'
 import { IBlog } from './[slug]'
 import { IActivities } from 'pages/aboutus'
 
@@ -18,6 +18,8 @@ interface Props {
 const Articles: NextPage<Props> = ({ activities, blogs }) => {
   return (
     <Container>
+      <PageSEO title={`Nexx Phamacy - Nexx Pharma Blog`} description='บทความจากมีสาระ Nexx Pharma' />
+
       <BreadCrumb outerClassName='container mx-auto my-10' />
       <HeaderSearchContainer />
       <ArticleContainer activityPost={activities} />

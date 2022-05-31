@@ -14,7 +14,7 @@ interface Props {
 export const CardArticle: React.FC<Props> = ({ val, containerClassName, innerClassName }) => {
   return (
     <div className={classNames(containerClassName)}>
-      <Link href='/article/cvs'>
+      <Link href={{ pathname: '/article/[slug]', query: { slug: val.slug } }}>
         <a title=''>
           <div className={classNames(innerClassName, 'flex flex-col md:flex-row md:h-[185px]')}>
             {/* Image */}
