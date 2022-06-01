@@ -2,9 +2,8 @@ import React from 'react'
 import Slider from 'react-slick'
 import * as _ from 'lodash'
 import classNames from 'classnames'
-import { ImageLoader } from '@components/common'
+import { ImageLoader, FramerYoutube } from '@components/common'
 
-import carouselConstant from '@constants/mock/carousel-home.json'
 import { ICarousel } from 'pages/aboutus'
 import { NextPage } from 'next'
 
@@ -33,26 +32,31 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
             <div key={idx} className='relative '>
               <div className='relative w-full h-full'>
                 {/* Image Carousel */}
-                {val.imgSrcMobile && (
-                  <div
-                    className={classNames(
-                      { 'block lg:hidden': val.imgSrcMobile },
-                      `relative h-[30rem] bg-cover bg-center bg-no-repeat`,
-                      'md:h-[40rem]'
+                {!val?.urlYoutube ? (
+                  <>
+                    {val?.imgSrcMobile && (
+                      <div
+                        className={classNames(
+                          { 'block lg:hidden': val.imgSrcMobile },
+                          `relative h-[30rem] bg-cover bg-center bg-no-repeat`,
+                          'md:h-[40rem]'
+                        )}
+                      >
+                        <ImageLoader src={val.imgSrcMobile} layout='fill' objectFit='cover' priority={true} />
+                      </div>
                     )}
-                  >
-                    <ImageLoader src={val.imgSrcMobile} layout='fill' objectFit='cover' priority={true} />
-                  </div>
+                    <div
+                      className={classNames(
+                        { 'hidden lg:block': val.imgSrcMobile },
+                        `relative h-[44rem] bg-cover bg-center bg-no-repeat`
+                      )}
+                    >
+                      <ImageLoader src={val.imgSrc} layout='fill' objectFit='cover' priority={true} />
+                    </div>
+                  </>
+                ) : (
+                  <FramerYoutube embedId={val?.urlYoutube} />
                 )}
-                <div
-                  className={classNames(
-                    { 'hidden lg:block': val.imgSrcMobile },
-                    `relative h-[40rem] bg-cover bg-center bg-no-repeat`,
-                  )}
-                >
-                  <ImageLoader src={val.imgSrc} layout='fill' objectFit='cover' priority={true} />
-                </div>
-                {/* <ImageLoader src={val.src} alt={val.alt} layout='fill' /> */}
               </div>
               {/* Content */}
               <div className='absolute top-[20%] left-[5%] text-white md:top-[10%] lg:top-[10%] lg:left-[15%]'>
@@ -75,15 +79,17 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
                     {val?.description}
                   </p>
                 </div>
-                <div
-                  className={classNames(
-                    'hidden relative',
-                    'md:w-[5.75rem] md:h-[3.5rem] md:top-10 md:-right-24 xl:block xl:absolute',
-                    '2xl:-right-36 2xl:w-[8.75rem] 2xl:h-[5.3rem] '
-                  )}
-                >
-                  <ImageLoader layout='fill' src='/images/carousel/left-arrow-green.png' />
-                </div>
+                {!val?.urlYoutube && (
+                  <div
+                    className={classNames(
+                      'hidden relative',
+                      'md:w-[5.75rem] md:h-[3.5rem] md:top-10 md:-right-24 xl:block xl:absolute',
+                      '2xl:-right-36 2xl:w-[8.75rem] 2xl:h-[5.3rem] '
+                    )}
+                  >
+                    <ImageLoader layout='fill' src='/images/carousel/left-arrow-green.png' />
+                  </div>
+                )}
               </div>
             </div>
           ))}

@@ -22,6 +22,7 @@ export type ICarousel = {
   id: number
   imgSrc: string
   imgSrcMobile: string
+  urlYoutube: string
   order: number
   slug: string
   status: boolean
