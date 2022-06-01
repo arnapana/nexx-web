@@ -26,9 +26,10 @@ const MyDocument = (props: any) => {
 
 MyDocument.getInitialProps = async (documentContext: DocumentContext) => {
   const props = await Document.getInitialProps(documentContext)
-  const fbId = getCookie('FB_ID', { req: documentContext.req, res: documentContext.res })
-  const fbState = getCookie('FB_STATE', { req: documentContext.req, res: documentContext.res })
-  const acceptCookie = getCookie('accept-cookie', { req: documentContext.req, res: documentContext.res })
+  const fbId = documentContext.req && getCookie('FB_ID', { req: documentContext.req, res: documentContext.res })
+  const fbState = documentContext.req && getCookie('FB_STATE', { req: documentContext.req, res: documentContext.res })
+  const acceptCookie =
+    documentContext.req && getCookie('accept-cookie', { req: documentContext.req, res: documentContext.res })
 
   return { ...props, fbId, fbState, acceptCookie }
 }

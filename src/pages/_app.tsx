@@ -6,7 +6,6 @@ import Head from 'next/head'
 import { PdpaPopup } from '@components/common'
 import Script from 'next/script'
 import { RecoilRoot } from 'recoil'
-import {} from 'cookie'
 
 interface Props extends AppProps {
   appVersion: {
@@ -108,39 +107,42 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   const appVersion = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API as string}/apps/1`)
   const jsonAppVersion = await appVersion.json()
 
+  const { res, req } = appContext.ctx
   // SetCookies
-  setCookies('PDPA', jsonAppVersion.pdpa || '', {
-    req: appContext.ctx.req,
-    res: appContext.ctx.res
-  })
-  setCookies('PDPA_STATE', JSON.stringify(jsonAppVersion.pdpaStatus || false), {
-    req: appContext.ctx.req,
-    res: appContext.ctx.res
-  })
-  setCookies('FB_ID', jsonAppVersion.facebookPixel || '', {
-    req: appContext.ctx.req,
-    res: appContext.ctx.res
-  })
-  setCookies('FB_STATE', JSON.stringify(jsonAppVersion.facebookPixelStatus || false), {
-    req: appContext.ctx.req,
-    res: appContext.ctx.res
-  })
-  setCookies('GTAG_ID', jsonAppVersion.googleAnalyze || '', {
-    req: appContext.ctx.req,
-    res: appContext.ctx.res
-  })
-  setCookies('GTAG_STATE', JSON.stringify(jsonAppVersion.googleAnalyzeStatus || ''), {
-    req: appContext.ctx.req,
-    res: appContext.ctx.res
-  })
-  setCookies('ANOUNCEMENT', jsonAppVersion.anouncement || '', {
-    req: appContext.ctx.req,
-    res: appContext.ctx.res
-  })
-  setCookies('ANOUNCEMENTSTATE', JSON.stringify(jsonAppVersion.anoncementStatus || false), {
-    req: appContext.ctx.req,
-    res: appContext.ctx.res
-  })
+  if (req?.headers.cookie) {
+    setCookies('PDPA', jsonAppVersion.pdpa || '', {
+      req: req,
+      res: res
+    })
+    setCookies('PDPA_STATE', JSON.stringify(jsonAppVersion.pdpaStatus || false), {
+      req: req,
+      res: res
+    })
+    setCookies('FB_ID', jsonAppVersion.facebookPixel || '', {
+      req: req,
+      res: res
+    })
+    setCookies('FB_STATE', JSON.stringify(jsonAppVersion.facebookPixelStatus || false), {
+      req: req,
+      res: res
+    })
+    setCookies('GTAG_ID', jsonAppVersion.googleAnalyze || '', {
+      req: req,
+      res: res
+    })
+    setCookies('GTAG_STATE', JSON.stringify(jsonAppVersion.googleAnalyzeStatus || ''), {
+      req: req,
+      res: res
+    })
+    setCookies('ANOUNCEMENT', jsonAppVersion.anouncement || '', {
+      req: req,
+      res: res
+    })
+    setCookies('ANOUNCEMENTSTATE', JSON.stringify(jsonAppVersion.anoncementStatus || false), {
+      req: req,
+      res: res
+    })
+  }
   return { ...appProps, appVersion: jsonAppVersion }
 }
 
