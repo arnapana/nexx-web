@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import classNames from 'classnames'
 import Link from 'next/link'
+import { getCookie, checkCookies } from 'cookies-next'
 import { ImageLoader, NavLink, NavLinkMobile } from '@components/common'
 import { ListIcon, CloseIcon } from '@components/icons'
 
@@ -9,6 +10,7 @@ import menuConstant from '@constants/common/menu.json'
 const Navbar: React.FC = () => {
   const [isOpen, setOpen] = useState<boolean>(true)
   const [isSidebar, setSidebar] = useState<boolean>(false)
+  const [notify, setNotify] = useState<any>()
 
   const handleNotify = () => {
     setOpen((val) => !val)
@@ -16,6 +18,13 @@ const Navbar: React.FC = () => {
   const handleSidebar = () => {
     setSidebar((val) => !val)
   }
+
+  useEffect(() => {
+    const anouncement = checkCookies('ANOUNCEMENT') && getCookie('ANOUNCEMENT')
+    const anouncementStatus = checkCookies('ANOUNCEMENTSTATE') && getCookie('ANOUNCEMENTSTATE')
+
+    setNotify({ msg: anouncement || '', status: anouncementStatus || false })
+  }, [])
 
   useEffect(() => {
     // Disable Scrollbar when active cart-page
@@ -32,10 +41,7 @@ const Navbar: React.FC = () => {
       {isOpen ? (
         <div className='hidden justify-center items-center space-x-5 w-full h-[3rem] text-white bg-primary xl:flex'>
           <div className='flex justify-center items-center'>
-            <p className='font-prompts text-base text-center'>
-              Find the fastest answers to common questions about the latest on COVID-19, travel, and Omicron{' '}
-              <span className='underline'>here</span>
-            </p>
+            <p className='font-prompts text-base text-center'>{notify?.status && notify?.msg}</p>
           </div>
           <div
             className='flex justify-center items-center w-6 h-6 bg-white rounded-full cursor-pointer'
@@ -58,7 +64,7 @@ const Navbar: React.FC = () => {
           <div className='flex relative justify-center items-center mr-14 w-[calc(3.5vw+90px)] h-[calc(1.5vw+40px)]'>
             <Link href='/'>
               <a>
-                <ImageLoader layout='fill' src='/images/logo-nav.png' quality={100} objectFit='initial'/>
+                <ImageLoader layout='fill' src='/images/logo-nav.png' quality={100} objectFit='initial' />
               </a>
             </Link>
           </div>

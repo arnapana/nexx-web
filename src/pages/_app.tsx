@@ -29,7 +29,6 @@ function MyApp({ Component, pageProps, appVersion }: Props) {
   const [isChoice, setChoice] = useState<boolean>(false)
 
   const handleChangeModal = (state: boolean, action: boolean) => {
-    console.log(state)
     setOpen(state)
 
     if (action) {
@@ -49,27 +48,37 @@ function MyApp({ Component, pageProps, appVersion }: Props) {
   return (
     <RecoilRoot>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
-      {/* <Script strategy='afterInteractive' src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`} />
-      <Script
-        id='gtag-init'
-        strategy='afterInteractive'
-        dangerouslySetInnerHTML={{
-          __html: `
+      {isChoice && (
+        <>
+          {appVersion.googleAnalyze && appVersion.googleAnalyzeStatus && (
+            <>
+              <Script
+                strategy='afterInteractive'
+                src={`https://www.googletagmanager.com/gtag/js?id=${appVersion.googleAnalyze}`}
+              />
+              <Script
+                id='gtag-init'
+                strategy='afterInteractive'
+                dangerouslySetInnerHTML={{
+                  __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${gtag.GA_TRACKING_ID}', {
+            gtag('config', '${appVersion.googleAnalyze}', {
               page_path: window.location.pathname,
             });
           `
-        }}
-      /> */}
-      {/* Global Site Code Pixel - Facebook Pixel */}
-      {/* <Script
-        id='fb-pixel'
-        strategy='afterInteractive'
-        dangerouslySetInnerHTML={{
-          __html: `
+                }}
+              />
+            </>
+          )}
+          {/* Global Site Code Pixel - Facebook Pixel */}
+          {appVersion.facebookPixel && appVersion.facebookPixelStatus && (
+            <Script
+              id='fb-pixel'
+              strategy='afterInteractive'
+              dangerouslySetInnerHTML={{
+                __html: `
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -78,10 +87,13 @@ function MyApp({ Component, pageProps, appVersion }: Props) {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', ${fbq.FB_PIXEL_ID});
+            fbq('init', ${appVersion.facebookPixel});
           `
-        }}
-      /> */}
+              }}
+            />
+          )}
+        </>
+      )}
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0' />
       </Head>
@@ -95,6 +107,40 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   const appProps = await App.getInitialProps(appContext)
   const appVersion = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API as string}/apps/1`)
   const jsonAppVersion = await appVersion.json()
+
+  // SetCookies
+  setCookies('PDPA', jsonAppVersion.pdpa || '', {
+    req: appContext.ctx.req,
+    res: appContext.ctx.res
+  })
+  setCookies('PDPA_STATE', JSON.stringify(jsonAppVersion.pdpaStatus || false), {
+    req: appContext.ctx.req,
+    res: appContext.ctx.res
+  })
+  setCookies('FB_ID', jsonAppVersion.facebookPixel || '', {
+    req: appContext.ctx.req,
+    res: appContext.ctx.res
+  })
+  setCookies('FB_STATE', JSON.stringify(jsonAppVersion.facebookPixelStatus || false), {
+    req: appContext.ctx.req,
+    res: appContext.ctx.res
+  })
+  setCookies('GTAG_ID', jsonAppVersion.googleAnalyze || '', {
+    req: appContext.ctx.req,
+    res: appContext.ctx.res
+  })
+  setCookies('GTAG_STATE', JSON.stringify(jsonAppVersion.googleAnalyzeStatus || ''), {
+    req: appContext.ctx.req,
+    res: appContext.ctx.res
+  })
+  setCookies('ANOUNCEMENT', jsonAppVersion.anouncement || '', {
+    req: appContext.ctx.req,
+    res: appContext.ctx.res
+  })
+  setCookies('ANOUNCEMENTSTATE', JSON.stringify(jsonAppVersion.anoncementStatus || false), {
+    req: appContext.ctx.req,
+    res: appContext.ctx.res
+  })
   return { ...appProps, appVersion: jsonAppVersion }
 }
 
