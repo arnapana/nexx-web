@@ -2,10 +2,13 @@ import '../styles/globals.css'
 import { useState, useEffect } from 'react'
 import { setCookies, getCookie, checkCookies } from 'cookies-next'
 import App, { AppContext, AppProps } from 'next/app'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { PdpaPopup } from '@components/common'
 import Script from 'next/script'
 import { RecoilRoot } from 'recoil'
+import * as gtag from '@utils/gtag'
+import * as fbq from '@utils/fbpixel'
 
 interface Props extends AppProps {
   appVersion: {
@@ -24,6 +27,7 @@ interface Props extends AppProps {
 }
 
 function MyApp({ Component, pageProps, appVersion }: Props) {
+  const router = useRouter()
   const [isOpen, setOpen] = useState<boolean>(true)
   const [isChoice, setChoice] = useState<boolean>(false)
 
@@ -36,6 +40,35 @@ function MyApp({ Component, pageProps, appVersion }: Props) {
     }
   }
 
+  // GA
+  useEffect(() => {
+    const gtagId = getCookie('GTAG_ID')
+    const handleRouteChange = (url: string) => {
+      gtag.pageview(url, gtagId)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    router.events.on('hashChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+      router.events.off('hashChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
+
+  // PIXEL
+  useEffect(() => {
+    // This pageview only triggers the first time (it's important for Pixel to have real information)
+    fbq.pageview()
+
+    const handleRouteChange = () => {
+      fbq.pageview()
+    }
+
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
+
   useEffect(() => {
     if (checkCookies('accept-cookie')) {
       const accept = getCookie('accept-cookie')
@@ -43,7 +76,15 @@ function MyApp({ Component, pageProps, appVersion }: Props) {
       setChoice(statePdpa)
       setOpen(!statePdpa)
     }
-  }, [])
+    setCookies('PDPA', appVersion.pdpa || '')
+    setCookies('PDPA_STATE', JSON.stringify(appVersion.pdpaStatus || false))
+    setCookies('FB_ID', appVersion.facebookPixel || '')
+    setCookies('FB_STATE', JSON.stringify(appVersion.facebookPixelStatus || false))
+    setCookies('GTAG_ID', appVersion.googleAnalyze || '')
+    setCookies('GTAG_STATE', JSON.stringify(appVersion.googleAnalyzeStatus || ''))
+    setCookies('ANOUNCEMENT', appVersion.anouncement || '')
+    setCookies('ANOUNCEMENTSTATE', JSON.stringify(appVersion.anoncementStatus || false))
+  }, [appVersion])
   return (
     <RecoilRoot>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
@@ -107,42 +148,8 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   const appVersion = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API as string}/apps/1`)
   const jsonAppVersion = await appVersion.json()
 
-  const { res, req } = appContext.ctx
-  // SetCookies
-  if (req?.headers.cookie) {
-    setCookies('PDPA', jsonAppVersion.pdpa || '', {
-      req: req,
-      res: res
-    })
-    setCookies('PDPA_STATE', JSON.stringify(jsonAppVersion.pdpaStatus || false), {
-      req: req,
-      res: res
-    })
-    setCookies('FB_ID', jsonAppVersion.facebookPixel || '', {
-      req: req,
-      res: res
-    })
-    setCookies('FB_STATE', JSON.stringify(jsonAppVersion.facebookPixelStatus || false), {
-      req: req,
-      res: res
-    })
-    setCookies('GTAG_ID', jsonAppVersion.googleAnalyze || '', {
-      req: req,
-      res: res
-    })
-    setCookies('GTAG_STATE', JSON.stringify(jsonAppVersion.googleAnalyzeStatus || ''), {
-      req: req,
-      res: res
-    })
-    setCookies('ANOUNCEMENT', jsonAppVersion.anouncement || '', {
-      req: req,
-      res: res
-    })
-    setCookies('ANOUNCEMENTSTATE', JSON.stringify(jsonAppVersion.anoncementStatus || false), {
-      req: req,
-      res: res
-    })
-  }
+  appContext.ctx.res?.setHeader('FB_ID', 1)
+
   return { ...appProps, appVersion: jsonAppVersion }
 }
 

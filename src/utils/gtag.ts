@@ -1,5 +1,5 @@
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
-export const pageview = (url: string, gtagId: string) => {
+export const pageview = (url: string, gtagId: any) => {
   window.gtag('config', gtagId, {
     page_path: url
   })
