@@ -5,8 +5,8 @@ const nextConfig = {
     loader: 'custom'
   },
   experimental: {
-    outputStandalone: true,
-  },
+    outputStandalone: true
+  }
 }
 
 module.exports = nextConfig

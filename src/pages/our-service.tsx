@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -7,9 +7,14 @@ import { Container, HeroBanner, BreadCrumb, ImageLoader, PageSEO } from '@compon
 import { ButtonContact, CardOurService } from '@components/index'
 import { SocialContact } from '@components/containers'
 import { OurServiceContainer } from '@containers/ourservice'
-import { getPostByPath } from '@utils/file-system'
+import { ICarousel } from './aboutus'
 
-const OurService: NextPage = (props: any) => {
+interface Props {
+  posts:any
+  carousel: ICarousel
+}
+
+const OurService: NextPage<Props> = (props) => {
   const router = useRouter()
   if (!router.isFallback && !props.posts) {
     return <p>Error</p>
@@ -25,8 +30,8 @@ const OurService: NextPage = (props: any) => {
       {/* Floating Button */}
       <ButtonContact />
       <HeroBanner
-        src='/images/hero-banner/our-service.png'
-        srcMobile='/images/hero-banner/our-service-mobile.png'
+        src={props.carousel?.imgSrc}
+        srcMobile={props.carousel?.imgSrcMobile}
         containerClassName='top-[26%]'
       >
         <div className='flex relative mb-10'>
@@ -37,7 +42,7 @@ const OurService: NextPage = (props: any) => {
               '2xl:text-[80px] 2xl:leading-[90px]'
             )}
           >
-            Our Services
+            {props.carousel?.title}
           </p>
           <div
             className={classNames(
@@ -57,7 +62,7 @@ const OurService: NextPage = (props: any) => {
               '2xl:text-[2.5rem] 2xl:leading-[55px]'
             )}
           >
-            สุขภาพที่ดีที่ทุกคนเข้าถึงได้ ด้วยบริการจาก NEXX Pharma
+            {props.carousel?.description}
           </p>
         </div>
       </HeroBanner>
@@ -78,19 +83,44 @@ const OurService: NextPage = (props: any) => {
 
 export default OurService
 
-export const getStaticProps = async () => {
-  const rawPosts: any = await getPostByPath('service')
-  const sortPosts = rawPosts.sort((a: any, b: any) => a.order - b.order)
+export const getStaticProps: GetStaticProps = async () => {
+  const carouselType = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carouselTypes?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'ourservice' })
+    })}`
+  )
+  const carouselTypeJson = await carouselType.json()
+  const carousel = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
+      range: JSON.stringify([0, 1]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
+    })}`
+  )
+  const carouselJson = await carousel.json()
+
+  const ourservices = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/ourservices?${new URLSearchParams({
+      range: JSON.stringify([0, 5]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ status: true })
+    })}`
+  )
+
+  const ourservicesJson = await ourservices.json()
   let posts = []
 
-  for (const post of sortPosts) {
+  for (const post of ourservicesJson) {
     const mdxSource = await serialize(post.content)
     posts.push({ mdxSource: mdxSource, frontMatter: post, slug: post.slug })
   }
 
   return {
     props: {
-      posts
+      posts,
+      carousel: carouselJson?.length && carouselJson[0]
     }
   }
 }

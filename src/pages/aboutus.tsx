@@ -6,19 +6,71 @@ import { ButtonContact } from '@components/index'
 import { AboutusContainer, VisionContainer } from '@containers/aboutus'
 
 import aboutusConstant from '@constants/mock/aboutus.json'
+import { serialize } from 'next-mdx-remote/serialize'
+import { IBlog } from './article/[slug]'
 
-interface Props {
-  vision: any
+export type IActivities = {
+  order: number
+  status: boolean
+  blog: IBlog
 }
 
-const Aboutus: NextPage<Props> = ({ vision }) => {
+export type ICarousel = {
+  carouselType: { id: number; name: string; slug: string }
+  carouselTypeId: number
+  description: string
+  id: number
+  imgSrc: string
+  imgSrcMobile: string
+  urlYoutube: string
+  order: number
+  slug: string
+  status: boolean
+  subTitle: string
+  title: string
+}
+
+export type IVision = {
+  content: string
+  description: string
+  id: number
+  imgSrc: string
+  order: number
+  slug: string
+  status: true
+  subTitle: string
+  title: string
+}
+
+export type IAboutus = {
+  content: any
+  description: string
+  id: number
+  imgSrc: string
+  order: number
+  slug: string
+  status: true
+  subTitle: string
+  title: string
+}
+interface Props {
+  visions: IVision[]
+  aboutus: IAboutus[]
+  activities: IActivities[]
+  carousel: ICarousel
+}
+
+const Aboutus: NextPage<Props> = ({ visions, aboutus, activities, carousel }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - About Nexx Phamacy`} description='เกี่ยวกับเรา NEXX Pharma' />
       {/* Floating Button */}
       <ButtonContact />
 
-      <HeroBanner src='/images/hero-banner/aboutus.png' srcMobile='/images/hero-banner/aboutus-mobile.png'>
+      <HeroBanner
+        src={carousel?.imgSrc ? carousel?.imgSrc : '/images/hero-banner/aboutus.png'}
+        srcMobile={carousel?.imgSrcMobile}
+      >
         <div className='flex relative flex-col mb-5 md:mb-8'>
           <div className='mb-3'>
             <p
@@ -28,7 +80,7 @@ const Aboutus: NextPage<Props> = ({ vision }) => {
                 '2xl:text-8xl 2xl:leading-[90px]'
               )}
             >
-              About
+              {carousel?.title}
             </p>
           </div>
           <div className=''>
@@ -39,7 +91,7 @@ const Aboutus: NextPage<Props> = ({ vision }) => {
                 '2xl:text-6xl 2xl:leading-[90px]'
               )}
             >
-              NEXX Pharma
+              {carousel?.subTitle}
             </p>
           </div>
           <div
@@ -60,14 +112,14 @@ const Aboutus: NextPage<Props> = ({ vision }) => {
               '2xl:text-[2.5rem] 2xl:leading-[55px]'
             )}
           >
-            ร้านขายยา วิตามิน และสินค้าสุขภาพครบวงจร ผสานเทคโนโลยีเพื่อตอบโจทย์การให้บริการ อย่างมีประสิทธิภาพ
+            {carousel?.description}
           </p>
         </div>
       </HeroBanner>
 
       <BreadCrumb outerClassName='container mx-auto my-10' />
-      <AboutusContainer />
-      <VisionContainer />
+      <AboutusContainer aboutPost={aboutus} />
+      <VisionContainer visionPost={visions} />
       <div>
         {/* Header */}
         <div className='mb-16'>
@@ -79,45 +131,67 @@ const Aboutus: NextPage<Props> = ({ vision }) => {
           </div>
           <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 mb-7 mt-4' />
         </div>
-        <ArticleContainer />
+        <ArticleContainer activityPost={activities} />
       </div>
     </Container>
   )
 }
 
-// export const getServerSideProps = async (context: GetServerSideProps) => {
-//   const vision = await fetch(
-//     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/visions?/${new URLSearchParams({
-//       range: JSON.stringify([0, 6]),
-//       sort: JSON.stringify(['order', 'ASC']),
-//       filter: JSON.stringify({})
-//     })}`
-//   )
-//   const aboutus = await fetch(
-//     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/aboutus?/${new URLSearchParams({
-//       range: JSON.stringify([0, 6]),
-//       sort: JSON.stringify(['order', 'ASC']),
-//       filter: JSON.stringify({})
-//     })}`
-//   )
-//   const activities = await fetch(
-//     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/activities?/${new URLSearchParams({
-//       range: JSON.stringify([0, 6]),
-//       sort: JSON.stringify(['order', 'ASC']),
-//       filter: JSON.stringify({})
-//     })}`
-//   )
-//   const visionJson = await vision.json()
-//   const aboutusJson = await aboutus.json()
-//   const activitiesJson = await activities.json()
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const carouselType = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carouselTypes?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'aboutus' })
+    })}`
+  )
+  const carouselTypeJson = await carouselType.json()
+  const banner = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
+      range: JSON.stringify([0, 1]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
+    })}`
+  )
+  const vision = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/visions?${new URLSearchParams({
+      range: JSON.stringify([0, 6]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({})
+    })}`
+  )
+  const aboutus = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/aboutus?${new URLSearchParams({
+      range: JSON.stringify([0, 6]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({})
+    })}`
+  )
+  const activities = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/activities?${new URLSearchParams({
+      range: JSON.stringify([0, 6]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({})
+    })}`
+  )
+  const visionJson = await vision.json()
+  const aboutusArray = []
+  const activitiesJson = await activities.json()
+  const carouselJson = await banner.json()
 
-//   return {
-//     props: {
-//       vision: visionJson,
-//       aboutus: aboutusJson,
-//       activities: activitiesJson
-//     } // will be passed to the page component as props
-//   }
-// }
+  for await (const post of await aboutus.json()) {
+    const mdxSource = await serialize(post.content)
+    aboutusArray.push({ ...post, content: mdxSource })
+  }
+
+  return {
+    props: {
+      visions: visionJson,
+      aboutus: aboutusArray,
+      activities: activitiesJson,
+      carousel: carouselJson?.length && carouselJson[0]
+    } // will be passed to the page component as props
+  }
+}
 
 export default Aboutus

@@ -1,11 +1,17 @@
 import React, { useState, useRef } from 'react'
+import * as _ from 'lodash'
 import { CardTelephamacy } from '@components/index'
 import { ColorLine, ImageLoader } from '@components/common'
 
-import telephamacyConstant from '@constants/mock/telephamacy.json'
 import Slider from 'react-slick'
+import { ITelephamacy } from 'pages/telepharmacy'
+import { NextPage } from 'next'
 
-export const TelephamacyContainer = () => {
+interface Props {
+  telephamacies: ITelephamacy[]
+}
+
+export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
   const slickRef = useRef<any>()
   const [slideIndex, setSlideIndex] = useState<number>(0)
 
@@ -27,6 +33,7 @@ export const TelephamacyContainer = () => {
     slickRef.current.slickGoTo(i)
   }
 
+
   return (
     <section className='py-10'>
       <div className='container mx-auto'>
@@ -43,11 +50,11 @@ export const TelephamacyContainer = () => {
         {/* Content */}
         <div className='grid grid-cols-1 xl:grid-cols-2'>
           <div>
-            {telephamacyConstant.map((val, idx) => (
+            {_.map(telephamacies, (val, idx) => (
               <CardTelephamacy
                 key={idx}
-                name={val.name}
-                list={val.list}
+                name={val.title}
+                list={val.content}
                 index={idx}
                 current={slideIndex}
                 onClick={() => handleSlick(idx)}
@@ -57,17 +64,14 @@ export const TelephamacyContainer = () => {
           <div id='telephamacy' className='px-10 mx-auto md:px-0'>
             <div className='overflow-hidden relative w-[250px] md:w-[350px] xl:w-[396px]'>
               <Slider {...settings} ref={slickRef}>
-                <ImageLoader src='/images/telephamacy/img2.png' width={396} height={800} />
-
-                <ImageLoader src='/images/telephamacy/img2.png' width={396} height={800} />
-
-                <ImageLoader src='/images/telephamacy/img2.png' width={396} height={800} />
-
-                <ImageLoader src='/images/telephamacy/img2.png' width={396} height={800} />
-
-                <ImageLoader src='/images/telephamacy/img2.png' width={396} height={800} />
-
-                <ImageLoader src='/images/telephamacy/img2.png' width={396} height={800} />
+                {_.map(telephamacies, (val, idx) => (
+                  <ImageLoader
+                    key={idx}
+                    src={val.imgSrc ? val.imgSrc : '/images/telephamacy/img2.png'}
+                    width={396}
+                    height={800}
+                  />
+                ))}
               </Slider>
             </div>
           </div>

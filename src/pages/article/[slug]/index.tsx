@@ -1,20 +1,51 @@
 import React from 'react'
 import classNames from 'classnames'
+import * as _ from 'lodash'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone' // dependent on utc plugin
+
 import { useRouter } from 'next/router'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { Container, BreadCrumb, ImageLoader } from '@components/common'
+import { Container, BreadCrumb, ImageLoader, PageSEO } from '@components/common'
 import { ButtonContact, ButtonTag } from '@components/index'
 import { ArticleRelativeContainer } from '@containers/article/content'
-import { getPostBySlug } from '@utils/file-system'
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.tz.setDefault('Asia/Bangkok')
 
 const component = {
   p: (props: any) => <p {...props} />,
   h3: (props: any) => <h3 className='text-xl font-medium' {...props} />
 }
 
-const Article: NextPage = (props: any) => {
+export type IBlog = {
+  id: number
+  order: number
+  title: string
+  slug: string
+  subTitle: string
+  description: string
+  content: string
+  imgSrc: string
+  status: boolean
+  publishedAt: Date
+  createdAt: Date
+  updatedAt: Date
+  categories: {
+    id: number
+    title: string
+    slug: string
+  }[]
+}
+interface Props {
+  blogs: IBlog
+  relativePostJson: IBlog[]
+}
+
+const Article: NextPage<Props> = (props: any) => {
   const router = useRouter()
   if (!router.isFallback && !props.mdxSource) {
     return <p>Error</p>
@@ -25,6 +56,7 @@ const Article: NextPage = (props: any) => {
 
   return (
     <Container>
+      <PageSEO title={`Nexx Phamacy - ${props?.frontMatter?.title}`} description={props?.frontMatter?.description} />
       {/* Floating Button */}
       <ButtonContact />
 
@@ -34,24 +66,26 @@ const Article: NextPage = (props: any) => {
           {/* Header */}
           <div className='mb-16'>
             <div className='mb-5 text-center'>
-              <p className='font-poppins font-medium h2'>Computer Vision Syndrome (CVS) :</p>
-              <p className='font-prompts font-medium h2'>โรคใกล้ตัวของคนทำงานยุคใหม่เพราะจ้องหน้าจอมากเกินไป</p>
+              <p className='font-poppins font-medium h2'>{props?.frontMatter?.title}</p>
+              <p className='font-prompts font-medium h2'>{props?.frontMatter?.subTitle}</p>
             </div>
             <div className='mb-5'>
               <p className='font-prompts font-normal text-center'>
-                โพสต์เมื่อ <span>01 มกราคม 2564</span> โดย <span>บูติกเด้อ โปรโมท</span>
+                โพสต์เมื่อ <span>{dayjs(props?.frontMatter.published_at).format('DD MMM YYYY')}</span> โดย{' '}
+                <span>บูติกเด้อ โปรโมท</span>
               </p>
             </div>
             <div className='flex justify-center space-x-5'>
-              <ButtonTag name='สุขภาพ' />
-              <ButtonTag name='ความเคลียด' />
+              {_.map(props?.frontMatter.categories, (val, key) => (
+                <ButtonTag key={key} name={val.title} />
+              ))}
             </div>
           </div>
           {/* Image */}
           <div className='grid place-items-center'>
             <ImageLoader
               className='rounded-[50px]'
-              src='/images/aboutus/card-review-large.png'
+              src={props?.frontMatter.imgSrc || '/images/aboutus/card-review-large.png'}
               width={1070}
               height={640}
             />
@@ -88,37 +122,59 @@ const Article: NextPage = (props: any) => {
           </div>
         </div>
       </section>
-      <ArticleRelativeContainer />
+      <ArticleRelativeContainer relativePost={props.relativePostJson} />
     </Container>
   )
 }
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {
-  const posts: any = await getPostBySlug('cvs')
-  const paths = { params: { slug: posts.slug } }
+  const slug = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({})
+    })}`
+  )
+  const slugJson = await slug.json()
+  const paths = slugJson.map((val: any) => ({ params: { slug: val.slug } }))
 
-  return { paths: [paths], fallback: 'blocking' }
+  return { paths: paths, fallback: 'blocking' }
 }
 
-export const getStaticProps: GetStaticProps<any, any> = async () => {
-  const posts: any = await getPostBySlug('cvs')
-  const mdxSource = await serialize(posts.content)
+export const getStaticProps: GetStaticProps<any, any> = async (context) => {
+  const { slug } = context.params
+  const posts = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
+      range: JSON.stringify([0, 1]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: slug })
+    })}`
+  )
+  const relativePost = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
+      range: JSON.stringify([0, 3]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ title: slug, description: slug })
+    })}`
+  )
+  const relativePostJson = await relativePost.json()
+  const postJson = await posts.json()
+
+  if (!postJson.length) {
+    return { notFound: true }
+  }
+
+  const mdxSource = await serialize(postJson[0].content)
+
   return {
     props: {
-      frontMatter: posts,
+      frontMatter: postJson[0],
       mdxSource: mdxSource,
-      slug: posts.slug
-    }
+      slug: postJson[0].slug,
+      relativePostJson
+    },
+    revalidate: 10
   }
-  // const { slug } = context.params
-
-  // const article = articlesConstant.find((val) => val.slug === slug)
-
-  // if (!article) {
-  //   throw new Error(`Failed to fetch posts, received status`)
-  // }
-
-  // return { props: { article: article }, revalidate: 60 }
 }
 
 export default Article

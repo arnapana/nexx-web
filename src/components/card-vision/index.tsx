@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
-import { ImageLoader } from '@components/common'
-
+import { ImageLoader, ModalOpacity } from '@components/common'
+import aboutuConstant from '@constants/mock/aboutus.json'
 interface ICardVision {
+  id: number
   name: string
   content: string
+  description: string
   url?: string
-  image: {
-    src: string
-    w: number
-    h: number
-  }
-  onClick: (event: any) => void
+  image: string
 }
 
-export const CardVision: React.FC<ICardVision> = ({ name, content, onClick, image }) => {
+export const CardVision: React.FC<ICardVision> = ({ id, name, description, content, image }) => {
+  const [isModal, setModal] = useState<boolean>(false)
+  const handleModal = () => {
+    setModal((val) => !val)
+  }
+
+
   return (
     <div className='mx-auto  w-full'>
       <div className='overflow-hidden relative px-6 pt-6 pb-9 min-w-[20rem] h-[16rem] bg-gradient-to-r from-[#364AD9] to-[#298DE3] rounded-2xl md:min-w-[21.5rem]  md:h-[17rem] 2xl:w-[25rem]'>
@@ -24,13 +27,10 @@ export const CardVision: React.FC<ICardVision> = ({ name, content, onClick, imag
             <p className='font-poppins font-semibold text-white md:text-2xl 2xl:text-3xl'>{name}</p>
           </div>
           <div className='mb-auto'>
-            <p className='font-kanits text-base text-white 2xl:text-lg'>{content}</p>
+            <p className='font-kanits text-base text-white 2xl:text-lg'>{description}</p>
           </div>
           <div className='cursor-pointer'>
-            <p
-              className='inline-block font-prompts text-sm text-white underline md:text-base'
-              onClick={(event: any) => onClick(event)}
-            >
+            <p className='inline-block font-prompts text-sm text-white underline md:text-base' onClick={handleModal}>
               ดูเพิ่มเติม
             </p>
             {/* Image Arrow*/}
@@ -41,10 +41,43 @@ export const CardVision: React.FC<ICardVision> = ({ name, content, onClick, imag
 
           {/* Image */}
           <div className={classNames('absolute -right-[2%] -bottom-[5%]')}>
-            <ImageLoader width={image.w} height={image.h} src={image.src} />
+            <ImageLoader
+              width={aboutuConstant.vision.cards[id].img.w}
+              height={aboutuConstant.vision.cards[id].img.h}
+              src={aboutuConstant.vision.cards[id].img.src}
+            />
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      <ModalOpacity isModal={isModal} onClick={(event: any) => handleModal()}>
+        <div className={classNames('absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2', 'modal-container')}>
+          <div
+            className={classNames(
+              'relative p-8 min-w-[350px] max-w-[555px] max-h-[477px] bg-white rounded-[2rem] md:py-12 md:px-16',
+              'modal-content'
+            )}
+          >
+            <div className='mb-7'>
+              <p className='font-prompts font-medium text-center h3'>{name}</p>
+            </div>
+
+            <div>
+              <p className='font-prompts tracking-wide text-center line-clamp-14 md:line-clamp-10 subtitle'>
+                {content}
+              </p>
+            </div>
+
+            <div
+              className='absolute top-0 right-0 translate-x-5 -translate-y-5 cursor-pointer'
+              onClick={(event: any) => handleModal()}
+            >
+              <ImageLoader width={60} height={60} src='/images/icons/cancel-modal.png' />
+            </div>
+          </div>
+        </div>
+      </ModalOpacity>
     </div>
   )
 }

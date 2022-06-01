@@ -1,8 +1,11 @@
 import React from 'react'
+import * as _ from 'lodash'
 import classNames from 'classnames'
 import { ArrowDownIcon } from '@components/icons'
 
 interface Props {
+  name: string
+  data: { val: string | number; label: string }[]
   containerClassName?: string
   innerClassName?: string
   inputClassName?: string
@@ -13,13 +16,15 @@ interface Props {
 }
 
 export const InputSelect: React.FC<Props> = ({
+  name,
   containerClassName,
   innerClassName,
   inputClassName,
   label,
   require,
   inputValue,
-  handleOnChange
+  handleOnChange,
+  data
 }) => {
   return (
     <div className={classNames(containerClassName, 'mb-5')}>
@@ -31,6 +36,8 @@ export const InputSelect: React.FC<Props> = ({
         <div className='relative'>
           {/* Select */}
           <select
+            name={name}
+            id={name}
             className={classNames(
               inputClassName,
               'px-10 w-full h-[70px] text-[#5D5D5D] bg-[#FCFFFA] rounded-2xl border border-[#78DF45] outline-none appearance-none'
@@ -40,9 +47,11 @@ export const InputSelect: React.FC<Props> = ({
             value={inputValue}
           >
             <option selected>โปรดเลือก...</option>
-            <option value='1'>One</option>
-            <option value='2'>Two</option>
-            <option value='3'>Three</option>
+            {_.map(data, (val, idx) => (
+              <option key={idx} value={val.val}>
+                {val.label}
+              </option>
+            ))}
           </select>
           {/* Arrow */}
           <div className='absolute top-1/2 right-[5%] -translate-y-1/2'>

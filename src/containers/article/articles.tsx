@@ -1,12 +1,39 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import * as _ from 'lodash'
 import { Button } from '@components/common'
 import { ButtonTag, CardArticle } from '@components/index'
+import { IBlog } from 'pages/article/[slug]'
+import { NextPage } from 'next'
 
 const tags = ['สุขภาพ', 'ความเครียด', 'covid19', 'Workfromhome', 'โควิด']
 
-export const ArticlesContainer = () => {
+interface Props {
+  blogPost: IBlog[]
+}
+
+export const ArticlesContainer: NextPage<Props> = ({ blogPost }) => {
+  const skip = 8
+  const [offset, setOffset] = useState<number>(8)
+  const [blogs, setBlogs] = useState<IBlog[]>(blogPost)
+  const handleLoadMore = () => {
+    const curOffset = offset + skip
+    setOffset(curOffset)
+    fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
+        range: JSON.stringify([0, curOffset]),
+        sort: JSON.stringify(['order', 'DESC']),
+        filter: JSON.stringify({ status: true })
+      })}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setBlogs(data)
+      })
+      .catch()
+  }
+
   return (
-    <section className='bg-[#FCFCFC] py-10 md:py-14'>
+    <section className='py-10 bg-[#FCFCFC] md:py-14'>
       <div className='container mx-auto'>
         {/* Header */}
         <div className='mb-10 md:mb-16'>
@@ -23,17 +50,16 @@ export const ArticlesContainer = () => {
         {/* Articles */}
         <div className='flex flex-col justify-center items-center'>
           <div className='grid grid-cols-1 gap-5 mb-16 xl:grid-cols-2 2xl:gap-10'>
-            <CardArticle />
-            <CardArticle />
-            <CardArticle />
-            <CardArticle />
-            <CardArticle />
-            <CardArticle />
-            <CardArticle />
-            <CardArticle />
+            {_.map(blogs, (val, idx) => (
+              <CardArticle key={idx} val={val} />
+            ))}
           </div>
           <div>
-            <Button name='ดูเพิ่มเติ่ม' innerClassName='w-[145px] md:w-[170px] 2xl:w-[190px]' />
+            <Button
+              name='ดูเพิ่มเติ่ม'
+              innerClassName='w-[145px] md:w-[170px] 2xl:w-[190px]'
+              onClick={handleLoadMore}
+            />
           </div>
         </div>
       </div>

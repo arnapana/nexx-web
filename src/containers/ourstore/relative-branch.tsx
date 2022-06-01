@@ -1,26 +1,73 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { NextPage } from 'next'
+import classNames from 'classnames'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import classNames from 'classnames'
-import { Button, ColorLine, ImageLoader, InputSelect, ModalOpacity, Pagination, TableField } from '@components/common'
+import * as _ from 'lodash'
 
-export const RelativeBranchContainer = () => {
+import { Button, ColorLine, ImageLoader, InputSelect, ModalOpacity, Pagination, TableField } from '@components/common'
+import { INetwork } from 'pages/stores'
+
+interface Props {
+  networks: INetwork[]
+}
+
+export const RelativeBranchContainer: NextPage<Props> = ({ networks }) => {
+  const itemPerPage = 5
+  const [networkArray, setNetworkArray] = useState<INetwork[]>()
+  const [province, setProvince] = useState<any>(null)
+  const [district, setDistrict] = useState<any>(null)
+  const [isModal, setModal] = useState<boolean>(false)
   const formik = useFormik({
-    initialValues: { provide: '', district: '' },
+    initialValues: { province: '', district: '' },
     validationSchema: Yup.object({
-      provide: Yup.string().required('กรุณาระบุจังหวัด'),
+      province: Yup.string().required('กรุณาระบุจังหวัด'),
       district: Yup.string().required('กรุณาระบุอำเภอ')
     }),
-    onSubmit: (values, { setSubmitting }) => {
-      console.log(values)
+    onSubmit: (values, { setSubmitting, resetForm }) => {
+      setNetworkArray(() =>
+        networks.filter((val) => val.district === values.district || val.province === values.province)
+      )
+      setSubmitting(false)
+
+      resetForm()
     }
   })
-  const [isModal, setModal] = useState<boolean>(false)
+
+  const handlePagination = (index: number) => {
+    const cur = itemPerPage * index
+    const offset = itemPerPage * index + itemPerPage
+
+    const sliceItems = networks?.slice(cur, offset)
+    setNetworkArray(sliceItems)
+  }
 
   const handleModal = (event: any) => {
     event.stopPropagation()
     setModal((val) => !val)
   }
+
+  useEffect(() => {
+    const cur = 0
+    const offset = itemPerPage
+
+    const sliceItems = networks?.slice(cur, offset)
+    setNetworkArray(sliceItems)
+
+    // Set Province
+    setProvince(() => networks.map((val) => ({ val: val.province, label: val.province })))
+  }, [networks])
+
+  useEffect(() => {
+    if (formik.values.province) {
+      // Set Province
+      setDistrict(() =>
+        networks
+          .filter((val) => val.province === formik.values.province)
+          .map((val) => ({ val: val.district, label: val.district }))
+      )
+    }
+  }, [formik.values.province])
 
   return (
     <section className='py-5 bg-[#FCFCFC] md:py-14'>
@@ -52,16 +99,13 @@ export const RelativeBranchContainer = () => {
               </tr>
             </thead>
             <tbody className='font-prompts text-xl text-center'>
-              <TableField />
-              <TableField />
-              <TableField />
-              <TableField />
-              <TableField />
-              <TableField />
+              {_.map(networkArray, (val, idx) => (
+                <TableField key={idx} val={val} />
+              ))}
             </tbody>
           </table>
         </div>
-        <Pagination pageCount={5} onChangePage={(val) => console.log(val)} />
+        <Pagination pageCount={Math.ceil(networks?.length / itemPerPage)} onChangePage={handlePagination} />
 
         {/* Modal */}
         <ModalOpacity isModal={isModal} onClick={(event: any) => handleModal(event)}>
@@ -77,14 +121,18 @@ export const RelativeBranchContainer = () => {
 
               <form onSubmit={formik.handleSubmit}>
                 <InputSelect
+                  name='province'
+                  data={province}
                   innerClassName='md:w-[540px]'
                   require={false}
                   label='จังหวัด'
-                  inputValue={formik.values.provide}
+                  inputValue={formik.values.province}
                   handleOnChange={formik.handleChange}
                   inputClassName='h-[50px] md:h-[70px]'
                 />
                 <InputSelect
+                  name='district'
+                  data={district}
                   innerClassName='md:w-[540px]'
                   require={false}
                   label='อำเภอ'

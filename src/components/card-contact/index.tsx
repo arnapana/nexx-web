@@ -21,7 +21,7 @@ export const CardContact: React.FC<Props> = ({ name, detail, img }) => {
             <ImageLoader width={img.w} height={img.h} src={img?.src} />
           </div>
         </div>
-        <div className='pl-5 md:pl-10 w-full'>
+        <div className='pl-5 w-full md:pl-10'>
           <div className='mb-2'>
             <p className='font-kanits font-medium md:text-xl 2xl:text-2xl'>{name}</p>
           </div>

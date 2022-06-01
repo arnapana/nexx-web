@@ -3,36 +3,35 @@ import Link from 'next/link'
 import classNames from 'classnames'
 import { ButtonTag } from '@components/index'
 import { ImageLoader } from '@components/common'
+import { IBlog } from 'pages/article/[slug]'
 
 interface Props {
+  val: IBlog
   containerClassName?: string
   innerClassName?: string
 }
 
-export const CardArticle: React.FC<Props> = ({ containerClassName, innerClassName }) => {
+export const CardArticle: React.FC<Props> = ({ val, containerClassName, innerClassName }) => {
   return (
     <div className={classNames(containerClassName)}>
-      <Link href='/article/cvs'>
+      <Link href={{ pathname: '/article/[slug]', query: { slug: val.slug } }}>
         <a title=''>
           <div className={classNames(innerClassName, 'flex flex-col md:flex-row md:h-[185px]')}>
             {/* Image */}
             <div className='mb-3 md:mr-3'>
               <div className='relative mx-auto w-full h-[165px] md:w-[205px] 2xl:w-[255px] 2xl:h-[185px]'>
-                <ImageLoader className='rounded-xl' layout='fill' src='/images/article/img1.png' />
+                <ImageLoader className='rounded-xl' layout='fill' src={val.imgSrc} />
               </div>
             </div>
             {/* Content */}
-            <div className='flex flex-col w-full md:pl-1'>
-              <div className='mb-2'>
-                <p className='font-prompts font-medium line-clamp-2 md:text-base 2xl:text-xl'>
-                  ร้านยาแมกซ์ฟาร์มาซี Rebranding ใหม่ เป็น NEXX Pharma พร้อมเดินหน้า
-                </p>
-              </div>
-              <div className='mb-4'>
-                <p className='font-sarabun text-sm font-normal text-[#5D5D5D] line-clamp-3 '>
-                  ร้านยาแมกซ์ฟาร์มาซี Rebranding แล้ว เป็น NEXX Pharma ปรับภาพลักษณ์ใหม่ให้ทันสมัย เข้าถึงลูกค้า
-                  ได้มากยิ่งขึ้น พร้อมเดินหน้าขยายสาขาที่ 2 ร้านยา...
-                </p>
+            <div className='flex flex-col justify-between w-full md:pl-1'>
+              <div>
+                <div className='mb-2'>
+                  <p className='font-prompts font-medium line-clamp-2 md:text-base 2xl:text-xl'>{val.title}</p>
+                </div>
+                <div className='mb-4'>
+                  <p className='font-sarabun text-sm font-normal text-[#5D5D5D] line-clamp-3 '>{val.description}</p>
+                </div>
               </div>
               <div className='flex space-x-5'>
                 <ButtonTag name='สุขภาพ' />

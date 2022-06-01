@@ -2,6 +2,8 @@ import { CardShopping } from '@components/card-shopping'
 import { ColorLine, Button } from '@components/common'
 import React from 'react'
 
+import urlJson from '@constants/mock/url-contact.json'
+
 export const ContactContainer = () => {
   return (
     <section className='py-5 min-h-[500px] md:py-20 2xl:py-[160px]'>
@@ -22,6 +24,7 @@ export const ContactContainer = () => {
           <div className='col-span-2'>
             <div className='flex flex-wrap justify-center'>
               <CardShopping
+                url={urlJson['line-shopping']}
                 imageClassName=''
                 height={90}
                 width={90}
@@ -31,6 +34,7 @@ export const ContactContainer = () => {
               />
 
               <CardShopping
+                url={urlJson.line}
                 width={90}
                 height={90}
                 name='Line Chat'
@@ -39,6 +43,7 @@ export const ContactContainer = () => {
                 imageClassName=''
               />
               <CardShopping
+                url={urlJson.shopee}
                 imageClassName=''
                 height={90}
                 width={90}
@@ -48,6 +53,7 @@ export const ContactContainer = () => {
               />
 
               <CardShopping
+                url={urlJson.lazada}
                 imageClassName=''
                 height={90}
                 width={90}

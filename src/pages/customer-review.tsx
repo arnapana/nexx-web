@@ -1,17 +1,26 @@
-import { NextPage } from 'next'
+import { useState, useEffect } from 'react'
+import { GetServerSideProps, NextPage } from 'next'
 import classNames from 'classnames'
 import { Container, BreadCrumb, HeroBanner, ImageLoader, PageSEO } from '@components/common'
 import { CustomerReviewContainer } from '@containers/customer-review'
 import { ButtonContact } from '@components/index'
+import { IReview } from 'pages'
+import { ICarousel } from './aboutus'
 
-const CustomerReviews: NextPage = () => {
+interface Props {
+  reviews: IReview[]
+  carousel: ICarousel
+}
+
+const CustomerReviews: NextPage<Props> = ({ reviews, carousel }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - Review`} description='Nexx Phamacy - Review' />
       {/* Floating Button */}
       <ButtonContact />
       <HeroBanner
-        src='/images/hero-banner/customer-review.png'
+        src={carousel?.imgSrc ? carousel?.imgSrc : '/images/hero-banner/customer-review.png'}
+        srcMobile={carousel?.imgSrcMobile}
         sectionClassName='bg-cover bg-[center_left_-350px] md:bg-center'
         containerClassName='top-[25%] 2xl:top-[27%]'
       >
@@ -23,7 +32,7 @@ const CustomerReviews: NextPage = () => {
               '2xl:text-[80px] 2xl:leading-[90px]'
             )}
           >
-            Customer Review
+            {carousel?.title}
           </p>
           <div
             className={classNames(
@@ -43,15 +52,50 @@ const CustomerReviews: NextPage = () => {
               '2xl:text-[2.5rem] 2xl:leading-[55px]'
             )}
           >
-            รีวิวจากลูกค้า
+            {carousel?.description}
           </p>
         </div>
       </HeroBanner>
 
       <BreadCrumb outerClassName='container mx-auto my-10' />
-      <CustomerReviewContainer />
+      <CustomerReviewContainer reviews={reviews} />
     </Container>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const carouselType = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carouselTypes?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'review' })
+    })}`
+  )
+  const carouselTypeJson = await carouselType.json()
+  const carousel = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
+      range: JSON.stringify([0, 1]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
+    })}`
+  )
+  const reviews = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/reviews?${new URLSearchParams({
+      range: JSON.stringify([0, 8]),
+      sort: JSON.stringify(['id', 'ASC']),
+      filter: JSON.stringify({ status: true })
+    })}`
+  )
+
+  const carouselJson = await carousel.json()
+  const reviewsJson = await reviews.json()
+
+  return {
+    props: {
+      reviews: reviewsJson,
+      carousel: carouselJson?.length && carouselJson[0]
+    }
+  }
 }
 
 export default CustomerReviews

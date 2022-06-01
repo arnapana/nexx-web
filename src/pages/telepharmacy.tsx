@@ -1,10 +1,31 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
+import { serialize } from 'next-mdx-remote/serialize'
 import classNames from 'classnames'
+
 import { Container, HeroBanner, BreadCrumb, ImageLoader, PageSEO } from '@components/common'
 import { TelephamacyContainer, ContactTelephamacyContainer } from '@containers/telephamacy'
 import { ButtonContact } from '@components/button-contact'
+import { ICarousel } from './aboutus'
 
-const Telephamacy: NextPage = () => {
+export interface ITelephamacy {
+  id: number
+  parentId: number
+  order: number
+  title: string
+  metaTitle: string
+  content: string
+  imgSrc: string
+  imgSlideSrc: string
+  slug: string
+  status: boolean
+}
+
+interface Props {
+  telephamacies: ITelephamacy[]
+  carousel: ICarousel
+}
+
+const Telephamacy: NextPage<Props> = ({ telephamacies, carousel }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - Telephamacy`} description='Nexx Phamacy - Telephamacy' />
@@ -12,7 +33,8 @@ const Telephamacy: NextPage = () => {
       {/* Floating Button */}
       <ButtonContact />
       <HeroBanner
-        src='/images/hero-banner/telepharmacy.png'
+        src={carousel?.imgSrc ? carousel?.imgSrc : '/images/hero-banner/telepharmacy.png'}
+        srcMobile={carousel?.imgSrcMobile}
         sectionClassName='bg-cover bg-[center_left_-330px] md:bg-center'
         containerClassName='top-[26%] left-[13%] md:left-[15%] 2xl:left-[13%]'
       >
@@ -24,7 +46,7 @@ const Telephamacy: NextPage = () => {
               '2xl:text-[80px] 2xl:leading-[90px]'
             )}
           >
-            Telepharmacy
+            {carousel?.title}
           </p>
           <div
             className={classNames(
@@ -44,16 +66,58 @@ const Telephamacy: NextPage = () => {
               '2xl:text-[2.5rem] 2xl:leading-[55px]'
             )}
           >
-            ปรึกษาเภสัชกรและแพทย์ออนไลน์
+            {carousel?.description}
           </p>
         </div>
       </HeroBanner>
       <BreadCrumb outerClassName='container mx-auto my-10' />
 
-      <TelephamacyContainer />
+      <TelephamacyContainer telephamacies={telephamacies} />
       <ContactTelephamacyContainer />
     </Container>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const carouselType = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carouselTypes?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'telephamacy' })
+    })}`
+  )
+  const carouselTypeJson = await carouselType.json()
+  const carousel = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
+      range: JSON.stringify([0, 1]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
+    })}`
+  )
+  const telephamacies = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/telephamacies?${new URLSearchParams({
+      range: JSON.stringify([0, 6]),
+      sort: JSON.stringify(['order', 'ASC']),
+      filter: JSON.stringify({ status: true })
+    })}`
+  )
+
+  const telephamacyArray = []
+
+  const carouselJson = await carousel.json()
+  const telephamaciesJson = await telephamacies.json()
+
+  for (const telephamacy of telephamaciesJson) {
+    const mdxSource = await serialize(telephamacy.content)
+    telephamacyArray.push({ ...telephamacy, content: mdxSource })
+  }
+
+  return {
+    props: {
+      telephamacies: telephamacyArray,
+      carousel: carouselJson?.length && carouselJson[0]
+    }
+  }
 }
 
 export default Telephamacy

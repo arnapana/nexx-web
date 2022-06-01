@@ -1,11 +1,18 @@
 import React from 'react'
+import * as _ from 'lodash'
 import { CardHighLight } from '@components/index'
 
 // Mock
 import serviceHightlight from '@constants/mock/service-hightlight.json'
 import { ColorLine } from '@components/common'
+import { IHightlight } from 'pages'
+import { NextPage } from 'next'
 
-export const SerivceHighlight = () => {
+interface Props {
+  hightlightPost: IHightlight[]
+}
+
+export const SerivceHighlight: NextPage<Props> = ({ hightlightPost }) => {
   return (
     <section className='py-14 md:py-16 2xl:py-[100px]'>
       <div className='container mx-auto'>
@@ -22,15 +29,16 @@ export const SerivceHighlight = () => {
         </div>
         {/* Card Highlight */}
         <div className='flex flex-wrap justify-center'>
-          {serviceHightlight.cards.map((val, idx) => (
+          {_.map(hightlightPost, (val, idx) => (
             <CardHighLight
               key={idx}
-              src={val.image.img}
-              alt={val.image.alt}
-              title={val.name}
-              content={val.detail}
-              width={val.image.width}
-              height={val.image.height}
+              src={serviceHightlight.cards[idx].image.img}
+              alt={val.title}
+              title={val.title}
+              content={val.content}
+              description={val.description}
+              width={serviceHightlight.cards[idx].image.width}
+              height={serviceHightlight.cards[idx].image.height}
             />
           ))}
         </div>
