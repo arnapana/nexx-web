@@ -42,30 +42,19 @@ function MyApp({ Component, pageProps, appVersion }: Props) {
 
   // GA
   useEffect(() => {
+    fbq.pageview()
+
     const gtagId = getCookie('GTAG_ID')
     const handleRouteChange = (url: string) => {
       gtag.pageview(url, gtagId)
+      fbq.pageview()
     }
+
     router.events.on('routeChangeComplete', handleRouteChange)
     router.events.on('hashChangeComplete', handleRouteChange)
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
       router.events.off('hashChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
-
-  // PIXEL
-  useEffect(() => {
-    // This pageview only triggers the first time (it's important for Pixel to have real information)
-    fbq.pageview()
-
-    const handleRouteChange = () => {
-      fbq.pageview()
-    }
-
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router.events])
 
