@@ -45,7 +45,7 @@ export const CardOurService: React.FC<ICardService> = ({ mdxSource, frontMatter 
         >
           <div className='col-span-1 p-5'>
             <div className='grid place-content-center xl:justify-start'>
-              <ImageLoader src={frontMatter.imgSrc} width={200} height={200} />
+              <ImageLoader src={frontMatter.imgSrc} width={200} height={200} className="rounded-full"/>
             </div>
           </div>
           <div className='col-span-3 px-5 pb-5'>
@@ -80,24 +80,6 @@ export const CardOurService: React.FC<ICardService> = ({ mdxSource, frontMatter 
                   )}
                 </div>
               </div>
-              {/* Read more */}
-              {/* {!isOpen && (
-                <div
-                  className={classNames(
-                    'absolute z-50 bg-white',
-                    'right-0 top-[196px]',
-                    'md:right-0 md:top-[200px]',
-                    '2xl:right-0 2xl:top-[203px]'
-                  )}
-                >
-                  <span
-                    className='ml-5 text-sm animate-fade-in cursor-pointer md:text-lg 2xl:text-xl text-secondary'
-                    onClick={() => handleOpen()}
-                  >
-                    <a>อ่านเพิ่มเติม...</a>
-                  </span>
-                </div>
-              )} */}
             </div>
           </div>
         </div>

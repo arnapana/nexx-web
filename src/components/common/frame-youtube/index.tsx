@@ -7,7 +7,7 @@ interface Props {
 
 export const FramerYoutube: NextPage<Props> = ({ embedId }) => {
   return (
-    <div className='relative h-[30rem] md:h-[44rem]'>
+    <div className='relative h-[30rem] md:h-[38rem]'>
       <iframe
         className='w-full h-full'
         src={`https://www.youtube.com/embed/${embedId}`}

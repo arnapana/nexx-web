@@ -4,12 +4,14 @@ import * as _ from 'lodash'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone' // dependent on utc plugin
+import { FacebookShareButton, LineShareButton } from 'react-share'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 import { useRouter } from 'next/router'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { Container, BreadCrumb, ImageLoader, PageSEO } from '@components/common'
+import { Container, BreadCrumb, ImageLoader, PageSEO, BlogSEO } from '@components/common'
 import { ButtonContact, ButtonTag } from '@components/index'
 import { ArticleRelativeContainer } from '@containers/article/content'
 dayjs.extend(utc)
@@ -56,7 +58,16 @@ const Article: NextPage<Props> = (props: any) => {
 
   return (
     <Container>
-      <PageSEO title={`Nexx Phamacy - ${props?.frontMatter?.title}`} description={props?.frontMatter?.description} />
+      <BlogSEO
+        title={`Nexx Phamacy - ${props?.frontMatter?.title}`}
+        description={props?.frontMatter?.description}
+        authorDetails={['บูติกเด้อ โปรโมท']}
+        summary={props?.frontMatter?.description}
+        date={props?.frontMatter?.createdAt}
+        lastmod={props?.frontMatter?.updatedAt}
+        url={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`}
+        images={[props?.frontMatter?.imgSrc]}
+      />
       {/* Floating Button */}
       <ButtonContact />
 
@@ -85,7 +96,7 @@ const Article: NextPage<Props> = (props: any) => {
           <div className='grid place-items-center'>
             <ImageLoader
               className='rounded-[50px]'
-              src={props?.frontMatter.imgSrc || '/images/aboutus/card-review-large.png'}
+              src={props?.frontMatter?.imgSrc || '/images/aboutus/card-review-large.png'}
               width={1070}
               height={640}
             />
@@ -95,19 +106,28 @@ const Article: NextPage<Props> = (props: any) => {
             <div className='mb-5'>
               <ul className='flex flex-row justify-end space-x-3 md:flex-col md:justify-start md:items-start md:space-y-3 md:space-x-0'>
                 <li>
-                  <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
-                    <ImageLoader src='/images/icons/icon-fb.png' width={13} height={26} />
-                  </button>
+                  <FacebookShareButton url={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`}>
+                    <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
+                      <ImageLoader src='/images/icons/icon-fb.png' width={13} height={26} />
+                    </button>
+                  </FacebookShareButton>
                 </li>
                 <li>
-                  <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
-                    <ImageLoader src='/images/icons/icon-line.png' width={26} height={26} />
-                  </button>
+                  <LineShareButton
+                    url={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`}
+                    title={props?.frontMatter?.title}
+                  >
+                    <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
+                      <ImageLoader src='/images/icons/icon-line.png' width={26} height={26} />
+                    </button>
+                  </LineShareButton>
                 </li>
                 <li>
-                  <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
-                    <ImageLoader src='/images/icons/icon-link.png' width={23} height={23} />
-                  </button>
+                  <CopyToClipboard text={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`}>
+                    <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
+                      <ImageLoader src='/images/icons/icon-link.png' width={23} height={23} />
+                    </button>
+                  </CopyToClipboard>
                 </li>
               </ul>
             </div>
