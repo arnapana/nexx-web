@@ -172,9 +172,9 @@ export const getStaticProps: GetStaticProps<any, any> = async (context) => {
   )
   const relativePost = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
-      range: JSON.stringify([0, 3]),
+      range: JSON.stringify([0, 2]),
       sort: JSON.stringify([]),
-      filter: JSON.stringify({ title: slug, description: slug })
+      filter: JSON.stringify({ title: slug, description: slug, status: true })
     })}`
   )
   const relativePostJson = await relativePost.json()

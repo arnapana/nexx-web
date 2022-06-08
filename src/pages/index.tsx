@@ -68,7 +68,7 @@ export const getServerSideProps = async (context: GetServerSideProps) => {
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
       range: JSON.stringify([0, 6]),
       sort: JSON.stringify(['order', 'ASC']),
-      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
+      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id, status: true })
     })}`
   )
 

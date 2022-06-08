@@ -38,16 +38,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   )
   const activities = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/activities?${new URLSearchParams({
-      range: JSON.stringify([0, 3]),
+      range: JSON.stringify([0, 2]),
       sort: JSON.stringify(['order', 'ASC']),
-      filter: JSON.stringify({})
+      filter: JSON.stringify({ status: true })
     })}`
   )
   const post = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
       range: JSON.stringify([0, 8]),
       sort: JSON.stringify([]),
-      filter: JSON.stringify({})
+      filter: JSON.stringify({ status: true })
     })}`
   )
   const postJson = await post.json()

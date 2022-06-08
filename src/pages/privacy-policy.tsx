@@ -76,7 +76,7 @@ export default Privacy
 export const getStaticProps: GetStaticProps = async (context) => {
   const post = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/policies?${new URLSearchParams({
-      range: JSON.stringify([0, 1]),
+      range: JSON.stringify([0, 0]),
       sort: JSON.stringify([]),
       filter: JSON.stringify({ slug: 'privacy-policy', status: true })
     })}`

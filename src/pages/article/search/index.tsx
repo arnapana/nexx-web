@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
       range: JSON.stringify([0, 6]),
       sort: JSON.stringify(['order', 'ASC']),
-      filter: JSON.stringify({ title: keyword })
+      filter: JSON.stringify({ title: keyword, status: true })
     })}`
   )
 

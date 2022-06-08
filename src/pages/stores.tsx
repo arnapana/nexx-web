@@ -117,22 +117,22 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const carouselTypeJson = await carouselType.json()
   const carousel = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
-      range: JSON.stringify([0, 1]),
+      range: JSON.stringify([0, 0]),
       sort: JSON.stringify(['order', 'ASC']),
-      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
+      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id, status: true })
     })}`
   )
 
   const branch = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/branchs?${new URLSearchParams({
-      range: JSON.stringify([]),
+      range: JSON.stringify([0, 5]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ status: true })
     })}`
   )
   const network = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/networks?${new URLSearchParams({
-      range: JSON.stringify([]),
+      range: JSON.stringify([0, 5]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ status: true })
     })}`

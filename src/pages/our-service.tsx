@@ -10,7 +10,7 @@ import { OurServiceContainer } from '@containers/ourservice'
 import { ICarousel } from './aboutus'
 
 interface Props {
-  posts:any
+  posts: any
   carousel: ICarousel
 }
 
@@ -29,11 +29,7 @@ const OurService: NextPage<Props> = (props) => {
 
       {/* Floating Button */}
       <ButtonContact />
-      <HeroBanner
-        src={props.carousel?.imgSrc}
-        srcMobile={props.carousel?.imgSrcMobile}
-        containerClassName='top-[26%]'
-      >
+      <HeroBanner src={props.carousel?.imgSrc} srcMobile={props.carousel?.imgSrcMobile} containerClassName='top-[26%]'>
         <div className='flex relative mb-10'>
           <p
             className={classNames(
@@ -96,7 +92,7 @@ export const getStaticProps: GetStaticProps = async () => {
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
       range: JSON.stringify([0, 0]),
       sort: JSON.stringify(['order', 'ASC']),
-      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
+      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id, status: true })
     })}`
   )
   const carouselJson = await carousel.json()

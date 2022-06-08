@@ -150,7 +150,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
       range: JSON.stringify([0, 0]),
       sort: JSON.stringify(['order', 'ASC']),
-      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
+      filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id, status: true })
     })}`
   )
   const vision = await fetch(
