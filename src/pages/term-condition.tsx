@@ -29,14 +29,14 @@ const TermCondition: NextPage = (props: any) => {
       <div className='container mx-auto'>
         <div className='mb-10'>
           <p className='font-prompts text-xl font-medium text-center 2xl:text-5xl 2xl:leading-[55px]'>
-             {props.frontMatter.title}
+            {props.frontMatter.title}
           </p>
         </div>
         <div>
           {/* Header */}
           <div className='grid items-center px-8 h-[65px] text-white bg-primary rounded-2xl'>
             <p className={classNames('font-prompts font-medium 2xl:text-2xl telephamacy-title')}>
-            {props.frontMatter.subTitle}
+              {props.frontMatter.subTitle}
             </p>
           </div>
           {/* Content */}
@@ -74,22 +74,21 @@ const TermCondition: NextPage = (props: any) => {
 export default TermCondition
 
 export const getStaticProps: GetStaticProps = async () => {
-    const post = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_API as string}/policies?${new URLSearchParams({
-        range: JSON.stringify([0,1]),
-        sort: JSON.stringify([]),
-        filter: JSON.stringify({ slug: 'term-condition', status: true })
-      })}`
-    )
-    const postJson = await post.json()
-  
-    const mdxSource = await serialize(postJson[0].content)
-    return {
-      props: {
-        frontMatter: postJson[0],
-        mdxSource: mdxSource,
-        slug: postJson[0].slug
-      }
+  const post = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/policies?${new URLSearchParams({
+      range: JSON.stringify([0, 0]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'term-condition', status: true })
+    })}`
+  )
+  const postJson = await post.json()
+
+  const mdxSource = await serialize(postJson[0].content)
+  return {
+    props: {
+      frontMatter: postJson[0],
+      mdxSource: mdxSource,
+      slug: postJson[0].slug
     }
   }
-  
+}

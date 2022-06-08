@@ -89,14 +89,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const carouselTypeJson = await carouselType.json()
   const carousel = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
-      range: JSON.stringify([0, 1]),
+      range: JSON.stringify([0, 0]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
     })}`
   )
   const telephamacies = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/telephamacies?${new URLSearchParams({
-      range: JSON.stringify([0, 6]),
+      range: JSON.stringify([0, 5]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ status: true })
     })}`

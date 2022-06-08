@@ -148,30 +148,30 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const carouselTypeJson = await carouselType.json()
   const banner = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
-      range: JSON.stringify([0, 1]),
+      range: JSON.stringify([0, 0]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id })
     })}`
   )
   const vision = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/visions?${new URLSearchParams({
-      range: JSON.stringify([0, 6]),
+      range: JSON.stringify([0, 5]),
       sort: JSON.stringify(['order', 'ASC']),
-      filter: JSON.stringify({})
+      filter: JSON.stringify({ status: true })
     })}`
   )
   const aboutus = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/aboutus?${new URLSearchParams({
-      range: JSON.stringify([0, 6]),
+      range: JSON.stringify([0, 1]),
       sort: JSON.stringify(['order', 'ASC']),
-      filter: JSON.stringify({})
+      filter: JSON.stringify({ status: true })
     })}`
   )
   const activities = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/activities?${new URLSearchParams({
-      range: JSON.stringify([0, 6]),
+      range: JSON.stringify([0, 2]),
       sort: JSON.stringify(['order', 'ASC']),
-      filter: JSON.stringify({})
+      filter: JSON.stringify({ status: true })
     })}`
   )
   const visionJson = await vision.json()

@@ -74,7 +74,7 @@ export const getServerSideProps = async (context: GetServerSideProps) => {
 
   const hightlights = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/hightlights?${new URLSearchParams({
-      range: JSON.stringify([0, 6]),
+      range: JSON.stringify([0, 5]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ status: true })
     })}`
