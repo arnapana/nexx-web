@@ -4,14 +4,16 @@ import { Button } from '@components/common'
 import { ButtonTag, CardArticle } from '@components/index'
 import { IBlog } from 'pages/article/[slug]'
 import { NextPage } from 'next'
+import { ICategory } from 'pages/article'
 
 const tags = ['สุขภาพ', 'ความเครียด', 'covid19', 'Workfromhome', 'โควิด']
 
 interface Props {
   blogPost: IBlog[]
+  categories: ICategory[]
 }
 
-export const ArticlesContainer: NextPage<Props> = ({ blogPost }) => {
+export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => {
   const skip = 8
   const [offset, setOffset] = useState<number>(8)
   const [blogs, setBlogs] = useState<IBlog[]>(blogPost)
@@ -32,6 +34,7 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost }) => {
       .catch()
   }
 
+
   return (
     <section className='py-10 bg-[#FCFCFC] md:py-14'>
       <div className='container mx-auto'>
@@ -41,8 +44,8 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost }) => {
             <p className='font-prompts font-medium text-center h2'>บทความทั้งหมด</p>
           </div>
           <div className='flex flex-wrap justify-center'>
-            {tags.map((val, idx) => (
-              <ButtonTag outerClassName='mx-3 my-2' innerClassName='max-w-[300px]' key={idx} name={val} />
+            {_.map(categories, (val, idx) => (
+              <ButtonTag outerClassName='mx-3 my-2' innerClassName='max-w-[300px]' key={idx} name={val.title} />
             ))}
           </div>
         </div>

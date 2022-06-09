@@ -14,7 +14,6 @@ export const ContactusContainer = () => {
       message: Yup.string().required()
     }),
     onSubmit: (values, { setSubmitting, resetForm }) => {
-      console.log(values)
       fetch(`${process.env.NEXT_PUBLIC_BACKEND_API as string}/contacts`, {
         method: 'POST',
         body: JSON.stringify(values),

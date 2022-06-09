@@ -45,7 +45,6 @@ interface Props {
 }
 
 const Stores: NextPage<Props> = ({ carousel, branch, network }) => {
-  console.log(branch, network)
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - Store`} description='Nexx Phamacy - Store' />

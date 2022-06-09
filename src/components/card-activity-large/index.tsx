@@ -10,7 +10,6 @@ interface Props {
 }
 
 export const CardActivityLarge: NextPage<Props> = ({ post }) => {
-  console.log(post)
   return (
     <div className='w-full'>
       <div className='w-full'>

@@ -15,7 +15,7 @@ interface Props {
   categories: ICategory[]
 }
 
-const Articles: NextPage<Props> = ({ activities, blogs }) => {
+const Articles: NextPage<Props> = ({ activities, blogs, categories }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - Nexx Pharma Blog`} description='บทความจากมีสาระ Nexx Pharma' />
@@ -23,7 +23,7 @@ const Articles: NextPage<Props> = ({ activities, blogs }) => {
       <BreadCrumb outerClassName='container mx-auto my-10' />
       <HeaderSearchContainer />
       <ArticleContainer activityPost={activities} />
-      <ArticlesContainer blogPost={blogs} />
+      <ArticlesContainer blogPost={blogs} categories={categories} />
     </Container>
   )
 }
@@ -31,8 +31,8 @@ const Articles: NextPage<Props> = ({ activities, blogs }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const categories = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/categories?${new URLSearchParams({
-      range: JSON.stringify([]),
-      sort: JSON.stringify([]),
+      range: JSON.stringify([0, 10]),
+      sort: JSON.stringify(['created_at', 'ASC']),
       filter: JSON.stringify({})
     })}`
   )
@@ -53,11 +53,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const postJson = await post.json()
   const activitiesJson = await activities.json()
   const categoriesJson = await categories.json()
+
   return {
     props: {
       activities: activitiesJson,
       blogs: postJson,
-      categoies: categoriesJson
+      categories: categoriesJson
     } // will be passed to the page component as props
   }
 }

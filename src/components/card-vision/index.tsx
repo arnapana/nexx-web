@@ -9,14 +9,15 @@ interface ICardVision {
   description: string
   url?: string
   image: string
+  width: string
+  height: string
 }
 
-export const CardVision: React.FC<ICardVision> = ({ id, name, description, content, image }) => {
+export const CardVision: React.FC<ICardVision> = ({ id, name, description, content, image, width, height }) => {
   const [isModal, setModal] = useState<boolean>(false)
   const handleModal = () => {
     setModal((val) => !val)
   }
-
 
   return (
     <div className='mx-auto  w-full'>
@@ -41,11 +42,12 @@ export const CardVision: React.FC<ICardVision> = ({ id, name, description, conte
 
           {/* Image */}
           <div className={classNames('absolute -right-[2%] -bottom-[5%]')}>
-            <ImageLoader
+            {/* <ImageLoader
               width={aboutuConstant.vision.cards[id].img.w}
               height={aboutuConstant.vision.cards[id].img.h}
               src={aboutuConstant.vision.cards[id].img.src}
-            />
+            /> */}
+            <ImageLoader width={width} height={height} src={image} />
           </div>
         </div>
       </div>

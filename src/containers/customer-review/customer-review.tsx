@@ -26,7 +26,6 @@ export const CustomerReviewContainer: NextPage<Props> = ({ reviews }) => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setreviewsState(data)
       })
       .catch((err) => {

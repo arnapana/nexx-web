@@ -35,6 +35,8 @@ export type IVision = {
   description: string
   id: number
   imgSrc: string
+  width: string
+  height: string
   order: number
   slug: string
   status: true
