@@ -5,5 +5,12 @@ const loader = ({ src }: any) => {
 }
 
 export const ImageLoader = (props: ImageProps) => {
-  return <NextImage {...props} loader={loader} />
+  return (
+    <NextImage
+      placeholder='blur'
+      blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM087ppDAADpQGO4xm9mwAAAABJRU5ErkJggg=='
+      {...props}
+      loader={loader}
+    />
+  )
 }
