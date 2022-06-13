@@ -1,29 +1,34 @@
 import { NextPage } from 'next'
-import React from 'react'
-import ReactPlayer from 'react-player'
+import React, { useRef, useEffect, useState } from 'react'
+import YouTubePlayer from 'react-player/youtube'
+import ReactPlayer from 'react-player/lazy'
 
 interface Props {
+  playing: boolean
   embedId: string
 }
 
-export const FramerYoutube: NextPage<Props> = ({ embedId }) => {
+export const FramerYoutube: NextPage<Props> = ({ playing, embedId }) => {
+  const playerRef = useRef<YouTubePlayer>(null)
+
   return (
-    <div className='relative h-[30rem] md:h-[40rem] 2xl:h-[42rem]'>
-      {/* <iframe
-        className='w-full h-full'
-        src={`https://www.youtube.com/embed/${embedId}?controls=1&showinfo=0&autoplay=1&autohide=2&modestbranding=1`}
-        frameBorder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowFullScreen
-        title='Embedded youtube'
-      /> */}
+    <div className='relative h-[30rem] pointer-events-none md:h-[40rem] 2xl:h-[42rem]'>
       <ReactPlayer
-        url={`https://www.youtube.com/embed/${embedId}`}
+        config={{
+          youtube: {
+            playerVars: { showinfo: 0, disablekb: 1,  modestbranding: 1 }
+          }
+        }}
+        playing
+        controls={false}
+        url={`https://www.youtube.com/watch?v=${embedId}`}
         width='100%'
         height='100%'
         volume={0.1}
         loop={true}
         playsinline
+        stopOnUnmount={true}
+        muted={true}
       />
     </div>
   )

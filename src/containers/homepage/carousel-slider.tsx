@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Slider from 'react-slick'
 import * as _ from 'lodash'
 import classNames from 'classnames'
@@ -12,6 +12,8 @@ interface Props {
 }
 
 export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
+  const [slideIndex, setSlideIndex] = useState<number>(0)
+
   const settings = {
     dots: true,
     infinite: true,
@@ -22,7 +24,10 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
       <div className=''>
         <ul style={{ margin: '0px' }}> {dots} </ul>
       </div>
-    )
+    ),
+    beforeChange: (current: number, next: number) => {
+      setSlideIndex(next)
+    }
   }
   return (
     <section id='Carousel' className=''>
@@ -55,7 +60,7 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
                     </div>
                   </>
                 ) : (
-                  <FramerYoutube embedId={val?.urlYoutube} />
+                  <FramerYoutube embedId={val?.urlYoutube} playing={slideIndex === idx ? true : false}/>
                 )}
               </div>
               {/* Content */}

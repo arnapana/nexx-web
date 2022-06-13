@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
       {/* Footer Navgiation */}
       <div className='min-h-[510px] bg-primary'>
         <div className='container py-14 mx-auto w-full h-full'>
-          <div className='grid grid-cols-2 gap-5 w-full h-full md:grid-cols-6'>
+          <div className='grid grid-cols-2 gap-2 w-full h-full md:grid-cols-6'>
             <div className='col-span-2'>
               <div className='flex flex-col justify-start w-full h-full md:pr-10 2xl:pr-28'>
                 <div className='relative mb-8 w-[calc(4vw_+_180px)] h-[calc(1vw_+_80px)] '>
