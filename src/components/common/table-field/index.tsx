@@ -28,7 +28,7 @@ export const TableField: NextPage<Props> = ({ val }) => {
             <a
               target='_blank'
               rel='noopener noreferrer'
-              href={`https://maps.google.com/?q=${val?.latitude},${val?.longtitude}`}
+              href={`https://${val.url}`}
             >
               คลิก
             </a>

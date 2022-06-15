@@ -52,7 +52,7 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => 
 
         {/* Articles */}
         <div className='flex flex-col justify-center items-center'>
-          <div className='grid grid-cols-1 gap-5 mb-16 xl:grid-cols-2 2xl:gap-10'>
+          <div className='grid grid-cols-1 gap-5 mb-16 w-full xl:grid-cols-2 2xl:gap-10'>
             {_.map(blogs, (val, idx) => (
               <CardArticle key={idx} val={val} />
             ))}

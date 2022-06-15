@@ -42,12 +42,12 @@ export const CardVision: React.FC<ICardVision> = ({ id, name, description, conte
 
           {/* Image */}
           <div className={classNames('absolute -right-[2%] -bottom-[5%]')}>
-            {/* <ImageLoader
+            <ImageLoader
               width={aboutuConstant.vision.cards[id].img.w}
               height={aboutuConstant.vision.cards[id].img.h}
               src={aboutuConstant.vision.cards[id].img.src}
-            /> */}
-            <ImageLoader width={width} height={height} src={image} />
+            />
+            {/* <ImageLoader width={width} height={height} src={image} /> */}
           </div>
         </div>
       </div>

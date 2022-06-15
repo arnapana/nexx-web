@@ -14,6 +14,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Container, BreadCrumb, ImageLoader, PageSEO, BlogSEO } from '@components/common'
 import { ButtonContact, ButtonTag } from '@components/index'
 import { ArticleRelativeContainer } from '@containers/article/content'
+import { IActivities } from 'pages/aboutus'
 dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.tz.setDefault('Asia/Bangkok')
@@ -23,32 +24,8 @@ const component = {
   h3: (props: any) => <h3 className='text-xl font-medium' {...props} />
 }
 
-export type IBlog = {
-  id: number
-  order: number
-  title: string
-  slug: string
-  subTitle: string
-  description: string
-  content: string
-  imgSrc: string
-  status: boolean
-  publishedAt: Date
-  createdAt: Date
-  updatedAt: Date
-  categories: {
-    id: number
-    title: string
-    slug: string
-  }[]
-  user: {
-    firstname: string
-    lastname: string
-  }
-}
 interface Props {
-  blogs: IBlog
-  relativePostJson: IBlog[]
+  blogs: IActivities
 }
 
 const Article: NextPage<Props> = (props: any) => {
@@ -146,14 +123,13 @@ const Article: NextPage<Props> = (props: any) => {
           </div>
         </div>
       </section>
-      <ArticleRelativeContainer relativePost={props.relativePostJson} />
     </Container>
   )
 }
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {
   const slug = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/activities?${new URLSearchParams({
       range: JSON.stringify([]),
       sort: JSON.stringify([]),
       filter: JSON.stringify({})
@@ -168,20 +144,13 @@ export const getStaticPaths: GetStaticPaths<any> = async () => {
 export const getStaticProps: GetStaticProps<any, any> = async (context) => {
   const { slug } = context.params
   const posts = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/activities?${new URLSearchParams({
       range: JSON.stringify([0, 1]),
       sort: JSON.stringify([]),
       filter: JSON.stringify({ slug: slug })
     })}`
   )
-  const relativePost = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
-      range: JSON.stringify([0, 2]),
-      sort: JSON.stringify([]),
-      filter: JSON.stringify({ title: slug, description: slug, status: true })
-    })}`
-  )
-  const relativePostJson = await relativePost.json()
+
   const postJson = await posts.json()
 
   if (!postJson.length) {
@@ -195,7 +164,6 @@ export const getStaticProps: GetStaticProps<any, any> = async (context) => {
       frontMatter: postJson[0],
       mdxSource: mdxSource,
       slug: postJson[0].slug,
-      relativePostJson
     },
     revalidate: 10
   }

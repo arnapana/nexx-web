@@ -10,9 +10,23 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { IBlog } from './article/[slug]'
 
 export type IActivities = {
+  id: number
   order: number
+  title: string
+  slug: string
+  subTitle: string
+  description: string
+  content: string
+  imgSrc: string
   status: boolean
-  blog: IBlog
+  publishedAt: Date
+  createdAt: Date
+  updatedAt: Date
+  categories: {
+    id: number
+    title: string
+    slug: string
+  }[]
 }
 
 export type ICarousel = {

@@ -8,45 +8,57 @@ import Link from 'next/link'
 import { IBlog } from 'pages/article/[slug]'
 
 interface Props {
-  post: IBlog
+  post: IActivities
 }
 
 export const CardActivitySmall: NextPage<Props> = ({ post }) => {
   return (
-    <div className='mx-auto'>
-      <div className='min-w-[21rem] max-w-[25rem] md:min-w-full'>
+    <div className='w-full h-full'>
+      <div className='flex flex-col justify-between w-full min-w-[18rem] h-full'>
         <div className='flex flex-col mb-4 lg:flex-row'>
           <div
             className={classNames(
-              'relative w-full h-[185px] md:mr-3 my-2 rounded-lg overflow-hidden',
-              'md:w-[111px] md:h-[111px] md:rounded-full',
-              ''
+              'relative w-full h-[200px] md:mr-3 my-2 rounded-lg overflow-hidden',
+              'lg:w-[111px] lg:h-[111px] lg:rounded-full'
             )}
           >
-            <ImageLoader layout='fill' src={post.imgSrc ? post.imgSrc : '/images/article/img1.png'} />
+            {post?.imgSrc ? (
+              <ImageLoader layout='fill' src={post?.imgSrc} />
+            ) : (
+              <div className='bg-slate-400 animate-pulse' style={{ width: '100%', height: '100%' }} />
+            )}
           </div>
-          <div className='lg:w-2/3'>
+          <div className='flex flex-col justify-between lg:w-2/3'>
             <div className='md:mb-3'>
-              <p className={classNames('font-kanits font-medium text-left text-lg md:text-xl')}>
-                {post.title}
-              </p>
+              <p className={classNames('font-kanits font-medium text-left text-lg md:text-xl')}>{post?.title}</p>
             </div>
+            {/* Tag for Desktop */}
             <div className='hidden space-x-5 md:flex'>
-              <ButtonTag name='highligh' />
-              <ButtonTag name='highligh' />
+              {post?.categories.slice(0, 2)?.map((val, idx) => (
+                <ButtonTag key={idx} name={val.title} />
+              ))}
             </div>
           </div>
         </div>
+        {/* Tag for Mobile */}
         <div className='flex mb-3 space-x-5 md:hidden'>
-          <ButtonTag name='highligh' />
-          <ButtonTag name='highligh' />
+          {post?.categories.slice(0, 2)?.map((val, idx) => (
+            <ButtonTag key={idx} name={val.title} />
+          ))}
         </div>
+
+        {/* Desctription */}
         <div className='mb-2'>
-          <p className='font-sarabun text-sm text-left text-[#5D5D5D] 2xl:text-base'>{post.description}</p>
+          {post?.description ? (
+            <p className='font-sarabun text-sm text-left text-[#5D5D5D] 2xl:text-base'>{post?.description}</p>
+          ) : (
+            <div className='bg-slate-400 animate-pulse' style={{ width: '100%', height: '100%' }} />
+          )}
         </div>
+        {/* More */}
         <div className='flex items-center space-x-3'>
           <p className='font-prompts text-sm font-medium text-primary md:text-base'>
-            <Link href={{ pathname: '/article/[slug]', query: { slug: post.slug } }}>
+            <Link href={{ pathname: '/activity/[slug]', query: { slug: post?.slug } }}>
               <a>อ่านเพิ่มเติ่ม</a>
             </Link>
           </p>

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 interface Props {
   outerClassName?: string
   innerClassName?: string
-  name: string
+  name?: string | undefined
 }
 
 export const ButtonTag: React.FC<Props> = ({ innerClassName, outerClassName, name }) => {

@@ -22,6 +22,7 @@ export type IBranch = {
   phone: string
   status: boolean
   timeOpen: string
+  url: string
 }
 
 export type INetwork = {
@@ -36,6 +37,7 @@ export type INetwork = {
   phone: string
   status: boolean
   timeOpen: string
+  url: string
 }
 
 interface Props {

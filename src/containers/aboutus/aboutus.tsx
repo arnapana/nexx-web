@@ -30,7 +30,7 @@ export const AboutusContainer: NextPage<Props> = ({ aboutPost }) => {
               <ImageLoader
                 className='overflow-hidden rounded-tr-[40px] rounded-bl-[40px]'
                 width={555}
-                height={600}
+                height={570}
                 alt={aboutPost[0]?.title}
                 src={aboutPost[0]?.imgSrc ? aboutPost[0]?.imgSrc : aboutConstant.content1.image}
               />
@@ -47,7 +47,7 @@ export const AboutusContainer: NextPage<Props> = ({ aboutPost }) => {
                 src={aboutPost[1]?.imgSrc ? aboutPost[1]?.imgSrc : aboutConstant.content2.image}
               />
             </div>
-            <div className='order-1 md:px-5 lg:order-2 2xl:pr-20'>
+            <div className='order-1 md:px-2 lg:order-2 2xl:pr-20'>
               <p className='max-w-none font-sarabun prose-p:text-base prose-p:2xl:text-lg prose-p:text-[#000] prose'>
                 {aboutPost[1]?.content && <MDXRemote {...aboutPost[1]?.content} />}
               </p>

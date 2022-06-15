@@ -60,7 +60,7 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
                     </div>
                   </>
                 ) : (
-                  <FramerYoutube embedId={val?.urlYoutube} playing={slideIndex === idx ? true : false}/>
+                  <FramerYoutube embedId={val?.urlYoutube} playing={slideIndex === idx ? true : false} />
                 )}
               </div>
               {/* Content */}
@@ -84,7 +84,7 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
                     {val?.description}
                   </p>
                 </div>
-                {!val?.urlYoutube && (
+                {!val?.urlYoutube && val?.title && (
                   <div
                     className={classNames(
                       'hidden relative',
