@@ -67,7 +67,7 @@ export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
                 {_.map(telephamacies, (val, idx) => (
                   <ImageLoader
                     key={idx}
-                    src={val.imgSrc ? val.imgSrc : '/images/telephamacy/img2.png'}
+                    src={val?.imgSrc ? val.imgSrc : '/images/telephamacy/img2.png'}
                     width={396}
                     height={800}
                   />

@@ -42,21 +42,21 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
                     {val?.imgSrcMobile && (
                       <div
                         className={classNames(
-                          { 'block lg:hidden': val.imgSrcMobile },
+                          { 'block lg:hidden': val?.imgSrcMobile },
                           `relative h-[30rem] bg-cover bg-center bg-no-repeat`,
                           'md:h-[38rem]'
                         )}
                       >
-                        <ImageLoader src={val.imgSrcMobile} layout='fill' objectFit='cover' priority={true} />
+                        <ImageLoader src={val?.imgSrcMobile} layout='fill' objectFit='cover' priority={true} />
                       </div>
                     )}
                     <div
                       className={classNames(
-                        { 'hidden lg:block': val.imgSrcMobile },
+                        { 'hidden lg:block': val?.imgSrcMobile },
                         `relative h-[40rem] 2xl:h-[42rem] bg-center bg-no-repeat`
                       )}
                     >
-                      <ImageLoader src={val.imgSrc} layout='fill' objectFit='cover' priority={true} />
+                      <ImageLoader src={val?.imgSrc} layout='fill' objectFit='cover' priority={true} />
                     </div>
                   </>
                 ) : (

@@ -45,7 +45,7 @@ export const CardOurService: React.FC<ICardService> = ({ mdxSource, frontMatter 
         >
           <div className='col-span-1 p-5'>
             <div className='grid place-content-center xl:justify-start'>
-              <ImageLoader src={frontMatter.imgSrc} width={200} height={200} className="rounded-full"/>
+              <ImageLoader src={frontMatter?.imgSrc} width={200} height={200} className="rounded-full"/>
             </div>
           </div>
           <div className='col-span-3 px-5 pb-5'>
