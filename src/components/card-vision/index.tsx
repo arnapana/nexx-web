@@ -41,13 +41,13 @@ export const CardVision: React.FC<ICardVision> = ({ id, name, description, conte
           </div>
 
           {/* Image */}
-          <div className={classNames('absolute -right-[2%] -bottom-[5%]')}>
-            <ImageLoader
+          <div className={classNames('absolute -right-[8%] -bottom-[8%] w-[240px] h-[250px] max-w-[300px]  max-h-[300px]')}>
+            {/* <ImageLoader
               width={aboutuConstant.vision.cards[id].img.w}
               height={aboutuConstant.vision.cards[id].img.h}
               src={aboutuConstant.vision.cards[id].img.src}
-            />
-            {/* <ImageLoader width={width} height={height} src={image} /> */}
+            /> */}
+            <ImageLoader layout='fill' objectFit='contain' src={aboutuConstant.vision.cards[id].img.src} />
           </div>
         </div>
       </div>

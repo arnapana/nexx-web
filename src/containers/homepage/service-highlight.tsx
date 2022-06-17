@@ -32,13 +32,11 @@ export const SerivceHighlight: NextPage<Props> = ({ hightlightPost }) => {
           {_.map(hightlightPost, (val, idx) => (
             <CardHighLight
               key={idx}
-              src={serviceHightlight.cards[idx].image.img}
+              src={val.imgSrc}
               alt={val.title}
               title={val.title}
               content={val.content}
               description={val.description}
-              width={serviceHightlight.cards[idx].image.width}
-              height={serviceHightlight.cards[idx].image.height}
             />
           ))}
         </div>

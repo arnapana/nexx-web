@@ -13,6 +13,7 @@ export interface IHightlight {
   description: string
   content: string
   status: boolean
+  imgSrc: string
 }
 
 export interface IReview {

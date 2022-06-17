@@ -29,7 +29,7 @@ export const ArticleContainer: NextPage<Props> = ({ activityPost }) => {
           <div className='grid col-span-2 place-content-center pb-5 md:p-5 xl:place-content-start'>
             {posts[0] && <CardActivityLarge post={posts[0]} /> }
           </div>
-          <div className='grid grid-cols-1 gap-5 md:grid-cols-2 md:p-5 xl:grid-cols-1'>
+          <div className='grid grid-cols-1 gap-5 md:grid-cols-2 md:py-5 xl:grid-cols-1'>
             {posts[1] && <CardActivitySmall post={posts[1]} />}
             {posts[2] && <CardActivitySmall post={posts[2]} />}
           </div>

@@ -16,7 +16,7 @@ export const AboutusContainer: NextPage<Props> = ({ aboutPost }) => {
         <div className='grid grid-cols-1'>
           {/* Content 1 */}
           <div className='grid grid-cols-1 gap-5 mb-10 md:mb-16 lg:grid-cols-2'>
-            <div className='md:pr-8'>
+            <div className='md:pr-8 2xl:pr-16'>
               <div className='mb-5'>
                 <p className='text-primary h2'>{aboutPost[0]?.title}</p>
               </div>
