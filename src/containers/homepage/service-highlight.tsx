@@ -13,6 +13,7 @@ interface Props {
 }
 
 export const SerivceHighlight: NextPage<Props> = ({ hightlightPost }) => {
+  console.log(hightlightPost)
   return (
     <section className='py-14 md:py-16 2xl:py-[100px]'>
       <div className='container mx-auto'>

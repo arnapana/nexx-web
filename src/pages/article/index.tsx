@@ -6,6 +6,7 @@ import { IBlog } from './[slug]'
 import { IActivities } from 'pages/aboutus'
 
 export type ICategory = {
+  id: number
   title: string
   slug: string
 }

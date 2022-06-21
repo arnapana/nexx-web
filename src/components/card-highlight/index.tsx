@@ -24,7 +24,11 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
       <div className='flex relative flex-col items-center py-10 px-6  w-[19rem] h-full bg-white rounded-3xl drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)] md:h-[22.5rem] 2xl:w-[23rem] 2xl:h-[25.5rem]'>
         {/* Icon */}
         <div className='relative w-full max-w-[109px] h-[90px] max-h-[75px]'>
-          <ImageLoader layout='fill' objectFit='contain' src={src} alt={alt} />
+          {src ? (
+            <ImageLoader layout='fill' objectFit='contain' src={src} alt={alt} />
+          ) : (
+            <div className='w-[80px] h-[80px] bg-slate-300 animate-pulse'></div>
+          )}
         </div>
         {/* Header */}
         <div className='my-5'>
