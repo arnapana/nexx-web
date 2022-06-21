@@ -21,13 +21,20 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => 
   const [blogs, setBlogs] = useState<IBlog[]>(blogPost)
 
   const handleFilterCategory = (id: number) => {
-    setCategory(id)
+    let filter: any = {}
+    if (id === category) {
+      filter = {}
+      setCategory(null)
+    } else {
+      filter = { categoryId: id }
+      setCategory(id)
+    }
     const curOffset = offset + skip
     fetch(
       `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
         range: JSON.stringify([0, curOffset]),
         sort: JSON.stringify(['order', 'DESC']),
-        filter: JSON.stringify({ categoryId: id })
+        filter: JSON.stringify({ ...filter })
       })}`
     )
       .then((res) => res.json())
@@ -67,7 +74,7 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => 
               <ButtonTag
                 id={val.id}
                 outerClassName='mx-3 my-2'
-                innerClassName={`max-w-[300px] ${val.id === category && "bg-black"}`}
+                innerClassName={`max-w-[300px] ${val.id === category && 'bg-black'}`}
                 key={idx}
                 name={val.title}
                 onClick={handleFilterCategory}
