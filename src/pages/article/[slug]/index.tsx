@@ -10,7 +10,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useRouter } from 'next/router'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { GetServerSideProps, GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Container, BreadCrumb, ImageLoader, PageSEO, BlogSEO } from '@components/common'
 import { ButtonContact, ButtonTag } from '@components/index'
 import { ArticleRelativeContainer } from '@containers/article/content'
@@ -65,7 +65,7 @@ const Article: NextPage<Props> = (props: any) => {
       <BlogSEO
         title={`Nexx Phamacy - ${props?.frontMatter?.title}`}
         description={props?.frontMatter?.description}
-        authorDetails={['บูติกเด้อ โปรโมท']}
+        authorDetails={[props?.frontMatter?.user?.firstname, 'บูติกเด้อ โปรโมท']}
         summary={props?.frontMatter?.description}
         date={props?.frontMatter?.createdAt}
         lastmod={props?.frontMatter?.updatedAt}
@@ -101,8 +101,8 @@ const Article: NextPage<Props> = (props: any) => {
             <ImageLoader
               className='rounded-[50px]'
               src={props?.frontMatter?.imgSrc || '/images/aboutus/card-review-large.png'}
-              width={1070}
-              height={640}
+              width={924}
+              height={600}
             />
           </div>
           {/* Content */}
@@ -151,21 +151,21 @@ const Article: NextPage<Props> = (props: any) => {
   )
 }
 
-export const getStaticPaths: GetStaticPaths<any> = async () => {
-  const slug = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
-      range: JSON.stringify([]),
-      sort: JSON.stringify([]),
-      filter: JSON.stringify({})
-    })}`
-  )
-  const slugJson = await slug.json()
-  const paths = slugJson.map((val: any) => ({ params: { slug: val.slug } }))
+// export const getStaticPaths: GetStaticPaths<any> = async () => {
+//   const slug = await fetch(
+//     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
+//       range: JSON.stringify([]),
+//       sort: JSON.stringify([]),
+//       filter: JSON.stringify({})
+//     })}`
+//   )
+//   const slugJson = await slug.json()
+//   const paths = slugJson.map((val: any) => ({ params: { slug: val.slug } }))
 
-  return { paths: paths, fallback: 'blocking' }
-}
+//   return { paths: paths, fallback: 'blocking' }
+// }
 
-export const getStaticProps: GetStaticProps<any, any> = async (context) => {
+export const getServerSideProps: GetServerSideProps<any, any> = async (context) => {
   const { slug } = context.params
   const posts = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
@@ -195,9 +195,8 @@ export const getStaticProps: GetStaticProps<any, any> = async (context) => {
       frontMatter: postJson[0],
       mdxSource: mdxSource,
       slug: postJson[0].slug,
-      relativePostJson
-    },
-    revalidate: 10
+      relativePostJson: relativePostJson
+    }
   }
 }
 

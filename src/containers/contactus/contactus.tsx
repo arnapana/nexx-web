@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { ImageLoader, InputField, InputArea, InputSelect, InputCheckbok } from '@components/common'
+import { ImageLoader, InputField, InputArea, InputSelect, InputCheckbok, ModalOpacity } from '@components/common'
 
 export const ContactusContainer = () => {
+  const [isModal, setModal] = useState<boolean>(false)
+
+  const handleModal = (state: boolean) => {
+    setModal(!isModal)
+  }
+
   const formik = useFormik({
     initialValues: { name: '', phone: '', email: '', title: '', message: '', accept: false },
     validationSchema: Yup.object({
-      name: Yup.string().required(),
-      email: Yup.string().email().required(),
-      phone: Yup.string().required(),
-      title: Yup.string().required(),
-      message: Yup.string().required()
+      name: Yup.string().required('กรุณาระบุชื่อผู้ติดต่อ'),
+      email: Yup.string().email().required('กรุณาระบุอีเมล์'),
+      phone: Yup.string().required('กรุณาระบุเบอร์ติดต่อ'),
+      title: Yup.string().required('กรุณาระบุหัวข้อติดต่อ'),
+      message: Yup.string().required('กรุณาระบุข้อความ')
     }),
     onSubmit: (values, { setSubmitting, resetForm }) => {
       fetch(`${process.env.NEXT_PUBLIC_BACKEND_API as string}/contacts`, {
@@ -21,7 +27,13 @@ export const ContactusContainer = () => {
           'Content-Type': 'application/json'
         }
       })
-        .then()
+        .then(() => {
+          setModal(true)
+
+          setTimeout(() => {
+            setModal(false)
+          }, 2000)
+        })
         .catch()
         .finally(() => {
           setSubmitting(false)
@@ -107,9 +119,10 @@ export const ContactusContainer = () => {
               <InputCheckbok
                 name='accept'
                 label='ยอมรับนโยบายความเป็นส่วนตัวและนโยบายคุกกี้'
+                linkLabel='/privacy-policy'
                 checked={formik.values.accept}
                 handleOnChange={formik.handleChange}
-                labelClassName='text-sm md:text-xl'
+                labelClassName='text-sm md:text-xl underline'
               />
               <div>
                 <button
@@ -144,6 +157,14 @@ export const ContactusContainer = () => {
               ></iframe>
             </div>
           </div>
+
+          <ModalOpacity isModal={isModal} onClick={handleModal} bgModal='bg-[rgba(0,0,0,0.3)]'>
+            <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+              <div className='relative p-8 min-w-[350px] max-w-[647px] max-h-[200px] bg-white rounded-[2rem] md:py-12 md:px-16'>
+                <p>ได้รับข้อความของท่านเรียบร้อยแล้ว จะรีบติดต่อกลับโดยเร็วที่สุดค่ะ</p>
+              </div>
+            </div>
+          </ModalOpacity>
         </div>
       </div>
     </section>

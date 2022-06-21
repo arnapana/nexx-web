@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import Link from 'next/link'
 
 interface Props {
   handleOnChange: (event: any) => void
@@ -10,6 +11,7 @@ interface Props {
   containerClassName?: string
   inputClassName?: string
   labelClassName?: string
+  linkLabel?: string
 }
 
 export const InputCheckbok: React.FC<Props> = ({
@@ -20,7 +22,8 @@ export const InputCheckbok: React.FC<Props> = ({
   placeholder,
   containerClassName,
   labelClassName,
-  inputClassName
+  inputClassName,
+  linkLabel
 }) => {
   return (
     <div className={classNames(containerClassName, 'mb-5')}>
@@ -35,9 +38,21 @@ export const InputCheckbok: React.FC<Props> = ({
             name={name}
             id={name}
           />
-          <span className={classNames(labelClassName,'ml-2')}>{label || ''}</span>
+          {linkLabel ? (
+            <Link href={linkLabel}>
+              <a target='_blank' rel='noopener noreferrer'>
+                <span className={classNames(labelClassName, 'ml-2')}>{label || ''}</span>
+              </a>
+            </Link>
+          ) : (
+            <span className={classNames(labelClassName, 'ml-2')}>{label || ''}</span>
+          )}
         </label>
       </div>
     </div>
   )
+}
+
+InputCheckbok.defaultProps = {
+  linkLabel: ''
 }

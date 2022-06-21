@@ -13,7 +13,7 @@ export const TableField: NextPage<Props> = ({ val }) => {
         <p className='font-prompts text-sm md:text-lg'>{val?.order}</p>
       </td>
       <td className='px-5 text-left '>
-      <p className='font-prompts text-sm md:text-lg'>{val?.name}</p>
+        <p className='font-prompts text-sm md:text-lg'>{val?.name}</p>
         <p className='font-prompts text-sm md:text-lg'>{val?.address}</p>
       </td>
       <td className='text-primary underline '>
@@ -25,11 +25,7 @@ export const TableField: NextPage<Props> = ({ val }) => {
       <td className=''>
         <button className='p-2 w-[60px] h-[40px] text-white rounded-lg md:w-[66px] md:h-[44px] bg-secondary'>
           <p className='text-sm md:text-lg'>
-            <a
-              target='_blank'
-              rel='noopener noreferrer'
-              href={`https://${val.url}`}
-            >
+            <a target='_blank' rel='noopener noreferrer' href={`${val.url || ''}`}>
               คลิก
             </a>
           </p>

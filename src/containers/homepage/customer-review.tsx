@@ -55,7 +55,7 @@ export const CustomerReview: NextPage<Props> = ({ reviewPost }) => {
                 <div className='box-border overflow-hidden w-full h-full text-ellipsis'>
                   <div className='flex flex-col justify-center items-center mb-5'>
                     <div className='overflow-hidden rounded-full'>
-                      <ImageLoader width={123} height={123} src={val?.imgSrc || '/images/review/img2.png'} />
+                      <ImageLoader className='rounded-full' width={123} height={123} src={val?.imgSrc || '/images/review/img2.png'} />
                     </div>
                     <div className='mt-3'>
                       <p className='font-prompts text-base'>

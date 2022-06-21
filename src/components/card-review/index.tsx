@@ -20,7 +20,12 @@ export const CardReview: NextPage<Props> = ({ review }) => {
         {/* Card */}
         <div className='flex justify-start items-center space-x-5 md:space-x-8'>
           <div>
-            <ImageLoader width={72} height={72} src={review?.imgSrc ? review.imgSrc : 'images/review/img2.png'} />
+            <ImageLoader
+              className='rounded-full'
+              width={72}
+              height={72}
+              src={review?.imgSrc ? review.imgSrc : 'images/review/img2.png'}
+            />
           </div>
           <div>
             <div className='mb-2'>

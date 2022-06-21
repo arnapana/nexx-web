@@ -200,8 +200,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     aboutusArray.push({ ...post, content: mdxSource })
   }
 
-  console.log(visionJson)
-
   return {
     props: {
       visions: visionJson,

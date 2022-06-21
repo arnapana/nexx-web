@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from 'next'
+import { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -42,7 +42,7 @@ const TermCondition: NextPage = (props: any) => {
           {/* Content */}
           <div
             className={classNames(
-              'mb-10 2xl:mb-32 font-sarabun text-base md:text-xl font-light p-5 md:p-10',
+              'mb-10 2xl:mb-32 font-sarabun text-base font-light p-5 md:p-10',
               'prose prose-p:text-[#696969] max-w-none'
             )}
           >
@@ -73,7 +73,7 @@ const TermCondition: NextPage = (props: any) => {
 
 export default TermCondition
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const post = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/policies?${new URLSearchParams({
       range: JSON.stringify([0, 0]),
