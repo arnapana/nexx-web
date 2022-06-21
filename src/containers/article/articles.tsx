@@ -72,12 +72,11 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => 
           <div className='flex flex-wrap justify-center'>
             {_.map(categories, (val, idx) => (
               <ButtonTag
-                id={val.id}
                 outerClassName='mx-3 my-2'
                 innerClassName={`max-w-[300px] ${val.id === category && 'bg-black'}`}
                 key={idx}
                 name={val.title}
-                onClick={handleFilterCategory}
+                onClick={() => handleFilterCategory(val.id)}
               />
             ))}
           </div>
