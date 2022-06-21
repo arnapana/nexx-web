@@ -67,7 +67,7 @@ export const getServerSideProps = async (context: GetServerSideProps) => {
   const carouselTypeJson = await carouselType.json()
   const carousel = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/carousels?${new URLSearchParams({
-      range: JSON.stringify([0, 5]),
+      range: JSON.stringify([]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ carouselTypeId: carouselTypeJson[0].id, status: true })
     })}`
@@ -75,7 +75,7 @@ export const getServerSideProps = async (context: GetServerSideProps) => {
 
   const hightlights = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/hightlights?${new URLSearchParams({
-      range: JSON.stringify([0, 4]),
+      range: JSON.stringify([]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ status: true })
     })}`

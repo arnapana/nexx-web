@@ -47,7 +47,7 @@ export const CardVision: React.FC<ICardVision> = ({ id, name, description, conte
               height={aboutuConstant.vision.cards[id].img.h}
               src={aboutuConstant.vision.cards[id].img.src}
             /> */}
-            <ImageLoader layout='fill' objectFit='contain' src={aboutuConstant.vision.cards[id].img.src} />
+            <ImageLoader layout='fill' objectFit='contain' src={image} />
           </div>
         </div>
       </div>

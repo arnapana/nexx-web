@@ -171,7 +171,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   )
   const vision = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/visions?${new URLSearchParams({
-      range: JSON.stringify([0, 5]),
+      range: JSON.stringify([]),
       sort: JSON.stringify(['order', 'ASC']),
       filter: JSON.stringify({ status: true })
     })}`
@@ -199,6 +199,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const mdxSource = await serialize(post.content)
     aboutusArray.push({ ...post, content: mdxSource })
   }
+
+  console.log(visionJson)
 
   return {
     props: {
