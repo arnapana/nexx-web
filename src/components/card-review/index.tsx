@@ -10,16 +10,16 @@ interface Props {
 export const CardReview: NextPage<Props> = ({ review }) => {
   return (
     <div className='p-5'>
-      <div className='px-8 pt-14 pb-10 bg-white rounded-[3rem] drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)]'>
+      <div className='py-10 px-8 bg-white rounded-[3rem] drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)]'>
         {/* Content */}
         <div className='mb-10'>
-          <p className='font-prompts text-sm font-medium text-center line-clamp-6 md:text-lg 2xl:text-xl'>
+          <p className='font-prompts text-sm font-medium text-center line-clamp-5 md:text-lg 2xl:text-xl'>
             {review?.content}
           </p>
         </div>
         {/* Card */}
         <div className='flex justify-start items-center space-x-5 md:space-x-8'>
-          <div>
+          <div className=''>
             <ImageLoader
               className='rounded-full'
               width={72}
@@ -27,7 +27,7 @@ export const CardReview: NextPage<Props> = ({ review }) => {
               src={review?.imgSrc ? review.imgSrc : 'images/review/img2.png'}
             />
           </div>
-          <div>
+          <div className='w-2/3'>
             <div className='mb-2'>
               <p className='font-prompts text-sm font-normal line-clamp-1 md:text-base 2xl:text-xl'>
                 {review.firstname} {review?.lastname}

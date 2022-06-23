@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+
 import { useState, useEffect } from 'react'
 import { setCookies, getCookie, checkCookies } from 'cookies-next'
 import App, { AppContext, AppProps } from 'next/app'
@@ -125,6 +126,7 @@ function MyApp({ Component, pageProps, appVersion }: Props) {
       )}
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0' />
+        <link rel='shortcut icon' href='/favicon.jpg' />
       </Head>
       <Component {...pageProps} />
       <PdpaPopup isClose={isOpen} onChangeHandle={handleChangeModal} />

@@ -35,7 +35,7 @@ interface Props {
 const Home: NextPage<Props> = ({ hightlights, reviews, carousel }) => {
   return (
     <Container>
-      <PageSEO title={`Nexx Phamacy`} description='Nexx Phamacy' />
+      <PageSEO title={`Nexx Phamacy`} description='Nexx Phamacy' imageUrl={carousel[0].imgSrc}/>
 
       {/* Floating Button */}
       <ButtonContact />

@@ -28,7 +28,11 @@ interface Props {
 const Telephamacy: NextPage<Props> = ({ telephamacies, carousel }) => {
   return (
     <Container>
-      <PageSEO title={`Nexx Phamacy - Telephamacy`} description='Nexx Phamacy - Telephamacy' />
+      <PageSEO
+        title={`Nexx Phamacy - Telephamacy`}
+        description='Nexx Phamacy - Telephamacy'
+        imageUrl={carousel?.imgSrc}
+      />
 
       {/* Floating Button */}
       <ButtonContact />

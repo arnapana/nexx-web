@@ -10,6 +10,10 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useRouter } from 'next/router'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
+import breaks from 'remark-breaks'
+import remarkParser from 'remark-parse'
+import remarkGfm from 'remark-gfm'
+import rehypeStringify from 'rehype-stringify'
 import { GetServerSideProps, GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Container, BreadCrumb, ImageLoader, PageSEO, BlogSEO } from '@components/common'
 import { ButtonContact, ButtonTag } from '@components/index'
@@ -39,15 +43,10 @@ const Article: NextPage<Props> = (props: any) => {
 
   return (
     <Container>
-      <BlogSEO
+      <PageSEO
         title={`Nexx Phamacy - ${props?.frontMatter?.title}`}
         description={props?.frontMatter?.description}
-        authorDetails={[props?.frontMatter?.user?.firstname, 'บูติกเด้อ โปรโมท']}
-        summary={props?.frontMatter?.description}
-        date={props?.frontMatter?.createdAt}
-        lastmod={props?.frontMatter?.updatedAt}
-        url={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`}
-        images={[props?.frontMatter?.imgSrc]}
+        imageUrl={props?.frontMatter?.imgSrc}
       />
       {/* Floating Button */}
       <ButtonContact />
@@ -115,7 +114,7 @@ const Article: NextPage<Props> = (props: any) => {
             <div
               className={classNames(
                 'overflow-hidden font-sarabun font-light text-xl md:px-14',
-                'prose prose-p:text-base prose-p:text-[#000] max-w-none'
+                'prose text-base prose-p:text-[#000] max-w-none'
               )}
             >
               <MDXRemote {...props.mdxSource} components={component} />
@@ -157,7 +156,16 @@ export const getServerSideProps: GetServerSideProps<any, any> = async (context) 
     return { notFound: true }
   }
 
-  const mdxSource = await serialize(postJson[0].content)
+  const mdxSource = await serialize(
+    postJson[0].content.replace(/<(br|hr|input|meta|img|link|param|area)>/g, '<$1 />'),
+    {
+      mdxOptions: {
+        remarkPlugins: [breaks, remarkParser, remarkGfm],
+        rehypePlugins: [rehypeStringify],
+        format: 'mdx'
+      }
+    }
+  )
 
   return {
     props: {

@@ -14,7 +14,7 @@ interface Props {
 export const CardActivitySmall: NextPage<Props> = ({ post }) => {
   return (
     <div className='w-full h-full'>
-      <div className='flex flex-col justify-between w-full min-w-[18rem] h-full'>
+      <div className='flex flex-col w-full min-w-[18rem] h-full'>
         <div className='flex flex-col mb-4 lg:flex-row'>
           <div
             className={classNames(
@@ -22,11 +22,7 @@ export const CardActivitySmall: NextPage<Props> = ({ post }) => {
               'lg:w-[111px] lg:h-[111px] lg:rounded-full '
             )}
           >
-            {post?.imgSrc ? (
-              <ImageLoader layout='fill' objectFit='fill' src={post?.imgSrc} />
-            ) : (
-              <div className='bg-slate-400 animate-pulse' style={{ width: '100%', height: '100%' }} />
-            )}
+            <ImageLoader layout='fill' objectFit='cover' src={post?.imgSrc} />
           </div>
           <div className='flex flex-col justify-between lg:w-2/3'>
             <div className='md:mb-3'>
@@ -50,13 +46,15 @@ export const CardActivitySmall: NextPage<Props> = ({ post }) => {
         {/* Desctription */}
         <div className='mb-2'>
           {post?.description ? (
-            <p className='font-sarabun text-sm text-left text-[#5D5D5D] 2xl:text-base'>{post?.description}</p>
+            <p className='h-full font-sarabun text-sm text-left text-[#5D5D5D] 2xl:text-base'>
+              {post?.description?.slice(0, 100)}...
+            </p>
           ) : (
             <div className='bg-slate-400 animate-pulse' style={{ width: '100%', height: '100%' }} />
           )}
         </div>
         {/* More */}
-        <div className='flex items-center space-x-3'>
+        <div className='flex items-center mt-auto space-x-3'>
           <p className='font-prompts text-sm font-medium text-primary md:text-base'>
             <Link href={{ pathname: '/activity/[slug]', query: { slug: post?.slug } }}>
               <a>อ่านเพิ่มเติ่ม</a>

@@ -24,7 +24,7 @@ export const HeroBanner: NextPage<IHeroBanner> = ({
           className={classNames(
             sectionClassName,
             { 'block lg:hidden': srcMobile },
-            `relative h-[30rem] bg-cover bg-center bg-no-repeat`,
+            `relative h-[34rem] bg-cover bg-center bg-no-repeat`,
             '2xl:h-[40rem]'
           )}
         >

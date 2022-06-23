@@ -14,11 +14,9 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl 
       <meta property='og:site_name' content={siteMetadata.title} />
       <meta property='og:description' content={description} />
       <meta property='og:title' content={title} />
-      {ogImage.constructor.name === 'Array' ? (
-        ogImage.map(({ url }: any) => <meta property='og:image' content={url} key={url} />)
-      ) : (
-        <meta property='og:image' content={ogImage} key={ogImage} />
-      )}
+
+      <meta property='og:image' content={ogImage} key={ogImage} />
+
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:site' content={siteMetadata.twitter} />
       <meta name='twitter:title' content={title} />
@@ -32,11 +30,12 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl 
 interface IPageSEO {
   title: string
   description: string
+  imageUrl?: string
 }
 
-export const PageSEO: React.FC<IPageSEO> = ({ title, description }) => {
-  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
+export const PageSEO: React.FC<IPageSEO> = ({ title, description, imageUrl }) => {
+  const ogImageUrl = imageUrl
+  const twImageUrl = imageUrl
   return (
     <CommonSEO title={title} description={description} ogType='website' ogImage={ogImageUrl} twImage={twImageUrl} />
   )
@@ -70,7 +69,7 @@ export const BlogSEO = ({ authorDetails, title, summary, date, lastmod, url, ima
   const featuredImages = imagesArr.map((img: any) => {
     return {
       '@type': 'ImageObject',
-      url: `${siteMetadata.siteUrl}${img}`
+      url: img
     }
   })
 
@@ -79,7 +78,7 @@ export const BlogSEO = ({ authorDetails, title, summary, date, lastmod, url, ima
     authorList = authorDetails.map((author: any) => {
       return {
         '@type': 'Person',
-        name: author.name
+        name: author
       }
     })
   } else {

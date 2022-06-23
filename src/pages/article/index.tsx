@@ -4,6 +4,7 @@ import { HeaderSearchContainer, ArticlesContainer } from '@containers/article'
 import { Container, BreadCrumb, PageSEO } from '@components/common'
 import { IBlog } from './[slug]'
 import { IActivities } from 'pages/aboutus'
+import { BlogHightlight } from '@components/containers/blog-hightlight'
 
 export type ICategory = {
   id: number
@@ -11,19 +12,19 @@ export type ICategory = {
   slug: string
 }
 interface Props {
-  activities: IActivities[]
+  blogHightlight: IBlog[]
   blogs: IBlog[]
   categories: ICategory[]
 }
 
-const Articles: NextPage<Props> = ({ activities, blogs, categories }) => {
+const Articles: NextPage<Props> = ({ blogHightlight, blogs, categories }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - Nexx Pharma Blog`} description='บทความจากมีสาระ Nexx Pharma' />
 
       <BreadCrumb outerClassName='container mx-auto my-10' />
       <HeaderSearchContainer />
-      <ArticleContainer activityPost={activities} />
+      {blogHightlight && <BlogHightlight blog={blogHightlight} />}
       <ArticlesContainer blogPost={blogs} categories={categories} />
     </Container>
   )
@@ -37,11 +38,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       filter: JSON.stringify({})
     })}`
   )
-  const activities = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/activities?${new URLSearchParams({
+  const blogHightlight = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
       range: JSON.stringify([0, 2]),
       sort: JSON.stringify(['order', 'ASC']),
-      filter: JSON.stringify({ status: true })
+      filter: JSON.stringify({ status: true, hightlight: true })
     })}`
   )
   const post = await fetch(
@@ -52,12 +53,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     })}`
   )
   const postJson = await post.json()
-  const activitiesJson = await activities.json()
+  const blogHightlightJson = await blogHightlight.json()
   const categoriesJson = await categories.json()
-
   return {
     props: {
-      activities: activitiesJson,
+      blogHightlight: blogHightlightJson,
       blogs: postJson,
       categories: categoriesJson
     } // will be passed to the page component as props

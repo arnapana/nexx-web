@@ -10,6 +10,10 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useRouter } from 'next/router'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
+import breaks from 'remark-breaks'
+import remarkParser from 'remark-parse'
+import remarkGfm from 'remark-gfm'
+import rehypeStringify from 'rehype-stringify'
 import { GetServerSideProps, GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Container, BreadCrumb, ImageLoader, PageSEO, BlogSEO } from '@components/common'
 import { ButtonContact, ButtonTag } from '@components/index'
@@ -62,15 +66,10 @@ const Article: NextPage<Props> = (props: any) => {
 
   return (
     <Container>
-      <BlogSEO
+      <PageSEO
         title={`Nexx Phamacy - ${props?.frontMatter?.title}`}
         description={props?.frontMatter?.description}
-        authorDetails={[props?.frontMatter?.user?.firstname, 'บูติกเด้อ โปรโมท']}
-        summary={props?.frontMatter?.description}
-        date={props?.frontMatter?.createdAt}
-        lastmod={props?.frontMatter?.updatedAt}
-        url={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`}
-        images={[props?.frontMatter?.imgSrc]}
+        imageUrl={props?.frontMatter?.imgSrc}
       />
       {/* Floating Button */}
       <ButtonContact />
@@ -80,14 +79,14 @@ const Article: NextPage<Props> = (props: any) => {
         <div className='container mx-auto'>
           {/* Header */}
           <div className='mb-16'>
-            <div className='mb-5 text-center'>
-              <p className='font-poppins font-medium h2'>{props?.frontMatter?.title}</p>
+            <div className='px-[10%] mb-5 text-center'>
+              <p className='font-prompts font-medium h2'>{props?.frontMatter?.title}</p>
               <p className='font-prompts font-medium h2'>{props?.frontMatter?.subTitle}</p>
             </div>
             <div className='mb-5'>
               <p className='font-prompts font-normal text-center'>
                 โพสต์เมื่อ <span>{dayjs(props?.frontMatter.published_at).format('DD MMM YYYY')}</span> โดย{' '}
-                <span>{props?.frontMatter?.user?.firstname}</span>
+                <span className='font-medium'>{props?.frontMatter?.user?.firstname.replace("_"," ")}</span>
               </p>
             </div>
             <div className='flex justify-center space-x-5'>
@@ -106,7 +105,7 @@ const Article: NextPage<Props> = (props: any) => {
             />
           </div>
           {/* Content */}
-          <div className='flex flex-col p-5 md:flex-row md:py-24 md:px-10 2xl:px-32'>
+          <div className='flex flex-col pt-5 md:flex-row md:py-24 md:px-10 2xl:px-32'>
             <div className='mb-5'>
               <ul className='flex flex-row justify-end space-x-3 md:flex-col md:justify-start md:items-start md:space-y-3 md:space-x-0'>
                 <li>
@@ -138,7 +137,7 @@ const Article: NextPage<Props> = (props: any) => {
             <div
               className={classNames(
                 'overflow-hidden font-sarabun font-light text-xl md:px-14',
-                'prose prose-p:text-base prose-p:text-[#000] max-w-none'
+                'prose text-base prose-p:text-[#000] max-w-none'
               )}
             >
               <MDXRemote {...props.mdxSource} components={component} />
@@ -151,44 +150,41 @@ const Article: NextPage<Props> = (props: any) => {
   )
 }
 
-// export const getStaticPaths: GetStaticPaths<any> = async () => {
-//   const slug = await fetch(
-//     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
-//       range: JSON.stringify([]),
-//       sort: JSON.stringify([]),
-//       filter: JSON.stringify({})
-//     })}`
-//   )
-//   const slugJson = await slug.json()
-//   const paths = slugJson.map((val: any) => ({ params: { slug: val.slug } }))
-
-//   return { paths: paths, fallback: 'blocking' }
-// }
-
 export const getServerSideProps: GetServerSideProps<any, any> = async (context) => {
   const { slug } = context.params
   const posts = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
       range: JSON.stringify([0, 1]),
       sort: JSON.stringify([]),
-      filter: JSON.stringify({ slug: slug })
+      filter: JSON.stringify({ slug: slug, status: true })
     })}`
   )
+  const postJson = await posts.json()
+
   const relativePost = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
       range: JSON.stringify([0, 2]),
       sort: JSON.stringify([]),
-      filter: JSON.stringify({ title: slug, description: slug, status: true })
+      filter: JSON.stringify({ categoryId: postJson[0].categories?.map((val: any) => val.id), status: true })
     })}`
   )
+
   const relativePostJson = await relativePost.json()
-  const postJson = await posts.json()
 
   if (!postJson.length) {
     return { notFound: true }
   }
 
-  const mdxSource = await serialize(postJson[0].content)
+  const mdxSource = await serialize(
+    postJson[0].content.replace(/<(br|hr|input|meta|img|link|param|area)>/g, '<$1 />'),
+    {
+      mdxOptions: {
+        remarkPlugins: [breaks, remarkParser, remarkGfm],
+        rehypePlugins: [rehypeStringify],
+        format: 'mdx'
+      }
+    }
+  )
 
   return {
     props: {

@@ -15,7 +15,7 @@ interface Props {
 const CustomerReviews: NextPage<Props> = ({ reviews, carousel }) => {
   return (
     <Container>
-      <PageSEO title={`Nexx Phamacy - Review`} description='Nexx Phamacy - Review' />
+      <PageSEO title={`Nexx Phamacy - Review`} description='Nexx Phamacy - Review' imageUrl={carousel?.imgSrc}/>
       {/* Floating Button */}
       <ButtonContact />
       <HeroBanner

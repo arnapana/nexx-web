@@ -25,7 +25,11 @@ const OurService: NextPage<Props> = (props) => {
 
   return (
     <Container>
-      <PageSEO title={`Nexx Phamacy - OurService`} description='Nexx Phamacy - OurService' />
+      <PageSEO
+        title={`Nexx Phamacy - OurService`}
+        description='Nexx Phamacy - OurService'
+        imageUrl={props.carousel?.imgSrc}
+      />
 
       {/* Floating Button */}
       <ButtonContact />
