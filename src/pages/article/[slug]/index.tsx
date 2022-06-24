@@ -13,7 +13,10 @@ import { serialize } from 'next-mdx-remote/serialize'
 import breaks from 'remark-breaks'
 import remarkParser from 'remark-parse'
 import remarkGfm from 'remark-gfm'
-import rehypeStringify from 'rehype-stringify'
+import remarkRehype from 'remark-rehype'
+import rehypeSlug from 'rehype-slug'
+import rehypePrism from 'rehype-prism-plus'
+
 import { GetServerSideProps, GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Container, BreadCrumb, ImageLoader, PageSEO, BlogSEO } from '@components/common'
 import { ButtonContact, ButtonTag } from '@components/index'
@@ -179,9 +182,8 @@ export const getServerSideProps: GetServerSideProps<any, any> = async (context) 
     postJson[0].content.replace(/<(br|hr|input|meta|img|link|param|area)>/g, '<$1 />'),
     {
       mdxOptions: {
-        remarkPlugins: [breaks, remarkParser, remarkGfm],
-        rehypePlugins: [rehypeStringify],
-        format: 'mdx'
+        remarkPlugins: [[remarkParser, breaks, remarkGfm, remarkRehype]],
+        rehypePlugins: [[rehypeSlug, rehypePrism]]
       }
     }
   )

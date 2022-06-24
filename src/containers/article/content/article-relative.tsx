@@ -23,11 +23,11 @@ export const ArticleRelativeContainer: NextPage<Props> = ({ relativePost }) => {
 
         {/* Content */}
         <div className='overflow-auto w-full'>
-          <table className='table-fixed'>
-            <thead className=''>
-              <tr className='flex items-start'>
+          <table className='w-full table-fixed'>
+            <thead className='w-full'>
+              <tr className='flex items-start w-full'>
                 {_.map(relativePost, (val, idx) => (
-                  <th className='p-3 w-full h-[280px]' key={idx}>
+                  <th className='p-3 w-full h-[400px] md:h-[280px]' key={idx}>
                     <CardActivitySmall type='article' post={val} />
                   </th>
                 ))}
