@@ -7,9 +7,10 @@ import { IActivities } from 'pages/aboutus'
 
 interface Props {
   post: IActivities
+  type: 'activity' | 'article'
 }
 
-export const CardActivityLarge: NextPage<Props> = ({ post }) => {
+export const CardActivityLarge: NextPage<Props> = ({ post, type }) => {
   return (
     <div className='w-full'>
       <div className='w-full'>
@@ -39,7 +40,7 @@ export const CardActivityLarge: NextPage<Props> = ({ post }) => {
             </div>
             <div className='flex justify-end items-center mr-2 space-x-3 md:mr-0'>
               <p className='font-prompts text-sm text-white underline md:text-base'>
-                <Link href={{ pathname: '/activity/[slug]', query: { slug: post?.slug } }}>
+                <Link href={{ pathname: `/${type}/[slug]`, query: { slug: post?.slug } }}>
                   <a>อ่านเพิ่มเติ่ม</a>
                 </Link>
               </p>

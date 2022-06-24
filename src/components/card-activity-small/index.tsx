@@ -9,9 +9,10 @@ import { IBlog } from 'pages/article/[slug]'
 
 interface Props {
   post: IActivities
+  type: 'activity' | 'article'
 }
 
-export const CardActivitySmall: NextPage<Props> = ({ post }) => {
+export const CardActivitySmall: NextPage<Props> = ({ post, type }) => {
   return (
     <div className='w-full h-full'>
       <div className='flex flex-col w-full min-w-[18rem] h-full'>
@@ -22,7 +23,14 @@ export const CardActivitySmall: NextPage<Props> = ({ post }) => {
               'lg:w-[111px] lg:h-[111px] lg:rounded-full '
             )}
           >
-            <ImageLoader layout='fill' objectFit='cover' src={post?.imgSrc} />
+            <ImageLoader
+              layout='fill'
+              objectFit='cover'
+              src={
+                post?.imgSrc ||
+                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM087ppDAADpQGO4xm9mwAAAABJRU5ErkJggg=='
+              }
+            />
           </div>
           <div className='flex flex-col justify-between lg:w-2/3'>
             <div className='md:mb-3'>
@@ -56,7 +64,7 @@ export const CardActivitySmall: NextPage<Props> = ({ post }) => {
         {/* More */}
         <div className='flex items-center mt-auto space-x-3'>
           <p className='font-prompts text-sm font-medium text-primary md:text-base'>
-            <Link href={{ pathname: '/activity/[slug]', query: { slug: post?.slug } }}>
+            <Link href={{ pathname: `/${type}/[slug]`, query: { slug: post?.slug } }}>
               <a>อ่านเพิ่มเติ่ม</a>
             </Link>
           </p>

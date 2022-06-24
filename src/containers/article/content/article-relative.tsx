@@ -27,8 +27,8 @@ export const ArticleRelativeContainer: NextPage<Props> = ({ relativePost }) => {
             <thead className=''>
               <tr className='flex items-start'>
                 {_.map(relativePost, (val, idx) => (
-                  <th className='p-3 w-full h-[280px]'>
-                    <CardActivitySmall key={idx} post={val}/>
+                  <th className='p-3 w-full h-[280px]' key={idx}>
+                    <CardActivitySmall type='article' post={val} />
                   </th>
                 ))}
               </tr>

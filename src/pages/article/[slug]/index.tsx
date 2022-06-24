@@ -86,7 +86,7 @@ const Article: NextPage<Props> = (props: any) => {
             <div className='mb-5'>
               <p className='font-prompts font-normal text-center'>
                 โพสต์เมื่อ <span>{dayjs(props?.frontMatter.published_at).format('DD MMM YYYY')}</span> โดย{' '}
-                <span className='font-medium'>{props?.frontMatter?.user?.firstname.replace("_"," ")}</span>
+                <span className='font-medium'>{props?.frontMatter?.user?.firstname.replace('_', ' ')}</span>
               </p>
             </div>
             <div className='flex justify-center space-x-5'>
@@ -165,7 +165,7 @@ export const getServerSideProps: GetServerSideProps<any, any> = async (context) 
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
       range: JSON.stringify([0, 2]),
       sort: JSON.stringify([]),
-      filter: JSON.stringify({ categoryId: postJson[0].categories?.map((val: any) => val.id), status: true })
+      filter: JSON.stringify({ categoryId: postJson[0].categories?.map((val: any) => val?.id), status: true })
     })}`
   )
 

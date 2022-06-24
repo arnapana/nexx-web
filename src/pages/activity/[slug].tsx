@@ -57,13 +57,13 @@ const Article: NextPage<Props> = (props: any) => {
           {/* Header */}
           <div className='mb-16'>
             <div className='mb-5 text-center'>
-              <p className='font-poppins font-medium h2'>{props?.frontMatter?.title}</p>
+              <p className='font-prompts font-medium h2'>{props?.frontMatter?.title}</p>
               <p className='font-prompts font-medium h2'>{props?.frontMatter?.subTitle}</p>
             </div>
             <div className='mb-5'>
               <p className='font-prompts font-normal text-center'>
                 โพสต์เมื่อ <span>{dayjs(props?.frontMatter.published_at).format('DD MMM YYYY')}</span> โดย{' '}
-                <span>{props?.frontMatter?.user?.firstname}</span>
+                <span className='font-medium'>{props?.frontMatter?.user?.firstname.replace('_', ' ')}</span>
               </p>
             </div>
             <div className='flex justify-center space-x-5'>
