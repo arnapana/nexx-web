@@ -125,7 +125,7 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => 
           </div>
           <div>
             <Button
-              name='ดูเพิ่มเติ่ม'
+              name='ดูเพิ่มเติม'
               innerClassName='w-[145px] md:w-[170px] 2xl:w-[190px]'
               onClick={handleLoadMore}
             />

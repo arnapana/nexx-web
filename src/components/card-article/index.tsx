@@ -31,7 +31,7 @@ export const CardArticle: React.FC<Props> = ({ val, containerClassName, innerCla
             {/* Content */}
             <div className='flex flex-col justify-between w-full md:pl-1 xl:pb-0'>
               <div>
-                <div className='mt-2 md:mt-0 mb-1'>
+                <div className='mt-2 mb-1 md:mt-0'>
                   <p className='font-prompts font-medium line-clamp-2 md:text-base 2xl:text-xl'>{val?.title}</p>
                 </div>
                 <div className='mb-2'>

@@ -19,7 +19,7 @@ export const SearchContentContainer: NextPage<Props> = ({ postBlog }) => {
           ))}
         </div>
 
-        <Button innerClassName='mx-auto' name='ดูเพิ่มเติ่ม' />
+        <Button innerClassName='mx-auto' name='ดูเพิ่มเติม' />
       </div>
     </section>
   )

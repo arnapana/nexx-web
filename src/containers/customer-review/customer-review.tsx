@@ -41,7 +41,7 @@ export const CustomerReviewContainer: NextPage<Props> = ({ reviews }) => {
           ))}
         </div>
         <div>
-          <Button innerClassName='mx-auto' name='ดูเพิ่มเติ่ม' onClick={handleLoadMore} />
+          <Button innerClassName='mx-auto' name='ดูเพิ่มเติม' onClick={handleLoadMore} />
         </div>
       </div>
     </section>

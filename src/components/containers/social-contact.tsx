@@ -18,7 +18,7 @@ export const SocialContact: React.FC = () => {
               <p className='text-[#5D5D5D]'>{storeConstant.content}</p>
             </div>
             <div>
-              <Button name='ดูเพิ่มเติ่ม' outerClassName='my-8' />
+              <Button name='ดูเพิ่มเติม' outerClassName='my-8' />
             </div>
           </div>
           {/* Card Icons */}

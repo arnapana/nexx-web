@@ -1726,6 +1726,11 @@
     "has" "^1.0.3"
     "side-channel" "^1.0.4"
 
+"is-absolute-url@^4.0.0":
+  "integrity" "sha512-/51/TKE88Lmm7Gc4/8btclNXWS+g50wXhYJq8HWIBAGUBnoAdRu1aXeh364t/O7wXDAcTJDP8PNuNKWUDWie+A=="
+  "resolved" "https://registry.npmjs.org/is-absolute-url/-/is-absolute-url-4.0.1.tgz"
+  "version" "4.0.1"
+
 "is-alphabetical@^2.0.0":
   "integrity" "sha512-FWyyY60MeTNyeSRpkM2Iry0G9hpr7/9kD40mD/cGQEuilcZYS4okz8SN2Q6rLCJ8gbCt6fN+rC+6tMGS99LaxQ=="
   "resolved" "https://registry.npmjs.org/is-alphabetical/-/is-alphabetical-2.0.1.tgz"
@@ -3151,6 +3156,18 @@
   "integrity" "sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg=="
   "resolved" "https://registry.npmjs.org/regexpp/-/regexpp-3.2.0.tgz"
   "version" "3.2.0"
+
+"rehype-external-links@^1.0.1":
+  "integrity" "sha512-SrMMtIO2tPLWDfvibhECAn9cuEMW6Fi40ZVK2UQSPTnDEv3LraLzGVyKGb/vrDlUy4RCYTcmm0rq/ss9nPqrsw=="
+  "resolved" "https://registry.npmjs.org/rehype-external-links/-/rehype-external-links-1.0.1.tgz"
+  "version" "1.0.1"
+  dependencies:
+    "@types/hast" "^2.0.0"
+    "extend" "^3.0.0"
+    "is-absolute-url" "^4.0.0"
+    "space-separated-tokens" "^2.0.0"
+    "unified" "^10.0.0"
+    "unist-util-visit" "^4.0.0"
 
 "rehype-parse@^8.0.2":
   "integrity" "sha512-MJJKONunHjoTh4kc3dsM1v3C9kGrrxvA3U8PxZlP2SjH8RNUSrb+lF7Y0KVaUDnGH2QZ5vAn7ulkiajM9ifuqg=="

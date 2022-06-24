@@ -64,8 +64,8 @@ export const CardActivitySmall: NextPage<Props> = ({ post, type }) => {
           </div>
           {/* More */}
           <div className='flex items-center mt-auto space-x-3'>
-            <p className='font-prompts text-sm font-medium text-primary md:text-base'>
-              <a>อ่านเพิ่มเติ่ม</a>
+            <p className='text-sm font-medium text-primary md:text-base'>
+              <a>อ่านเพิ่มเติม</a>
             </p>
             <div className='grid place-items-center'>
               <ImageLoader width={24} height={12} src='/images/icons/enter-blue-button.png' />

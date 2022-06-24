@@ -42,7 +42,7 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
         </div>
         <div className='absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2'>
           <Button
-            name='ดูเพิ่มเติ่ม'
+            name='ดูเพิ่มเติม'
             onClick={(event: any) => handleModal(event)}
             innerClassName='w-[145px] md:w-[170px] 2xl:w-[190px]'
           />
