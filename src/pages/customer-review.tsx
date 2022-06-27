@@ -44,10 +44,10 @@ const CustomerReviews: NextPage<Props> = ({ reviews, carousel }) => {
             <ImageLoader src='/images/carousel/left-arrow-green.png' layout='fill' />
           </div>
         </div>
-        <div className=''>
+        <div className='w-[300px] md:w-[1024px]'>
           <p
             className={classNames(
-              'font-prompts text-2xl font-medium text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
+              'font-prompts text-2xl font-medium pr-[20%] text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
               'md:text-3xl',
               '2xl:text-[2.5rem] 2xl:leading-[55px]'
             )}
