@@ -9,8 +9,8 @@ interface Props {
 
 export const CardReview: NextPage<Props> = ({ review }) => {
   return (
-    <div className='p-5'>
-      <div className='py-10 px-8 bg-white rounded-[3rem] drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)]'>
+    <div className='p-5 h-full'>
+      <div className='flex flex-col justify-between py-10  px-8 h-full bg-white rounded-[3rem] drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)]'>
         {/* Content */}
         <div className='mb-10'>
           <p className='font-prompts text-sm font-medium text-center line-clamp-5 md:text-lg 2xl:text-xl'>
