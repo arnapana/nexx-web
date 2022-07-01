@@ -56,7 +56,7 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
                         `relative h-[34rem] 2xl:h-[42rem] bg-center bg-no-repeat`
                       )}
                     >
-                      <ImageLoader src={val?.imgSrc} layout='fill' objectFit='fill' priority={true} />
+                      <ImageLoader src={val?.imgSrc} layout='fill' objectFit='cover' priority={true} />
                     </div>
                   </>
                 ) : (
