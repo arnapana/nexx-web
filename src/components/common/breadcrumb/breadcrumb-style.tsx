@@ -6,7 +6,7 @@ interface IBreadCrumbStyle {
 }
 
 const Crumb = ({ children, last = false }: any) => {
-  if (last) return <p className='text-base font-medium underline'>{children}</p>
+  if (last) return <p className='text-base font-medium underline line-clamp-2'>{children}</p>
 
   return <p className='text-base'>{children}</p>
 }

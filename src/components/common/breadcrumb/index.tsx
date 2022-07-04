@@ -14,9 +14,10 @@ type breadcrumb = {
 interface Props {
   lastTitle?: string
   outerClassName: string
+  indexPage?: string
 }
 
-export const BreadCrumb: React.FC<Props> = ({ outerClassName, lastTitle }) => {
+export const BreadCrumb: React.FC<Props> = ({ outerClassName, lastTitle, indexPage }) => {
   const [breadcrumb, setBreadcrumb] = useState<breadcrumb[]>([])
   const router = useRouter()
 
@@ -25,7 +26,13 @@ export const BreadCrumb: React.FC<Props> = ({ outerClassName, lastTitle }) => {
     routers.shift() // delete first array
 
     const pathArray: Array<breadcrumb> = routers.map((path, idx) => {
-      return { breadCrumb: path, to: `/${routers.slice(0, idx + 1).join('/')}` }
+      if (idx === 0) {
+        return { breadCrumb: path, to: indexPage ? `/${indexPage}` : `/${path}` }
+      } else if (lastTitle && idx === routers.length - 1) {
+        return { breadCrumb: lastTitle, to: `/${routers.slice(0, idx + 1).join('/')}` }
+      } else {
+        return { breadCrumb: path, to: `/${routers.slice(0, idx + 1).join('/')}` }
+      }
     })
 
     setBreadcrumb(pathArray)
