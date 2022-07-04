@@ -4,6 +4,7 @@ import { Button } from '@components/common'
 import { ImageLoader } from '@components/common'
 
 import introductionConstant from '@constants/mock/intro.json'
+import Link from 'next/link'
 
 export const Introduction = () => {
   return (
@@ -29,9 +30,7 @@ export const Introduction = () => {
                 <div className='relative w-full max-w-[544px] h-[70px]'>
                   <ImageLoader src='/images/intro/quote.png' layout='fill' />
                   <div className='absolute top-1/2 left-6 -translate-y-2/3'>
-                    <p className='font-prompts text-sm font-medium text-white md:text-lg 2xl:text-2xl'>
-                      {introductionConstant.quote}
-                    </p>
+                    <p className='font-prompts text-sm font-medium text-white md:text-lg 2xl:text-2xl'>{introductionConstant.quote}</p>
                   </div>
                 </div>
               </div>
@@ -55,9 +54,7 @@ export const Introduction = () => {
             {/* Contents */}
             <div className='lg:px-16'>
               <div className='mb-5'>
-                <h2 className='font-prompts text-xl font-medium md:text-2xl'>
-                  {introductionConstant.paragraph_2.title}
-                </h2>
+                <h2 className='font-prompts text-xl font-medium md:text-2xl'>{introductionConstant.paragraph_2.title}</h2>
               </div>
               <div className='mb-6'>
                 <p className='font-prompts md:text-lg 2xl:text-xl'>{introductionConstant.paragraph_2.content}</p>
@@ -68,9 +65,11 @@ export const Introduction = () => {
                   <span className='ml-2'>{introductionConstant.paragraph_2.focus.content}</span>
                 </p>
               </div>
-              <div>
-                <Button name='เกี่ยวกับเรา' innerClassName='w-[155px] md:w-[180px] 2xl:w-[205px]' />
-              </div>
+              <Link href="/aboutus">
+                <a>
+                  <Button name='เกี่ยวกับเรา' innerClassName='w-[155px] md:w-[180px] 2xl:w-[205px]' />
+                </a>
+              </Link>
             </div>
             {/* Images */}
             <div className='m-auto'>

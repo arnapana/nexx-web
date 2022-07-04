@@ -12,11 +12,11 @@ export const ContactTelephamacyContainer = () => {
           <div className='pr-[20%] pl-[10%]'>
             <p className='font-prompts font-medium h3'>ปรึกษาเภสัชกรหรือบุคคลากรทางการแพทย์ออนไลน์ตอนนี้</p>
             <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='w-28 my-10' />
-            <div className=''>
+            <a href='https://line.me/R/ti/p/@403viphs' target='_blank' rel='noreferrer'>
               <button className='py-4 px-7 bg-[#06C755] rounded-full cursor-pointer'>
                 <p className='font-prompts text-white'>เริ่มปรึกษาผ่าน LINE</p>
               </button>
-            </div>
+            </a>
           </div>
         </div>
       </div>

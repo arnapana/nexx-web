@@ -79,7 +79,7 @@ const Article: NextPage<Props> = (props: any) => {
       {/* Floating Button */}
       <ButtonContact />
 
-      <BreadCrumb outerClassName='container mx-auto my-10' />
+      <BreadCrumb outerClassName='container mx-auto my-10' lastTitle={props?.frontMatter?.title} />
       <section>
         <div className='container mx-auto'>
           {/* Header */}

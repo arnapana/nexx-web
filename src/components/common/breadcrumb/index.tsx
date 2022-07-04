@@ -12,10 +12,11 @@ type breadcrumb = {
 }
 
 interface Props {
+  lastTitle?: string
   outerClassName: string
 }
 
-export const BreadCrumb: React.FC<Props> = ({ outerClassName }) => {
+export const BreadCrumb: React.FC<Props> = ({ outerClassName, lastTitle }) => {
   const [breadcrumb, setBreadcrumb] = useState<breadcrumb[]>([])
   const router = useRouter()
 

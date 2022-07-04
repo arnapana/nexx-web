@@ -47,7 +47,7 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
                           'md:h-[38rem]'
                         )}
                       >
-                        <ImageLoader src={val?.imgSrcMobile} layout='fill' objectFit='cover' priority={true} />
+                        <ImageLoader src={val?.imgSrcMobile} layout='fill' objectFit='cover' quality={100} priority={true} />
                       </div>
                     )}
                     <div
@@ -56,7 +56,7 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
                         `relative h-[34rem] 2xl:h-[42rem] bg-center bg-no-repeat`
                       )}
                     >
-                      <ImageLoader src={val?.imgSrc} layout='fill' objectFit='cover' priority={true} />
+                      <ImageLoader src={val?.imgSrc} layout='fill' objectFit='cover' priority={true} quality={100}/>
                     </div>
                   </>
                 ) : (
