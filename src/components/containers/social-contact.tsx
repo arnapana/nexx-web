@@ -4,6 +4,7 @@ import { CardShopping } from '@components/index'
 
 import storeConstant from '@constants/mock/stores.json'
 import urlJson from '@constants/mock/url-contact.json'
+import Link from 'next/link'
 
 export const SocialContact: React.FC = () => {
   return (
@@ -18,14 +19,16 @@ export const SocialContact: React.FC = () => {
               <p className='text-[#5D5D5D]'>{storeConstant.content}</p>
             </div>
             <div>
-              <Button name='ดูเพิ่มเติม' outerClassName='my-8' />
+              <Link href="/stores" passHref>
+                <Button name='ดูเพิ่มเติม' outerClassName='my-8' />
+              </Link>
             </div>
           </div>
           {/* Card Icons */}
           <div className='col-span-2'>
             <div className='flex flex-wrap justify-center'>
               <CardShopping
-                url={''}
+                url={'/stores'}
                 width={90}
                 height={90}
                 name='Stores'

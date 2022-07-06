@@ -106,7 +106,7 @@ export const ContactusContainer = () => {
                 inputClassName='h-[50px] md:h-[55px]'
               />
               <InputArea
-                require={false}
+                required={true}
                 id='message'
                 name='message'
                 label='ข้อความ'
@@ -122,7 +122,7 @@ export const ContactusContainer = () => {
                 linkLabel='/privacy-policy'
                 checked={formik.values.accept}
                 handleOnChange={formik.handleChange}
-                labelClassName='text-sm md:text-xl underline'
+                labelClassName='text-sm md:text-lg underline'
               />
               <div>
                 <button

@@ -30,7 +30,7 @@ export const InputSelect: React.FC<Props> = ({
     <div className={classNames(containerClassName, 'mb-5')}>
       <div className={classNames(innerClassName, 'flex flex-col space-y-3')}>
         {/* Label */}
-        <label className={`font-prompts font-normal ${require ? 'after:content-["*"] after:text-[#FF0000]' : ''}`}>
+        <label htmlFor={name}  className={`font-prompts font-normal ${require ? 'after:content-["*"] after:text-[#FF0000]' : ''}`}>
           {label}
         </label>
         <div className='relative'>
@@ -54,9 +54,9 @@ export const InputSelect: React.FC<Props> = ({
             ))}
           </select>
           {/* Arrow */}
-          <div className='absolute top-1/2 right-[5%] -translate-y-1/2'>
-            <ArrowDownIcon className='w-8 h-8 text-[#8E8E8E]' />
-          </div>
+          <label htmlFor={name} className='absolute top-1/2 right-[5%] -translate-y-1/2 pointer-events-none'>
+            <ArrowDownIcon className='w-8 h-8 text-[#8E8E8E] ' />
+          </label>
         </div>
       </div>
     </div>

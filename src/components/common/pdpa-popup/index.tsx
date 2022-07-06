@@ -1,7 +1,7 @@
 import React from 'react'
 import { NextPage } from 'next'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Button } from '@components/common'
 
 interface Props {
   isClose: boolean
@@ -18,10 +18,13 @@ export const PdpaPopup: NextPage<Props> = ({ isClose, onChangeHandle }) => {
               <div className='container mx-auto'>
                 <div className='py-10 md:py-5'>
                   <div className='mb-2'>
-                    <p className='text-base'>เว็ปไซต์นี้ใช้คุกกี้</p>
                     <p className='text-sm md:text-base'>
-                      เราใช้งานคุกกี้เพื่อประสิทธิภาพ และประสบการณ์ที่ดีในการใช้งานเว็ปไซต์
-                      คุณสามารถเลือกตั้งค่าความยินยอมการใช้งานคุกกี้ได้ โดยคลิก &quot;ยอมรับ&quot;
+                      เว็บไซต์นี้มีการจัดเก็บคุกกี้ (Cookies) เพื่อวัตถุประสงค์ในการปรับปรุงประสบการณ์ของผู้ใช้งานให้ดียิ่งขึ้น
+                      การใช้งานเว็บไซต์นี้เป็นการยอมรับข้อกำหนดและ ยินยอมการจัดเก็บคุกกี้ดังกล่าว โดยท่านสามารถดูราย ละเอียดเพิ่มเติมได้ใน
+                      <Link href='/privacy-policy' passHref>
+                        <span className='mx-2 underline cursor-pointer'>นโยบายความเป็นส่วนตัว</span>
+                      </Link>
+                      ของบริษัทฯ
                     </p>
                   </div>
                   <div className='flex justify-end'>
@@ -34,14 +37,6 @@ export const PdpaPopup: NextPage<Props> = ({ isClose, onChangeHandle }) => {
                           ยอมรับ
                         </p>
                       </button>
-                      {/* <button
-                        className='group flex justify-center items-center p-2 px-5 space-x-3 h-[40px] w-32 bg-white hover:bg-primary rounded border border-primary transition-colors duration-200 md:px-8 md:h-[40px]'
-                        onClick={() => onChangeHandle(!isClose, false)}
-                      >
-                        <p className='font-prompts text-primary group-hover:text-white whitespace-nowrap transition-colors duration-200 md:text-base '>
-                          ไม่ยอมรับ
-                        </p>
-                      </button> */}
                     </div>
                   </div>
                 </div>

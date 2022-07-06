@@ -20,13 +20,14 @@ export const CardActivitySmall: NextPage<Props> = ({ post, type }) => {
           <div className='flex flex-col mb-4 lg:flex-row'>
             <div
               className={classNames(
-                'relative w-full h-[185px] md:mr-3 my-2 rounded-lg overflow-hidden',
+                'relative w-full h-[205px] md:mr-3 my-2 rounded-lg overflow-hidden',
                 'lg:w-[111px] lg:h-[111px] lg:rounded-full '
               )}
             >
               <ImageLoader
                 layout='fill'
                 objectFit='cover'
+                quality={100}
                 src={
                   post?.imgSrc ||
                   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM087ppDAADpQGO4xm9mwAAAABJRU5ErkJggg=='

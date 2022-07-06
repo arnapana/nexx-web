@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
                     บริษัท แมกซ์ เวนเจอร์ส จำกัด สำนักงานใหญ่ เลขที่ 90 อาคารซีดับเบิ้ลยู ทาวเวอร์ เอ ชั้นที่ 33
                     ถนนรัชดาภิเษก แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพฯ 10310
                   </p>
-                  <p className='font-light'>โทร. 065-523-5074</p>
+                  <p className='font-light'>โทร. 063-079-6168</p>
                 </div>
               </div>
             </div>
@@ -118,7 +118,7 @@ const Footer: React.FC = () => {
                       <a
                         target='_blank'
                         rel='noopener noreferrer'
-                        href={`https://maps.google.com/?q=${'13.770321228707179'},${'100.57390696137924'}`}
+                        href={`https://g.page/cwtower?share`}
                       >
                         Get Direction
                       </a>
@@ -138,7 +138,7 @@ const Footer: React.FC = () => {
                     <CardSocial width={14} height={26} img='/images/icons/facebook.png' alt='facebook' link={contacntJson.facebook} />
                     <CardSocial width={25} height={27} img='/images/icons/line.png' alt='line' link={contacntJson.line} />
                     <CardSocial width={22} height={25} img='/images/icons/shoppee.png' alt='shoppee' link={contacntJson.shopee} />
-                    <CardSocial width={25} height={27} img='/images/icons/call.png' alt='line' link='tel:065-523-5074' />
+                    <CardSocial width={25} height={27} img='/images/icons/call.png' alt='line' link='tel:063-079-6168' />
                   </div>
                 </div>
               </div>

@@ -1,8 +1,8 @@
 {
   "title": "ร้านยาของเรา",
   "store-cards": [
-    { "name": "สาขาร้านยา NEXX Pharma", "img": { "w": 67, "h": 81, "src": "/images/stores/icon_offlinestore.png" } },
-    { "name": "ร้านยาเครือข่าย", "img": { "w": 78, "h": 77, "src": "/images/stores/NEXX-Pharma_Icon.png" } },
-    { "name": "ร้านยาออนไลน์", "img": { "w": 78, "h": 77, "src": "/images/stores/icon_onlinestore.png" } }
+    { "idLink":"#our-store", "name": "สาขาร้านยา NEXX Pharma", "img": { "w": 67, "h": 81, "src": "/images/stores/icon_offlinestore.png" } },
+    { "idLink":"#our-network", "name": "ร้านยาเครือข่าย", "img": { "w": 78, "h": 77, "src": "/images/stores/NEXX-Pharma_Icon.png" } },
+    { "idLink":"#store-online", "name": "ร้านยาออนไลน์", "img": { "w": 78, "h": 77, "src": "/images/stores/icon_onlinestore.png" } }
   ]
 }

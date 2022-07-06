@@ -6,7 +6,7 @@ import urlJson from '@constants/mock/url-contact.json'
 
 export const ContactContainer = () => {
   return (
-    <section className='py-5 min-h-[500px] md:py-20 2xl:py-[160px]'>
+    <section id="store-online" className='py-5 min-h-[500px] md:py-20 2xl:py-[160px]'>
       <div className='container mx-auto w-full h-full '>
         <div className='grid grid-cols-1 gap-5 w-full h-full'>
           {/* Content */}

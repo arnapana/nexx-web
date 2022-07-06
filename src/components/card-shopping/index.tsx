@@ -11,7 +11,7 @@ interface ICardShopping {
   image: string
   width: number
   height: number
-  url: string
+  url?: string
 }
 
 export const CardShopping: React.FC<ICardShopping> = ({

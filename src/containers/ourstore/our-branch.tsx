@@ -22,12 +22,13 @@ export const OurBranchContainer: NextPage<Props> = ({ branchs }) => {
     initialValues: { province: '', district: '' },
     validationSchema: Yup.object({
       province: Yup.string().required('กรุณาระบุจังหวัด'),
-      district: Yup.string().required('กรุณาระบุอำเภอ')
+      district: Yup.string()
     }),
     onSubmit: (values, { setSubmitting, resetForm }) => {
       setBranchArray(() =>
         branchs.filter((val) => val.district === values.district || val.province === values.province)
       )
+
       setSubmitting(false)
       resetForm()
     }
@@ -69,7 +70,7 @@ export const OurBranchContainer: NextPage<Props> = ({ branchs }) => {
   }, [formik.values.province])
 
   return (
-    <section className='py-5 md:py-14 2xl:mb-32'>
+    <section id="our-store" className='py-5 md:py-14 2xl:mb-32'>
       <div className='container mx-auto'>
         {/* Header */}
         <div className='pt-5'>

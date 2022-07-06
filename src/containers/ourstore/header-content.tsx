@@ -18,7 +18,7 @@ export const HeaderContentContainer = () => {
         {/* Content */}
         <div className='flex overflow-x-auto flex-nowrap items-stretch py-5 w-full md:justify-center md:space-x-20'>
           {storeConstant['store-cards'].map((val, idx) => (
-           <CardStore key={idx} name={val.name} width={val.img.w} height={val.img.h} src={val.img.src}/>
+           <CardStore key={idx} idLink={val.idLink} name={val.name} width={val.img.w} height={val.img.h} src={val.img.src}/>
           ))}
         </div>
       </div>

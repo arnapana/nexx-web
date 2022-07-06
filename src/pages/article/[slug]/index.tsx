@@ -71,11 +71,7 @@ const Article: NextPage<Props> = (props: any) => {
 
   return (
     <Container>
-      <PageSEO
-        title={`Nexx Phamacy - ${props?.frontMatter?.title}`}
-        description={props?.frontMatter?.description}
-        imageUrl={props?.frontMatter?.imgSrc}
-      />
+      <PageSEO title={`Nexx Phamacy - ${props?.frontMatter?.title}`} description={props?.frontMatter?.description} imageUrl={props?.frontMatter?.imgSrc} />
       {/* Floating Button */}
       <ButtonContact />
 
@@ -85,8 +81,8 @@ const Article: NextPage<Props> = (props: any) => {
           {/* Header */}
           <div className='mb-16'>
             <div className='px-[10%] mb-5 text-center'>
-              <p className='font-prompts font-medium h2'>{props?.frontMatter?.title}</p>
-              <p className='font-prompts font-medium h2'>{props?.frontMatter?.subTitle}</p>
+              <h2 className='mb-5 font-prompts font-medium h2'>{props?.frontMatter?.title}</h2>
+              <h3 className='font-prompts font-medium h3'>{props?.frontMatter?.subTitle}</h3>
             </div>
             <div className='mb-5'>
               <p className='font-prompts font-normal text-center'>
@@ -102,12 +98,7 @@ const Article: NextPage<Props> = (props: any) => {
           </div>
           {/* Image */}
           <div className='grid place-items-center'>
-            <ImageLoader
-              className='rounded-[50px]'
-              src={props?.frontMatter?.imgSrc || '/images/aboutus/card-review-large.png'}
-              width={924}
-              height={600}
-            />
+            <ImageLoader className='rounded-[50px]' src={props?.frontMatter?.imgSrc || '/images/aboutus/card-review-large.png'} width={924} height={600} />
           </div>
           {/* Content */}
           <div className='flex flex-col pt-5 md:flex-row md:py-24 md:px-10 2xl:px-32'>
@@ -121,10 +112,7 @@ const Article: NextPage<Props> = (props: any) => {
                   </FacebookShareButton>
                 </li>
                 <li>
-                  <LineShareButton
-                    url={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`}
-                    title={props?.frontMatter?.title}
-                  >
+                  <LineShareButton url={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`} title={props?.frontMatter?.title}>
                     <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
                       <ImageLoader src='/images/icons/icon-line.png' width={26} height={26} />
                     </button>
@@ -139,12 +127,7 @@ const Article: NextPage<Props> = (props: any) => {
                 </li>
               </ul>
             </div>
-            <div
-              className={classNames(
-                'overflow-hidden font-sarabun font-light text-xl md:px-14',
-                'prose text-base prose-p:text-[#000] max-w-none'
-              )}
-            >
+            <div className={classNames('overflow-hidden font-sarabun font-light text-xl md:px-14', 'prose text-base prose-p:text-[#000] max-w-none')}>
               <MDXRemote {...props.mdxSource} components={component} />
             </div>
           </div>
@@ -180,26 +163,18 @@ export const getServerSideProps: GetServerSideProps<any, any> = async (context) 
     return { notFound: true }
   }
 
-  const mdxSource = await serialize(
-    postJson[0].content.replace(/<(br|hr|input|meta|img|link|param|area)>/g, '<$1 />'),
-    {
-      mdxOptions: {
-        remarkPlugins: [
-          breaks,
-          remarkParser,
-          remarkGfm,
-          //@ts-ignore
-          [remarkRehype, { allowDangerousHtml: true }]
-        ],
-        rehypePlugins: [
-          rehypeRaw,
-          rehypeSlug,
-          [rehypeExternalLinks, { target: '_blank', rel: ['nofollow'] }],
-          [rehypeStringify, { allowDangerousHtml: true }]
-        ]
-      }
+  const mdxSource = await serialize(postJson[0].content.replace(/<(br|hr|input|meta|img|link|param|area)>/g, '<$1 />'), {
+    mdxOptions: {
+      remarkPlugins: [
+        breaks,
+        remarkParser,
+        remarkGfm,
+        //@ts-ignore
+        [remarkRehype, { allowDangerousHtml: true }]
+      ],
+      rehypePlugins: [rehypeRaw, rehypeSlug, [rehypeExternalLinks, { target: '_blank', rel: ['nofollow'] }], [rehypeStringify, { allowDangerousHtml: true }]]
     }
-  )
+  })
 
   return {
     props: {

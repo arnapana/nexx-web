@@ -25,6 +25,12 @@ export const InputSearch: React.FC<Props> = ({
   handleOnChange,
   onSubmit
 }) => {
+  const enterKye=(e:any)=>{
+    if(e.key==="Enter"){
+      onSubmit()
+      }
+    }
+
   return (
     <div className={classNames(containerClassName, '')}>
       <div className={classNames(innerClassName, 'w-fit')}>
@@ -36,6 +42,7 @@ export const InputSearch: React.FC<Props> = ({
             placeholder={placeholder}
             value={inputValue}
             onChange={handleOnChange}
+            onKeyPress={enterKye}
             className={classNames(
               inputClassName,
               'bg-[#FCFFFA] placeholder-[#5D5D5D] appearance-none outline-none h-[47px] px-10 border border-[#78DF45] rounded-full'

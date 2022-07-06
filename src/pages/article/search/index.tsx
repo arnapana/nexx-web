@@ -24,9 +24,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { keyword } = context.query
   const blog = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
-      range: JSON.stringify([0, 6]),
+      range: JSON.stringify([]),
       sort: JSON.stringify(['order', 'ASC']),
-      filter: JSON.stringify({ title: keyword, status: true })
+      filter: JSON.stringify({ content: keyword, status: true })
     })}`
   )
 

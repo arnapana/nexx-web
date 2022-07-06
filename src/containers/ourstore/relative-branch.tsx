@@ -22,7 +22,7 @@ export const RelativeBranchContainer: NextPage<Props> = ({ networks }) => {
     initialValues: { province: '', district: '' },
     validationSchema: Yup.object({
       province: Yup.string().required('กรุณาระบุจังหวัด'),
-      district: Yup.string().required('กรุณาระบุอำเภอ')
+      district: Yup.string()
     }),
     onSubmit: (values, { setSubmitting, resetForm }) => {
       setNetworkArray(() =>
@@ -70,7 +70,7 @@ export const RelativeBranchContainer: NextPage<Props> = ({ networks }) => {
   }, [formik.values.province])
 
   return (
-    <section className='py-5 bg-[#FCFCFC] md:py-14'>
+    <section id="our-network" className='py-5 bg-[#FCFCFC] md:py-14'>
       <div className='container mx-auto'>
         {/* Header */}
         <div className='pt-5'>

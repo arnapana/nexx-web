@@ -20,9 +20,9 @@ export const CardArticle: React.FC<Props> = ({ val, containerClassName, innerCla
           <div className={classNames(innerClassName, 'flex flex-col md:flex-row')}>
             {/* Image */}
             <div className='md:mr-3'>
-              <div className='relative mx-auto w-full h-[200px] md:w-[205px] md:h-[147px] 2xl:w-[255px] 2xl:h-[185px]'>
+              <div className='relative mx-auto w-full h-[200px] md:w-[225px] md:h-[147px]'>
                 {val?.imgSrc ? (
-                  <ImageLoader className='rounded-xl' layout='fill' src={val?.imgSrc} objectFit='fill'/>
+                  <ImageLoader className='rounded-xl' layout='fill' src={val?.imgSrc} objectFit='cover' quality={100}/>
                 ) : (
                   <div className='absolute bg-slate-400 rounded-md animate-pulse' style={{ width: '100%', height: '100%' }} />
                 )}

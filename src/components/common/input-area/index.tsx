@@ -5,7 +5,7 @@ interface Props {
   containerClassName?: string
   innerClassName?: string
   inputClassName?: string
-  require: boolean
+  required: boolean
   name: string
   id: string
   label: string
@@ -27,13 +27,15 @@ export const InputArea: React.FC<Props> = ({
   placeholder,
   errors,
   touch,
-  require,
+  required,
   handleOnChange
 }) => {
   return (
     <div className={classNames(containerClassName, 'mb-5')}>
       <div className={classNames(innerClassName, 'flex flex-col space-y-3')}>
-        <label className={`${require ? 'after:contents-["*"] after:text-red-600' : ''}`}>{label}</label>
+        <label className={`font-prompts font-normal ${required ? 'after:content-["*"] after:text-[#FF0000]' : ''}`} htmlFor={id}>
+          {label}
+        </label>
         <textarea
           id={id}
           name={name}
@@ -41,7 +43,7 @@ export const InputArea: React.FC<Props> = ({
           value={inputValue}
           className={classNames(
             inputClassName,
-            'w-full bg-[#FCFFFA] placeholder-[#5D5D5D] appearance-none outline-none min-h-[185px] py-7 px-10 border border-[#78DF45] rounded-3xl'
+            'w-full bg-[#FCFFFA] placeholder-[#b4b2b2] appearance-none outline-none min-h-[155px] py-7 px-10 border border-[#78DF45] rounded-3xl'
           )}
           onChange={handleOnChange}
         />

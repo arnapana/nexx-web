@@ -10,15 +10,18 @@ interface Props {
     w: number | 0
     h: number | 0
   }
+  action?: string
 }
 
-export const CardContact: React.FC<Props> = ({ name, detail, img }) => {
+export const CardContact: React.FC<Props> = ({ name, detail, img,action }) => {
   return (
     <div className='flex justify-start md:justify-center'>
       <div className='flex w-fit'>
         <div className='w-[60px]'>
           <div className='grid relative place-content-center p-2 md:p-1' style={{ width: img.w, height: img.h }}>
-            <ImageLoader width={img.w} height={img.h} src={img?.src} />
+            <a href={action} target="_blank" rel="noreferrer">
+              <ImageLoader width={img.w} height={img.h} src={img?.src} />
+            </a>
           </div>
         </div>
         <div className='pl-5 w-full md:pl-10'>

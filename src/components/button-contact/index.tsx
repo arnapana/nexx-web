@@ -30,12 +30,12 @@ export const ButtonContact = () => {
               <ImageLoader layout='fill' src='/images/icons/enter-white-button.png' />
             </div>
           </div>
-          {/* Close Icon */}
-          <div className='absolute -top-4 right-2 w-8 h-8' onClick={handleOpen}>
-            <ImageLoader layout='fill' src='/images/icons/cancel-modal.png' />
-          </div>
         </button>
       </a>
+      {/* Close Icon */}
+      <div className='absolute -top-4 right-2 w-8 h-8 cursor-pointer' onClick={handleOpen}>
+        <ImageLoader layout='fill' src='/images/icons/cancel-modal.png' />
+      </div>
     </div>
   )
 }
