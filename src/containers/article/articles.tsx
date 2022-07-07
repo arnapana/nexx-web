@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
+import { useRouter } from 'next/router'
 import ContentLoader from 'react-content-loader'
 import * as _ from 'lodash'
 import { Button } from '@components/common'
@@ -12,15 +13,18 @@ const tags = ['สุขภาพ', 'ความเครียด', 'covid19',
 interface Props {
   blogPost: IBlog[]
   categories: ICategory[]
+  refContainer?: any
 }
 
-export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => {
+export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories, refContainer }) => {
   const skip = 8
+  const router = useRouter()
+  const categoryId = router.query?.category
   const [category, setCategory] = useState<any>(null)
   const [offset, setOffset] = useState<number>(8)
   const [blogs, setBlogs] = useState<IBlog[]>(blogPost)
 
-  const handleFilterCategory = (id: number) => {
+  const handleFilterCategory = (id: any) => {
     let filter: any = {}
     if (id === category) {
       filter = {}
@@ -61,6 +65,27 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => 
       .catch()
   }
 
+  useEffect(() => {
+    if (!categoryId) return
+    const curOffset = offset + skip
+    fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
+        range: JSON.stringify([0, curOffset]),
+        sort: JSON.stringify(['order', 'DESC']),
+        filter: JSON.stringify({ categoryId: categoryId })
+      })}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setBlogs(data)
+        setCategory(categoryId)
+      })
+      .then(() => {
+        refContainer.current?.scrollIntoView({ behavior: 'smooth' })
+      })
+      .catch()
+  }, [categoryId])
+
   return (
     <section className='py-10 bg-[#FCFCFC] md:py-14'>
       <div className='container mx-auto'>
@@ -73,7 +98,7 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => 
             {_.map(categories, (val, idx) => (
               <ButtonTag
                 outerClassName='mx-3 my-2'
-                innerClassName={`max-w-[300px] ${val.id === category && 'bg-black'}`}
+                innerClassName={`max-w-[300px] ${val.id === Number(category) && 'bg-black'}`}
                 key={idx}
                 name={val.title}
                 onClick={() => handleFilterCategory(val.id)}
@@ -124,11 +149,7 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => 
                 ))}
           </div>
           <div>
-            <Button
-              name='ดูเพิ่มเติม'
-              innerClassName='w-[145px] md:w-[170px] 2xl:w-[190px]'
-              onClick={handleLoadMore}
-            />
+            <Button name='ดูเพิ่มเติม' innerClassName='w-[145px] md:w-[170px] 2xl:w-[190px]' onClick={handleLoadMore} />
           </div>
         </div>
       </div>

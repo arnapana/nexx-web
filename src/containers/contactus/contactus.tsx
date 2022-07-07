@@ -122,7 +122,7 @@ export const ContactusContainer = () => {
                 linkLabel='/privacy-policy'
                 checked={formik.values.accept}
                 handleOnChange={formik.handleChange}
-                labelClassName='text-sm md:text-lg underline'
+                labelClassName='text-xs md:text-lg underline'
               />
               <div>
                 <button

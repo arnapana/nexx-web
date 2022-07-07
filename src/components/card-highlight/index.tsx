@@ -53,7 +53,7 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
             </div>
             {_.includes(_.lowerCase(title), 'max card') && (
               <div className='flex justify-center'>
-                <ImageLoader width={100} height={100} src='/images/service/img5.png' />
+                <ImageLoader width={150} height={150} src='/images/AW-PT-Premier-MaxCard.png' objectFit='contain'/>
               </div>
             )}
             <div className='absolute top-0 right-0 translate-x-5 -translate-y-5 cursor-pointer' onClick={(event: any) => handleModal(event)}>

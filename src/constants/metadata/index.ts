@@ -10,7 +10,7 @@ export const siteMetadata = {
   siteLogo: '/images/logo-nav.png',
   image: '/images/logo-nav.png',
   socialBanner: '/images/logo-nav.png',
-  email: 'abcd@gmail.com',
+  email: 'contact@nexxpharma.co',
   // github: 'https://github.com',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://www.facebook.com/NexxPharma',

@@ -41,7 +41,7 @@ export const CardShopping: React.FC<ICardShopping> = ({
               'relative flex items-center justify-center mb-4 p-1 xl:p-0 w-[70px] h-[70px] md:w-[80px] md:h-[80px]'
             )}
           >
-            <ImageLoader width={width} height={height} src={image} />
+            <ImageLoader width={width} height={height} src={image} objectFit="contain"/>
           </div>
           <div>
             <p className={classNames('font-poppins font-medium text-base md:text-xl', textClassName)}>

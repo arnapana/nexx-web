@@ -11,7 +11,7 @@ interface Props {
   placeholder: string
   inputValue: string
   handleOnChange: (data: any) => void
-  onSubmit: (data: any) => void
+  onSubmit: () => void
 }
 
 export const InputSearch: React.FC<Props> = ({

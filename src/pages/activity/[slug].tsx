@@ -92,7 +92,7 @@ const Article: NextPage<Props> = (props: any) => {
             <div className='mb-5'>
               <ul className='flex flex-row justify-end space-x-3 md:flex-col md:justify-start md:items-start md:space-y-3 md:space-x-0'>
                 <li>
-                  <FacebookShareButton url={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`}>
+                  <FacebookShareButton url={`${process.env.NEXT_PUBLIC_HOSTNAME}/activity/${props?.frontMatter?.slug}`}>
                     <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
                       <ImageLoader src='/images/icons/icon-fb.png' width={13} height={26} />
                     </button>
@@ -100,7 +100,7 @@ const Article: NextPage<Props> = (props: any) => {
                 </li>
                 <li>
                   <LineShareButton
-                    url={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`}
+                    url={`${process.env.NEXT_PUBLIC_HOSTNAME}/activity/${props?.frontMatter?.slug}`}
                     title={props?.frontMatter?.title}
                   >
                     <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
@@ -109,7 +109,7 @@ const Article: NextPage<Props> = (props: any) => {
                   </LineShareButton>
                 </li>
                 <li>
-                  <CopyToClipboard text={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`}>
+                  <CopyToClipboard text={`${process.env.NEXT_PUBLIC_HOSTNAME}/activity/${props?.frontMatter?.slug}`}>
                     <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
                       <ImageLoader src='/images/icons/icon-link.png' width={23} height={23} />
                     </button>

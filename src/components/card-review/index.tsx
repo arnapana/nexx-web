@@ -14,7 +14,7 @@ export const CardReview: NextPage<Props> = ({ review }) => {
         {/* Content */}
         <div className='mb-10'>
           <p className='font-prompts text-sm font-medium text-center md:text-lg'>
-            {review?.content.slice(0,170)}
+            {review?.content.slice(0,220)}
           </p>
         </div>
         {/* Card */}
@@ -24,13 +24,13 @@ export const CardReview: NextPage<Props> = ({ review }) => {
               className='rounded-full'
               width={72}
               height={72}
-              src={review?.imgSrc ? review.imgSrc : 'images/review/img2.png'}
+              src={review?.imgSrc ? review?.imgSrc : 'images/review/img2.png'}
             />
           </div>
           <div className='w-2/3'>
             <div className='mb-2'>
               <p className='font-prompts text-sm font-normal line-clamp-1 md:text-base 2xl:text-xl'>
-                {review.firstname} {review?.lastname}
+                {review?.firstname} {review?.lastname}
               </p>
             </div>
             <div>

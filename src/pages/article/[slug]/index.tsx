@@ -98,7 +98,7 @@ const Article: NextPage<Props> = (props: any) => {
           </div>
           {/* Image */}
           <div className='grid place-items-center'>
-            <ImageLoader className='rounded-[50px]' src={props?.frontMatter?.imgSrc || '/images/aboutus/card-review-large.png'} width={924} height={600} />
+            <ImageLoader className='rounded-[50px]' src={props?.frontMatter?.imgSrc || '/images/aboutus/card-review-large.png'} width={924} height={600} objectFit="contain" />
           </div>
           {/* Content */}
           <div className='flex flex-col pt-5 md:flex-row md:py-24 md:px-10 2xl:px-32'>
@@ -119,7 +119,7 @@ const Article: NextPage<Props> = (props: any) => {
                   </LineShareButton>
                 </li>
                 <li>
-                  <CopyToClipboard text={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`}>
+                  <CopyToClipboard text={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`} >
                     <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
                       <ImageLoader src='/images/icons/icon-link.png' width={23} height={23} />
                     </button>

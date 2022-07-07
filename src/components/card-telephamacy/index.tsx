@@ -11,7 +11,7 @@ interface Props {
 
 export const CardTelephamacy: React.FC<Props> = ({ name, list, onClick, current, index }) => {
   return (
-    <div className='p-5 mb-10' onClick={onClick}>
+    <div className='p-5 mb-10 cursor-pointer' onClick={onClick}>
       <div
         id='telephamacy'
         className={`py-5 px-7 bg-white rounded-[1.25rem] hover:drop-shadow-[0_3px_20px_rgba(120,233,69,0.2)] ${

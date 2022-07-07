@@ -13,14 +13,14 @@ interface Props {
   action?: string
 }
 
-export const CardContact: React.FC<Props> = ({ name, detail, img,action }) => {
+export const CardContact: React.FC<Props> = ({ name, detail, img, action }) => {
   return (
     <div className='flex justify-start md:justify-center'>
       <div className='flex w-fit'>
-        <div className='w-[60px]'>
+        <div className='w-[60px] md:my-2'>
           <div className='grid relative place-content-center p-2 md:p-1' style={{ width: img.w, height: img.h }}>
-            <a href={action} target="_blank" rel="noreferrer">
-              <ImageLoader width={img.w} height={img.h} src={img?.src} />
+            <a  href={action} target='_blank' rel='noreferrer'>
+              <ImageLoader  width={img.w} height={img.h} src={img?.src} objectFit='contain' />
             </a>
           </div>
         </div>
@@ -28,9 +28,9 @@ export const CardContact: React.FC<Props> = ({ name, detail, img,action }) => {
           <div className='mb-2'>
             <p className='font-kanits font-medium md:text-xl 2xl:text-2xl'>{name}</p>
           </div>
-          <div className=''>
+          <a href={action} target='_blank' rel='noreferrer'>
             <p className='font-sarabun text-sm font-light text-[#5D5D5D] md:text-lg 2xl:text-xl'>{detail}</p>
-          </div>
+          </a>
         </div>
       </div>
     </div>
