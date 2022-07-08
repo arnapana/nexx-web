@@ -21,7 +21,7 @@ import rehypeStringify from 'rehype-stringify'
 
 import { GetServerSideProps, GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Container, BreadCrumb, ImageLoader, PageSEO, BlogSEO } from '@components/common'
-import { ButtonContact, ButtonTag } from '@components/index'
+import { ButtonContact, ButtonTag,  } from '@components/index'
 import { ArticleRelativeContainer } from '@containers/article/content'
 dayjs.extend(utc)
 dayjs.extend(timezone)

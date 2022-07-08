@@ -11,7 +11,7 @@ interface Props {
 
 export const CardTelephamacy: React.FC<Props> = ({ name, list, onClick, current, index }) => {
   return (
-    <div className='p-5 mb-10 cursor-pointer' onClick={onClick}>
+    <div className='p-5 cursor-pointer' onClick={onClick}>
       <div
         id='telephamacy'
         className={`py-5 px-7 bg-white rounded-[1.25rem] hover:drop-shadow-[0_3px_20px_rgba(120,233,69,0.2)] ${
@@ -19,7 +19,7 @@ export const CardTelephamacy: React.FC<Props> = ({ name, list, onClick, current,
         }`}
       >
         <div className='mb-2'>
-          <p className={classNames('font-prompts font-medium telephamacy-title h4')}>{name}</p>
+          <p className={classNames(`font-prompts font-medium telephamacy-title before:content-[""] ${current === index ? 'before:bg-[#29cf00]' : 'before:bg-[#364ad9]'}`)}>{name}</p>
         </div>
         <div>
           <ul id='test' className={classNames('telephamacy-list', 'prose max-w-none font-sarabun text-sm md:text-lg')}>
@@ -38,11 +38,7 @@ export const CardTelephamacy: React.FC<Props> = ({ name, list, onClick, current,
           border-radius: 50%;
           margin-right: 10px;
           display: inline-block;
-          background-color: #364ad9;
           vertical-align: middle;
-        }
-        #telephamacy:hover .telephamacy-title::before {
-          background-color: #29cf00;
         }
 
         ul.telephamacy-list {

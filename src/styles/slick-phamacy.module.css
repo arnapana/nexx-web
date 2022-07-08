@@ -62,14 +62,14 @@
   }
 
   #telephamacy .slick-dots li {
-    width: 33px;
-    height: 33px;
+    width: 25px;
+    height: 25px;
     margin: 0 3px;
   }
 
   #telephamacy .slick-dots li button {
-    width: 33px;
-    height: 33px;
+    width: 25px;
+    height: 25px;
   }
 
   #telephamacy .slick-dots li button:hover,
@@ -83,15 +83,15 @@
 
   #telephamacy .slick-dots li button:before {
     font-family: 'slick';
-    font-size: 24px;
+    font-size: 20px;
     line-height: 31px;
 
     position: absolute;
     top: 0;
     left: 0;
 
-    width: 33px;
-    height: 33px;
+    width: 25px;
+    height: 25px;
 
     content: '•';
     text-align: center;
