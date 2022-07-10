@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import classNames from 'classnames'
 import * as _ from 'lodash'
 import dayjs from 'dayjs'
@@ -21,7 +22,7 @@ import rehypeStringify from 'rehype-stringify'
 
 import { GetServerSideProps, GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Container, BreadCrumb, ImageLoader, PageSEO, BlogSEO } from '@components/common'
-import { ButtonContact, ButtonTag,  } from '@components/index'
+import { ButtonContact, ButtonTag } from '@components/index'
 import { ArticleRelativeContainer } from '@containers/article/content'
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -93,13 +94,21 @@ const Article: NextPage<Props> = (props: any) => {
             </div>
             <div className='flex justify-center space-x-5'>
               {_.map(props?.frontMatter.categories, (val, key) => (
-                <ButtonTag key={key} name={val.title} />
+                <Link key={key} href={{ pathname: `/article`, query: { category: val.id } }} passHref scroll={false}>
+                  <ButtonTag name={val.title} />
+                </Link>
               ))}
             </div>
           </div>
           {/* Image */}
           <div className='grid place-items-center'>
-            <ImageLoader className='rounded-[50px]' src={props?.frontMatter?.imgSrc || '/images/aboutus/card-review-large.png'} width={924} height={600} objectFit="contain" />
+            <ImageLoader
+              className='rounded-[50px]'
+              src={props?.frontMatter?.imgSrc || '/images/aboutus/card-review-large.png'}
+              width={924}
+              height={600}
+              objectFit='contain'
+            />
           </div>
           {/* Content */}
           <div className='flex flex-col pt-5 md:flex-row md:py-24 md:px-10 2xl:px-32'>
@@ -120,7 +129,7 @@ const Article: NextPage<Props> = (props: any) => {
                   </LineShareButton>
                 </li>
                 <li>
-                  <CopyToClipboard text={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`} >
+                  <CopyToClipboard text={`${process.env.NEXT_PUBLIC_HOSTNAME}/article/${props?.frontMatter?.slug}`}>
                     <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
                       <ImageLoader src='/images/icons/icon-link.png' width={23} height={23} />
                     </button>

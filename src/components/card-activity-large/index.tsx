@@ -9,9 +9,10 @@ import { IActivities } from 'pages/aboutus'
 interface Props {
   post: IActivities
   type: 'activity' | 'article'
+  refContainer?: any
 }
 
-export const CardActivityLarge: NextPage<Props> = ({ post, type }) => {
+export const CardActivityLarge: NextPage<Props> = ({ post, type, refContainer }) => {
   const router = useRouter()
   const categoryId = router.query?.category as string
 
@@ -27,8 +28,8 @@ export const CardActivityLarge: NextPage<Props> = ({ post, type }) => {
                     <ButtonTag
                       name={val.title}
                       onClick={() => {
-                        if (Number(categoryId) === val.id) {
-                          router.reload()
+                        if (Number(categoryId) === val?.id) {
+                          refContainer.current?.scrollIntoView({ behavior: 'smooth' })
                         }
                       }}
                     />

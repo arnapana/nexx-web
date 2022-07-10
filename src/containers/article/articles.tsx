@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment, useRef } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { useRouter } from 'next/router'
 import ContentLoader from 'react-content-loader'
 import * as _ from 'lodash'
@@ -16,12 +16,11 @@ interface Props {
   refContainer?: any
 }
 
-export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => {
+export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories, refContainer }) => {
   const skip = 8
   const router = useRouter()
   const allBlogs = blogPost
   const categoryId = router.query?.category
-  const refContainer = useRef<any>(null)
 
   const [category, setCategory] = useState<any>(null)
   const [offset, setOffset] = useState<number>(8)
@@ -109,7 +108,7 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => 
   }, [categoryId])
 
   return (
-    <section  ref={refContainer} className='py-10 bg-[#FCFCFC] md:py-14'>
+    <section className='py-10 bg-[#FCFCFC] md:py-14'>
       <div className='container mx-auto'>
         {/* Header */}
         <div className='mb-10 md:mb-16'>
@@ -139,7 +138,7 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories }) => 
         <div className='flex flex-col justify-center items-center'>
           <div className='grid grid-cols-1 gap-5 mb-16 w-full xl:grid-cols-2 2xl:gap-10'>
             {blogs.length > 0
-              ? _.map(blogs, (val, idx) => <CardArticle key={idx} val={val} />)
+              ? _.map(blogs, (val, idx) => <CardArticle key={idx} val={val} refContainer={refContainer} />)
               : _.map(Array(4), (val, idx) => (
                   <Fragment key={idx}>
                     <ContentLoader

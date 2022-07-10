@@ -6,9 +6,10 @@ import { IBlog } from 'pages/article/[slug]'
 
 interface Props {
   blog: IBlog[]
+  refContainer?: any
 }
 
-export const BlogHightlight: NextPage<Props> = ({ blog }) => {
+export const BlogHightlight: NextPage<Props> = ({ blog, refContainer }) => {
   const [posts, setPosts] = useState<{ 0: IBlog | null; 1: IBlog | null; 2: IBlog | null }>({
     0: null,
     1: null,
@@ -27,14 +28,14 @@ export const BlogHightlight: NextPage<Props> = ({ blog }) => {
         {/* Content */}
         <div className='grid grid-cols-1 xl:grid-cols-3'>
           <div className='hidden col-span-2 place-content-center pb-5 md:grid md:p-5 xl:place-content-start'>
-            {posts[0] && <CardActivityLarge key={1} type='article' post={posts[0]} />}
+            {posts[0] && <CardActivityLarge key={1} type='article' post={posts[0]} refContainer={refContainer}/>}
           </div>
           <div className='grid col-span-2 place-content-center pb-5 md:hidden md:p-5 xl:place-content-start'>
-            {posts[0] && <CardActivitySmall key={2} type='article' post={posts[0]} />}
+            {posts[0] && <CardActivitySmall key={2} type='article' post={posts[0]} refContainer={refContainer}/>}
           </div>
           <div className='grid grid-cols-1 gap-5 md:grid-cols-2 md:py-5 xl:grid-cols-1'>
-            {posts[1] && <CardActivitySmall key={3} type='article' post={posts[1]} />}
-            {posts[2] && <CardActivitySmall key={4} type='article'  post={posts[2]} />}
+            {posts[1] && <CardActivitySmall key={3} type='article' post={posts[1]} refContainer={refContainer}/>}
+            {posts[2] && <CardActivitySmall key={4} type='article' post={posts[2]} refContainer={refContainer}/>}
           </div>
         </div>
       </div>
