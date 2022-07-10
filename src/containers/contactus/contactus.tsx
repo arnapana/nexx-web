@@ -17,7 +17,8 @@ export const ContactusContainer = () => {
       email: Yup.string().email().required('กรุณาระบุอีเมล์'),
       phone: Yup.string().required('กรุณาระบุเบอร์ติดต่อ'),
       title: Yup.string().required('กรุณาระบุหัวข้อติดต่อ'),
-      message: Yup.string().required('กรุณาระบุข้อความ')
+      message: Yup.string().required('กรุณาระบุข้อความ'),
+      accept: Yup.boolean().required().isTrue()
     }),
     onSubmit: (values, { setSubmitting, resetForm }) => {
       fetch(`${process.env.NEXT_PUBLIC_BACKEND_API as string}/contacts`, {
@@ -142,7 +143,7 @@ export const ContactusContainer = () => {
                   <a
                     target='_blank'
                     rel='noopener noreferrer'
-                    href={`https://maps.google.com/?q=${'13.770321228707179'},${'100.57390696137924'}`}
+                    href={'https://g.page/cwtower?share'}
                   >
                     Get Direction
                   </a>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { ButtonTag } from '@components/index'
 import { ImageLoader } from '@components/common'
@@ -13,6 +14,9 @@ interface Props {
 }
 
 export const CardActivitySmall: NextPage<Props> = ({ post, type }) => {
+  const router = useRouter()
+  const categoryId = router.query?.category as string
+
   return (
     <div className='w-full h-full'>
       <div className='flex flex-col w-full min-w-[18rem] h-full'>
@@ -42,8 +46,15 @@ export const CardActivitySmall: NextPage<Props> = ({ post, type }) => {
               {post?.categories.slice(0, 2)?.map((val, idx) => (
                 <>
                   {type === 'article' ? (
-                    <Link key={idx} href={{ pathname: `/article`, query: { category: val.id } }} passHref>
-                      <ButtonTag name={val.title} />
+                    <Link key={idx} href={{ pathname: `/article`, query: { category: val.id } }} scroll={false} passHref>
+                      <ButtonTag
+                        name={val.title}
+                        onClick={() => {
+                          if (Number(categoryId) === val.id) {
+                            router.reload()
+                          }
+                        }}
+                      />
                     </Link>
                   ) : (
                     <ButtonTag name={val.title} />
@@ -58,8 +69,15 @@ export const CardActivitySmall: NextPage<Props> = ({ post, type }) => {
           {post?.categories.slice(0, 2)?.map((val, idx) => (
             <>
               {type === 'article' ? (
-                <Link key={idx} href={{ pathname: `/article`, query: { category: val.id } }} passHref>
-                  <ButtonTag name={val.title} />
+                <Link key={idx} href={{ pathname: `/article`, query: { category: val.id } }} passHref scroll={false}>
+                  <ButtonTag
+                    name={val.title}
+                    onClick={() => {
+                      if (Number(categoryId) === val.id) {
+                        router.reload()
+                      }
+                    }}
+                  />
                 </Link>
               ) : (
                 <ButtonTag name={val.title} />

@@ -1,4 +1,3 @@
-import { useRef } from 'react'
 import { GetServerSideProps, NextPage } from 'next'
 import { ArticleContainer } from '@components/containers'
 import { HeaderSearchContainer, ArticlesContainer } from '@containers/article'
@@ -19,7 +18,6 @@ interface Props {
 }
 
 const Articles: NextPage<Props> = ({ blogHightlight, blogs, categories }) => {
-  const refContainer = useRef<any>(null)
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - Nexx Pharma Blog`} description='บทความจากมีสาระ Nexx Pharma' />
@@ -28,9 +26,7 @@ const Articles: NextPage<Props> = ({ blogHightlight, blogs, categories }) => {
       <HeaderSearchContainer />
       {blogHightlight && <BlogHightlight blog={blogHightlight} />}
 
-      <div ref={refContainer}>
-        <ArticlesContainer blogPost={blogs} categories={categories} refContainer={refContainer} />
-      </div>
+      <ArticlesContainer blogPost={blogs} categories={categories} />
     </Container>
   )
 }

@@ -40,7 +40,7 @@ export const CardArticle: React.FC<Props> = ({ val, containerClassName, innerCla
               </div>
               <div className='flex space-x-5'>
                 {_.map(val.categories.slice(0, 2), (v, idx) => (
-                  <Link key={idx} href={{ pathname: `/article`, query: { category: v.id } }} passHref>
+                  <Link key={idx} href={{ pathname: `/article`, query: { category: v.id } }} passHref scroll={false}>
                     <ButtonTag key={idx} name={v.title} />
                   </Link>
                 ))}
