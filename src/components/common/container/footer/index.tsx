@@ -9,7 +9,6 @@ import styles from './footer.module.css'
 import navbarConstant from '@constants/common/menu.json'
 import contacntJson from '@constants/mock/url-contact.json'
 
-
 const Footer: React.FC = () => {
   return (
     <nav className='flex flex-col'>
@@ -25,8 +24,8 @@ const Footer: React.FC = () => {
                 <div className='font-prompts text-base text-white'>
                   <p className='text-base'>ร้านยาเน็กซ์ฟาร์มา</p>
                   <p className='text-sm font-light md:text-base'>
-                    บริษัท แมกซ์ เวนเจอร์ส จำกัด สำนักงานใหญ่ เลขที่ 90 อาคารซีดับเบิ้ลยู ทาวเวอร์ เอ ชั้นที่ 33
-                    ถนนรัชดาภิเษก แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพฯ 10310
+                    บริษัท แมกซ์ เวนเจอร์ส จำกัด สำนักงานใหญ่ เลขที่ 90 อาคารซีดับเบิ้ลยู ทาวเวอร์ เอ ชั้นที่ 33 ถนนรัชดาภิเษก แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพฯ
+                    10310
                   </p>
                   <p className='font-light'>โทร. 063-079-6168</p>
                 </div>
@@ -102,10 +101,14 @@ const Footer: React.FC = () => {
               <ul className='mt-9 space-y-1 font-prompts text-white md:space-y-3'>
                 <li className={styles.footerHeaderList}>เกี่ยวกับพีทีแมกซ์การ์ด</li>
                 <li>
-                  <a href="https://www.ptmaxcard.com/home" className={styles.footerList}>รายละเอียด</a>
+                  <a href='https://www.ptmaxcard.com/home' target='_blank' rel='noreferrer' className={styles.footerList}>
+                    รายละเอียด
+                  </a>
                 </li>
                 <li>
-                  <a href="https://www.ptmaxcard.com/register" className={styles.footerList}>สมัครสมาชิก</a>
+                  <a href='https://www.ptmaxcard.com/register' target='_blank' rel='noreferrer' className={styles.footerList}>
+                    สมัครสมาชิก
+                  </a>
                 </li>
               </ul>
             </div>
@@ -115,11 +118,7 @@ const Footer: React.FC = () => {
                   <button className='flex absolute top-5 left-6 flex-row justify-center items-center p-2 rounded-lg bg-secondary'>
                     <ImageLoader width={18} height={18} src='/images/icons/right-arrow.png' />
                     <span className='ml-2 font-poppins text-sm font-semibold text-white'>
-                      <a
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        href={`https://g.page/cwtower?share`}
-                      >
+                      <a target='_blank' rel='noopener noreferrer' href={`https://g.page/cwtower?share`}>
                         Get Direction
                       </a>
                     </span>
@@ -150,9 +149,7 @@ const Footer: React.FC = () => {
       <div className='h-9 text-white bg-[#1f1f1f] md:h-[55px] 2xl:h-[68px]'>
         <div className='container mx-auto w-full h-full'>
           <div className='flex justify-center items-center w-full h-full'>
-            <p className='font-prompts text-sm font-light md:text-base 2xl:text-lg'>
-              NEXX PHARMA © 2022 ALL RIGHTS RESERVED
-            </p>
+            <p className='font-prompts text-sm font-light md:text-base 2xl:text-lg'>NEXX PHARMA © 2022 ALL RIGHTS RESERVED</p>
           </div>
         </div>
       </div>
