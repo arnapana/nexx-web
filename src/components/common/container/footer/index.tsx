@@ -102,10 +102,10 @@ const Footer: React.FC = () => {
               <ul className='mt-9 space-y-1 font-prompts text-white md:space-y-3'>
                 <li className={styles.footerHeaderList}>เกี่ยวกับพีทีแมกซ์การ์ด</li>
                 <li>
-                  <a className={styles.footerList}>รายละเอียด</a>
+                  <a href="https://www.ptmaxcard.com/home" className={styles.footerList}>รายละเอียด</a>
                 </li>
                 <li>
-                  <a className={styles.footerList}>สมัครสมาชิก</a>
+                  <a href="https://www.ptmaxcard.com/register" className={styles.footerList}>สมัครสมาชิก</a>
                 </li>
               </ul>
             </div>

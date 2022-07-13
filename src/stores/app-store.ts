@@ -12,6 +12,7 @@ export const appAppState = atom({
     googleAnalyze: '',
     googleAnalyzeState: false,
     pdpa: '',
-    pdpaStatus: false
+    pdpaStatus: false,
+    notify: true
   }
 })

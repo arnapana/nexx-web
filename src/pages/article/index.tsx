@@ -6,6 +6,7 @@ import { Container, BreadCrumb, PageSEO } from '@components/common'
 import { IBlog } from './[slug]'
 import { IActivities } from 'pages/aboutus'
 import { BlogHightlight } from '@components/containers/blog-hightlight'
+import { ButtonContact } from '@components/button-contact'
 
 export type ICategory = {
   id: number
@@ -24,7 +25,9 @@ const Articles: NextPage<Props> = ({ blogHightlight, blogs, categories }) => {
   return (
     <Container>
       <PageSEO title={`Nexx Phamacy - Nexx Pharma Blog`} description='บทความจากมีสาระ Nexx Pharma' />
-
+     {/* Floating Button */}
+     <ButtonContact />
+     
       <BreadCrumb outerClassName='container mx-auto my-10' />
       <HeaderSearchContainer />
       {blogHightlight && <BlogHightlight blog={blogHightlight} refContainer={refContainer}/>}

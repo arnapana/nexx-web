@@ -18,7 +18,7 @@ export const ContactusContainer = () => {
       phone: Yup.string().required('กรุณาระบุเบอร์ติดต่อ'),
       title: Yup.string().required('กรุณาระบุหัวข้อติดต่อ'),
       message: Yup.string().required('กรุณาระบุข้อความ'),
-      accept: Yup.boolean().required().isTrue()
+      accept: Yup.boolean().required().isTrue('กรุณายอมรับนโยบายความเป็นส่วนตัวและนโยบายคุกกี้')
     }),
     onSubmit: (values, { setSubmitting, resetForm }) => {
       fetch(`${process.env.NEXT_PUBLIC_BACKEND_API as string}/contacts`, {
@@ -124,6 +124,8 @@ export const ContactusContainer = () => {
                 checked={formik.values.accept}
                 handleOnChange={formik.handleChange}
                 labelClassName='text-xs md:text-lg underline'
+                errors={formik.errors.accept}
+                touch={formik.touched.accept}
               />
               <div>
                 <button

@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react'
+import { useRecoilState } from 'recoil'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { getCookie, checkCookies } from 'cookies-next'
 import { ImageLoader, NavLink, NavLinkMobile } from '@components/common'
 import { ListIcon, CloseIcon } from '@components/icons'
 
+import { appAppState } from '@stores/app-store'
 import menuConstant from '@constants/common/menu.json'
 
 const Navbar: React.FC = () => {
+  const [appVal, setAppVal] = useRecoilState(appAppState)
   const [isOpen, setOpen] = useState<boolean>(true)
   const [isSidebar, setSidebar] = useState<boolean>(false)
   const [notify, setNotify] = useState<any>()
 
   const handleNotify = () => {
-    setOpen((val) => !val)
+    setAppVal((val) => ({ ...val, notify: !val.notify }))
   }
   const handleSidebar = () => {
     setSidebar((val) => !val)
@@ -38,29 +41,19 @@ const Navbar: React.FC = () => {
   return (
     <nav className='flex sticky top-0 z-[20] flex-col justify-center items-center bg-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.05)]'>
       {/* Notify */}
-      {isOpen ? (
+      {appVal.notify ? (
         <div className='hidden justify-center items-center space-x-5 w-full h-[3rem] text-white bg-primary xl:flex'>
           <div className='flex justify-center items-center'>
             <p className='font-prompts text-base text-center'>{notify?.status && notify?.msg}</p>
           </div>
-          <div
-            className='flex justify-center items-center w-6 h-6 bg-white rounded-full cursor-pointer'
-            onClick={handleNotify}
-          >
+          <div className='flex justify-center items-center w-6 h-6 bg-white rounded-full cursor-pointer' onClick={handleNotify}>
             <ImageLoader width={10} height={10} src='/images/icons/cancel.png' />
           </div>
         </div>
       ) : null}
       <div className='container mx-auto w-full h-full'>
         {/* NavbarList */}
-        <div
-          className={classNames(
-            'flex justify-between items-center w-full h-[74px]',
-            'lg:h-20',
-            'xl:justify-center',
-            '2xl:h-[90px]'
-          )}
-        >
+        <div className={classNames('flex justify-between items-center w-full h-[74px]', 'lg:h-20', 'xl:justify-center', '2xl:h-[90px]')}>
           <div className='flex relative justify-center items-center mr-14 w-[calc(3.5vw+90px)] h-[calc(1.5vw+40px)]'>
             <Link href='/'>
               <a>
