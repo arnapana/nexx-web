@@ -73,11 +73,11 @@ export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
             ))}
           </div>
           <div id='telephamacy' className='px-10 mx-auto md:px-0'>
-            <div className='overflow-hidden relative w-[250px] md:w-[300px]'>
+            <div className='overflow-hidden relative w-[250px] md:w-[350px]'>
               <Slider {...settings} ref={slickRef}>
                 {_.map(telephamacies, (val, idx) => (
                   <a>
-                    <ImageLoader key={idx} src={val?.imgSrc ? val.imgSrc : '/images/telephamacy/img2.png'} width={300} height={600} objectFit='contain' />
+                    <ImageLoader key={idx} src={val?.imgSrc ? val.imgSrc : '/images/telephamacy/img2.png'} width={350} height={500} objectFit='contain' />
                   </a>
                 ))}
               </Slider>
