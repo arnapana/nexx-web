@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, forwardRef } from 'react'
 import { MDXRemote } from 'next-mdx-remote'
 import classNames from 'classnames'
 interface Props {
+  id: any
   name: string
   list: any
   index: number
@@ -9,21 +10,27 @@ interface Props {
   onClick: () => void
 }
 
-export const CardTelephamacy: React.FC<Props> = ({ name, list, onClick, current, index }) => {
+const CardTelephamacy = forwardRef<any, Props>((props, ref) => {
   return (
-    <div className='p-5 cursor-pointer' onClick={onClick}>
+    <div id={props.id} ref={ref} className='p-5 cursor-pointer' onClick={props.onClick}>
       <div
         id='telephamacy'
         className={`py-5 px-7 bg-white rounded-[1.25rem] hover:drop-shadow-[0_3px_20px_rgba(120,233,69,0.2)] ${
-          current === index ? 'drop-shadow-[0_3px_20px_rgba(120,233,69,0.2)]' : null
+          props.current === props.index ? 'drop-shadow-[0_3px_20px_rgba(120,233,69,0.2)]' : null
         }`}
       >
         <div className='mb-2'>
-          <p className={classNames(`font-prompts font-medium telephamacy-title before:content-[""] ${current === index ? 'before:bg-[#29cf00]' : 'before:bg-[#364ad9]'}`)}>{name}</p>
+          <p
+            className={classNames(
+              `font-prompts font-medium telephamacy-title before:content-[""] ${props.current === props.index ? 'before:bg-[#29cf00]' : 'before:bg-[#364ad9]'}`
+            )}
+          >
+            {props.name}
+          </p>
         </div>
         <div>
           <ul id='test' className={classNames('telephamacy-list', 'prose max-w-none font-sarabun text-sm md:text-lg')}>
-            {list && <MDXRemote {...list} />}
+            {props.list && <MDXRemote {...props.list} />}
           </ul>
         </div>
       </div>
@@ -60,4 +67,8 @@ export const CardTelephamacy: React.FC<Props> = ({ name, list, onClick, current,
       `}</style>
     </div>
   )
-}
+})
+
+CardTelephamacy.displayName = 'CardTelephamacy'
+
+export { CardTelephamacy }

@@ -25,7 +25,6 @@ export const HeroBanner: NextPage<IHeroBanner> = ({
             sectionClassName,
             { 'block lg:hidden': srcMobile },
             `relative h-[34rem] bg-cover bg-center bg-no-repeat`,
-            '2xl:h-[40rem]'
           )}
         >
           <ImageLoader src={srcMobile} layout='fill' objectFit='cover' priority={true} />
@@ -37,7 +36,7 @@ export const HeroBanner: NextPage<IHeroBanner> = ({
           sectionClassName,
           { 'hidden lg:block': srcMobile },
           `relative h-[30rem] bg-cover bg-center bg-no-repeat`,
-          '2xl:h-[40rem]'
+          '2xl:h-[45rem]'
         )}
       >
         <ImageLoader src={src} layout='fill' objectFit='cover' priority={true} />

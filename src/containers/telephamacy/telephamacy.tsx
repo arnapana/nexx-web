@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useMemo } from 'react'
 import * as _ from 'lodash'
 import { CardTelephamacy } from '@components/index'
 import { ColorLine, ImageLoader } from '@components/common'
@@ -12,7 +12,17 @@ interface Props {
 }
 
 export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
-  const slickRef = useRef<any>()
+  const cardRef = useMemo(() => {
+    const refCards = {} as any
+
+    telephamacies.forEach((val, idx) => {
+      console.log(val.id)
+      refCards[val.id] = React.createRef()
+    })
+
+    return refCards
+  }, [telephamacies])
+  const slickRef = useRef<any>(null)
   const [slideIndex, setSlideIndex] = useState<number>(0)
 
   const settings = {
@@ -26,13 +36,13 @@ export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
         <ul style={{ margin: '0px' }}> {dots} </ul>
       </div>
     ),
-    beforeChange: (current: number, next: number) => setSlideIndex(next)
+    beforeChange: (current: number, next: number) => setSlideIndex(next),
+    afterChange: (current: number) => cardRef[current + 1]?.current?.scrollIntoView({ behavior: 'smooth',  block: 'center' })
   }
 
   const handleSlick = (i: number) => {
     slickRef.current.slickGoTo(i)
   }
-
 
   return (
     <section className='py-10'>
@@ -52,6 +62,8 @@ export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
           <div>
             {_.map(telephamacies, (val, idx) => (
               <CardTelephamacy
+                id={val.id}
+                ref={cardRef[val.id]}
                 key={idx}
                 name={val.title}
                 list={val.content}
@@ -65,13 +77,9 @@ export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
             <div className='overflow-hidden relative w-[250px] md:w-[300px]'>
               <Slider {...settings} ref={slickRef}>
                 {_.map(telephamacies, (val, idx) => (
-                  <ImageLoader
-                    key={idx}
-                    src={val?.imgSrc ? val.imgSrc : '/images/telephamacy/img2.png'}
-                    width={300}
-                    height={600}
-                    objectFit="contain"
-                  />
+                  <a>
+                    <ImageLoader key={idx} src={val?.imgSrc ? val.imgSrc : '/images/telephamacy/img2.png'} width={300} height={600} objectFit='contain' />
+                  </a>
                 ))}
               </Slider>
             </div>
