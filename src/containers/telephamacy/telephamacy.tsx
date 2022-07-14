@@ -16,7 +16,6 @@ export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
     const refCards = {} as any
 
     telephamacies.forEach((val, idx) => {
-      console.log(val.id)
       refCards[val.id] = React.createRef()
     })
 
