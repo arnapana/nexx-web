@@ -51,7 +51,7 @@ export const CustomerReview: NextPage<Props> = ({ reviewPost }) => {
         <Slider {...settings}>
           {_.map(reviewPost, (val, idx) => (
             <div key={idx} className='p-10 slider-review'>
-              <div className='p-5 bg-white rounded-3xl drop-shadow-[0_10px_15px_rgba(54,74,217,0.1)] md:p-10 lg:p-16 card-review'>
+              <div className='p-5 max-w-[765px] max-h-[550px] bg-white rounded-3xl drop-shadow-[0_10px_15px_rgba(54,74,217,0.1)] md:p-10 lg:p-16 card-review'>
                 <div className='box-border overflow-hidden w-full h-full text-ellipsis'>
                   <div className='flex flex-col justify-center items-center mb-5'>
                     <div className='overflow-hidden rounded-full'>
