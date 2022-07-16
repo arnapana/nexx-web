@@ -52,8 +52,21 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
               <p className='font-prompts tracking-wide text-center line-clamp-14 md:line-clamp-10 subtitle'>{content}</p>
             </div>
             {_.includes(_.lowerCase(title), 'max card') && (
-              <div className='flex justify-center'>
-                <ImageLoader width={150} height={150} src='/images/AW-PT-Premier-MaxCard.png' objectFit='contain'/>
+              <div className='flex flex-col justify-center space-y-5'>
+                <ImageLoader width={150} height={150} src='/images/AW-PT-Premier-MaxCard.png' objectFit='contain' />
+
+                <div className='flex justify-center space-x-10'>
+                  <p className='text-base text-primary'>
+                    <a target='_blank' rel='noreferrer' href='https://www.ptmaxcard.com/home'>
+                      รายละเอียด
+                    </a>
+                  </p>
+                  <p className='text-base text-primary'>
+                    <a target='_blank' rel='noreferrer' href='https://www.ptmaxcard.com/register'>
+                      สมัครสมาชิก
+                    </a>
+                  </p>
+                </div>
               </div>
             )}
             <div className='absolute top-0 right-0 translate-x-5 -translate-y-5 cursor-pointer' onClick={(event: any) => handleModal(event)}>

@@ -10,17 +10,14 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useRouter } from 'next/router'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
-import breaks from 'remark-breaks'
+import remarkbreak from 'remark-breaks'
 import remarkParser from 'remark-parse'
 import remarkGfm from 'remark-gfm'
-import rehypeRaw from 'rehype-raw'
-import rehypeSanitize from 'rehype-sanitize'
 
 import remarkRehype from 'remark-rehype'
 import rehypeSlug from 'rehype-slug'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeStringify from 'rehype-stringify'
-import rehypeParser from 'rehype-parse'
 
 import { GetServerSideProps, GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Container, BreadCrumb, ImageLoader, PageSEO, BlogSEO } from '@components/common'
@@ -150,17 +147,16 @@ export const getServerSideProps: GetServerSideProps<any, any> = async (context) 
   const mdxSource = await serialize(postJson[0].content.replace(/<(br|hr|input|meta|img|link|param|area)>/g, '<$1 />'), {
     mdxOptions: {
       remarkPlugins: [
-        breaks,
         remarkParser,
+        remarkbreak,
         remarkGfm,
         //@ts-ignore
-        [remarkRehype]
+        [remarkRehype, { allowDangerousHtml: true }]
       ],
       rehypePlugins: [
-        rehypeRaw,
         rehypeSlug,
         [rehypeExternalLinks, { target: '_blank', rel: ['nofollow'] }],
-        [rehypeStringify]
+        [rehypeStringify, { allowDangerousHtml: true }]
       ]
     }
   })

@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-
+import { MDXProvider } from '@mdx-js/react'
 import { useState, useEffect } from 'react'
 import { setCookies, getCookie, checkCookies } from 'cookies-next'
 import App, { AppContext, AppProps } from 'next/app'
