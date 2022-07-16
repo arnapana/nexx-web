@@ -24,7 +24,7 @@ export const SearchContentContainer: NextPage<Props> = ({ postBlog }) => {
   return (
     <section className='mb-24'>
       <div className='container mx-auto'>
-        <div className='grid grid-cols-1 mb-20 md:grid-cols-2 md:gap-16'>
+        <div className='grid grid-cols-1 mb-20 gap-5 md:grid-cols-2 md:gap-16'>
           {_.map(blogState, (val, idx) => (
             <CardArticle key={idx} val={val} />
           ))}

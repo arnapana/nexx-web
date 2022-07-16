@@ -29,8 +29,8 @@ export const Introduction = () => {
               <div className='mb-7'>
                 <div className='relative w-full max-w-[544px] h-[70px]'>
                   <ImageLoader src='/images/intro/quote.png' layout='fill' />
-                  <div className='absolute top-1/2 left-6 -translate-y-2/3'>
-                    <p className='font-prompts text-sm font-medium text-white md:text-lg 2xl:text-2xl'>{introductionConstant.quote}</p>
+                  <div className='absolute top-1/2 left-6 -translate-y-[70%] md:-translate-y-2/3'>
+                    <p className='font-prompts text-base font-medium text-white md:text-lg 2xl:text-2xl'>{introductionConstant.quote}</p>
                   </div>
                 </div>
               </div>

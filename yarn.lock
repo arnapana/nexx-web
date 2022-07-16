@@ -3182,7 +3182,7 @@
     "unified" "^10.0.0"
     "unist-util-visit" "^4.0.0"
 
-"rehype-parse@^8.0.2":
+"rehype-parse@^8.0.2", "rehype-parse@^8.0.4":
   "integrity" "sha512-MJJKONunHjoTh4kc3dsM1v3C9kGrrxvA3U8PxZlP2SjH8RNUSrb+lF7Y0KVaUDnGH2QZ5vAn7ulkiajM9ifuqg=="
   "resolved" "https://registry.npmjs.org/rehype-parse/-/rehype-parse-8.0.4.tgz"
   "version" "8.0.4"

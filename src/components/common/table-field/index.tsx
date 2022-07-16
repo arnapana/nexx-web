@@ -17,7 +17,9 @@ export const TableField: NextPage<Props> = ({ val }) => {
         <p className='font-prompts text-sm md:text-lg'>{val?.address}</p>
       </td>
       <td className='text-primary underline '>
-        <p className='font-prompts text-sm md:text-lg'>{val?.phone}</p>
+        <a href={`tel:${val?.phone}`}>
+          <p className='font-prompts text-sm md:text-lg'>{val?.phone}</p>
+        </a>
       </td>
       <td className=''>
         <p className='font-prompts text-sm md:text-lg'>{val?.timeOpen}</p>

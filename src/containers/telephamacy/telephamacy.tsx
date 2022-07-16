@@ -22,6 +22,7 @@ export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
     return refCards
   }, [telephamacies])
   const slickRef = useRef<any>(null)
+  const imageRef = useRef<any>(null)
   const [slideIndex, setSlideIndex] = useState<number>(0)
 
   const settings = {
@@ -35,12 +36,13 @@ export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
         <ul style={{ margin: '0px' }}> {dots} </ul>
       </div>
     ),
-    beforeChange: (current: number, next: number) => setSlideIndex(next),
-    afterChange: (current: number) => cardRef[current + 1]?.current?.scrollIntoView({ behavior: 'smooth',  block: 'center' })
+    beforeChange: (current: number, next: number) => setSlideIndex(next)
+    // afterChange: (current: number) => cardRef[current + 1]?.current?.scrollIntoView({ behavior: 'smooth',  block: 'center' })
   }
 
   const handleSlick = (i: number) => {
-    slickRef.current.slickGoTo(i)
+    slickRef.current?.slickGoTo(i)
+    imageRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
   return (
@@ -72,11 +74,11 @@ export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
               />
             ))}
           </div>
-          <div id='telephamacy' className='px-10 mx-auto md:px-0'>
-            <div className='overflow-hidden relative w-[250px] md:w-[350px]'>
+          <div id='telephamacy' className='py-5 px-10 mx-auto md:px-0'>
+            <div className='overflow-hidden sticky top-40 w-[300px] md:w-[350px]'>
               <Slider {...settings} ref={slickRef}>
                 {_.map(telephamacies, (val, idx) => (
-                  <a>
+                  <a ref={imageRef}>
                     <ImageLoader key={idx} src={val?.imgSrc ? val.imgSrc : '/images/telephamacy/img2.png'} width={350} height={500} objectFit='contain' />
                   </a>
                 ))}
