@@ -100,7 +100,7 @@ const Article: NextPage<Props> = (props: any) => {
                 </li>
                 <li>
                   <CopyToClipboard text={`${process.env.NEXT_PUBLIC_HOSTNAME}/activity/${props?.frontMatter?.slug}`} onCopy={() => setIsCopy(true)}>
-                    <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
+                    <button className='grid relative place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
                       {isCopy ? <CheckIcon className='w-6 h-6 text-secondary' /> : <ImageLoader src='/images/icons/icon-link.png' width={23} height={23} />}
                       {isCopy ? <span className='absolute -bottom-5 text-sm'>Copied</span> : null}
                     </button>
