@@ -6,6 +6,14 @@ const nextConfig = {
   },
   experimental: {
     outputStandalone: true
+  },
+  rewrites: async () => {
+    return [
+      {
+        source: '/healthz',
+        destination: '/api/health'
+      }
+    ]
   }
 }
 
