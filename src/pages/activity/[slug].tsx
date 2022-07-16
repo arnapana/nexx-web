@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
 import * as _ from 'lodash'
 import dayjs from 'dayjs'
@@ -22,8 +22,10 @@ import rehypeStringify from 'rehype-stringify'
 import { GetServerSideProps, GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Container, BreadCrumb, ImageLoader, PageSEO, BlogSEO } from '@components/common'
 import { ButtonContact, ButtonTag } from '@components/index'
-import { ArticleRelativeContainer } from '@containers/article/content'
+
 import { IActivities } from 'pages/aboutus'
+import { CheckIcon } from '@components/icons'
+
 dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.tz.setDefault('Asia/Bangkok')
@@ -38,6 +40,7 @@ interface Props {
 }
 
 const Article: NextPage<Props> = (props: any) => {
+  const [isCopy, setIsCopy] = useState<boolean>(false)
   const router = useRouter()
   if (!router.isFallback && !props.mdxSource) {
     return <p>Error</p>
@@ -96,9 +99,10 @@ const Article: NextPage<Props> = (props: any) => {
                   </LineShareButton>
                 </li>
                 <li>
-                  <CopyToClipboard text={`${process.env.NEXT_PUBLIC_HOSTNAME}/activity/${props?.frontMatter?.slug}`}>
+                  <CopyToClipboard text={`${process.env.NEXT_PUBLIC_HOSTNAME}/activity/${props?.frontMatter?.slug}`} onCopy={() => setIsCopy(true)}>
                     <button className='grid place-items-center w-[47px] h-[47px] bg-[#E6EDFF] rounded-lg'>
-                      <ImageLoader src='/images/icons/icon-link.png' width={23} height={23} />
+                      {isCopy ? <CheckIcon className='w-6 h-6 text-secondary' /> : <ImageLoader src='/images/icons/icon-link.png' width={23} height={23} />}
+                      {isCopy ? <span className='absolute -bottom-5 text-sm'>Copied</span> : null}
                     </button>
                   </CopyToClipboard>
                 </li>
@@ -153,11 +157,7 @@ export const getServerSideProps: GetServerSideProps<any, any> = async (context) 
         //@ts-ignore
         [remarkRehype, { allowDangerousHtml: true }]
       ],
-      rehypePlugins: [
-        rehypeSlug,
-        [rehypeExternalLinks, { target: '_blank', rel: ['nofollow'] }],
-        [rehypeStringify, { allowDangerousHtml: true }]
-      ]
+      rehypePlugins: [rehypeSlug, [rehypeExternalLinks, { target: '_blank', rel: ['nofollow'] }], [rehypeStringify, { allowDangerousHtml: true }]]
     }
   })
 

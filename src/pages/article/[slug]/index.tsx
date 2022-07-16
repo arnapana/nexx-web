@@ -66,14 +66,8 @@ interface Props {
 
 const Article: NextPage<Props> = (props: any) => {
   const [isCopy, setIsCopy] = useState<boolean>(false)
-  const [isTimeoutCopy, setTimeoutCopy] = useState<boolean>(false)
   const router = useRouter()
 
-  useEffect(() => {
-    setTimeout(() => {
-      setTimeoutCopy(true)
-    }, 5000)
-  }, [isCopy])
 
   if (!router.isFallback && !props.mdxSource) {
     return <p>Error</p>
