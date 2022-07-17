@@ -14,7 +14,7 @@ export const ArticleRelativeContainer: NextPage<Props> = ({ relativePost }) => {
     <section className='py-20 bg-[#FCFCFC]'>
       <div className='container mx-auto'>
         {/* Header */}
-        <div className='mb-20'>
+        <div className='mb-10'>
           <div>
             <p className='font-medium text-center h2'>บทความที่เกี่ยวข้อง</p>
           </div>
@@ -22,7 +22,7 @@ export const ArticleRelativeContainer: NextPage<Props> = ({ relativePost }) => {
         </div>
 
         {/* Content */}
-        <div className='overflow-auto w-full'>
+        <div className='overflow-x-auto py-10 w-full'>
           <table className='w-full table-fixed'>
             <thead className='w-full'>
               <tr className='flex items-start w-full'>

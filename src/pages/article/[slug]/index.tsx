@@ -87,7 +87,7 @@ const Article: NextPage<Props> = (props: any) => {
         <div className='container mx-auto'>
           {/* Header */}
           <div className='mb-16'>
-            <div className='px-[10%] mb-5 text-center'>
+            <div className='mb-5 text-center md:px-[10%]'>
               <h2 className='mb-5 font-prompts font-medium h2'>{props?.frontMatter?.title}</h2>
               <h3 className='font-prompts font-medium h3'>{props?.frontMatter?.subTitle}</h3>
             </div>
