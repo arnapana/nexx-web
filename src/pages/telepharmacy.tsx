@@ -29,8 +29,8 @@ const Telephamacy: NextPage<Props> = ({ telephamacies, carousel }) => {
   return (
     <Container>
       <PageSEO
-        title={`Nexx Phamacy - Telephamacy`}
-        description='Nexx Phamacy - Telephamacy'
+        title={`Nexx Pharma - Telephamacy`}
+        description='Nexx Pharma - Telephamacy'
         imageUrl={carousel?.imgSrc}
       />
 

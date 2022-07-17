@@ -21,7 +21,7 @@ const TermCondition: NextPage = (props: any) => {
 
   return (
     <Container>
-      <PageSEO title={`Nexx Phamacy - ${props.frontMatter.title}`} description={props.frontMatter.description} />
+      <PageSEO title={`Nexx Pharma - ${props.frontMatter.title}`} description={props.frontMatter.description} />
 
       {/* Floating Button */}
       <ButtonContact />

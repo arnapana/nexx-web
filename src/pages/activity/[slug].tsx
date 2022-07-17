@@ -51,7 +51,7 @@ const Article: NextPage<Props> = (props: any) => {
 
   return (
     <Container>
-      <PageSEO title={`Nexx Phamacy - ${props?.frontMatter?.title}`} description={props?.frontMatter?.description} imageUrl={props?.frontMatter?.imgSrc} />
+      <PageSEO title={`Nexx Pharma - ${props?.frontMatter?.title}`} description={props?.frontMatter?.description} imageUrl={props?.frontMatter?.imgSrc} />
       {/* Floating Button */}
       <ButtonContact />
 

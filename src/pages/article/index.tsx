@@ -24,7 +24,7 @@ const Articles: NextPage<Props> = ({ blogHightlight, blogs, categories }) => {
 
   return (
     <Container>
-      <PageSEO title={`Nexx Phamacy - Nexx Pharma Blog`} description='บทความจากมีสาระ Nexx Pharma' />
+      <PageSEO title={`Nexx Pharma - Nexx Pharma Blog`} description='บทความจากมีสาระ Nexx Pharma' />
      {/* Floating Button */}
      <ButtonContact />
      

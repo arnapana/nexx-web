@@ -6,7 +6,7 @@ import { ContactusContainer, ContactStoreContainer } from '@containers/contactus
 const Contactus: NextPage = () => {
   return (
     <Container>
-      <PageSEO title={`Nexx Phamacy - Contact Nexx Phamacy`} description='Contact Nexx Phamacy' />
+      <PageSEO title={`Nexx Pharma - Contact Nexx Pharma`} description='Contact Nexx Pharma' />
       {/* Floating Button */}
       <ButtonContact />
       <BreadCrumb outerClassName='container mx-auto my-10' />
