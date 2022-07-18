@@ -12,7 +12,7 @@ export const FramerYoutube: NextPage<Props> = ({ playing, embedId }) => {
   const playerRef = useRef<YouTubePlayer>(null)
 
   return (
-    <div className='aspect-video relative h-[30rem] pointer-events-none md:h-[34rem] 2xl:h-[45rem]'>
+    <div className='aspect-video relative h-[30rem] pointer-events-none md:h-[34rem] 3xl:h-[44rem]'>
       <ReactPlayer
         config={{
           youtube: {

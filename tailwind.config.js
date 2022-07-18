@@ -13,19 +13,19 @@ function withOpacityValue(variable) {
 }
 
 module.exports = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/containers/**/*.{js,ts,jsx,tsx}'
-  ],
+  content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}', './src/containers/**/*.{js,ts,jsx,tsx}'],
   theme: {
     container: {
       padding: {
         DEFAULT: '1rem',
         xl: '7rem',
+        "2xl": '8rem'
       }
     },
     extend: {
+      screens: {
+        '3xl': '1600px'
+      },
       animation: {
         'fade-in': 'fade-in 0.5s linear forwards',
         'fade-out': 'fade-out 0.5s linear forwards'

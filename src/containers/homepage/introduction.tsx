@@ -26,11 +26,11 @@ export const Introduction = () => {
             {/* Content */}
             <div className='mt-10 lg:px-10'>
               {/* QuoteMessage */}
-              <div className='mb-7'>
-                <div className='relative w-full max-w-[544px] h-[70px]'>
-                  <ImageLoader src='/images/intro/quote.png' layout='fill' />
-                  <div className='absolute top-1/2 left-6 -translate-y-[70%] md:-translate-y-2/3'>
-                    <p className='font-prompts text-base font-medium text-white md:text-lg 2xl:text-2xl'>{introductionConstant.quote}</p>
+              <div className='mb-7 w-fit'>
+                <div className='relative'>
+                  <ImageLoader src='/images/intro/quote.png' width={544} height={74} />
+                  <div className='absolute top-1/2 -translate-y-[80%] w-full'>
+                    <p className='w-full font-prompts text-base font-medium text-white text-center 3xl:text-2xl'>{introductionConstant.quote}</p>
                   </div>
                 </div>
               </div>

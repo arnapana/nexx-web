@@ -47,7 +47,7 @@ const Telephamacy: NextPage<Props> = ({ telephamacies, carousel }) => {
             className={classNames(
               'text-[2rem] leading-10 font-poppins font-semibold text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
               'md:text-[3.5rem]',
-              '2xl:text-[80px] 2xl:leading-[90px]'
+              '3xl:text-[80px] 3xl:leading-[90px]'
             )}
           >
             {carousel?.title}
@@ -56,18 +56,18 @@ const Telephamacy: NextPage<Props> = ({ telephamacies, carousel }) => {
             className={classNames(
               'absolute top-[10%] -right-[20%] items-center w-[55px] h-[35px]',
               'md:top-0 md:w-[84px] md:h-[52px]',
-              '2xl:top-[30%] 2xl:w-[84] 2xl:h-[52px]'
+              '3xl:top-[30%] 3xl:w-[84] 3xl:h-[52px]'
             )}
           >
             <ImageLoader src='/images/carousel/left-arrow-green.png' layout='fill' />
           </div>
         </div>
-        <div className='w-[260px] md:w-[450px] 2xl:w-[600px]'>
+        <div className='w-[260px] md:w-[450px] 3xl:w-[600px]'>
           <p
             className={classNames(
               'font-prompts text-2xl font-medium text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
               'md:text-3xl',
-              '2xl:text-[2.5rem] 2xl:leading-[55px]'
+              '3xl:text-[2.5rem] 3xl:leading-[55px]'
             )}
           >
             {carousel?.description}

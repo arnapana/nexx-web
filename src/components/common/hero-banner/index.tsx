@@ -10,37 +10,20 @@ interface IHeroBanner {
   srcMobile?: string
 }
 
-export const HeroBanner: NextPage<IHeroBanner> = ({
-  src,
-  srcMobile,
-  children,
-  containerClassName,
-  sectionClassName
-}) => {
+export const HeroBanner: NextPage<IHeroBanner> = ({ src, srcMobile, children, containerClassName, sectionClassName }) => {
   return (
     <section>
       {srcMobile && (
-        <div
-          className={classNames(
-            sectionClassName,
-            { 'block lg:hidden': srcMobile },
-            `relative h-[34rem] bg-cover bg-center bg-no-repeat`,
-          )}
-        >
+        <div className={classNames(sectionClassName, { 'block lg:hidden': srcMobile }, `relative h-[34rem] bg-cover bg-center bg-no-repeat`)}>
           <ImageLoader src={srcMobile} layout='fill' objectFit='cover' priority={true} />
           <div className={classNames(containerClassName, 'absolute top-[16%] left-[13%]')}>{children}</div>
         </div>
       )}
-      <div
-        className={classNames(
-          sectionClassName,
-          { 'hidden lg:block': srcMobile },
-          `relative h-[30rem] bg-cover bg-center bg-no-repeat`,
-          '2xl:h-[45rem]'
-        )}
-      >
+      <div className={classNames(sectionClassName, { 'hidden lg:block': srcMobile }, `relative h-[30rem] bg-cover bg-center bg-no-repeat`, '3xl:h-[44rem]')}>
         <ImageLoader src={src} layout='fill' objectFit='cover' priority={true} />
-        <div className={classNames(containerClassName, 'absolute top-[16%] left-[16%]')}>{children}</div>
+        <div className='container relative mx-auto h-full'>
+          <div className={classNames(containerClassName, 'absolute top-[16%] left-[10%]')}>{children}</div>
+        </div>
       </div>
     </section>
   )

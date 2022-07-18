@@ -93,7 +93,7 @@ const Aboutus: NextPage<Props> = ({ visions, aboutus, activities, carousel }) =>
               className={classNames(
                 'text-[2.5rem] font-poppins font-semibold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.3)]',
                 'md:text-[5rem]',
-                '2xl:text-8xl 2xl:leading-[90px]'
+                '3xl:text-8xl 3xl:leading-[90px]'
               )}
             >
               {carousel?.title}
@@ -104,7 +104,7 @@ const Aboutus: NextPage<Props> = ({ visions, aboutus, activities, carousel }) =>
               className={classNames(
                 'text-[2rem] leading-10 font-poppins font-semibold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.3)]',
                 'md:text-[3rem]',
-                '2xl:text-6xl 2xl:leading-[90px]'
+                '3xl:text-6xl 3xl:leading-[90px]'
               )}
             >
               {carousel?.subTitle}
@@ -125,7 +125,7 @@ const Aboutus: NextPage<Props> = ({ visions, aboutus, activities, carousel }) =>
             className={classNames(
               'font-prompts text-2xl font-medium text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.3)]',
               'md:text-[1.5rem] md:leading-8',
-              '2xl:text-[2.5rem] 2xl:leading-[55px]'
+              '3xl:text-[2.5rem] 3xl:leading-[55px]'
             )}
           >
             {carousel?.description}
