@@ -27,7 +27,17 @@ export const CardArticle: React.FC<Props> = ({ val, containerClassName, innerCla
             {val?.imgSrc ? (
               <Link href={{ pathname: '/article/[slug]', query: { slug: val.slug } }}>
                 <a>
-                  <ImageLoader className='rounded-xl' layout='fill' src={val?.imgSrc} objectFit='cover' quality={100} />
+                  <ImageLoader
+                    className='rounded-xl'
+                    layout='fill'
+                    src={
+                      val?.imgSrcMobile ||
+                      val?.imgSrc ||
+                      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM087ppDAADpQGO4xm9mwAAAABJRU5ErkJggg=='
+                    }
+                    objectFit='cover'
+                    quality={100}
+                  />
                 </a>
               </Link>
             ) : (

@@ -15,9 +15,11 @@ export type IActivities = {
   title: string
   slug: string
   subTitle: string
+  author: string
   description: string
   content: string
   imgSrc: string
+  imgSrcMobile: string
   status: boolean
   publishedAt: Date
   createdAt: Date

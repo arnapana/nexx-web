@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classNames from 'classnames'
 import * as _ from 'lodash'
 import dayjs from 'dayjs'
@@ -42,6 +42,11 @@ interface Props {
 const Article: NextPage<Props> = (props: any) => {
   const [isCopy, setIsCopy] = useState<boolean>(false)
   const router = useRouter()
+  
+  useEffect(() => {
+    setIsCopy(false)
+  }, [router.asPath])
+
   if (!router.isFallback && !props.mdxSource) {
     return <p>Error</p>
   }
@@ -66,8 +71,12 @@ const Article: NextPage<Props> = (props: any) => {
             </div>
             <div className='mb-5'>
               <p className='font-prompts font-normal text-center'>
-                โพสต์เมื่อ <span>{dayjs(props?.frontMatter.published_at).format('DD MMM YYYY')}</span> โดย{' '}
-                <span className='font-medium'>{props?.frontMatter?.user?.firstname.replace('_', ' ')}</span>
+                โพสต์เมื่อ <span>{dayjs(props?.frontMatter.published_at).format('DD MMM YYYY')}</span>{' '}
+                {props?.frontMatter?.author && (
+                  <span>
+                    โดย <span className='font-medium'>{props?.frontMatter?.author?.replace('_', ' ')}</span>
+                  </span>
+                )}
               </p>
             </div>
             <div className='flex justify-center space-x-5'>

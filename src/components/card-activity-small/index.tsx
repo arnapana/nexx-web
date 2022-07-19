@@ -14,7 +14,7 @@ interface Props {
   refContainer?: any
 }
 
-export const CardActivitySmall: NextPage<Props> = ({ post, type,refContainer }) => {
+export const CardActivitySmall: NextPage<Props> = ({ post, type, refContainer }) => {
   const router = useRouter()
   const categoryId = router.query?.category as string
 
@@ -33,15 +33,21 @@ export const CardActivitySmall: NextPage<Props> = ({ post, type,refContainer }) 
                 layout='fill'
                 objectFit='cover'
                 quality={100}
-                src={post?.imgSrc || 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM087ppDAADpQGO4xm9mwAAAABJRU5ErkJggg=='}
+                src={
+                  post?.imgSrcMobile ||
+                  post?.imgSrc ||
+                  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM087ppDAADpQGO4xm9mwAAAABJRU5ErkJggg=='
+                }
               />
             </div>
           </Link>
 
           <div className='flex flex-col justify-between lg:w-2/3'>
-            <div className='md:mb-3'>
-              <p className={classNames('font-kanits font-medium text-left text-lg md:text-xl')}>{post?.title}</p>
-            </div>
+            <Link href={{ pathname: `/${type}/[slug]`, query: { slug: post?.slug } }} passHref>
+              <div className='md:mb-3'>
+                <p className={classNames('font-kanits font-medium text-left text-lg md:text-xl')}>{post?.title}</p>
+              </div>
+            </Link>
             {/* Tag for Desktop */}
             <div className='hidden space-x-5 md:flex'>
               {post?.categories.slice(0, 2)?.map((val, idx) => (

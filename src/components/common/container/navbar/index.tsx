@@ -11,7 +11,6 @@ import menuConstant from '@constants/common/menu.json'
 
 const Navbar: React.FC = () => {
   const [appVal, setAppVal] = useRecoilState(appAppState)
-  const [isOpen, setOpen] = useState<boolean>(true)
   const [isSidebar, setSidebar] = useState<boolean>(false)
   const [notify, setNotify] = useState<any>()
 
@@ -23,10 +22,20 @@ const Navbar: React.FC = () => {
   }
 
   useEffect(() => {
-    const anouncement = checkCookies('ANOUNCEMENT') && getCookie('ANOUNCEMENT')
-    const anouncementStatus = checkCookies('ANOUNCEMENTSTATE') && getCookie('ANOUNCEMENTSTATE')
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API as string}/apps/1`)
+      .then((res) => {
+        return res.json()
+      })
+      .then((data) => {
+        let url = ''
 
-    setNotify({ msg: anouncement || '', status: anouncementStatus || false })
+        if (data.urlNotify?.includes('https')) {
+          url = data.urlNotify
+        } else {
+          url = `https://${data.urlNotify}`
+        }
+        setNotify({ msg: data.anouncement || '', status: data.anoncementStatus || false, url: url || '' })
+      })
   }, [])
 
   useEffect(() => {
@@ -42,12 +51,16 @@ const Navbar: React.FC = () => {
     <nav className='flex sticky top-0 z-[20] flex-col justify-center items-center bg-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.05)]'>
       {/* Notify */}
       {appVal.notify ? (
-        <div className='hidden justify-center items-center space-x-5 w-full h-[3rem] text-white bg-primary xl:flex'>
-          <div className='flex justify-center items-center'>
-            <p className='font-prompts text-base text-center'>{notify?.status && notify?.msg}</p>
-          </div>
-          <div className='flex justify-center items-center w-6 h-6 bg-white rounded-full cursor-pointer' onClick={handleNotify}>
-            <ImageLoader width={10} height={10} src='/images/icons/cancel.png' />
+        <div className='flex justify-center items-center px-5 space-x-3 w-full  h-[3rem] text-white bg-primary md:space-x-5'>
+          <a href={notify?.url} target='_blank' rel='noreferrer'>
+            <div className='flex justify-center items-center'>
+              <p className='font-prompts text-xs text-left md:text-base'>{notify?.status && notify?.msg}</p>
+            </div>
+          </a>
+          <div>
+            <div className='flex justify-center items-center w-6 h-6 bg-white rounded-full cursor-pointer' onClick={handleNotify}>
+              <ImageLoader width={10} height={10} src='/images/icons/cancel.png' />
+            </div>
           </div>
         </div>
       ) : null}

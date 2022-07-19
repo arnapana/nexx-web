@@ -43,13 +43,22 @@ export const CardActivityLarge: NextPage<Props> = ({ post, type, refContainer })
 
           {post?.imgSrc ? (
             <Link href={{ pathname: `/${type}/[slug]`, query: { slug: post?.slug } }} passHref>
-              <ImageLoader className='overflow-hidden rounded-[30px]' width={1024} height={688} src={post?.imgSrc} />
+              <ImageLoader
+                className='overflow-hidden rounded-[30px]'
+                width={1024}
+                height={688}
+                src={
+                  post?.imgSrcMobile ||
+                  post?.imgSrc ||
+                  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM087ppDAADpQGO4xm9mwAAAABJRU5ErkJggg=='
+                }
+              />
             </Link>
           ) : (
             <div className='bg-slate-400 animate-pulse' style={{ width: '100%', height: '100%' }} />
           )}
 
-          <div className='flex absolute bottom-0 left-0 flex-col justify-between p-2 w-full  h-[84px] bg-primary md:py-5 md:px-9 md:h-[200px]'>
+          <div className='flex absolute bottom-0 left-0 flex-col justify-between p-2 w-full  h-[84px] bg-primary md:py-3 md:px-9 md:h-[160px]'>
             <div>
               <div className='md:mb-2'>
                 <p className='font-kanits font-medium text-white line-clamp-2 h3'>{post?.title}</p>

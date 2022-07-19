@@ -44,6 +44,7 @@ export type IBlog = {
   description: string
   content: string
   imgSrc: string
+  imgSrcMobile: string
   status: boolean
   publishedAt: Date
   createdAt: Date
@@ -67,6 +68,10 @@ interface Props {
 const Article: NextPage<Props> = (props: any) => {
   const [isCopy, setIsCopy] = useState<boolean>(false)
   const router = useRouter()
+
+  useEffect(() => {
+    setIsCopy(false)
+  }, [router.asPath])
 
 
   if (!router.isFallback && !props.mdxSource) {
