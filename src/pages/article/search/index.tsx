@@ -11,7 +11,7 @@ interface Props {
 const Search: NextPage<Props> = ({ blogs }) => {
   return (
     <Container>
-      <PageSEO title={`Nexx Pharma - Nexx Pharma Blog`} description='บทความจากมีสาระ Nexx Pharma' />
+      <PageSEO title={`NEXX Pharma - NEXX Pharma Blog`} description='บทความจากมีสาระ NEXX Pharma' />
 
       <BreadCrumb outerClassName='container mx-auto my-10' />
       <SearchHeaderContainer />

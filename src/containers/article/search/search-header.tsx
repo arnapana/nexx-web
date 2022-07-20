@@ -20,10 +20,10 @@ export const SearchHeaderContainer = () => {
         {/* Header */}
         <div className='mb-10'>
           <div className='mb-5'>
-            <p className='font-prompts font-medium text-center h2'>ผลการค้นหาคำว่า</p>
+            <p className='font-kanits font-medium text-center h2'>ผลการค้นหาคำว่า</p>
           </div>
           <div className='px-[30%]'>
-            <p className='font-prompts font-normal text-center text-primary h2'>{`“${router.query['keyword']}“`}</p>
+            <p className='font-kanits font-normal text-center text-primary h2'>{`“${router.query['keyword']}“`}</p>
           </div>
         </div>
         {/* Search */}

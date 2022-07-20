@@ -83,7 +83,7 @@ const Article: NextPage<Props> = (props: any) => {
 
   return (
     <Container>
-      <PageSEO title={`Nexx Pharma - ${props?.frontMatter?.title}`} description={props?.frontMatter?.description} imageUrl={props?.frontMatter?.imgSrc} />
+      <PageSEO title={`NEXX Pharma - ${props?.frontMatter?.title}`} description={props?.frontMatter?.description} imageUrl={props?.frontMatter?.imgSrc} />
       {/* Floating Button */}
       <ButtonContact />
 
@@ -93,11 +93,11 @@ const Article: NextPage<Props> = (props: any) => {
           {/* Header */}
           <div className='mb-16'>
             <div className='mb-5 text-center md:px-[10%]'>
-              <h2 className='mb-5 font-prompts font-medium h2'>{props?.frontMatter?.title}</h2>
-              <h3 className='font-prompts font-medium h3'>{props?.frontMatter?.subTitle}</h3>
+              <h2 className='mb-5 font-kanits font-medium h2'>{props?.frontMatter?.title}</h2>
+              <h3 className='font-kanits font-medium h3'>{props?.frontMatter?.subTitle}</h3>
             </div>
             <div className='mb-5'>
-              <p className='font-prompts font-normal text-center'>
+              <p className='font-kanits font-normal text-center'>
                 โพสต์เมื่อ <span>{dayjs(props?.frontMatter.published_at).format('DD MMM YYYY')}</span>{' '}
                 {props?.frontMatter?.author && (
                   <span>

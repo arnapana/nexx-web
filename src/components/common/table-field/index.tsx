@@ -10,19 +10,19 @@ export const TableField: NextPage<Props> = ({ val }) => {
   return (
     <tr className='h-[80px] odd:bg-[#F0F4FF] md:h-[120px]'>
       <td className=''>
-        <p className='font-prompts text-sm md:text-lg'>{val?.order}</p>
+        <p className='font-kanits text-sm md:text-lg'>{val?.order}</p>
       </td>
       <td className='px-5 text-left '>
-        <p className='font-prompts text-sm md:text-lg'>{val?.name}</p>
-        <p className='font-prompts text-sm md:text-lg'>{val?.address}</p>
+        <p className='font-kanits text-sm md:text-lg'>{val?.name}</p>
+        <p className='font-kanits text-sm md:text-lg'>{val?.address}</p>
       </td>
       <td className='text-primary underline '>
         <a href={`tel:${val?.phone}`}>
-          <p className='font-prompts text-sm md:text-lg'>{val?.phone}</p>
+          <p className='font-kanits text-sm md:text-lg'>{val?.phone}</p>
         </a>
       </td>
       <td className=''>
-        <p className='font-prompts text-sm md:text-lg'>{val?.timeOpen}</p>
+        <p className='font-kanits text-sm md:text-lg'>{val?.timeOpen}</p>
       </td>
       <td className=''>
         <button className='p-2 w-[60px] h-[40px] text-white rounded-lg md:w-[66px] md:h-[44px] bg-secondary'>

@@ -49,7 +49,7 @@ interface Props {
 const Stores: NextPage<Props> = ({ carousel, branch, network }) => {
   return (
     <Container>
-      <PageSEO title={`Nexx Pharma - Store`} description='Nexx Pharma - Store' imageUrl={carousel?.imgSrc} />
+      <PageSEO title={`NEXX Pharma - Store`} description='NEXX Pharma - Store' imageUrl={carousel?.imgSrc} />
 
       {/* Floating Button */}
       <ButtonContact />
@@ -82,7 +82,7 @@ const Stores: NextPage<Props> = ({ carousel, branch, network }) => {
         <div className='w-[250px] md:w-[380px] 3xl:w-[500px]'>
           <p
             className={classNames(
-              'font-prompts text-2xl font-medium text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
+              'font-kanits text-2xl font-medium text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
               'md:text-3xl',
               '3xl:text-[2.5rem] 3xl:leading-[55px]'
             )}

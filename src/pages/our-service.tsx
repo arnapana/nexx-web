@@ -26,8 +26,8 @@ const OurService: NextPage<Props> = (props) => {
   return (
     <Container>
       <PageSEO
-        title={`Nexx Pharma - OurService`}
-        description='Nexx Pharma - OurService'
+        title={`NEXX Pharma - OurService`}
+        description='NEXX Pharma - OurService'
         imageUrl={props.carousel?.imgSrc}
       />
 
@@ -57,7 +57,7 @@ const OurService: NextPage<Props> = (props) => {
         <div className='w-[250px] md:w-[450px] 3xl:w-[600px]'>
           <p
             className={classNames(
-              'font-prompts text-2xl font-medium text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
+              'font-kanits text-2xl font-medium text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
               'md:text-3xl',
               '3xl:text-[2.5rem] 3xl:leading-[55px]'
             )}

@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
         <div className='flex justify-center items-center px-5 space-x-3 w-full  h-[3rem] text-white bg-primary md:space-x-5'>
           <a href={notify?.url} target='_blank' rel='noreferrer'>
             <div className='flex justify-center items-center'>
-              <p className='font-prompts text-xs text-left md:text-base'>{notify?.status && notify?.msg}</p>
+              <p className='font-kanits text-xs text-left md:text-base'>{notify?.status && notify?.msg}</p>
             </div>
           </a>
           <div>

@@ -52,11 +52,11 @@ export const CardOurService: React.FC<ICardService> = ({ mdxSource, frontMatter 
             <div className='relative'>
               {/* Title */}
               <div className='mb-4'>
-                <p className='font-prompts font-semibold text-center text-primary md:text-left'>{frontMatter.title}</p>
+                <p className='font-kanits font-semibold text-center text-primary md:text-left'>{frontMatter.title}</p>
               </div>
               {/* Sub Title */}
               <div className='mb-4'>
-                <p className='font-prompts text-sm text-primary md:text-lg'>{frontMatter.subTitle}</p>
+                <p className='font-kanits text-sm text-primary md:text-lg'>{frontMatter.subTitle}</p>
               </div>
 
               {/* Content */}

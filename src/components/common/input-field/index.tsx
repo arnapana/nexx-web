@@ -36,7 +36,7 @@ export const InputField: React.FC<Props> = ({
     <div className={classNames(containerClassName, 'mb-5')}>
       <div className={classNames(innerClassName, 'flex flex-col space-y-3')}>
         <label
-          className={`font-prompts font-normal ${require ? 'after:content-["*"] after:text-[#FF0000]' : ''}`}
+          className={`font-kanits font-normal ${require ? 'after:content-["*"] after:text-[#FF0000]' : ''}`}
           htmlFor={id}
         >
           {label}

@@ -58,7 +58,7 @@ export const CustomerReview: NextPage<Props> = ({ reviewPost }) => {
                       <ImageLoader className='rounded-full' width={123} height={123} src={val?.imgSrc || '/images/review/img2.png'} />
                     </div>
                     <div className='mt-3'>
-                      <p className='font-prompts text-base'>
+                      <p className='font-kanits text-base'>
                         <span>{val?.firstname}</span> <span>{val?.lastname}</span>
                       </p>
                     </div>
@@ -66,7 +66,7 @@ export const CustomerReview: NextPage<Props> = ({ reviewPost }) => {
                   <div className=''>
                     <p
                       className={classNames(
-                        'font-prompts text-base font-light text-center line-clamp-7',
+                        'font-kanits text-base font-light text-center line-clamp-7',
                         'md:text-lg md:line-clamp-5',
                         'lg:line-clamp-4',
                         '2xl:text-xl 2xl:line-clamp-none'

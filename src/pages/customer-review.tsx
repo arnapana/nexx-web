@@ -15,7 +15,7 @@ interface Props {
 const CustomerReviews: NextPage<Props> = ({ reviews, carousel }) => {
   return (
     <Container>
-      <PageSEO title={`Nexx Pharma - Review`} description='Nexx Pharma - Review' imageUrl={carousel?.imgSrc}/>
+      <PageSEO title={`NEXX Pharma - Review`} description='NEXX Pharma - Review' imageUrl={carousel?.imgSrc}/>
       {/* Floating Button */}
       <ButtonContact />
       <HeroBanner
@@ -47,7 +47,7 @@ const CustomerReviews: NextPage<Props> = ({ reviews, carousel }) => {
         <div className='w-[300px] md:w-[764px] 3xl:w-[1024px]'>
           <p
             className={classNames(
-              'font-prompts text-2xl font-medium pr-[20%] text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
+              'font-kanits text-2xl font-medium pr-[20%] text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
               'md:text-3xl',
               '3xl:text-[2.5rem] 3xl:leading-[55px]'
             )}

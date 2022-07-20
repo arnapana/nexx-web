@@ -34,7 +34,7 @@ export const InputSearch: React.FC<Props> = ({
   return (
     <div className={classNames(containerClassName, '')}>
       <div className={classNames(innerClassName, 'w-fit')}>
-        <label className={`relative block font-prompts font-normal`} htmlFor={name}>
+        <label className={`relative block font-kanits font-normal`} htmlFor={name}>
           <input
             id={name}
             name={name}

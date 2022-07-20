@@ -113,7 +113,7 @@ export const ArticlesContainer: NextPage<Props> = ({ blogPost, categories, refCo
         {/* Header */}
         <div className='mb-10 md:mb-16'>
           <div className='mb-5'>
-            <p className='font-prompts font-medium text-center h2'>บทความทั้งหมด</p>
+            <p className='font-kanits font-medium text-center h2'>บทความทั้งหมด</p>
           </div>
           <div className='flex flex-wrap justify-center'>
             {_.map(categories, (val, idx) => (

@@ -12,7 +12,7 @@ export const Introduction = () => {
       <div className='container mx-auto'>
         {/* Header */}
         <div className='mb-10 lg:mb-28'>
-          <h2 className='font-prompts text-2xl font-medium text-center text-black md:text-4xl 2xl:text-[2.5rem]'>
+          <h2 className='font-kanits text-2xl font-medium text-center text-black md:text-4xl 2xl:text-[2.5rem]'>
             {introductionConstant.title} <span className='text-secondary'>{introductionConstant['sub-title']}</span>
           </h2>
         </div>
@@ -30,18 +30,18 @@ export const Introduction = () => {
                 <div className='relative'>
                   <ImageLoader src='/images/intro/quote.png' width={544} height={74} />
                   <div className='absolute top-1/2 w-full -translate-y-[80%]'>
-                    <p className='w-full font-prompts text-sm font-medium text-center text-white md:text-base 2xl:text-xl 3xl:text-2xl'>{introductionConstant.quote}</p>
+                    <p className='w-full font-kanits text-sm font-medium text-center text-white md:text-base 2xl:text-xl 3xl:text-2xl'>{introductionConstant.quote}</p>
                   </div>
                 </div>
               </div>
               <div className='mb-5'>
-                <p className='font-prompts md:text-lg 2xl:text-xl'>
+                <p className='font-kanits md:text-lg 2xl:text-xl'>
                   <span className='font-medium text-primary'>{introductionConstant.paragraph_1.title}</span>
                   <span className='ml-2'>{introductionConstant.paragraph_1['sub-title']}</span>
                 </p>
               </div>
               <div className={classNames('intro-list')}>
-                <ul className='font-prompts md:text-lg 2xl:text-xl'>
+                <ul className='font-kanits md:text-lg 2xl:text-xl'>
                   {introductionConstant.paragraph_1.list.map((val, idx) => (
                     <li key={idx}>{val.name}</li>
                   ))}
@@ -54,13 +54,13 @@ export const Introduction = () => {
             {/* Contents */}
             <div className='lg:px-16'>
               <div className='mb-5'>
-                <h2 className='font-prompts text-xl font-medium md:text-2xl'>{introductionConstant.paragraph_2.title}</h2>
+                <h2 className='font-kanits text-xl font-medium md:text-2xl'>{introductionConstant.paragraph_2.title}</h2>
               </div>
               <div className='mb-6'>
-                <p className='font-prompts md:text-lg 2xl:text-xl'>{introductionConstant.paragraph_2.content}</p>
+                <p className='font-kanits md:text-lg 2xl:text-xl'>{introductionConstant.paragraph_2.content}</p>
               </div>
               <div className='mb-10'>
-                <p className='font-prompts md:text-lg 2xl:text-xl'>
+                <p className='font-kanits md:text-lg 2xl:text-xl'>
                   <span className='text-primary'>{introductionConstant.paragraph_2.focus.title}</span>
                   <span className='ml-2'>{introductionConstant.paragraph_2.focus.content}</span>
                 </p>

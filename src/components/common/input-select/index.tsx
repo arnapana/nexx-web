@@ -30,7 +30,7 @@ export const InputSelect: React.FC<Props> = ({
     <div className={classNames(containerClassName, 'mb-5')}>
       <div className={classNames(innerClassName, 'flex flex-col space-y-3')}>
         {/* Label */}
-        <label htmlFor={name}  className={`font-prompts font-normal ${require ? 'after:content-["*"] after:text-[#FF0000]' : ''}`}>
+        <label htmlFor={name}  className={`font-kanits font-normal ${require ? 'after:content-["*"] after:text-[#FF0000]' : ''}`}>
           {label}
         </label>
         <div className='relative'>

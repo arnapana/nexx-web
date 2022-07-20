@@ -51,7 +51,7 @@ export const CardArticle: React.FC<Props> = ({ val, containerClassName, innerCla
             <Link href={{ pathname: '/article/[slug]', query: { slug: val.slug } }}>
               <a>
                 <div className='mt-2 mb-1 cursor-pointer md:mt-0'>
-                  <p className='font-prompts font-medium line-clamp-2 md:text-base'>{val?.title}</p>
+                  <p className='font-kanits font-medium line-clamp-2 md:text-base'>{val?.title}</p>
                 </div>
               </a>
             </Link>

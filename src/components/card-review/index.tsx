@@ -13,7 +13,7 @@ export const CardReview: NextPage<Props> = ({ review }) => {
       <div className='flex flex-col justify-between py-10  px-8 h-full bg-white rounded-[3rem] drop-shadow-[0_3px_10px_rgba(54,74,217,0.1)]'>
         {/* Content */}
         <div className='mb-10'>
-          <p className='font-prompts text-sm font-medium text-center md:text-lg'>
+          <p className='font-kanits text-sm font-medium text-center md:text-lg'>
             {review?.content.slice(0,220)}
           </p>
         </div>
@@ -29,12 +29,12 @@ export const CardReview: NextPage<Props> = ({ review }) => {
           </div>
           <div className='w-2/3'>
             <div className='mb-2'>
-              <p className='font-prompts text-sm font-normal line-clamp-1 md:text-base 2xl:text-xl'>
+              <p className='font-kanits text-sm font-normal line-clamp-1 md:text-base 2xl:text-xl'>
                 {review?.firstname} {review?.lastname}
               </p>
             </div>
             <div>
-              <p className='font-prompts text-sm font-normal text-[#5D5D5D] line-clamp-2 md:text-base 2xl:text-lg'>
+              <p className='font-kanits text-sm font-normal text-[#5D5D5D] line-clamp-2 md:text-base 2xl:text-lg'>
                 {review?.jobName}
               </p>
             </div>

@@ -17,7 +17,7 @@ export const CardStore: React.FC<Props> = ({ name, width, height, src,idLink }) 
           <ImageLoader width={width} height={height} src={src} objectFit="contain"/>
         </div>
         <div>
-          <p className='font-prompts font-normal text-center h3'>{name}</p>
+          <p className='font-kanits font-normal text-center h3'>{name}</p>
         </div>
       </div>
     </a>

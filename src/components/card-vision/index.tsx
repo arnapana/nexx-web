@@ -31,7 +31,7 @@ export const CardVision: React.FC<ICardVision> = ({ id, name, description, conte
             <p className='font-kanits text-base text-white 2xl:text-lg'>{description}</p>
           </div>
           <div className='cursor-pointer'>
-            <p className='inline-block font-prompts text-sm text-white underline md:text-base' onClick={handleModal}>
+            <p className='inline-block font-kanits text-sm text-white underline md:text-base' onClick={handleModal}>
               ดูเพิ่มเติม
             </p>
             {/* Image Arrow*/}
@@ -62,11 +62,11 @@ export const CardVision: React.FC<ICardVision> = ({ id, name, description, conte
             )}
           >
             <div className='mb-7'>
-              <p className='font-prompts font-medium text-center h3'>{name}</p>
+              <p className='font-kanits font-medium text-center h3'>{name}</p>
             </div>
 
             <div>
-              <p className='font-prompts tracking-wide text-center line-clamp-14 md:line-clamp-10 subtitle'>
+              <p className='font-kanits tracking-wide text-center line-clamp-14 md:line-clamp-10 subtitle'>
                 {content}
               </p>
             </div>

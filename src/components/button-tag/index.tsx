@@ -12,7 +12,7 @@ export const ButtonTag: React.FC<Props> = ({ innerClassName, outerClassName, nam
   return (
     <div className={twMerge('cursor-pointer', outerClassName)} onClick={onClick}>
       <div className={twMerge('px-5 h-7 bg-[#5C6CE0] rounded-full grid place-items-center', innerClassName)}>
-        <p className='min-w-[50px] max-w-[120px] font-prompts text-sm font-normal text-white truncate pointer-events-none'>#{name}</p>
+        <p className='min-w-[50px] max-w-[120px] font-kanits text-sm font-normal text-white truncate pointer-events-none'>#{name}</p>
       </div>
     </div>
   )

@@ -80,7 +80,7 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
                   </span>
                 </div>
                 <div>
-                  <p className='font-prompts text-2xl font-medium drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] md:text-3xl 2xl:text-5xl'>
+                  <p className='font-kanits text-2xl font-medium drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] md:text-3xl 2xl:text-5xl'>
                     {val?.description}
                   </p>
                 </div>

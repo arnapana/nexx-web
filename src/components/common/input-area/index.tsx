@@ -33,7 +33,7 @@ export const InputArea: React.FC<Props> = ({
   return (
     <div className={classNames(containerClassName, 'mb-5')}>
       <div className={classNames(innerClassName, 'flex flex-col space-y-3')}>
-        <label className={`font-prompts font-normal ${required ? 'after:content-["*"] after:text-[#FF0000]' : ''}`} htmlFor={id}>
+        <label className={`font-kanits font-normal ${required ? 'after:content-["*"] after:text-[#FF0000]' : ''}`} htmlFor={id}>
           {label}
         </label>
         <textarea

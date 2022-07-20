@@ -132,5 +132,5 @@ h4,
 
 body,
 .p {
-  @apply font-prompts md:text-lg 2xl:text-xl;
+  @apply font-kanits md:text-lg 2xl:text-xl;
 }

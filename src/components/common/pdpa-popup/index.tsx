@@ -33,7 +33,7 @@ export const PdpaPopup: NextPage<Props> = ({ isClose, onChangeHandle }) => {
                         className='group flex justify-center items-center p-2 px-5 space-x-3 w-32 h-[40px] bg-primary hover:bg-white rounded hover:outline-1 hover:outline-primary hover:outline transition-colors duration-200  md:px-8 md:h-[35px]'
                         onClick={() => onChangeHandle(!isClose, true)}
                       >
-                        <p className='font-prompts text-white group-hover:text-primary whitespace-nowrap transition-colors duration-200 md:text-base '>
+                        <p className='font-kanits text-white group-hover:text-primary whitespace-nowrap transition-colors duration-200 md:text-base '>
                           ยอมรับ
                         </p>
                       </button>

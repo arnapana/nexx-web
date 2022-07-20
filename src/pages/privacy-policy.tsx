@@ -21,21 +21,21 @@ const Privacy: NextPage = (props: any) => {
 
   return (
     <Container>
-      <PageSEO title={`Nexx Pharma - ${props.frontMatter.title}`} description={props.frontMatter.description} />
+      <PageSEO title={`NEXX Pharma - ${props.frontMatter.title}`} description={props.frontMatter.description} />
 
       {/* Floating Button */}
       <ButtonContact />
       <BreadCrumb outerClassName='container mx-auto my-10' />
       <div className='container mx-auto'>
         <div className='mb-10'>
-          <p className='font-prompts text-xl font-medium text-center 2xl:text-5xl 2xl:leading-[55px]'>
+          <p className='font-kanits text-xl font-medium text-center 2xl:text-5xl 2xl:leading-[55px]'>
             {props.frontMatter.title}
           </p>
         </div>
         <div>
           {/* Header */}
           <div className='grid items-center px-8 h-[65px] text-white bg-primary rounded-2xl'>
-            <p className={classNames('font-prompts font-medium 2xl:text-2xl telephamacy-title')}>
+            <p className={classNames('font-kanits font-medium 2xl:text-2xl telephamacy-title')}>
               {props.frontMatter.subTitle}
             </p>
           </div>

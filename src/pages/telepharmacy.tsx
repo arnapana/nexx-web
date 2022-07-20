@@ -29,8 +29,8 @@ const Telephamacy: NextPage<Props> = ({ telephamacies, carousel }) => {
   return (
     <Container>
       <PageSEO
-        title={`Nexx Pharma - Telephamacy`}
-        description='Nexx Pharma - Telephamacy'
+        title={`NEXX Pharma - Telepharmacy`}
+        description='NEXX Pharma - Telepharmacy'
         imageUrl={carousel?.imgSrc}
       />
 
@@ -65,7 +65,7 @@ const Telephamacy: NextPage<Props> = ({ telephamacies, carousel }) => {
         <div className='w-[260px] md:w-[450px] 3xl:w-[600px]'>
           <p
             className={classNames(
-              'font-prompts text-2xl font-medium text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
+              'font-kanits text-2xl font-medium text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
               'md:text-3xl',
               '3xl:text-[2.5rem] 3xl:leading-[55px]'
             )}

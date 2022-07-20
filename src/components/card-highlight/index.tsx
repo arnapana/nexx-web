@@ -29,11 +29,11 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
         </div>
         {/* Header */}
         <div className='my-5'>
-          <h4 className='font-prompts text-xl font-medium text-center 2xl:text-2xl'>{title}</h4>
+          <h4 className='font-kanits text-xl font-medium text-center 2xl:text-2xl'>{title}</h4>
         </div>
         {/* Content */}
         <div className='px-5'>
-          <p className='font-prompts text-center line-clamp-5 md:text-base  md:line-clamp-4  2xl:text-lg 2xl:line-clamp-7'>{description}</p>
+          <p className='font-kanits text-center line-clamp-5 md:text-base  md:line-clamp-4  2xl:text-lg 2xl:line-clamp-7'>{description}</p>
         </div>
         <div className='absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2'>
           <Button name='ดูเพิ่มเติม' onClick={(event: any) => handleModal(event)} innerClassName='w-[145px] md:w-[170px] 2xl:w-[190px]' />
@@ -45,11 +45,11 @@ export const CardHighLight: React.FC<ICardHighLight> = ({ src, alt, title, conte
         <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
           <div className='relative p-8 min-w-[350px] max-w-[647px] max-h-[477px] bg-white rounded-[2rem] md:py-12 md:px-16'>
             <div className='mb-7'>
-              <p className='font-prompts font-medium text-center h3'>{title}</p>
+              <p className='font-kanits font-medium text-center h3'>{title}</p>
             </div>
 
             <div className='mb-5'>
-              <p className='font-prompts tracking-wide text-center line-clamp-14 md:line-clamp-10 subtitle'>{content}</p>
+              <p className='font-kanits tracking-wide text-center line-clamp-14 md:line-clamp-10 subtitle'>{content}</p>
             </div>
             {_.includes(_.lowerCase(title), 'max card') && (
               <div className='flex flex-col justify-center space-y-5'>

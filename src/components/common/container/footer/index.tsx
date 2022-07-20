@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
                 <div className='relative mb-8 w-[calc(4vw_+_180px)] h-[calc(1vw_+_80px)] '>
                   <ImageLoader src='/images/logo-footer.png' layout='fill' />
                 </div>
-                <div className='font-prompts text-base text-white'>
+                <div className='font-kanits text-base text-white'>
                   <p className='text-base'>ร้านยาเน็กซ์ฟาร์มา</p>
                   <p className='text-sm font-light md:text-base'>
                     บริษัท แมกซ์ เวนเจอร์ส จำกัด สำนักงานใหญ่ เลขที่ 90 อาคารซีดับเบิ้ลยู ทาวเวอร์ เอ ชั้นที่ 33 ถนนรัชดาภิเษก แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพฯ
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <div>
-              <ul className={classNames('space-y-1 font-prompts text-white md:space-y-3 footer-list')}>
+              <ul className={classNames('space-y-1 font-kanits text-white md:space-y-3 footer-list')}>
                 <li className={styles.footerHeaderList}>หน้าทางลัด</li>
                 <li>
                   <Link href={navbarConstant.homepage.to}>
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
             </div>
             <div>
               {/* Policy */}
-              <ul className='space-y-1 font-prompts text-white md:space-y-3'>
+              <ul className='space-y-1 font-kanits text-white md:space-y-3'>
                 <li className={styles.footerHeaderList}>ข้อมูลทางกฏหมาย</li>
                 <li>
                   <Link href='/term-condition'>
@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
               </ul>
 
               {/* Aboutus */}
-              <ul className='mt-9 space-y-1 font-prompts text-white md:space-y-3'>
+              <ul className='mt-9 space-y-1 font-kanits text-white md:space-y-3'>
                 <li className={styles.footerHeaderList}>เกี่ยวกับพีทีแมกซ์การ์ด</li>
                 <li>
                   <a href='https://www.ptmaxcard.com/home' target='_blank' rel='noreferrer' className={styles.footerList}>
@@ -118,7 +118,11 @@ const Footer: React.FC = () => {
                   <button className='flex absolute top-5 left-6 flex-row justify-center items-center p-2 rounded-lg bg-secondary'>
                     <ImageLoader width={18} height={18} src='/images/icons/right-arrow.png' />
                     <span className='ml-2 font-kanits text-sm font-semibold text-white'>
-                      <a target='_blank' rel='noopener noreferrer' href={`https://www.google.com/maps/dir//CW+Tower+90+%E0%B8%96.+%E0%B8%A3%E0%B8%B1%E0%B8%8A%E0%B8%94%E0%B8%B2%E0%B8%A0%E0%B8%B4%E0%B9%80%E0%B8%A9%E0%B8%81+%E0%B9%81%E0%B8%82%E0%B8%A7%E0%B8%87+%E0%B8%AB%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%82%E0%B8%A7%E0%B8%B2%E0%B8%87+%E0%B9%80%E0%B8%82%E0%B8%95%E0%B8%AB%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%82%E0%B8%A7%E0%B8%B2%E0%B8%87+%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3+10310/@13.7697769,100.538716,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30e29e879c3ea3a5:0x561861afd1a1133a!2m2!1d100.5737353!2d13.769696`}>
+                      <a
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        href={`https://www.google.com/maps/dir//CW+Tower+90+%E0%B8%96.+%E0%B8%A3%E0%B8%B1%E0%B8%8A%E0%B8%94%E0%B8%B2%E0%B8%A0%E0%B8%B4%E0%B9%80%E0%B8%A9%E0%B8%81+%E0%B9%81%E0%B8%82%E0%B8%A7%E0%B8%87+%E0%B8%AB%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%82%E0%B8%A7%E0%B8%B2%E0%B8%87+%E0%B9%80%E0%B8%82%E0%B8%95%E0%B8%AB%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%82%E0%B8%A7%E0%B8%B2%E0%B8%87+%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3+10310/@13.7697769,100.538716,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30e29e879c3ea3a5:0x561861afd1a1133a!2m2!1d100.5737353!2d13.769696`}
+                      >
                         Get Direction
                       </a>
                     </span>
@@ -132,11 +136,12 @@ const Footer: React.FC = () => {
                   ></iframe>
                 </div>
                 <div className=''>
-                  <p className='my-3 font-prompts text-xl font-medium text-white'>ช่องทางติดต่อ</p>
+                  <p className='my-3 font-kanits text-xl font-medium text-white'>ช่องทางติดต่อ</p>
                   <div className='flex flex-row items-center space-x-5 w-full'>
                     <CardSocial width={14} height={26} img='/images/icons/facebook.png' alt='facebook' link={contacntJson.facebook} />
                     <CardSocial width={25} height={27} img='/images/icons/line.png' alt='line' link={contacntJson.line} />
                     <CardSocial width={22} height={25} img='/images/icons/shoppee.png' alt='shoppee' link={contacntJson.shopee} />
+                    <CardSocial width={22} height={25} img='/images/icons/lazada.png' alt='lazada' link='https://www.lazada.co.th/shop/nexx-pharma' />
                     <CardSocial width={25} height={27} img='/images/icons/call.png' alt='line' link='tel:063-079-6168' />
                   </div>
                 </div>
@@ -149,7 +154,7 @@ const Footer: React.FC = () => {
       <div className='h-9 text-white bg-[#1f1f1f] md:h-[55px] 2xl:h-[68px]'>
         <div className='container mx-auto w-full h-full'>
           <div className='flex justify-center items-center w-full h-full'>
-            <p className='font-prompts text-sm font-light md:text-base 2xl:text-lg'>NEXX PHARMA © 2022 ALL RIGHTS RESERVED</p>
+            <p className='font-kanits text-sm font-light md:text-base 2xl:text-lg'>NEXX PHARMA © 2022 ALL RIGHTS RESERVED</p>
           </div>
         </div>
       </div>

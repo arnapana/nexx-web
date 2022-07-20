@@ -23,7 +23,7 @@ export const ButtonContact = () => {
 
           <div className='relative ml-14 w-32 h-12 md:ml-16'>
             <div className='flex items-center pl-2 w-full h-full'>
-              <p className='font-prompts font-medium text-left text-primary md:text-base'>เริ่มต้นปรึกษา เภสัชกร</p>
+              <p className='font-kanits font-medium text-left text-primary md:text-base'>เริ่มต้นปรึกษา เภสัชกร</p>
             </div>
             {/* Icon Right */}
             <div className={classNames('absolute w-6 h-3 right-4 bottom-1', 'md:w-[28px] md:h-[14px] md:right-2 md:bottom-1')}>

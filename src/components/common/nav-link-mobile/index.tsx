@@ -15,7 +15,7 @@ export const NavLinkMobile: React.FC<INavLinkMobile> = ({ name, to }) => {
     <header className={`w-full h-full flex items-center `}>
       <Link href={to}>
         <a
-          className={`font-prompts font-light text-lg hover:text-primary ${
+          className={`font-kanits font-light text-lg hover:text-primary ${
             router.pathname === to ? 'text-primary' : 'text-[#3E3E3E]'
           }`}
         >

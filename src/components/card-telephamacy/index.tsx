@@ -22,7 +22,7 @@ const CardTelephamacy = forwardRef<any, Props>((props, ref) => {
         <div className='mb-2'>
           <p
             className={classNames(
-              `font-prompts font-medium telephamacy-title before:content-[""] ${props.current === props.index ? 'before:bg-[#29cf00]' : 'before:bg-[#364ad9]'}`
+              `font-kanits font-medium telephamacy-title before:content-[""] ${props.current === props.index ? 'before:bg-[#29cf00]' : 'before:bg-[#364ad9]'}`
             )}
           >
             {props.name}

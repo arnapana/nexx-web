@@ -98,7 +98,7 @@ export const OurBranchContainer: NextPage<Props> = ({ branchs }) => {
                 <th className='p-5 w-[15%] text-sm md:text-lg'>แผนที่</th>
               </tr>
             </thead>
-            <tbody className='font-prompts text-xl text-center'>
+            <tbody className='font-kanits text-xl text-center'>
               {_.map(branchArray, (val, idx) => (
                 <TableField key={idx} val={val} />
               ))}
@@ -116,7 +116,7 @@ export const OurBranchContainer: NextPage<Props> = ({ branchs }) => {
               )}
             >
               <div className='mb-7'>
-                <p className='font-prompts font-medium text-center h3'>ค้นหาสาขา</p>
+                <p className='font-kanits font-medium text-center h3'>ค้นหาสาขา</p>
               </div>
 
               <form onSubmit={formik.handleSubmit}>

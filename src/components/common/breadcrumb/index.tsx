@@ -50,7 +50,7 @@ export const BreadCrumb: React.FC<Props> = ({ outerClassName, lastTitle, indexPa
           <BreadCrumbStyle>
             <li>
               <Link href='/'>
-                <a className='font-prompts'>หน้าแรก</a>
+                <a className='font-kanits'>หน้าแรก</a>
               </Link>
             </li>
             {breadcrumb.map((val, idx) => (

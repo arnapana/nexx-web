@@ -69,7 +69,7 @@ export const CardActivityLarge: NextPage<Props> = ({ post, type, refContainer })
               </div>
 
               <div className='flex justify-end items-center mr-2 space-x-3 md:mr-0'>
-                <p className='font-prompts text-sm text-white underline md:text-base'>
+                <p className='font-kanits text-sm text-white underline md:text-base'>
                   <a>อ่านเพิ่มเติม</a>
                 </p>
                 <div>

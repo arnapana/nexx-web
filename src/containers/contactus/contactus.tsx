@@ -48,7 +48,7 @@ export const ContactusContainer = () => {
       <div className='container mx-auto'>
         {/* Header */}
         <div className='mb-10'>
-          <p className='font-prompts text-2xl font-medium text-center md:text-3xl 2xl:text-[3rem]'>ติดต่อเรา</p>
+          <p className='font-kanits text-2xl font-medium text-center md:text-3xl 2xl:text-[3rem]'>ติดต่อเรา</p>
         </div>
         {/* Content */}
         <div className='grid grid-cols-1 gap-10 md:grid-cols-2'>
@@ -130,7 +130,7 @@ export const ContactusContainer = () => {
               <div>
                 <button
                   type='submit'
-                  className='w-full h-[50px] font-prompts font-medium text-white bg-[#78DF45] rounded-3xl md:h-[55px]'
+                  className='w-full h-[50px] font-kanits font-medium text-white bg-[#78DF45] rounded-3xl md:h-[55px]'
                 >
                   ส่งข้อความหาเรา
                 </button>
