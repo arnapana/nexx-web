@@ -42,7 +42,7 @@ const TermCondition: NextPage = (props: any) => {
           {/* Content */}
           <div
             className={classNames(
-              'mb-10 2xl:mb-32 font-sarabun text-base font-light p-5 md:p-10',
+              'mb-10 2xl:mb-32 font-kanits text-base font-light p-5 md:p-10',
               'prose prose-p:text-[#696969] max-w-none'
             )}
           >

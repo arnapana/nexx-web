@@ -141,7 +141,7 @@ export const ContactusContainer = () => {
             <div className='overflow-hidden relative mb-5 max-w-[620px] max-h-[260px] bg-white rounded-tr-[3rem] rounded-bl-[3rem] md:max-h-[820px]'>
               <button className='flex absolute top-5 left-6 flex-row justify-center items-center p-2 rounded-lg bg-secondary'>
                 <ImageLoader width={18} height={18} src='/images/icons/right-arrow.png' />
-                <span className='ml-2 font-poppins text-sm font-semibold text-white'>
+                <span className='ml-2 font-kanits text-sm font-semibold text-white'>
                   <a
                     target='_blank'
                     rel='noopener noreferrer'

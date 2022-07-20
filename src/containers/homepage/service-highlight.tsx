@@ -19,7 +19,7 @@ export const SerivceHighlight: NextPage<Props> = ({ hightlightPost }) => {
         {/* Content */}
         <div>
           <div className='my-5'>
-            <p className='font-poppins text-center uppercase h2'>{serviceHightlight.title}</p>
+            <p className='font-kanits text-center uppercase h2'>{serviceHightlight.title}</p>
           </div>
           <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
 

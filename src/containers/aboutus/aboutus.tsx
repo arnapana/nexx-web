@@ -21,7 +21,7 @@ export const AboutusContainer: NextPage<Props> = ({ aboutPost }) => {
                 <p className='text-primary h2'>{aboutPost[0]?.title}</p>
               </div>
               <div className='mb-6'>
-                <p className='max-w-none font-sarabun prose-p:text-base prose-p:2xl:text-lg prose-p:text-[#000] prose'>
+                <p className='max-w-none font-kanits prose-p:text-base prose-p:2xl:text-lg prose-p:text-[#000] prose'>
                   {aboutPost[0]?.content && <MDXRemote {...aboutPost[0]?.content} />}
                 </p>
               </div>
@@ -48,7 +48,7 @@ export const AboutusContainer: NextPage<Props> = ({ aboutPost }) => {
               />
             </div>
             <div className='order-1 md:px-2 lg:order-2 2xl:pr-20'>
-              <p className='max-w-none font-sarabun prose-p:text-base prose-p:2xl:text-lg prose-p:text-[#000] prose'>
+              <p className='max-w-none font-kanits prose-p:text-base prose-p:2xl:text-lg prose-p:text-[#000] prose'>
                 {aboutPost[1]?.content && <MDXRemote {...aboutPost[1]?.content} />}
               </p>
             </div>

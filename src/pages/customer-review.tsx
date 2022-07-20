@@ -27,7 +27,7 @@ const CustomerReviews: NextPage<Props> = ({ reviews, carousel }) => {
         <div className='flex relative mb-10 w-[250px] md:w-[380px] 3xl:w-[520px]'>
           <p
             className={classNames(
-              'text-[2rem] leading-10 font-poppins font-semibold text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
+              'text-[2rem] leading-10 font-kanits font-semibold text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
               'md:text-[3.5rem] md:leading-[65px]',
               '3xl:text-[80px] 3xl:leading-[90px]'
             )}

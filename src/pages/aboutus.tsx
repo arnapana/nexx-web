@@ -93,7 +93,7 @@ const Aboutus: NextPage<Props> = ({ visions, aboutus, activities, carousel }) =>
           <div className='mb-3'>
             <p
               className={classNames(
-                'text-[2.5rem] font-poppins font-semibold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.3)]',
+                'text-[2.5rem] font-kanits font-semibold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.3)]',
                 'md:text-[5rem]',
                 '3xl:text-8xl 3xl:leading-[90px]'
               )}
@@ -104,7 +104,7 @@ const Aboutus: NextPage<Props> = ({ visions, aboutus, activities, carousel }) =>
           <div className=''>
             <p
               className={classNames(
-                'text-[2rem] leading-10 font-poppins font-semibold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.3)]',
+                'text-[2rem] leading-10 font-kanits font-semibold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.3)]',
                 'md:text-[3rem]',
                 '3xl:text-6xl 3xl:leading-[90px]'
               )}

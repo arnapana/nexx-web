@@ -56,7 +56,7 @@ export const CardArticle: React.FC<Props> = ({ val, containerClassName, innerCla
               </a>
             </Link>
             <div className='mb-2'>
-              <p className='font-sarabun text-sm font-normal text-[#5D5D5D] line-clamp-3 '>{val?.description}</p>
+              <p className='font-kanits text-sm font-normal text-[#5D5D5D] line-clamp-3 '>{val?.description}</p>
             </div>
           </div>
 

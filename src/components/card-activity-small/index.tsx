@@ -44,7 +44,7 @@ export const CardActivitySmall: NextPage<Props> = ({ post, type, refContainer })
 
           <div className='flex flex-col justify-between lg:w-2/3'>
             <Link href={{ pathname: `/${type}/[slug]`, query: { slug: post?.slug } }} passHref>
-              <div className='md:mb-3'>
+              <div className='cursor-pointer md:mb-3'>
                 <p className={classNames('font-kanits font-medium text-left text-lg md:text-xl')}>{post?.title}</p>
               </div>
             </Link>
@@ -96,7 +96,7 @@ export const CardActivitySmall: NextPage<Props> = ({ post, type, refContainer })
         {/* Desctription */}
         <div className='mb-2'>
           {post?.description ? (
-            <p className='h-full font-sarabun text-sm text-left text-[#5D5D5D] line-clamp-2 2xl:text-base 2xl:line-clamp-4'>{post?.description}</p>
+            <p className='h-full font-kanits text-sm text-left text-[#5D5D5D] line-clamp-2 2xl:text-base 2xl:line-clamp-4'>{post?.description}</p>
           ) : (
             <div className='bg-slate-400 animate-pulse' style={{ width: '100%', height: '100%' }} />
           )}

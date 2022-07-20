@@ -25,7 +25,7 @@ export const CardVision: React.FC<ICardVision> = ({ id, name, description, conte
         {/* Content */}
         <div className='flex flex-col justify-between w-[8rem] h-full md:w-[9.5rem] 2xl:w-[10.5rem]'>
           <div className='mb-2'>
-            <p className='font-poppins font-semibold text-white md:text-2xl 2xl:text-3xl'>{name}</p>
+            <p className='font-kanits font-semibold text-white md:text-2xl 2xl:text-3xl'>{name}</p>
           </div>
           <div className='mb-auto'>
             <p className='font-kanits text-base text-white 2xl:text-lg'>{description}</p>

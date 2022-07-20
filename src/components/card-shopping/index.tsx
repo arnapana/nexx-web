@@ -44,7 +44,7 @@ export const CardShopping: React.FC<ICardShopping> = ({
             <ImageLoader width={width} height={height} src={image} objectFit="contain"/>
           </div>
           <div>
-            <p className={classNames('font-poppins font-medium text-base md:text-xl', textClassName)}>
+            <p className={classNames('font-kanits font-medium text-base md:text-xl', textClassName)}>
               {name}
             </p>
           </div>

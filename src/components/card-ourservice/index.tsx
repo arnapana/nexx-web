@@ -61,7 +61,7 @@ export const CardOurService: React.FC<ICardService> = ({ mdxSource, frontMatter 
 
               {/* Content */}
               <div>
-                <div className={`prose max-w-none font-sarabun text-sm md:text-lg bg-white leading-5`}>
+                <div className={`prose max-w-none font-kanits text-sm md:text-lg bg-white leading-5`}>
                   {isOpen ? <MDXRemote {...mdxSource} /> : frontMatter.description.substr(0, limitText)}
                   {isOpen ? (
                     <span

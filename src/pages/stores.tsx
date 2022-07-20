@@ -62,7 +62,7 @@ const Stores: NextPage<Props> = ({ carousel, branch, network }) => {
         <div className='flex relative mb-10'>
           <p
             className={classNames(
-              'text-[2rem] leading-10 font-poppins font-semibold text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
+              'text-[2rem] leading-10 font-kanits font-semibold text-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]',
               'md:text-[3.5rem]',
               '3xl:text-[80px] 3xl:leading-[90px]'
             )}

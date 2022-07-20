@@ -66,12 +66,12 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
               {/* Content */}
               <div className='absolute top-[20%] left-[5%] text-white md:top-[10%] lg:top-[10%] lg:left-[15%]'>
                 <div className='mb-4'>
-                  <p className='font-poppins text-[3rem] font-semibold drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] md:text-[5rem] 2xl:text-[5.8rem]'>
+                  <p className='font-kanits text-[3rem] font-semibold drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)] md:text-[5rem] 2xl:text-[5.8rem]'>
                     {val?.title}
                   </p>
                   <span
                     className={classNames(
-                      `font-poppins  font-semibold text-3xl drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]`,
+                      `font-kanits  font-semibold text-3xl drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]`,
                       'md:text-[3rem]',
                       '2xl:text-6xl'
                     )}
