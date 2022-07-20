@@ -81,7 +81,7 @@ interface Props {
 const Aboutus: NextPage<Props> = ({ visions, aboutus, activities, carousel }) => {
   return (
     <Container>
-      <PageSEO title={`Nexx Pharma - About Nexx Pharma`} description='เกี่ยวกับเรา NEXX Pharma' imageUrl={carousel?.imgSrc}/>
+      <PageSEO title={`NEXX Pharma - About NEXX Pharma`} description='เกี่ยวกับเรา NEXX Pharma' imageUrl={carousel?.imgSrc}/>
       {/* Floating Button */}
       <ButtonContact />
 

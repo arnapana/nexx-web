@@ -83,7 +83,7 @@ const Article: NextPage<Props> = (props: any) => {
 
   return (
     <Container>
-      <PageSEO title={`Nexx Pharma - ${props?.frontMatter?.title}`} description={props?.frontMatter?.description} imageUrl={props?.frontMatter?.imgSrc} />
+      <PageSEO title={`NEXX Pharma - ${props?.frontMatter?.title}`} description={props?.frontMatter?.description} imageUrl={props?.frontMatter?.imgSrc} />
       {/* Floating Button */}
       <ButtonContact />
 
@@ -152,7 +152,7 @@ const Article: NextPage<Props> = (props: any) => {
                 </li>
               </ul>
             </div>
-            <div className={classNames('overflow-hidden font-sarabun font-light text-xl md:px-14', 'prose text-base prose-p:text-[#000] max-w-none')}>
+            <div className={classNames('overflow-hidden font-kanits font-light text-xl md:px-14', 'prose text-base prose-p:text-[#000] max-w-none')}>
               <MDXRemote {...props.mdxSource} components={component} />
             </div>
           </div>

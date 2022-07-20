@@ -3,5 +3,5 @@
 }
 
 .footerList {
-  @apply font-prompts text-sm md:text-base;
+  @apply font-kanits text-sm md:text-base;
 }

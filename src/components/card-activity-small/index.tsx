@@ -96,7 +96,7 @@ export const CardActivitySmall: NextPage<Props> = ({ post, type, refContainer })
         {/* Desctription */}
         <div className='mb-2'>
           {post?.description ? (
-            <p className='h-full font-sarabun text-sm text-left text-[#5D5D5D] line-clamp-2 2xl:text-base 2xl:line-clamp-4'>{post?.description}</p>
+            <p className='h-full font-kanits text-sm text-left text-[#5D5D5D] line-clamp-2 2xl:text-base 2xl:line-clamp-4'>{post?.description}</p>
           ) : (
             <div className='bg-slate-400 animate-pulse' style={{ width: '100%', height: '100%' }} />
           )}

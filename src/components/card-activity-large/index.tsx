@@ -64,7 +64,7 @@ export const CardActivityLarge: NextPage<Props> = ({ post, type, refContainer })
                 <p className='font-kanits font-medium text-white line-clamp-2 h3'>{post?.title}</p>
               </div>
               <div className='hidden mb-3 md:block'>
-                <p className='font-sarabun text-sm font-normal leading-7 text-white line-clamp-2 2xl:text-base'>{post?.description}</p>
+                <p className='font-kanits text-sm font-normal leading-7 text-white line-clamp-2 2xl:text-base'>{post?.description}</p>
               </div>
             </div>
             <Link href={{ pathname: `/${type}/[slug]`, query: { slug: post?.slug } }} passHref>

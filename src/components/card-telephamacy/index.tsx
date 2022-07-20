@@ -29,7 +29,7 @@ const CardTelephamacy = forwardRef<any, Props>((props, ref) => {
           </p>
         </div>
         <div>
-          <ul id='test' className={classNames('telephamacy-list', 'prose max-w-none font-sarabun text-sm md:text-lg')}>
+          <ul id='test' className={classNames('telephamacy-list', 'prose max-w-none font-kanits text-sm md:text-lg')}>
             {props.list && <MDXRemote {...props.list} />}
           </ul>
         </div>

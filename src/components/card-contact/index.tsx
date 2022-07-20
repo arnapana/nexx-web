@@ -29,7 +29,7 @@ export const CardContact: React.FC<Props> = ({ name, detail, img, action }) => {
             <p className='font-kanits font-medium md:text-xl 2xl:text-2xl'>{name}</p>
           </div>
           <a href={action} target='_blank' rel='noreferrer'>
-            <p className='font-sarabun text-sm font-light text-[#5D5D5D] md:text-lg 2xl:text-xl'>{detail}</p>
+            <p className='font-kanits text-sm font-light text-[#5D5D5D] md:text-lg 2xl:text-xl'>{detail}</p>
           </a>
         </div>
       </div>

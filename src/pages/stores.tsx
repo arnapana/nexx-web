@@ -49,7 +49,7 @@ interface Props {
 const Stores: NextPage<Props> = ({ carousel, branch, network }) => {
   return (
     <Container>
-      <PageSEO title={`Nexx Pharma - Store`} description='Nexx Pharma - Store' imageUrl={carousel?.imgSrc} />
+      <PageSEO title={`NEXX Pharma - Store`} description='NEXX Pharma - Store' imageUrl={carousel?.imgSrc} />
 
       {/* Floating Button */}
       <ButtonContact />

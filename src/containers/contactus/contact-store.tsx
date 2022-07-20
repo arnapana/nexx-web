@@ -19,7 +19,7 @@ export const ContactStoreContainer = () => {
               )}
             >
               <div className='mr-8'>
-                <p className='font-kanits text-lg font-medium md:text-3xl xl:leading-[55px] 2xl:text-[2rem]'>ติดต่อร้านยาของเรา</p>
+                <p className='font-kanits text-lg font-medium md:text-3xl xl:leading-[55px] 2xl:text-[2rem]'>ติดต่อเราผ่าน LINE</p>
               </div>
               <a href="https://line.me/R/ti/p/@403viphs">
                 <Button name='คลิก' innerClassName='w-[110px] md:w-[135px] 2xl:w-[155px]' />

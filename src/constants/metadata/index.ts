@@ -1,7 +1,7 @@
 export const siteMetadata = {
-  title: 'Nexx Pharma',
-  author: 'Nexx Pharma',
-  headerTitle: 'Nexx Pharma',
+  title: 'NEXX Pharma',
+  author: 'NEXX Pharma',
+  headerTitle: 'NEXX Pharma',
   description: 'ร้านยาเน็กซ์ฟาร์มา (NEXX Pharma) เริ่มเปิดให้บริการสาขาแรกในเดือนกุมภาพันธ์ 2564 ในชื่อ ร้านยาแมกซ์ฟาร์มาซี ด้วยความตั้งใจอยากให้คนไทยสามารถเข้าถึงบริการด้านสุขภาพได้ง่ายยิ่งขึ้น และสามารถซื้อยา วิตามิน',
   language: 'en-us',
   theme: 'system', // system, dark or light

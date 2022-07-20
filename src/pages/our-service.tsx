@@ -26,8 +26,8 @@ const OurService: NextPage<Props> = (props) => {
   return (
     <Container>
       <PageSEO
-        title={`Nexx Pharma - OurService`}
-        description='Nexx Pharma - OurService'
+        title={`NEXX Pharma - OurService`}
+        description='NEXX Pharma - OurService'
         imageUrl={props.carousel?.imgSrc}
       />
 
