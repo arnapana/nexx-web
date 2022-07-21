@@ -57,17 +57,17 @@ export const CardActivityLarge: NextPage<Props> = ({ post, type, refContainer })
           ) : (
             <div className='bg-slate-400 animate-pulse' style={{ width: '100%', height: '100%' }} />
           )}
+          <Link href={{ pathname: `/${type}/[slug]`, query: { slug: post?.slug } }} passHref>
+            <div className='flex absolute bottom-0 left-0 flex-col justify-between p-2 w-full  h-[84px] bg-primary cursor-pointer md:py-3 md:px-9 md:h-[160px]'>
+              <div>
+                <div className='md:mb-2'>
+                  <p className='font-kanits font-medium text-white line-clamp-2 h3'>{post?.title}</p>
+                </div>
+                <div className='hidden mb-3 md:block'>
+                  <p className='font-kanits text-sm font-normal leading-7 text-white line-clamp-2 2xl:text-base'>{post?.description}</p>
+                </div>
+              </div>
 
-          <div className='flex absolute bottom-0 left-0 flex-col justify-between p-2 w-full  h-[84px] bg-primary md:py-3 md:px-9 md:h-[160px]'>
-            <div>
-              <div className='md:mb-2'>
-                <p className='font-kanits font-medium text-white line-clamp-2 h3'>{post?.title}</p>
-              </div>
-              <div className='hidden mb-3 md:block'>
-                <p className='font-kanits text-sm font-normal leading-7 text-white line-clamp-2 2xl:text-base'>{post?.description}</p>
-              </div>
-            </div>
-            <Link href={{ pathname: `/${type}/[slug]`, query: { slug: post?.slug } }} passHref>
               <div className='flex justify-end items-center mr-2 space-x-3 md:mr-0'>
                 <p className='font-prompts text-sm text-white underline md:text-base'>
                   <a>อ่านเพิ่มเติม</a>
@@ -76,8 +76,8 @@ export const CardActivityLarge: NextPage<Props> = ({ post, type, refContainer })
                   <ImageLoader width={25} height={12} src='/images/icons/enter-green-white-button.png' />
                 </div>
               </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
