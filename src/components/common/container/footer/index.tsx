@@ -90,11 +90,11 @@ const Footer: React.FC = () => {
                     <a className={styles.footerList}>นโยบายความเป็นส่วนตัว</a>
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href='/legit'>
                     <a className={styles.footerList}>กฏหมายที่เกี่ยวข้อง</a>
                   </Link>
-                </li>
+                </li> */}
               </ul>
 
               {/* Aboutus */}
