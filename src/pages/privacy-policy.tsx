@@ -3,10 +3,15 @@ import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
-
+import remarkBreak from 'remark-breaks'
+import remarkParser from 'remark-parse'
+import remarkGfm from 'remark-gfm'
+import remarkRehype from 'remark-rehype'
+import rehypeSlug from 'rehype-slug'
+import rehypeExternalLinks from 'rehype-external-links'
+import rehypeStringify from 'rehype-stringify'
 import { Container, BreadCrumb, PageSEO } from '@components/common'
 import { ButtonContact } from '@components/index'
-import { getPostBySlug } from '@utils/file-system'
 
 const component = { p: (props: any) => <div {...props} /> }
 
@@ -82,8 +87,22 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     })}`
   )
   const postJson = await post.json()
-
-  const mdxSource = await serialize(postJson[0].content)
+  const mdxSource = await serialize(postJson[0].content.replace(/<(br|hr|input|meta|img|link|param|area)>/g, '<$1 />'), {
+    mdxOptions: {
+      remarkPlugins: [
+        remarkParser,
+        remarkBreak,
+        remarkGfm,
+        //@ts-ignore
+        [remarkRehype, { allowDangerousHtml: true }]
+      ],
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypeExternalLinks, { target: '_blank', rel: ['nofollow'] }],
+        [rehypeStringify, { allowDangerousHtml: true }]
+      ]
+    }
+  })
   return {
     props: {
       frontMatter: postJson[0],

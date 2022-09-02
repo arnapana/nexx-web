@@ -187,7 +187,7 @@ export const getServerSideProps: GetServerSideProps<any, any> = async (context) 
   if (!postJson.length) {
     return { notFound: true }
   }
-  console.log(postJson[0].content)
+
   const mdxSource = await serialize(postJson[0].content.replace(/<(br|hr|input|meta|img|link|param|area)>/g, '<$1 />'), {
     mdxOptions: {
       remarkPlugins: [
