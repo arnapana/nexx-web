@@ -14,7 +14,7 @@ interface IHeroBanner {
 export const HeroBanner: NextPage<IHeroBanner> = ({ src, url, srcMobile, children, containerClassName, sectionClassName }) => {
   return (
     <section>
-      <a href={url && url?.includes("https") ? url : `https://${url}`} target="_blank" rel="noreferrer">
+      <a href={url && `https://${url}`} target="_blank" rel="noreferrer">
         {srcMobile && (
           <div className={classNames(sectionClassName, { 'block lg:hidden': srcMobile }, `relative h-[34rem] bg-cover bg-center bg-no-repeat`)}>
             <ImageLoader src={srcMobile} layout='fill' objectFit='cover' priority={true} />
