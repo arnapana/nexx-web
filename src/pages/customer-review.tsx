@@ -15,10 +15,11 @@ interface Props {
 const CustomerReviews: NextPage<Props> = ({ reviews, carousel }) => {
   return (
     <Container>
-      <PageSEO title={`NEXX Pharma - Review`} description='NEXX Pharma - Review' imageUrl={carousel?.imgSrc}/>
+      <PageSEO title={`NEXX Pharma - Review`} description='NEXX Pharma - Review' imageUrl={carousel?.imgSrc} />
       {/* Floating Button */}
       <ButtonContact />
       <HeroBanner
+        url={carousel.url}
         src={carousel?.imgSrc ? carousel?.imgSrc : '/images/hero-banner/customer-review.png'}
         srcMobile={carousel?.imgSrcMobile}
         sectionClassName='bg-cover bg-[center_left_-350px] md:bg-center'

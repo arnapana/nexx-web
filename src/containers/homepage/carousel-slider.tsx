@@ -38,7 +38,7 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
               <div className='relative w-full h-full'>
                 {/* Image Carousel */}
                 {!val?.urlYoutube ? (
-                  <>
+                  <a href={val.url && val.url?.includes("https") ? val.url : `https://${val.url}`} target="_blank" rel="noreferrer">
                     {val?.imgSrcMobile && (
                       <div
                         className={classNames(
@@ -56,9 +56,9 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
                         `relative h-[34rem] 3xl:h-[44rem] bg-center bg-no-repeat`
                       )}
                     >
-                      <ImageLoader src={val?.imgSrc} layout='fill' objectFit='cover' priority={true} quality={100}/>
+                      <ImageLoader src={val?.imgSrc} layout='fill' objectFit='cover' priority={true} quality={100} />
                     </div>
-                  </>
+                  </a>
                 ) : (
                   <FramerYoutube embedId={val?.urlYoutube} playing={slideIndex === idx ? true : false} />
                 )}

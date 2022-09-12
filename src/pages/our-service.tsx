@@ -33,7 +33,9 @@ const OurService: NextPage<Props> = (props) => {
 
       {/* Floating Button */}
       <ButtonContact />
-      <HeroBanner src={props.carousel?.imgSrc} srcMobile={props.carousel?.imgSrcMobile} containerClassName='top-[26%]'>
+      <HeroBanner
+        url={props.carousel?.url}
+        src={props.carousel?.imgSrc} srcMobile={props.carousel?.imgSrcMobile} containerClassName='top-[26%]'>
         <div className='flex relative mb-10'>
           <p
             className={classNames(

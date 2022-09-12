@@ -37,6 +37,7 @@ const Telephamacy: NextPage<Props> = ({ telephamacies, carousel }) => {
       {/* Floating Button */}
       <ButtonContact />
       <HeroBanner
+        url={carousel.url}
         src={carousel?.imgSrc ? carousel?.imgSrc : '/images/hero-banner/telepharmacy.png'}
         srcMobile={carousel?.imgSrcMobile}
         sectionClassName='bg-cover bg-[center_left_-330px] md:bg-center'

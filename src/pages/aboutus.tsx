@@ -39,6 +39,7 @@ export type ICarousel = {
   imgSrc: string
   imgSrcMobile: string
   urlYoutube: string
+  url: string
   order: number
   slug: string
   status: boolean
@@ -81,11 +82,12 @@ interface Props {
 const Aboutus: NextPage<Props> = ({ visions, aboutus, activities, carousel }) => {
   return (
     <Container>
-      <PageSEO title={`NEXX Pharma - About NEXX Pharma`} description='เกี่ยวกับเรา NEXX Pharma' imageUrl={carousel?.imgSrc}/>
+      <PageSEO title={`NEXX Pharma - About NEXX Pharma`} description='เกี่ยวกับเรา NEXX Pharma' imageUrl={carousel?.imgSrc} />
       {/* Floating Button */}
       <ButtonContact />
 
       <HeroBanner
+        url={carousel.url}
         src={carousel?.imgSrc ? carousel?.imgSrc : '/images/hero-banner/aboutus.png'}
         srcMobile={carousel?.imgSrcMobile}
       >

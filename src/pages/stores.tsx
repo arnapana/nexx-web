@@ -54,6 +54,7 @@ const Stores: NextPage<Props> = ({ carousel, branch, network }) => {
       {/* Floating Button */}
       <ButtonContact />
       <HeroBanner
+        url={carousel.url}
         src={carousel?.imgSrc ? carousel?.imgSrc : '/images/hero-banner/stores.png'}
         srcMobile={carousel?.imgSrcMobile}
         sectionClassName='bg-cover bg-[center_left_-350px] md:bg-center'
