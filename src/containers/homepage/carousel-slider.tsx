@@ -38,7 +38,7 @@ export const CarouselSlider: NextPage<Props> = ({ carousels }) => {
               <div className='relative w-full h-full'>
                 {/* Image Carousel */}
                 {!val?.urlYoutube ? (
-                  <a href={val.url && `https://${val.url}`} target="_blank" rel="noreferrer">
+                  <a href={val.url && `https://${val.url.replace('https://', '')}`} target="_blank" rel="noreferrer">
                     {val?.imgSrcMobile && (
                       <div
                         className={classNames(
