@@ -23,9 +23,13 @@ export interface ITelephamacy {
 interface Props {
   telephamacies: ITelephamacy[]
   carousel: ICarousel
+  headerPage: {
+    title: string
+    description: string
+  }
 }
 
-const Telephamacy: NextPage<Props> = ({ telephamacies, carousel }) => {
+const Telephamacy: NextPage<Props> = ({ telephamacies, carousel, headerPage }) => {
   return (
     <Container>
       <PageSEO
@@ -77,7 +81,7 @@ const Telephamacy: NextPage<Props> = ({ telephamacies, carousel }) => {
       </HeroBanner>
       <BreadCrumb outerClassName='container mx-auto my-10' />
 
-      <TelephamacyContainer telephamacies={telephamacies} />
+      <TelephamacyContainer telephamacies={telephamacies} headerPage={headerPage} />
       <ContactTelephamacyContainer />
     </Container>
   )
@@ -107,8 +111,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     })}`
   )
 
+  const headerPage = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/headerPages?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'telepharmacy' })
+    })}`
+  )
+
+
   const telephamacyArray = []
 
+  const headerPageJson = await headerPage.json()
   const carouselJson = await carousel.json()
   const telephamaciesJson = await telephamacies.json()
 
@@ -119,6 +133,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   return {
     props: {
+      headerPage: headerPageJson?.length && headerPageJson[0],
       telephamacies: telephamacyArray,
       carousel: carouselJson?.length && carouselJson[0]
     }

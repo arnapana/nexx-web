@@ -12,11 +12,15 @@ import { ICarousel } from './aboutus'
 interface Props {
   posts: any
   carousel: ICarousel
+  headerPage: {
+    title: string
+    description: string
+  }
 }
 
 const OurService: NextPage<Props> = (props) => {
   const router = useRouter()
-  if (!router.isFallback && !props.posts) {
+  if (!router.isFallback && !props.posts && !props.headerPage) {
     return <p>Error</p>
   }
   if (router.isFallback) {
@@ -69,7 +73,7 @@ const OurService: NextPage<Props> = (props) => {
         </div>
       </HeroBanner>
       <BreadCrumb outerClassName='container mx-auto my-10' />
-      <OurServiceContainer />
+      <OurServiceContainer title={props.headerPage?.title} description={props.headerPage?.description} />
 
       {/* Card OurService */}
       <section className='container mx-auto'>
@@ -111,6 +115,15 @@ export const getServerSideProps: GetServerSideProps = async () => {
     })}`
   )
 
+  const headerPage = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/headerPages?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'our-service' })
+    })}`
+  )
+
+  const headerPageJson = await headerPage.json()
   const ourservicesJson = await ourservices.json()
   let posts = []
 
@@ -122,7 +135,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       posts,
-      carousel: carouselJson?.length && carouselJson[0]
+      carousel: carouselJson?.length && carouselJson[0],
+      headerPage: headerPageJson?.length && headerPageJson[0]
     }
   }
 }

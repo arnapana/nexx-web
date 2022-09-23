@@ -1,8 +1,16 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { InputSearch } from '@components/common'
+import { NextPage } from 'next'
 
-export const HeaderSearchContainer = () => {
+interface Props {
+  headerPage: {
+    title: string
+    description: string
+  }
+}
+
+export const HeaderSearchContainer: NextPage<Props> = ({ headerPage }) => {
   const router = useRouter()
   const [search, setSearch] = useState<any>('')
 
@@ -19,11 +27,11 @@ export const HeaderSearchContainer = () => {
         {/* Header */}
         <div className='mb-10'>
           <div className='mb-5'>
-            <p className='font-prompts font-medium text-center h1'>สาระสุขภาพน่ารู้</p>
+            <p className='font-prompts font-medium text-center h1'>{headerPage?.title ? headerPage?.title : "สาระสุขภาพน่ารู้"}</p>
           </div>
           <div className='px-[10%] md:px-[30%]'>
-            <p className='font-prompts text-center'>
-              อ่านบทความด้านสุขภาพอย่างครบถ้วน <br /> และข้อมูลที่มีประโยชน์ ที่เราคัดสรรมาให้แล้วเพื่อคุณ
+            <p className='font-prompts text-center whitespace-pre-wrap'>
+              {headerPage?.description ? headerPage?.description : <>อ่านบทความด้านสุขภาพอย่างครบถ้วน <br /> และข้อมูลที่มีประโยชน์ ที่เราคัดสรรมาให้แล้วเพื่อคุณ</>}
             </p>
           </div>
         </div>

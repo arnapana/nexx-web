@@ -9,9 +9,13 @@ import { NextPage } from 'next'
 
 interface Props {
   telephamacies: ITelephamacy[]
+  headerPage: {
+    title: string
+    description: string
+  }
 }
 
-export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
+export const TelephamacyContainer: NextPage<Props> = ({ telephamacies, headerPage }) => {
   const cardRef = useMemo(() => {
     const refCards = {} as any
 
@@ -51,11 +55,11 @@ export const TelephamacyContainer: NextPage<Props> = ({ telephamacies }) => {
         {/* Header */}
         <div className='mb-20'>
           <div>
-            <p className='text-center h2'>ขั้นตอนในการใช้บริการ Telepharmacy</p>
+            <p className='text-center h2'>{headerPage?.title ? headerPage?.title : "ขั้นตอนในการใช้บริการ Telepharmacy"}</p>
           </div>
           <ColorLine lineClassName='h-1.5 text-secondary bg-secondary' outerClassName='mx-auto w-28 my-5' />
           <div className='px-[10%] text-center md:px-[30%]'>
-            <p>ตอบทุกคําถามเรื่องยาและสุขภาพโดยเภสัชกรหรือ บุคลากรทางการแพทย์ในรูปแบบออนไลน์</p>
+            <p>{headerPage?.description ? headerPage?.description : "ตอบทุกคําถามเรื่องยาและสุขภาพโดยเภสัชกรหรือ บุคลากรทางการแพทย์ในรูปแบบออนไลน์"}</p>
           </div>
         </div>
         {/* Content */}

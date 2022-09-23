@@ -17,20 +17,24 @@ interface Props {
   blogHightlight: IBlog[]
   blogs: IBlog[]
   categories: ICategory[]
+  headerPage: {
+    title: string
+    description: string
+  }
 }
 
-const Articles: NextPage<Props> = ({ blogHightlight, blogs, categories }) => {
+const Articles: NextPage<Props> = ({ blogHightlight, blogs, categories, headerPage }) => {
   const refContainer = useRef<any>(null)
 
   return (
     <Container>
       <PageSEO title={`NEXX Pharma - NEXX Pharma Blog`} description='บทความจากมีสาระ NEXX Pharma' />
-     {/* Floating Button */}
-     <ButtonContact />
-     
+      {/* Floating Button */}
+      <ButtonContact />
+
       <BreadCrumb outerClassName='container mx-auto my-10' />
-      <HeaderSearchContainer />
-      {blogHightlight && <BlogHightlight blog={blogHightlight} refContainer={refContainer}/>}
+      <HeaderSearchContainer headerPage={headerPage}/>
+      {blogHightlight && <BlogHightlight blog={blogHightlight} refContainer={refContainer} />}
 
       <div ref={refContainer}>
         <ArticlesContainer blogPost={blogs} categories={categories} refContainer={refContainer} />
@@ -61,6 +65,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       filter: JSON.stringify({ status: true })
     })}`
   )
+  const headerPage = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_API as string}/headerPages?${new URLSearchParams({
+      range: JSON.stringify([]),
+      sort: JSON.stringify([]),
+      filter: JSON.stringify({ slug: 'article' })
+    })}`
+  )
+
+  const headerPageJson = await headerPage.json()
   const postJson = await post.json()
   const blogHightlightJson = await blogHightlight.json()
   const categoriesJson = await categories.json()
@@ -69,7 +82,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       blogHightlight: blogHightlightJson,
       blogs: postJson,
-      categories: categoriesJson
+      categories: categoriesJson,
+      headerPage: headerPageJson?.length && headerPageJson[0]
     } // will be passed to the page component as props
   }
 }
