@@ -3,21 +3,25 @@
   font-family: 'POPPINS';
   font-weight: 400;
   src: url('../../public/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'POPPINS';
   font-weight: 500;
   src: url('../../public/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'POPPINS';
   font-weight: 600;
   src: url('../../public/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'POPPINS';
   font-weight: 700;
   src: url('../../public/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  font-display: swap;
 }
 
 /* Prompt */
@@ -25,26 +29,31 @@
   font-family: 'PROMPT';
   font-weight: 300;
   src: url('../../public/fonts/Prompt/Prompt-Light.ttf') format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'PROMPT';
   font-weight: 400;
   src: url('../../public/fonts/Prompt/Prompt-Regular.ttf') format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'PROMPT';
   font-weight: 500;
   src: url('../../public/fonts/Prompt/Prompt-Medium.ttf') format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'PROMPT';
   font-weight: 600;
   src: url('../../public/fonts/Prompt/Prompt-SemiBold.ttf') format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'PROMPT';
   font-weight: 700;
   src: url('../../public/fonts/Prompt/Prompt-Bold.ttf') format('truetype');
+  font-display: swap;
 }
 
 /* Sarabun */
@@ -53,53 +62,63 @@
   font-family: 'SARABUN';
   font-weight: 300;
   src: url('../../public/fonts/Sarabun/Sarabun-Light.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'SARABUN';
   font-weight: 400;
   src: url('../../public/fonts/Sarabun/Sarabun-Regular.ttf') format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'SARABUN';
   font-weight: 500;
   src: url('../../public/fonts/Sarabun/Sarabun-Medium.ttf') format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'SARABUN';
   font-weight: 700;
   src: url('../../public/fonts/Sarabun/Sarabun-Bold.ttf') format('truetype');
+  font-display: swap;
 }
+
 
 /* Kanit */
 @font-face {
   font-family: 'KANIT';
   font-weight: 300;
   src: url('../../public/fonts/Kanit/Kanit-Light.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'KANIT';
   font-weight: 400;
   src: url('../../public/fonts/Kanit/Kanit-Regular.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'KANIT';
   font-weight: 500;
   src: url('../../public/fonts/Kanit/Kanit-Medium.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'KANIT';
   font-weight: 600;
   src: url('../../public/fonts/Kanit/Kanit-SemiBold.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'KANIT';
   font-weight: 700;
   src: url('../../public/fonts/Kanit/Kanit-Bold.ttf') format('truetype');
+  font-display: swap;
 }
 
 .h0 {
