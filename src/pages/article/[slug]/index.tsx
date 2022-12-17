@@ -106,10 +106,10 @@ const Article: NextPage<Props> = (props: any) => {
                 )}
               </p>
             </div>
-            <div className='flex justify-center space-x-5'>
+            <div className='flex flex-wrap justify-center space-x-5'>
               {_.map(props?.frontMatter.categories, (val, key) => (
                 <Link key={key} href={{ pathname: `/article`, query: { category: val.id } }} passHref scroll={false}>
-                  <ButtonTag name={val.title} />
+                  <ButtonTag name={val.title} outerClassName="mb-3"/>
                 </Link>
               ))}
             </div>
@@ -118,7 +118,7 @@ const Article: NextPage<Props> = (props: any) => {
           <div className='grid place-items-center'>
             <ImageLoader
               className='rounded-[50px]'
-              src={props?.frontMatter?.imgSrc || '/images/aboutus/card-review-large.png'}
+              src={props?.frontMatter?.imgSrc || props?.frontMatter?.imgSrcMobile }
               width={924}
               height={600}
               objectFit='contain'
@@ -174,11 +174,12 @@ export const getServerSideProps: GetServerSideProps<any, any> = async (context) 
   )
   const postJson = await posts.json()
 
+
   const relativePost = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API as string}/blogs?${new URLSearchParams({
       range: JSON.stringify([0, 2]),
       sort: JSON.stringify([]),
-      filter: JSON.stringify({ categoryId: postJson[0].categories?.map((val: any) => val?.id), status: true })
+      filter: JSON.stringify({ categoryId: postJson[0]?.categories?.map((val: any) => val?.id), status: true })
     })}`
   )
 
@@ -204,11 +205,12 @@ export const getServerSideProps: GetServerSideProps<any, any> = async (context) 
       ]
     }
   })
+
   return {
     props: {
       frontMatter: postJson[0],
       mdxSource: mdxSource,
-      slug: postJson[0].slug,
+      slug: postJson[0]?.slug,
       relativePostJson: relativePostJson
     }
   }
